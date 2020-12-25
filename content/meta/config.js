@@ -1,8 +1,8 @@
 module.exports = {
-  siteTitle: "Atte Juvonen", // <title>
-  shortSiteTitle: "Atte Juvonen", // <title> ending for posts and pages
-  siteDescription: "Atte Juvonen",
-  siteUrl: "https://www.attejuvonen.fi",
+  siteTitle: "Scribble", // <title>
+  shortSiteTitle: "Scribble", // <title> ending for posts and pages
+  siteDescription: "Scribble: Blog by Amita Shukla",
+  siteUrl: "https://www.amitashukla.in",
   // pathPrefix: "",
   siteImage: "preview.jpg",
   siteLanguage: "en",
@@ -21,8 +21,8 @@ module.exports = {
   headerSubTitle: "",
 
   /* manifest.json */
-  manifestName: "Atte Juvonen",
-  manifestShortName: "atteJuvonen", // max 12 characters
+  manifestName: "Scribble",
+  manifestShortName: "scribble", // max 12 characters
   manifestStartUrl: "/index.html",
   manifestBackgroundColor: "white",
   manifestThemeColor: "#666",
