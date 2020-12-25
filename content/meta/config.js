@@ -8,13 +8,13 @@ module.exports = {
   siteLanguage: "en",
 
   /* author */
-  authorName: "Atte Juvonen",
-  authorTwitterAccount: "",
-  authorGithub: "https://github.com/baobabkoodaa",
-  authorStackoverflow: "https://stackexchange.com/users/5678032/atte-juvonen?tab=accounts",
-  authorLinkedin: "https://linkedin.com/in/atte-juvonen-86b886113",
-  authorCodeforces: "https://codeforces.com/profile/baobab",
-  authorYoutube: "https://www.youtube.com/channel/UCfHqfHoSYL0V_fXA_JQkeLw?view_as=subscriber",
+  authorName: "Amita Shukla",
+  authorTwitter: "https://twitter.com/amita__shukla",
+  authorGithub: "https://github.com/amita-shukla",
+  authorStackoverflow: "http://stackoverflow.com/users/3858467/amita",
+  authorLinkedin: "https://in.linkedin.com/in/shuklaamita",
+  authorPocket: "https://getpocket.com/@amita0906",
+  authorGoodreads: "https://www.goodreads.com/amita_shukla",
 
   /* header text */
   headerTitle: "atte juvonen",
