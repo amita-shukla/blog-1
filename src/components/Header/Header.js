@@ -25,7 +25,8 @@ class Header extends React.Component {
   getHeaderSize = () => {
     const fixed = this.state.fixed ? "fixed" : "";
     const homepage = this.props.path === "/" ? "homepage" : "";
-    return "fixed"; // `${fixed} ${homepage}` (Change me if you want a more "lively" navbar)
+    // return "fixed"; // `${fixed} ${homepage}` (Change me if you want a more "lively" navbar)
+    return `${fixed} ${homepage}`
   };
 
   render() {
@@ -36,9 +37,9 @@ class Header extends React.Component {
       <React.Fragment>
         <header className={`header ${this.getHeaderSize()}`}>
           <Link to="/about/" className="logoType">
-            <div className="logo">
-              <img src={config.gravatarImgMd5=="" ? avatar : config.gravatarImgMd5 } alt={config.siteTitle} />
-            </div>
+            {/* <div className="logo"> */}
+              {/* <img src={config.gravatarImgMd5=="" ? avatar : config.gravatarImgMd5 } alt={config.siteTitle} /> */}
+            {/* </div> */}
             <div className="type">
               <h1>{config.headerTitle}</h1>
               <h2>{config.headerSubTitle}</h2>
@@ -92,6 +93,7 @@ class Header extends React.Component {
           }
 
           h1 {
+            font-family: ${theme.header.headerTitle.font.family};
             font-size: ${theme.font.size.m};
             font-weight: ${theme.font.weight.standard};
             margin: ${theme.space.stack.xs};
@@ -156,10 +158,10 @@ class Header extends React.Component {
 
               :global(a.logoType),
               h1 {
-                color: ${theme.color.neutral.white};
+                color: ${theme.color.neutral.gray.j};
               }
               h2 {
-                color: ${theme.color.neutral.gray.d};
+                color: ${theme.color.neutral.gray.j};
               }
             }
           }
@@ -198,10 +200,10 @@ class Header extends React.Component {
               &.homepage:not(.fixed) {
                 :global(a.logoType),
                 h1 {
-                  color: ${theme.color.neutral.white};
+                  color: ${theme.color.neutral.gray.j};
                 }
                 h2 {
-                  color: ${theme.color.neutral.gray.d};
+                  color: ${theme.color.neutral.gray.j};
                 }
               }
             }

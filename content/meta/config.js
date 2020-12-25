@@ -17,8 +17,8 @@ module.exports = {
   authorGoodreads: "https://www.goodreads.com/amita_shukla",
 
   /* header text */
-  headerTitle: "atte juvonen",
-  headerSubTitle: "",
+  headerTitle: "scribble",
+  headerSubTitle: "blog by Amita Shukla",
 
   /* manifest.json */
   manifestName: "Scribble",
