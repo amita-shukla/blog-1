@@ -15,7 +15,7 @@ const Seo = props => {
   const title = config.shortSiteTitle + " - " + (postTitle || pageTitle)
   const description = postDescription ? postDescription : config.siteDescription;
   const image = postCover ? postCover : config.siteImage;
-  const url = config.siteUrl + config.pathPrefix + postSlug;
+  const url = config.siteUrl + postSlug;
 
   return (
     <StaticQuery
