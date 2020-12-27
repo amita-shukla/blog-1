@@ -6,7 +6,7 @@ import Bodytext from "../Article/Bodytext";
 import Meta from "./Meta";
 import Author from "./Author";
 import NextPrev from "./NextPrev";
-import { Disqus, CommentCount } from 'gatsby-plugin-disqus';
+import { Disqus } from 'gatsby-plugin-disqus';
 
 const Post = props => {
   const {
