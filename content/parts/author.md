@@ -2,4 +2,4 @@
 title: author
 ---
 
-**Mr. Gatsby** Proin ornare ligula eu tellus tempus elementum. Aenean [bibendum](/) iaculis mi, nec blandit lacus interdum vitae. Vestibulum non nibh risus, a scelerisque purus. Blandit lacus interdum vitae. Vestibulum non nibh risus, a scelerisque purus.
+Amita Shukla is a software developer who really liked the idea of addressing herself in third person on her own blog. Her interests change a lot, but programming, reading and spending time with family and friends have remained constant so far. The not so constant ones are blogging, singing and travelling. Know more about her [here](https://amitashukla.in).

@@ -43,10 +43,10 @@ const Post = props => {
         <Meta prefix={prefix} lastEdit={modifiedTime} author={author} tags={tags} theme={theme} />
       </header>
       <Bodytext content={post} theme={theme} />
-      <Disqus config ={disqusConfig} />
       <footer>
-         {/*<Author note={authornote} theme={theme} /> */}
-         <NextPrev next={nextPost} prev={prevPost} theme={theme} />
+          <Author note={authornote} theme={theme} />
+          <NextPrev next={nextPost} prev={prevPost} theme={theme} />
+          <Disqus config ={disqusConfig} />
       </footer>
     </React.Fragment>
   );
