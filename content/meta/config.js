@@ -2,7 +2,7 @@ module.exports = {
   siteTitle: "Scribble", // <title>
   shortSiteTitle: "Scribble", // <title> ending for posts and pages
   siteDescription: "Scribble: Blog by Amita Shukla",
-  siteUrl: "https://www.amitashukla.in",
+  siteUrl: "https://www.blog.amitashukla.in",
   // pathPrefix: "",
   siteImage: "preview.jpg",
   siteLanguage: "en",

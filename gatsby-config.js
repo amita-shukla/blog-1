@@ -237,6 +237,12 @@ module.exports = {
       options: {
         include: /svg-icons/
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `amitashukla`
+      }
+    },
   ]
 };

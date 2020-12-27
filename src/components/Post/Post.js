@@ -6,11 +6,18 @@ import Bodytext from "../Article/Bodytext";
 import Meta from "./Meta";
 import Author from "./Author";
 import NextPrev from "./NextPrev";
+import { Disqus, CommentCount } from 'gatsby-plugin-disqus';
 
 const Post = props => {
   const {
+    site: {
+      siteMetadata: {
+        siteUrl
+      }
+    },
     post,
     post: {
+      id,
       html,
       htmlAst,
       fields: { prefix, slug },
@@ -23,6 +30,12 @@ const Post = props => {
     theme
   } = props;
 
+  let disqusConfig = {
+    url: `${siteUrl+slug}`,
+    identifier: id,
+    title: title,
+  }
+
   return (
     <React.Fragment>
       <header>
@@ -30,6 +43,7 @@ const Post = props => {
         <Meta prefix={prefix} lastEdit={modifiedTime} author={author} tags={tags} theme={theme} />
       </header>
       <Bodytext content={post} theme={theme} />
+      <Disqus config ={disqusConfig} />
       <footer>
          {/*<Author note={authornote} theme={theme} /> */}
          <NextPrev next={nextPost} prev={prevPost} theme={theme} />

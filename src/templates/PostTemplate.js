@@ -11,6 +11,7 @@ import { ThemeContext } from "../layouts";
 const PostTemplate = props => {
   const {
     data: {
+      site,
       post,
       authornote: { html: authorNote }
     },
@@ -23,6 +24,7 @@ const PostTemplate = props => {
         {theme => (
           <Article theme={theme}>
             <Post
+              site={site}
               post={post}
               next={next}
               prev={prev}
@@ -48,6 +50,11 @@ export default PostTemplate;
 //eslint-disable-next-line no-undef
 export const postQuery = graphql`
   query PostBySlug($slug: String!) {
+    site: site {
+      siteMetadata {
+        siteUrl
+      }
+    }
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
