@@ -11,6 +11,7 @@
     "gatsby-plugin-disqus": "^1.2.2",
     "gatsby-plugin-feed": "^2.3.12",
     "gatsby-plugin-layout": "^1.1.7",
+    "gatsby-plugin-mailchimp": "^5.2.2",
     "gatsby-plugin-manifest": "^2.2.16",
     "gatsby-plugin-netlify": "^2.1.12",
     "gatsby-plugin-offline": "^2.2.10",

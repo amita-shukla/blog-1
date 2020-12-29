@@ -9,7 +9,7 @@ module.exports = {
     description: config.siteDescription,
     siteUrl: config.siteUrl,
     plausibleDomain: process.env.PLAUSIBLE_DOMAIN || "",
-    contactPostAddress: process.env.CONTACT_POST_ADDRESS || "",
+    contactAddress: process.env.CONTACT_ADDRESS || "",
     emailSubLink: process.env.EMAIL_SUB_LINK || "",
   },
   plugins: [
@@ -243,6 +243,13 @@ module.exports = {
       options: {
         shortname: `amitashukla`
       }
+    },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+          endpoint: 'https://amitashukla.us16.list-manage.com/subscribe/post?u=9618da8096ab249006808edd2&amp;id=a6e4c110bf',
+          timeout: 3500,
+      },
     },
   ]
 };
