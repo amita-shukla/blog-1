@@ -17,12 +17,6 @@ const FollowPage = props => {
 
     const b = document.getElementById("submitButton")
     const r = document.getElementById("responseLabel")
-    // b.disabled = true
-    // b.value = "Subscribing..."
-    // b.style.transition = "200ms ease-in-out"
-    // b.style.backgroundColor = theme.color.brand.primaryLight
-    // b.style.borderColor = theme.color.brand.primaryLight
-    // b.style.color = "#666"
 
     addToMailchimp(email)
     .then(function(response) {
@@ -31,18 +25,15 @@ const FollowPage = props => {
         console.log("Form submission success");
         r.style.display = 'block'
         setRes(response)
-        // r.innerHTML = "Subscribed Successfully!"
       } else {
         console.error(response);
         r.style.display = 'block'
-        // r.innerHTML = <FaExclamation /> + response.msg
         setRes(response)
       }
     })
     .catch(error => {
       console.error(error);
       r.style.display = 'block'
-      // r.innerHTML = <FaExclamation /> + error.msg
       setRes(error)
     });
   }
