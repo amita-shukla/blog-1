@@ -78,7 +78,7 @@ font:
     standard: 400
     bold: 600
   size:
-    xxs: &font-size-xs .8em
+    xxs: &font-size-xxs .8em
     xs: &font-size-xs .95em
     s: &font-size-s 1.1em
     m: &font-size-m 1.35em
