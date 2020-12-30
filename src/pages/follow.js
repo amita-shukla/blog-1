@@ -1,41 +1,49 @@
 import React, {useState} from "react";
-import { graphql, StaticQuery } from "gatsby";
 import addToMailchimp from "gatsby-plugin-mailchimp"
 import theme from "../theme/theme.yaml";
 import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
-import { FaTag , FaRss , FaPaperPlane } from "react-icons/fa";
-import config from "../../content/meta/config";
+import {FaCheck, FaExclamation, FaRss} from "react-icons/fa"
+import ReactHtmlParser from 'react-html-parser'
 
 const FollowPage = props => {
 
   const [email, setValue] = useState('')
+  const [res, setRes] = useState('')
 
   const handleSubmit = e => {
     e.preventDefault();
 
     const b = document.getElementById("submitButton")
-    b.disabled = true
-    b.value = "Subscribing..."
-    b.style.transition = "200ms ease-in-out"
-    b.style.backgroundColor = theme.color.brand.primaryLight
-    b.style.borderColor = theme.color.brand.primaryLight
-    b.style.color = "#666"
+    const r = document.getElementById("responseLabel")
+    // b.disabled = true
+    // b.value = "Subscribing..."
+    // b.style.transition = "200ms ease-in-out"
+    // b.style.backgroundColor = theme.color.brand.primaryLight
+    // b.style.borderColor = theme.color.brand.primaryLight
+    // b.style.color = "#666"
 
     addToMailchimp(email)
     .then(function(response) {
       console.log(response)
       if (response.result == 'success') {
         console.log("Form submission success");
+        r.style.display = 'block'
+        setRes(response)
+        // r.innerHTML = "Subscribed Successfully!"
       } else {
         console.error(response);
-        alert("Server responded with error! Sorry about this.")
+        r.style.display = 'block'
+        // r.innerHTML = <FaExclamation /> + response.msg
+        setRes(response)
       }
     })
     .catch(error => {
       console.error(error);
-      alert("Unable to deliver. Is your internet connection down?")
+      r.style.display = 'block'
+      // r.innerHTML = <FaExclamation /> + error.msg
+      setRes(error)
     });
   }
 
@@ -44,30 +52,17 @@ const FollowPage = props => {
   }
   
   return (
-    <StaticQuery
-      query={graphql`
-        query EmailQuery {
-          site {
-            siteMetadata {
-              emailSubLink
-            }
-          }
-        }
-      `}
-      render={ queryResults => {
-        const emailSubLink = queryResults.site.siteMetadata.emailSubLink
-        return (
           <React.Fragment>
             <Article theme={theme}>
               <header>
                 <Headline title="Follow" theme={theme} />
               </header>
-              <p>Hear about new posts by either RSS or Email.</p>
+              <p>No fuss. Only new posts.
+              Sign up to never miss an update!</p>
               <div className="form">
                 <form
                   name="subscribe"
                   method="post"
-                  action={'https://amitashukla.us16.list-manage.com/subscribe/post?u=9618da8096ab249006808edd2&amp;id=a6e4c110bf'}
                   onSubmit={handleSubmit}
                   data-netify="true"
                 >
@@ -78,24 +73,48 @@ const FollowPage = props => {
                     onChange={handleChange}
                     className="formItem"
                     id="emailInput"
-                    placeholder="Email"
-                  />
+                    placeholder="Email Address"
+                  /><br />
                   <input
                     type="submit"
-                    value="Submit"
+                    value="Subscribe"
                     id="submitButton"
                     className="formItem" 
                   />
+                  <label
+                    hidden
+                    id="responseLabel"
+                  > 
+                  {(res.result == 'success') ? 
+                    <div className="success"><FaCheck /> {ReactHtmlParser(res.msg)} </div> : 
+                    <div className="error"><FaExclamation /> {ReactHtmlParser(res.msg)} </div>}
+                  </label>
                 </form>
               </div>
+                <p className="rss">Don't want to share email? No worries! <br/>
+                Follow this blog's feed via <a href="http://feeds.feedburner.com/ShuklaAmita" target="_blank"><FaRss /> RSS</a> </p>
 
               <style jsx>{`
+                form{
+                  max-width: 700px;
+                  margin-top: 20px;
+                  margin-bottom: 20px;
+                }
                 p {
                   font-size: ${theme.font.size.s};
                   font-weight: 400;
                   margin: 0 0 1.5em;
                   margin-bottom: 20px;
                   color: ${theme.color.neutral.gray.j};
+                }
+                .rss {
+                  :global(a) {
+                    font-weight: ${theme.font.weight.bold};
+                    color: ${theme.color.brand.primary};
+                  }
+                  :global(a:hover) {
+                    color: ${theme.color.brand.primaryDark};
+                  }
                 }
                 #emailInput {
                   width: 100%;
@@ -104,13 +123,26 @@ const FollowPage = props => {
                   font-size: 1.2em;
                   padding: 10px;
                   height: auto;
-                  max-width: 300px;
+                  max-width: 500px;
                   border: 1px solid ${theme.color.brand.primary};
                   border-radius: 5px;
                   margin-right: 10px;
+                  margin-bottom: 10px;
                 }
                 #emailInput:hover {
                   border: 1px solid ${theme.color.brand.primaryDark};
+                }
+                #responseLabel {
+                  font-size: ${theme.font.size.xs};
+                  font-weight: normal;
+                  margin-top: 5px;
+                  margin-bottom: 10px;
+                  color: ${theme.color.neutral.gray.j};
+                }
+                .error, .success { 
+                  :global(svg) {
+                    fill: ${theme.color.special.attention};
+                  }
                 }
                 #submitButton {
                   color: white;
@@ -122,6 +154,8 @@ const FollowPage = props => {
                   border-radius: 5px;
                   background: ${theme.color.brand.primary};
                   border: 1px solid ${theme.color.brand.primary};
+                  width: 100%;
+                  max-width: 500px;
                 }
                 #submitButton:hover {
                   background: ${theme.color.brand.primaryDark};
@@ -131,9 +165,6 @@ const FollowPage = props => {
             </Article>
             <Seo pageTitle="Follow"/>
           </React.Fragment>
-        )}
-      }
-    />
   )
 };
 
