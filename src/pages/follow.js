@@ -15,7 +15,6 @@ const FollowPage = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const b = document.getElementById("submitButton")
     const r = document.getElementById("responseLabel")
 
     addToMailchimp(email)

@@ -15,14 +15,13 @@ const ContactPage = props => {
           <header>
             <Headline theme={theme}><FaEnvelope /> Contact</Headline>
           </header>
-          <h3>
-            <div className="contactText" dangerouslySetInnerHTML={{ __html: contactPageText }}/>
-          </h3>
+          <div className="contactText" dangerouslySetInnerHTML={{ __html: contactPageText }}/>
           <style jsx>{`
-            h3 {
-              margin: 0 0 0.5em;
+            .contactText {
               color: ${theme.color.neutral.gray.j};
-              // text-align: justify; 
+              margin: 0 0 0.5em;
+              font-size: ${theme.font.size.s};
+              font-weight: 400;
             }
             .contactText{
               :global(a) {
