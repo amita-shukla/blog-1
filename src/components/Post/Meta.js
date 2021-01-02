@@ -2,24 +2,23 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { currDate } from "../../utils/helpers";
-import { FaUser, FaTag, FaCalendar } from "react-icons/fa/";
+import { FaUser, FaTag, FaCalendar, FaClock } from "react-icons/fa/";
 
 const Meta = props => {
-  const { author: authorName, tags, theme, lastEdit } = props;
+  const { author: authorName, tags, theme, lastEdit, timeToRead} = props;
   const prefix = props.prefix || currDate() /* Intent: get date placeholder for viewing drafts. */
   
   //TODO: lastEdit
 
   return (
-    <p className="meta">
-      <span>
-        <FaCalendar size={18} /> {prefix}
-      </span>
-
-      {/* <span>
-        <FaUser size={18} /> {authorName}
-      </span> */}
-
+    <div className="meta">
+    <p>
+        <span>
+          <FaCalendar size={18} /> {prefix}
+        </span>
+        <span><FaClock size={18}/>{timeToRead} mins</span>
+    </p>
+    <p>
       {tags && tags.map(tag => 
         <span key={tag}>
           
@@ -31,15 +30,20 @@ const Meta = props => {
           </Link>
         </span>
       )}
+    </p>  
 
       {/* --- STYLES --- */}
       <style jsx>{`
+      
+        p {
+          margin: ${theme.space.xs} 0;
+
+        }
         .meta {
-          display: flex;
-          flex-flow: row wrap;
+          display: block;
+          // flex-flow: row wrap;
           font-size: 0.8em;
-          margin: ${theme.space.m} 0;
-          background: transparent;
+          // background: transparent;
           color: ${theme.color.neutral.gray.j};
 
           :global(svg) {
@@ -48,9 +52,9 @@ const Meta = props => {
           }
           span {
             align-items: center;
-            display: flex;
+            // display: flex;
             text-transform: uppercase;
-            margin: ${theme.space.xs} ${theme.space.s} ${theme.space.xs} 0;
+            margin: ${theme.space.xs} ${theme.space.xs} ${theme.space.xs} 0;
           }
         }
         @from-width tablet {
@@ -75,7 +79,7 @@ const Meta = props => {
           }
         }
       `}</style>
-    </p>
+    </div>
   );
 };
 

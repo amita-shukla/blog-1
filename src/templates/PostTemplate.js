@@ -75,6 +75,7 @@ export const postQuery = graphql`
           }
         }
       }
+      timeToRead
       parent {
         ...on File {
           modifiedTime(formatString: "YYYY-MM-DD")
