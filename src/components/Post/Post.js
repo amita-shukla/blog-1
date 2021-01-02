@@ -6,13 +6,15 @@ import Bodytext from "../Article/Bodytext";
 import Meta from "./Meta";
 import Author from "./Author";
 import NextPrev from "./NextPrev";
+import SocialShare from "./SocialShare";
 import { Disqus } from 'gatsby-plugin-disqus';
 
 const Post = props => {
   const {
     site: {
       siteMetadata: {
-        siteUrl
+        siteUrl,
+        description
       }
     },
     post,
@@ -21,9 +23,10 @@ const Post = props => {
       html,
       htmlAst,
       fields: { prefix, slug },
-      frontmatter: { title, author, tags },
+      frontmatter: { title, author, tags, absolutePath },
       parent: { modifiedTime },
-      timeToRead
+      timeToRead,
+      excerpt
     },
     authornote,
     next: nextPost,
@@ -31,8 +34,9 @@ const Post = props => {
     theme
   } = props;
 
+  const postUrl = `${siteUrl+slug}`
   let disqusConfig = {
-    url: `${siteUrl+slug}`,
+    url: postUrl,
     identifier: id,
     title: title,
   }
@@ -45,6 +49,7 @@ const Post = props => {
       </header>
       <Bodytext content={post} theme={theme} />
       <footer>
+          <SocialShare postUrl={postUrl} title={title} excerpt={excerpt} siteDescription={description} coverImage={absolutePath}/>
           <Author note={authornote} theme={theme} />
           <NextPrev next={nextPost} prev={prevPost} theme={theme} />
           <Disqus config ={disqusConfig} />

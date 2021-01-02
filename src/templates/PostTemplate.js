@@ -6,8 +6,7 @@ require("prismjs/themes/prism-okaidia.css");
 import Seo from "../components/Seo";
 import Article from "../components/Article";
 import Post from "../components/Post";
-import { ThemeContext } from "../layouts";
-
+import { ThemeContext } from "../layouts"; 
 const PostTemplate = props => {
   const {
     data: {
@@ -52,7 +51,8 @@ export const postQuery = graphql`
   query PostBySlug($slug: String!) {
     site: site {
       siteMetadata {
-        siteUrl
+        siteUrl,
+        description
       }
     }
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -68,6 +68,7 @@ export const postQuery = graphql`
         author
         tags
         cover {
+          absolutePath
           childImageSharp {
             resize(width: 300) {
               src
@@ -76,6 +77,7 @@ export const postQuery = graphql`
         }
       }
       timeToRead
+      excerpt
       parent {
         ...on File {
           modifiedTime(formatString: "YYYY-MM-DD")
