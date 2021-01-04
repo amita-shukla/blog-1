@@ -251,5 +251,12 @@ module.exports = {
           timeout: 3500,
       },
     },
+    {
+      resolve: '@ghranek/gatsby-source-blogger',
+      options: {
+        apiKey: 'AIzaSyASzJCxZlAjuPSQd3yZwgPF13i5VomShS4',
+        blogId: '1167440767733751967'
+      }
+    }
   ]
 };

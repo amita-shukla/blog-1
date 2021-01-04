@@ -5,6 +5,7 @@
   "description": "Feature-rich blog with streamlined design.",
   "license": "MIT",
   "dependencies": {
+    "@ghranek/gatsby-source-blogger": "^1.1.3",
     "fontfaceobserver": "^2.0.13",
     "gatsby": "^2.1.30",
     "gatsby-image": "^2.2.18",
