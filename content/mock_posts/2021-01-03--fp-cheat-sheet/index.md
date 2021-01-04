@@ -7,15 +7,10 @@ author: amita shukla
 
 Functional Programming languages, in general, turn into a challenging venture at the very start. On one hand, it sounds simple when all you have to do is use functions instead of loads of language constructs. 
 
-<re-img src="meme.jpeg" title="meme"></re-img>
 
 [Who needs a loop when we have folds](https://blog.amitashukla.in/2019/07/unfolding-folds.html)! But there is another problem. Now we don't know which function we need to use when. A lot of times for coding a simple task, I had to rush to the docs, search extensively, only to discover half an hour later that all I had to use was a `lift`. or a `fold`. or a `map`. Aghhh! At this learning level, what comes handy is a pool of functions to refer to first before jumping into the sea of all the libraries and functions ever created. Gradually over time, these functions (and their type signatures) embed themselves on our minds, and then programming becomes a breeze.
 
-
-
-\n\n  \n\n\n[![](https://1.bp.blogspot.com/-of1367G_UEw/Xr0YgC8QLyI/AAAAAAAANWo/6zVvXqXDTC4_GSrzMsF1X6q9Gf2hUKCgwCK4BGAsYHg/s320/meme.jpg)](https://1.bp.blogspot.com/-of1367G_UEw/Xr0YgC8QLyI/AAAAAAAANWo/6zVvXqXDTC4_GSrzMsF1X6q9Gf2hUKCgwCK4BGAsYHg/meme.jpg)
-
-
+<re-img src="meme.jpeg" title="meme"></re-img>
 
 \n\n  \n\n\nI have titled this post as something for 'absolute beginners', but this is what I have used most of the time, so I consider myself no more than an absolute beginner. And there is so much more, I guess I will remain an absolute beginner for ages to come. And if you're an absolute beginner, having a basic understanding of these functions will help you sail through a lot of code reading and writing.\n\n  \n\n\n
 
