@@ -1,13 +1,12 @@
 #!/bin/bash
 mkdir "blogger_posts"
 json_file_name="blogger_posts.json"
-#slugs=`cat blogger_posts.json | jq .allBloggerPost.edges[].node.slug`
 echo "reading ${json_file_name}..."
-slugs=`cat ${json_file_name} | jq .allBloggerPost.edges[].node.childMarkdownRemark.frontmatter.slug`
-titles=`cat ${json_file_name} | jq .allBloggerPost.edges[].node.childMarkdownRemark.frontmatter.title`
-dates=`cat ${json_file_name} | jq .allBloggerPost.edges[].node.childMarkdownRemark.frontmatter.date`
-markdownBodies=`cat ${json_file_name} | jq .allBloggerPost.edges[].node.childMarkdownRemark.frontmatter.rawMarkdownBody`
-tags=`cat ${json_file_name} | jq .allBloggerPost.edges[].node.childMarkdownRemark.tags`
+readarray -t slugs < <(cat ${json_file_name} | jq .allBloggerPost.edges[].node.slug)
+readarray -t titles < <(cat ${json_file_name} | jq .allBloggerPost.edges[].node.title)
+readarray -t dates < <(cat ${json_file_name} | jq .allBloggerPost.edges[].node.childMarkdownRemark.frontmatter.date)
+readarray -t markdownBodies < <(cat ${json_file_name} | jq .allBloggerPost.edges[].node.childMarkdownRemark.rawMarkdownBody)
+# tags=`jq .allBloggerPost.edges[].node.childMarkdownRemark.tags ${json_file_name}`
 
 post_count=${#slugs[@]}
 echo "number of posts are ${post_count}"
