@@ -27,10 +27,10 @@ echo "number of posts are ${post_count}"
 
 for(( i=0; i<${post_count}; i++ ))
 do
-  title=$(trim_quotes ${titles[$i]})
+  title=$(trim_quotes "${titles[$i]}")
   echo "reading post ${i}: ${title}"
-  slug=$(trim_quotes ${slugs[$i]})
-  date=$(trim_quotes ${dates[$i]})
+  slug=$(trim_quotes "${slugs[$i]}")
+  date=$(trim_quotes "${dates[$i]}")
   markdown_body=$(trim_quotes "${markdownBodies[$i]}")
   file_content="---\ntitle: ${title}\n\nauthor: Amita Shukla\n---\n\n${markdown_body}"
   echo "file_content: ${file_content}"
