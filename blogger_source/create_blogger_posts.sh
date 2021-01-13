@@ -2,7 +2,7 @@
 
 trim_quotes() {
   opt=$1
-  str=$(sed -e 's/^"//' -e 's/"$//' <<<"$opt")
+  str=$(echo "$opt" | sed -e 's/^"//' -e 's/"$//')
   echo $str
 }
 
@@ -31,8 +31,9 @@ do
   echo "reading post ${i}: ${title}"
   slug=$(trim_quotes ${slugs[$i]})
   date=$(trim_quotes ${dates[$i]})
-  markdown_body=$(trim_quotes ${markdownBodies[$i]})
+  markdown_body=$(trim_quotes "${markdownBodies[$i]}")
   file_content="---\ntitle: ${title}\n\nauthor: Amita Shukla\n---\n\n${markdown_body}"
+  echo "file_content: ${file_content}"
   dir_name=${date}--${slug}
   file_name="index.md"
   file_path=${posts_dir}/${dir_name}/${file_name}
