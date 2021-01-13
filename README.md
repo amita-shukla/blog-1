@@ -26,7 +26,7 @@ You are free to use this repo to create your own blog (code is MIT licensed). Yo
 
 - Basic setup
     - Prerequisites: learn about ReactJS and GatsbyJS.
-    - Recommended: Use `nvm` to switch between Node versions. This project is confirmed to work with v12.16.3.
+    - Recommended: Use `nvm` to switch between Node versions. This project is confirmed to work with v12.16.3. This version is added to .nvmrc file as well.
     - Fork and `npm install`.
     - Install gatsby cli with `npm install -g gatsby-cli`
     - Run in development mode with `gatsby develop`. First run will take several minutes, but subsequent runs will be faster.
