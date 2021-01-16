@@ -1,6 +1,6 @@
 ---
-title: Perplexed
-
+title: Perplexed in the world of Science...
+tags: ["SCIENCE","SUGGESTIONS","TECHNOLOGY"]
 author: Amita Shukla
 ---
 

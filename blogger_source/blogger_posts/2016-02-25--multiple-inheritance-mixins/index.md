@@ -1,6 +1,6 @@
 ---
-title: Multiple
-
+title: Multiple Inheritance and Mixins
+tags: ["JAVA","PROGRAMMING"]
 author: Amita Shukla
 ---
 

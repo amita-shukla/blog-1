@@ -1,6 +1,6 @@
 ---
-title: How
-
+title: How to enable clicks on Carousel
+tags: ["CSS","JAVASCRIPT","JQUERY"]
 author: Amita Shukla
 ---
 

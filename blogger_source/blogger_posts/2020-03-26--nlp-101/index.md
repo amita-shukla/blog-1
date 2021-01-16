@@ -1,6 +1,6 @@
 ---
-title: NLP
-
+title: NLP 101
+tags: ["DATA SCIENCE","MACHINE LEARNING","NLP","PROGRAMMING","PROJECT","PYTHON"]
 author: Amita Shukla
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Writing
-
+title: Writing ORC files using Map Reduce
+tags: ["BIG DATA","HIVE","JAVA","PROGRAMMING"]
 author: Amita Shukla
 ---
 

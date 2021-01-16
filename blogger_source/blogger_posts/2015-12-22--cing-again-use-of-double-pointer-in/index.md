@@ -1,6 +1,6 @@
 ---
-title: 'C'ing
-
+title: 'C'ing again! - Use of double pointer in Linked List Insertion
+tags: ["C","DATA STRUCTURES"]
 author: Amita Shukla
 ---
 

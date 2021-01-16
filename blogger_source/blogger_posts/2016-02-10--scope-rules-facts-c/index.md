@@ -1,6 +1,6 @@
 ---
-title: Scope
-
+title: Scope Rules In C
+tags: ["C"]
 author: Amita Shukla
 ---
 

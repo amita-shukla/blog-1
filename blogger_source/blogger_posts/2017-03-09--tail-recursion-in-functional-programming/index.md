@@ -1,6 +1,6 @@
 ---
-title: (Tail)
-
+title: (Tail) Recursion in Functional Programming
+tags: ["ALGORITHMS","FUNCTIONAL PROGRAMMING","JAVA","SCALA"]
 author: Amita Shukla
 ---
 

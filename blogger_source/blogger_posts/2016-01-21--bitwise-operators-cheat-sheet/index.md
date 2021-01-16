@@ -1,6 +1,6 @@
 ---
-title: Bitwise
-
+title: Bitwise Operators Cheat Sheet: Little Programming Tricks using Bit Operations
+tags: ["PROGRAMMING"]
 author: Amita Shukla
 ---
 

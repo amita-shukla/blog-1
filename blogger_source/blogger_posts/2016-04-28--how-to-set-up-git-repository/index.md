@@ -1,6 +1,6 @@
 ---
-title: How
-
+title: How to set up Git Repository
+tags: ["GIT","PROGRAMMING","PROJECT"]
 author: Amita Shukla
 ---
 

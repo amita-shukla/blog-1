@@ -1,6 +1,6 @@
 ---
-title: Dynamic
-
+title: Dynamic Programming
+tags: ["ALGORITHMS","DATA STRUCTURES","PROGRAMMING"]
 author: Amita Shukla
 ---
 

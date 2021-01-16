@@ -1,6 +1,6 @@
 ---
-title: Solve
-
+title: Solve the N queen's problem using backtracking
+tags: ["ALGORITHMS","JAVA","PROGRAMMING"]
 author: Amita Shukla
 ---
 
@@ -253,8 +253,8 @@ Method that initializes all the data structures used and calls the recursive `fi
  boardSize = n;
  solutions = new ArrayList<ArrayList<String>>();
  colEmpty = new boolean[n];
- upDiagEmpty = new boolean[2 blogger_posts blogger_posts.json create_blogger_posts.sh test n - 1];
- downDiagEmpty = new boolean[2 blogger_posts blogger_posts.json create_blogger_posts.sh test n - 1];
+ upDiagEmpty = new boolean[2 blogger_posts blogger_posts.json blogger_posts_old blogger_posts_v2.json create_blogger_posts.sh n - 1];
+ downDiagEmpty = new boolean[2 blogger_posts blogger_posts.json blogger_posts_old blogger_posts_v2.json create_blogger_posts.sh n - 1];
  Arrays.fill(colEmpty,true);
  Arrays.fill(upDiagEmpty, true);
  Arrays.fill(downDiagEmpty, true);

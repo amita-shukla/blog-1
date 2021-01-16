@@ -1,6 +1,6 @@
 ---
-title: Dynamic
-
+title: Dynamic Programming : Rod Cutting Problem
+tags: ["ALGORITHMS","DATA STRUCTURES","JAVA","PROGRAMMING"]
 author: Amita Shukla
 ---
 

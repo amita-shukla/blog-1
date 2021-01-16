@@ -1,6 +1,6 @@
 ---
-title: How
-
+title: How To Host Images on the Web conveniently
+tags: ["TECHNOLOGY"]
 author: Amita Shukla
 ---
 

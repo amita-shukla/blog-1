@@ -1,6 +1,6 @@
 ---
-title: Hadoop
-
+title: Hadoop 1.0 Architecture
+tags: ["BIG DATA"]
 author: Amita Shukla
 ---
 

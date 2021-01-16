@@ -1,6 +1,6 @@
 ---
-title: How
-
+title: How I resized the post image of blog posts
+tags: ["CSS","PROGRAMMING","TECHNOLOGY"]
 author: Amita Shukla
 ---
 

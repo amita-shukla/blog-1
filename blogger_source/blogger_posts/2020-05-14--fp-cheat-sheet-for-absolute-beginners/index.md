@@ -1,6 +1,6 @@
 ---
-title: FP
-
+title: FP Cheat Sheet For Absolute Beginners
+tags: ["FUNCTIONAL PROGRAMMING","HASKELL","SCALA"]
 author: Amita Shukla
 ---
 

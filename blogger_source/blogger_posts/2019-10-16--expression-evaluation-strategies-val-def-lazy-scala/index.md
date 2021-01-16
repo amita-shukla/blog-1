@@ -1,6 +1,6 @@
 ---
-title: Deep
-
+title: Deep Dive into Evaluating an Expression in Scala
+tags: ["FUNCTIONAL PROGRAMMING","SCALA"]
 author: Amita Shukla
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Going
-
+title: Going the Functional Way
+tags: ["BIG DATA","FUNCTIONAL PROGRAMMING","SCALA"]
 author: Amita Shukla
 ---
 

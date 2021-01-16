@@ -1,6 +1,6 @@
 ---
-title: Inevitable
-
+title: Inevitable Vi
+tags: ["PROGRAMMING","SHELL","TECHNOLOGY"]
 author: Amita Shukla
 ---
 

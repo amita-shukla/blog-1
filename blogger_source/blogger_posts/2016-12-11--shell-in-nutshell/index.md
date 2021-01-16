@@ -1,6 +1,6 @@
 ---
-title: Shell
-
+title: Shell In A Nutshell
+tags: ["PROGRAMMING","SHELL"]
 author: Amita Shukla
 ---
 

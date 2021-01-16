@@ -1,6 +1,6 @@
 ---
-title: 12
-
+title: 12 Habits That Will Make You a Smart Programmer
+tags: ["GIT","PROGRAMMING","SHELL","SUGGESTIONS","TECHNOLOGY"]
 author: Amita Shukla
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Normalization
-
+title: Normalization in Databases
+tags: ["DATABASE","TECHNOLOGY"]
 author: Amita Shukla
 ---
 

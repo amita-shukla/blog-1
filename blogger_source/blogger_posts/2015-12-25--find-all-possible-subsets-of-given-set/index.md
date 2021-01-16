@@ -1,6 +1,6 @@
 ---
-title: Find
-
+title: Find all possible subsets of a given set
+tags: ["ALGORITHMS","JAVA","PROGRAMMING"]
 author: Amita Shukla
 ---
 

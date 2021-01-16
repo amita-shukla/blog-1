@@ -1,6 +1,6 @@
 ---
-title: How
-
+title: How I Made Google Chrome 'My Chrome'
+tags: ["TECHNOLOGY"]
 author: Amita Shukla
 ---
 

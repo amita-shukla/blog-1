@@ -1,6 +1,6 @@
 ---
-title: JAVA
-
+title: JAVA API for recording changes in a directory
+tags: ["DATA STRUCTURES","GIT","JAVA","PROGRAMMING","PROJECT"]
 author: Amita Shukla
 ---
 
