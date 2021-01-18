@@ -1,6 +1,7 @@
 ---
 title: Providing Hadoop Configurations to MapReduce Application using ToolRunner
 tags: ["BIG DATA","HADOOP","JAVA","MAPREDUCE","PROGRAMMING"]
+cover: no-image
 author: Amita Shukla
 ---
 

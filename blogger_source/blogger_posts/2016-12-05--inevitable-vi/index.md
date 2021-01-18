@@ -1,6 +1,7 @@
 ---
 title: Inevitable Vi
 tags: ["PROGRAMMING","SHELL","TECHNOLOGY"]
+cover: main-qimg-f157a9584f79e958652338eae9a28fc9.png
 author: Amita Shukla
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Cell Arrays in MATLAB
 tags: ["MACHINE LEARNING","MATLAB","PROJECT"]
+cover: no-image
 author: Amita Shukla
 ---
 

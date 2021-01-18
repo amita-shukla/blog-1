@@ -1,6 +1,7 @@
 ---
 title: Implementing Functional List from Scratch in Scala
 tags: ["ALGORITHMS","DATA STRUCTURES","FUNCTIONAL PROGRAMMING","SCALA"]
+cover: keep-calm-and-do-it-yourself.png
 author: Amita Shukla
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Find all possible subsets of a given set
 tags: ["ALGORITHMS","JAVA","PROGRAMMING"]
+cover: no-image
 author: Amita Shukla
 ---
 

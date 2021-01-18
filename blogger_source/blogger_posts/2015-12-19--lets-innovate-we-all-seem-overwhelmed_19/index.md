@@ -1,6 +1,7 @@
 ---
 title: Reinvent the wheel?
 tags: ["TECHNOLOGY"]
+cover: no-image
 author: Amita Shukla
 ---
 

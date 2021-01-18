@@ -1,6 +1,7 @@
 ---
 title: Ted Talk By Linus Torvalds!
 tags: []
+cover: no-image
 author: Amita Shukla
 ---
 

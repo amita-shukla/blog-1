@@ -1,6 +1,7 @@
 ---
 title: Normalization in Databases
 tags: ["DATABASE","TECHNOLOGY"]
+cover: Fully%252BFunctional%252BDependency.png
 author: Amita Shukla
 ---
 

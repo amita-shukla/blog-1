@@ -1,6 +1,7 @@
 ---
 title: Decomposition Rules In Databases
 tags: ["DATABASE"]
+cover: no-image
 author: Amita Shukla
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Solve the N queen's problem using backtracking
 tags: ["ALGORITHMS","JAVA","PROGRAMMING"]
+cover: NQueen.png
 author: Amita Shukla
 ---
 

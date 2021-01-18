@@ -23,6 +23,7 @@ readarray -t markdownBodies < <(cat ${json_file_name} | jq .data.allBloggerPost.
 echo "mardownBody: ${markdownBodies[2]}"
 readarray -t tags < <(cat ${json_file_name} | jq -c .data.allBloggerPost.edges[].node.labels)
 echo "tags: ${tags[@]}"
+readarray -t cover_images < <(cat ${json_file_name} | jq .data.allBloggerPost.edges[].node.childMarkdownRemark.frontmatter.image)
 
 post_count=${#slugs[@]}
 echo "number of posts are ${post_count}"
@@ -34,8 +35,14 @@ do
   slug=$(trim_quotes "${slugs[$i]}")
   date=$(trim_quotes "${dates[$i]}")
   tag="${tags[$i]}"
+  cover_image_url=$(trim_quotes "${cover_images[$i]}")
+  # if [ "${cover_image_url}" == "no-image" ]; then 
+  #   echo "resettting url for post idx $i..."
+  #   cover_image_url=""
+  # fi  
+  cover_image=$(basename "$cover_image_url")
   markdown_body=$(trim_quotes "${markdownBodies[$i]}")
-  file_content="---\ntitle: ${title}\ntags: ${tag}\nauthor: Amita Shukla\n---\n\n${markdown_body}"
+  file_content="---\ntitle: ${title}\ntags: ${tag}\ncover: ${cover_image}\nauthor: Amita Shukla\n---\n\n${markdown_body}"
   echo "file_content: ${file_content}"
   dir_name=${date}--${slug}
   file_name="index.md"

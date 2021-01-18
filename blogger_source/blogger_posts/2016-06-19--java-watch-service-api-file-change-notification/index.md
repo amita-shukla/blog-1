@@ -1,6 +1,7 @@
 ---
 title: JAVA API for recording changes in a directory
 tags: ["DATA STRUCTURES","GIT","JAVA","PROGRAMMING","PROJECT"]
+cover: JAVA_%2Bwatch_service_api.jpg
 author: Amita Shukla
 ---
 

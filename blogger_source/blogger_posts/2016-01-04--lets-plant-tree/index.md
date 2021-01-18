@@ -1,6 +1,7 @@
 ---
 title: Let's plant a tree!
 tags: ["C","DATA STRUCTURES","JAVA","PROGRAMMING"]
+cover: 1ff9c42b-52ba-429d-aaaf-f0c06bc1e894.jpg
 author: Amita Shukla
 ---
 

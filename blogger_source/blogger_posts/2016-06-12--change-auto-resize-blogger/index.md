@@ -1,6 +1,7 @@
 ---
 title: How I resized the post image of blog posts
 tags: ["CSS","PROGRAMMING","TECHNOLOGY"]
+cover: blog_css.png
 author: Amita Shukla
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Clear all, close all and clc in MATLAB
 tags: ["MACHINE LEARNING","MATLAB","PROJECT"]
+cover: no-image
 author: Amita Shukla
 ---
 

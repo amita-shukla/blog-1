@@ -1,6 +1,7 @@
 ---
 title: Relational Database Design
 tags: ["DATABASE","TECHNOLOGY"]
+cover: no-image
 author: Amita Shukla
 ---
 

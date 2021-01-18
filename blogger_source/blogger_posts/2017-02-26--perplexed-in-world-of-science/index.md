@@ -1,6 +1,7 @@
 ---
 title: Perplexed in the world of Science...
 tags: ["SCIENCE","SUGGESTIONS","TECHNOLOGY"]
+cover: hqdefault.jpg
 author: Amita Shukla
 ---
 

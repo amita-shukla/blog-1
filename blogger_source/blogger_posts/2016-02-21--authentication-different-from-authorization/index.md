@@ -1,6 +1,7 @@
 ---
 title: How is Authentication different from Authorization?
 tags: []
+cover: no-image
 author: Amita Shukla
 ---
 

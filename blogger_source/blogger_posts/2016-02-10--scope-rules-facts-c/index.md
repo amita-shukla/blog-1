@@ -1,6 +1,7 @@
 ---
 title: Scope Rules In C
 tags: ["C"]
+cover: no-image
 author: Amita Shukla
 ---
 

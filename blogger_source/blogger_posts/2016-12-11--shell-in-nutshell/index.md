@@ -1,6 +1,7 @@
 ---
 title: Shell In A Nutshell
 tags: ["PROGRAMMING","SHELL"]
+cover: m1rI9.png
 author: Amita Shukla
 ---
 

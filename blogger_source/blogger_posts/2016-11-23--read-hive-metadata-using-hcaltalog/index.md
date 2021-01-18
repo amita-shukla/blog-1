@@ -1,6 +1,7 @@
 ---
 title: Read Hive metadata using HCatalog
 tags: ["BIG DATA","HCATALOG","HIVE","PROGRAMMING"]
+cover: no-image
 author: Amita Shukla
 ---
 

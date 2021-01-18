@@ -1,6 +1,7 @@
 ---
 title: Prepare for GCP Certification Exam - Data Engineer
 tags: ["BIG DATA","DATABASE","MACHINE LEARNING","PROGRAMMING","TECHNOLOGY"]
+cover: GCP.png
 author: Amita Shukla
 ---
 

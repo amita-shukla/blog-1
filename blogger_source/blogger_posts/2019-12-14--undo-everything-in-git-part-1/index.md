@@ -1,6 +1,7 @@
 ---
 title: Undo everything in Git - Part 1
 tags: ["GIT"]
+cover: git.png
 author: Amita Shukla
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Multiple Inheritance and Mixins
 tags: ["JAVA","PROGRAMMING"]
+cover: Diamond%252BProblem.png
 author: Amita Shukla
 ---
 

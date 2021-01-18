@@ -1,6 +1,7 @@
 ---
 title: Dynamic Programming
 tags: ["ALGORITHMS","DATA STRUCTURES","PROGRAMMING"]
+cover: Blog_DP_Quote.png
 author: Amita Shukla
 ---
 

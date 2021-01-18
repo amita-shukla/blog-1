@@ -1,6 +1,7 @@
 ---
 title: Unfolding the folds
 tags: ["FUNCTIONAL PROGRAMMING","HASKELL","SCALA"]
+cover: fold.jpg
 author: Amita Shukla
 ---
 

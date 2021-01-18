@@ -1,6 +1,7 @@
 ---
 title: How To Host Images on the Web conveniently
 tags: ["TECHNOLOGY"]
+cover: Links-Photo-Sharing.png
 author: Amita Shukla
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: How to set up Git Repository
 tags: ["GIT","PROGRAMMING","PROJECT"]
+cover: Github.png
 author: Amita Shukla
 ---
 
