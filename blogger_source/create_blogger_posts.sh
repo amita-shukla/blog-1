@@ -36,14 +36,10 @@ do
   date=$(trim_quotes "${dates[$i]}")
   tag="${tags[$i]}"
   cover_image_url=$(trim_quotes "${cover_images[$i]}")
-  # if [ "${cover_image_url}" == "no-image" ]; then 
-  #   echo "resettting url for post idx $i..."
-  #   cover_image_url=""
-  # fi  
   cover_image=$(basename "$cover_image_url")
   markdown_body=$(trim_quotes "${markdownBodies[$i]}")
   file_content="---\ntitle: ${title}\ntags: ${tag}\ncover: ${cover_image}\nauthor: Amita Shukla\n---\n\n${markdown_body}"
-  echo "file_content: ${file_content}"
+  # echo "file_content: ${file_content}"
   dir_name=${date}--${slug}
   file_name="index.md"
   file_path=${posts_dir}/${dir_name}/${file_name}
@@ -52,5 +48,10 @@ do
   # file_content="---\ntitle:${title}\ntags:[${join_tags}]\nauthor: Amita Shukla---\n\n${markdown_body}"
   echo "adding content to file ${file_path}"
   echo -e ${file_content} > ${file_path}
+  echo "reading ${file_path} for imageurls..."
+  grep -Eo "https?://[^][ ]+.(jpg|png|gif)" $file_path | sort -u > ${posts_dir}/${dir_name}/img_urls.txt
+  echo "downloading urls..."
+  wget -i ${posts_dir}/${dir_name}/img_urls.txt -P ${posts_dir}/${dir_name}
+  echo "images for $slug downloaded."
 done
 echo "all files processed successfully"
