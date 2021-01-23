@@ -149,7 +149,15 @@ class Header extends React.Component {
 
           @below desktop {
             :global(a.logoType) {
-              visibility: hidden;
+              // visibility: hidden;
+              align-items: center;
+              display: flex;
+              flex-direction: "column";
+              color: ${theme.text.color.primary};
+
+              .logo {
+                flex-shrink: 0;
+              }
             }
             .header.homepage {
               .logo {
@@ -209,6 +217,7 @@ class Header extends React.Component {
             }
 
             .header :global(a.logoType) {
+              padding: 50px;
               text-align: left;
               flex-direction: row;
               flex-shrink: 0;

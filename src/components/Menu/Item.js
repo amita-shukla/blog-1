@@ -7,10 +7,11 @@ const Item = props => {
 
   return (
     <React.Fragment>
-      <li className={"hiddenItem" in props ? "hiddenItem" : "item"} key={label}>
+      {/* <li className={"hiddenItem" in props ? "hiddenItem" : "item"} key={label}> */}
+      <li className="item" key={label}>
         <Link
           to={to}
-          className={"hiddenItem" in props ? "inHiddenItem" : ""}
+          // className={"hiddenItem" in props ? "inHiddenItem" : ""}
           onClick={onClick}
           data-slug={to}
         >
@@ -24,12 +25,12 @@ const Item = props => {
         .showItem {
           background: transparent;
           transition: all ${theme.time.duration.default};
-          display: flex;
+          display: block;
           align-items: center;
 
           :global(a) {
             padding: ${theme.space.inset.s};
-            display: flex;
+            // display: flex;
             align-items: center;
           }
 

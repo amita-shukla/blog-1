@@ -1,4 +1,4 @@
-import { FaAngleUp } from "react-icons/fa/";
+import { FaAngleUp, FaBars, FaExpand, FaHamburger, FaUserMinus } from "react-icons/fa/";
 import PropTypes from "prop-types";
 import React from "react";
 
@@ -8,7 +8,7 @@ const Expand = props => {
   return (
     <React.Fragment>
       <button className="more" to="#" onClick={onClick} aria-label="expand">
-        <FaAngleUp size={30} />
+        <FaBars size={30} />
       </button>
 
       {/* --- STYLES --- */}
@@ -23,7 +23,7 @@ const Expand = props => {
             border: 2px solid ${theme.color.menu.border};
             border-radius: 0 0 ${theme.size.radius.small} ${theme.size.radius.small};
             border-top: none;
-            position: absolute;
+            // position: absolute;
             left: 50%;
             bottom: -35px;
             width: 60px;
@@ -42,12 +42,12 @@ const Expand = props => {
 
             :global(svg) {
               transition: all 0.5s;
-              transform: rotateZ(180deg);
+              // transform: rotateZ(180deg);
               fill: ${theme.color.special.attention};
             }
 
             :global(.open) & :global(svg) {
-              transform: rotateZ(0deg);
+              // transform: rotateZ(0deg);
             }
           }
         }
