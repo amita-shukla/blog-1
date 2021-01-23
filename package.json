@@ -1,7 +1,7 @@
 {
-  "name": "@baobabkoodaa/blog",
+  "name": "@amita-shukla/blog",
   "version": "0.9.0",
-  "author": "Baobab Koodaa",
+  "author": "Amita Shukla",
   "description": "Feature-rich blog with streamlined design.",
   "license": "MIT",
   "dependencies": {
