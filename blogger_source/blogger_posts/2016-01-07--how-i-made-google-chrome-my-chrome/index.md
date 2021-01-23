@@ -16,7 +16,7 @@ Currently, I am working on not Google Chrome but Chromium, open source web brows
  
 
 
-[![](https://vignette4.wikia.nocookie.net/logopedia/images/2/27/DncJWGy.png/revision/latest?cb=20151102014735)](http://vignette4.wikia.nocookie.net/logopedia/images/2/27/DncJWGy.png/revision/latest?cb=20151102014735)
+<re-img src="DncJWGy.png"></re-img>
 
 Not a fuss about it, that's what you get when you search the Ubuntu Software Center. And I discovered what I was using quite later.
 
@@ -30,7 +30,7 @@ Chrome logs me in with my personal account, and it maintains a sync across all t
  
 
 
-[![](https://2.bp.blogspot.com/-nwnDq-mdcE4/Vo6EB1E9nzI/AAAAAAAAAtA/2oOqd2MwcCM/s1600/ChromeAccount.png)](http://2.bp.blogspot.com/-nwnDq-mdcE4/Vo6EB1E9nzI/AAAAAAAAAtA/2oOqd2MwcCM/s1600/ChromeAccount.png)
+<re-img src="ChromeAccount.png"></re-img>
 
  
 
@@ -42,7 +42,7 @@ Any other person who wants to use my browser gets the Guest account, or I have M
  
 
 
-[![](https://1.bp.blogspot.com/-slCKEWfnDto/Vo6EdJc4MLI/AAAAAAAAAtI/eLmY7nYzFxg/s640/GuestAccount.png)](http://1.bp.blogspot.com/-slCKEWfnDto/Vo6EdJc4MLI/AAAAAAAAAtI/eLmY7nYzFxg/s1600/GuestAccount.png)
+<re-img src="GuestAccount.png"></re-img>
 
 ### The Little Bookmark Icons
 
@@ -53,7 +53,7 @@ When adding bookmarks in the usual way it is done, my chrome can accommodate onl
  
 
 
-[![](https://3.bp.blogspot.com/-3CcuSchd1qk/Vo6IXOtJj0I/AAAAAAAAAtU/zHxZRm3enbM/s640/HighlightBookmarks.png)](http://3.bp.blogspot.com/-3CcuSchd1qk/Vo6IXOtJj0I/AAAAAAAAAtU/zHxZRm3enbM/s1600/HighlightBookmarks.png)
+<re-img src="HighlightBookmarks.png"></re-img>
 
  
 
@@ -66,7 +66,7 @@ Load the page completely that you want to bookmark, and star it. Choose the fold
  
 
 
-[![](https://4.bp.blogspot.com/-aFu1vKK9DAA/Vo6IpE9hplI/AAAAAAAAAtc/entWJaiBM3Q/s640/AddBookmark.png)](http://4.bp.blogspot.com/-aFu1vKK9DAA/Vo6IpE9hplI/AAAAAAAAAtc/entWJaiBM3Q/s1600/AddBookmark.png)
+<re-img src="AddBookmark.png"></re-img>
 
  
 
@@ -90,7 +90,7 @@ I know googling is easy, but it saves a lot of time if we categorize our frequen
  
 
 
-[![](https://2.bp.blogspot.com/-U1Tasjjg95o/Vo6JPBGE_nI/AAAAAAAAAtk/NacZDIIiKaU/s640/Folder.png)](http://2.bp.blogspot.com/-U1Tasjjg95o/Vo6JPBGE_nI/AAAAAAAAAtk/NacZDIIiKaU/s1600/Folder.png)
+<re-img src="Folder.png"></re-img>
 
  
 
@@ -109,7 +109,7 @@ But it can't help if I forget to make entries of daily transactions! set which p
  
 
 
-[![](https://3.bp.blogspot.com/-OfkYqPzh3_o/Vo6KFoRFlXI/AAAAAAAAAts/l8wc7OPxn_E/s400/StartUpPages.png)](http://3.bp.blogspot.com/-OfkYqPzh3_o/Vo6KFoRFlXI/AAAAAAAAAts/l8wc7OPxn_E/s1600/StartUpPages.png)
+<re-img src="StartUpPages.png"></re-img>
 
  
 
@@ -134,7 +134,7 @@ Google Chrome also has its own password generator, though I haven't used it.
  
 
 
-[![](https://4.bp.blogspot.com/-tl3eFsP5fP8/Vo6LABK-QPI/AAAAAAAAAt4/_90uSsvuyHQ/s320/PasswordGenerate.png)](http://4.bp.blogspot.com/-tl3eFsP5fP8/Vo6LABK-QPI/AAAAAAAAAt4/_90uSsvuyHQ/s1600/PasswordGenerate.png)
+<re-img src="PasswordGenerate.png"></re-img>
 
  
 
@@ -148,7 +148,7 @@ It displays all the processes that are running on chrome. We can choose which on
  
 
 
-[![](https://2.bp.blogspot.com/-WuMba1BAtHc/Vo6LTMUkfyI/AAAAAAAAAuA/jJfUp239BQA/s320/TaskManager.png)](http://2.bp.blogspot.com/-WuMba1BAtHc/Vo6LTMUkfyI/AAAAAAAAAuA/jJfUp239BQA/s1600/TaskManager.png)
+<re-img src="TaskManager.png"></re-img>
 
  
 

@@ -17,7 +17,7 @@ But it has been a while that I have been using Vi. It was never that I had any k
  
 
 
-[![](https://4.bp.blogspot.com/-cWAxqJoloiQ/WEVdc8SltnI/AAAAAAAAFO8/pSg4D4VbhuY_LpUrkU6CYisI6Iprol4pACEw/s1600/main-qimg-f157a9584f79e958652338eae9a28fc9.png)](https://4.bp.blogspot.com/-cWAxqJoloiQ/WEVdc8SltnI/AAAAAAAAFO8/pSg4D4VbhuY_LpUrkU6CYisI6Iprol4pACEw/s1600/main-qimg-f157a9584f79e958652338eae9a28fc9.png)
+<re-img src="main-qimg-f157a9584f79e958652338eae9a28fc9.png"></re-img>
 
  
 

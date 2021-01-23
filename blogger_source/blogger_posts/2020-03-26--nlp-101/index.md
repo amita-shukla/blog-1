@@ -12,7 +12,7 @@ We will be talking about these cleaning efforts here.
  
 
 
-[![](https://i.redd.it/pqtv2tnlwpb41.jpg)](https://i.redd.it/pqtv2tnlwpb41.jpg)
+<re-img src="pqtv2tnlwpb41.jpg"></re-img>
 
  
 When I say 'cleaning up the data' what does it actually mean? Mostly it depends on your problem. At first, you may get your data from some source in a very unstructured format, like, from a website. For extracting the content of a web page, you would scrape through it, and with that, you would get a lot of gibberish along with the actual content. You might not need all of it though. 
@@ -31,7 +31,7 @@ And then I came across [this](https://stackoverflow.com/questions/1732348/regex-
  
 
 
-[![](https://1.bp.blogspot.com/-eH4h7c8eN_w/XnZ09LAtTnI/AAAAAAAAM1A/pjBimgQsWpkgl1guCDHTdU3Jh8HY_P87wCLcBGAsYHQ/s640/stackoverflow_regex_parser.png)](https://1.bp.blogspot.com/-eH4h7c8eN_w/XnZ09LAtTnI/AAAAAAAAM1A/pjBimgQsWpkgl1guCDHTdU3Jh8HY_P87wCLcBGAsYHQ/s1600/stackoverflow_regex_parser.png)
+<re-img src="stackoverflow_regex_parser.png"></re-img>
 
  
  

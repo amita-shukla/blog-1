@@ -10,7 +10,7 @@ In my previous post [Going The Functional Way](http://blog.amitashukla.in/2017/0
  
 
 
-| [![Recursion-google](https://4.bp.blogspot.com/-JEAvmp4-ZgE/WL0Gsg3YKZI/AAAAAAAAFU8/4IMbHJCa5LoSiNcjaCQxQwx-Exicf1VLQCLcB/s320/rec.png \"Recursion\")](https://4.bp.blogspot.com/-JEAvmp4-ZgE/WL0Gsg3YKZI/AAAAAAAAFU8/4IMbHJCa5LoSiNcjaCQxQwx-Exicf1VLQCLcB/s1600/rec.png) |
+<re-img src="rec.png"></re-img>
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | When Google plays Recursively with You! |
 

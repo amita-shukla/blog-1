@@ -50,7 +50,7 @@ Clicking on the option provided me with the links that can be hosted on several 
  
 
 
-[![](http://4.bp.blogspot.com/-iK89vvb5cvc/VppfHBKQoMI/AAAAAAAAAww/JYX_Z8BNOc8/s400/Links-Photo-Sharing.png)](http://4.bp.blogspot.com/-iK89vvb5cvc/VppfHBKQoMI/AAAAAAAAAww/JYX_Z8BNOc8/s1600/Links-Photo-Sharing.png)
+<re-img src="Links-Photo-Sharing.png"></re-img>
 
  
 

@@ -33,7 +33,7 @@ As I went on reading code written by my colleagues in Scala, I realized that the
  
 
 
-[![](https://4.bp.blogspot.com/-Lsl1fJzasZ8/WJnHJPEqpQI/AAAAAAAAFR0/z0Gvp491Cx44Bk1njFAfBb4MCe5YuqG2ACLcB/s1600/FP.png)](https://4.bp.blogspot.com/-Lsl1fJzasZ8/WJnHJPEqpQI/AAAAAAAAFR0/z0Gvp491Cx44Bk1njFAfBb4MCe5YuqG2ACLcB/s1600/FP.png)
+<re-img src="FP.png"></re-img>
 
  
 

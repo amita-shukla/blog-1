@@ -10,7 +10,7 @@ I use git for most of my projects now, at work and off work. While I am easily a
  
 
 
-[![](https://imgs.xkcd.com/comics/git.png)](https://imgs.xkcd.com/comics/git.png)
+<re-img src="git.png"></re-img>
 
  
 Let's go bottom-up: 
@@ -234,7 +234,7 @@ We'll be moving on to commits next. Let's take some rest and revisit the command
  
 
 
-[![](https://1.bp.blogspot.com/-Ze2SiBflkZ4/XbtF1TjELcI/AAAAAAAALL4/IDC6W-b5moU0eGu2eN60aZ4pxfXW1ybmQCLcBGAsYHQ/s320/take_a_break_git.gif)](https://1.bp.blogspot.com/-Ze2SiBflkZ4/XbtF1TjELcI/AAAAAAAALL4/IDC6W-b5moU0eGu2eN60aZ4pxfXW1ybmQCLcBGAsYHQ/s1600/take_a_break_git.gif)
+<re-img src="take_a_break_git.gif"></re-img>
 
  
  

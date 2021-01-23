@@ -12,7 +12,7 @@ Here are a few habits that I follow to make myself more and more efficient as a 
  
 
 
-[![](https://4.bp.blogspot.com/-oaUVhocsUhM/WaLnXO55xgI/AAAAAAAAGSI/8Cv6X96NPvMv79k1P9tXLQPmiWEIQaOWgCLcBGAs/s320/UPSTART.png)](https://4.bp.blogspot.com/-oaUVhocsUhM/WaLnXO55xgI/AAAAAAAAGSI/8Cv6X96NPvMv79k1P9tXLQPmiWEIQaOWgCLcBGAs/s1600/UPSTART.png)
+<re-img src="UPSTART.png"></re-img>
 
  
  
@@ -51,7 +51,7 @@ When you write awesome code, what is the point in keeping it hidden? Show Off. T
  
 
 
-[![](https://1.bp.blogspot.com/-OGLGVyt9Zl8/WaA4rjPnVWI/AAAAAAAAGQY/FxAzPedcMaAENIChNkhxOo_C_iHPVOplgCEwYBhgL/s320/git.png)](https://1.bp.blogspot.com/-OGLGVyt9Zl8/WaA4rjPnVWI/AAAAAAAAGQY/FxAzPedcMaAENIChNkhxOo_C_iHPVOplgCEwYBhgL/s1600/git.png)
+<re-img src="git.png"></re-img>
 
  
 
@@ -70,7 +70,7 @@ Quite often you must have stumbled upon pattern matching. And be it any programm
  
 
 
-[![](https://2.bp.blogspot.com/-p2_he1Enp7s/WaA4Vemh4pI/AAAAAAAAGQQ/do8lD19dHo4QifGQZNoYIAj0wBwRHagqwCLcBGAs/s320/regex.png)](https://2.bp.blogspot.com/-p2_he1Enp7s/WaA4Vemh4pI/AAAAAAAAGQQ/do8lD19dHo4QifGQZNoYIAj0wBwRHagqwCLcBGAs/s1600/regex.png)
+<re-img src="regex.png"></re-img>
 
  
 Here is the basic regular expression notation: 
@@ -103,7 +103,7 @@ Then just type this single letter command and escape from the tedious task.
  
 
 
-[![](https://4.bp.blogspot.com/-p49gjTFJaDs/WaEhP44LWCI/AAAAAAAAGQk/1HILXtDQIqkx52WydZs5s5WEas_ZiRw2QCLcBGAs/s1600/aliases.png)](https://4.bp.blogspot.com/-p49gjTFJaDs/WaEhP44LWCI/AAAAAAAAGQk/1HILXtDQIqkx52WydZs5s5WEas_ZiRw2QCLcBGAs/s1600/aliases.png)
+<re-img src="aliases.png"></re-img>
 
  
 
@@ -124,7 +124,7 @@ When we are involved in work, we need some place to keep temporary data, steps o
 - Auto completion
 - Document map etc.
 
-[![](https://3.bp.blogspot.com/-k6IpkulQxoU/WaEiy3LJ3uI/AAAAAAAAGQw/XkADFBi2ohYaMZI5moZzGozaXgFI5VD_gCLcBGAs/s1600/notepadpp.jpg)](https://3.bp.blogspot.com/-k6IpkulQxoU/WaEiy3LJ3uI/AAAAAAAAGQw/XkADFBi2ohYaMZI5moZzGozaXgFI5VD_gCLcBGAs/s1600/notepadpp.jpg)
+<re-img src="notepadpp.jpg"></re-img>
 
  
 Keep all the clutter out of your mind and on a notepad. Want to remember a set of commands? Note them down. Want to remember some file paths? Note them down. Want to remember execution steps? Note them down. At any later point of time, save these notes and get a raw documentation! 
@@ -140,7 +140,7 @@ Bonus tip: Enter`data:text/html, <html contenteditable>` on your google chrome n
 
 ### 5. Be Active On StackOverflow
 
-[![](https://2.bp.blogspot.com/-WKxU88pIUII/WaEl8gtUIVI/AAAAAAAAGQ8/1EWVFVnz0uEOwNOEe-2H5WB9kdZ9E-VigCLcBGAs/s320/so.jpg)](https://2.bp.blogspot.com/-WKxU88pIUII/WaEl8gtUIVI/AAAAAAAAGQ8/1EWVFVnz0uEOwNOEe-2H5WB9kdZ9E-VigCLcBGAs/s1600/so.jpg)
+<re-img src="so.jpg"></re-img>
 
  
 Firing a query on Google, and getting the answer from [StackOverflow](http://stackoverflow.com/) saves our day (and our career). What we forget is that it is a community run by people like us. And by saying 'being active' I do not mean just anonymously searching the answers to your questions, but creating an account there and actually 'being there' in as many ways possible. But why should you take the burden? 
@@ -156,7 +156,7 @@ You get help from other people, and in return, you help other programmers out th
 
 #### Earn Reputation.
 
-[![](https://1.bp.blogspot.com/-5Jl2Gb8irRw/WaEq4uwjKFI/AAAAAAAAGRM/nYbjzpIyjJsn29g3EileNt6AwwJ4mlWdQCLcBGAs/s1600/so_flair.png)](https://1.bp.blogspot.com/-5Jl2Gb8irRw/WaEq4uwjKFI/AAAAAAAAGRM/nYbjzpIyjJsn29g3EileNt6AwwJ4mlWdQCLcBGAs/s1600/so_flair.png)
+<re-img src="so_flair.png"></re-img>
 
  
 
@@ -183,7 +183,7 @@ The terminal can be our friend if we know to use its potential to the fullest. U
  
 
 
-[![](https://1.bp.blogspot.com/-3lVkUO_0vsg/WaLQskeQJMI/AAAAAAAAGRc/DTk_oTKnwVgVct6BthvBy-kk-6H7dwdxQCLcBGAs/s320/shell.png)](https://1.bp.blogspot.com/-3lVkUO_0vsg/WaLQskeQJMI/AAAAAAAAGRc/DTk_oTKnwVgVct6BthvBy-kk-6H7dwdxQCLcBGAs/s1600/shell.png)
+<re-img src="shell.png"></re-img>
 
  
 
@@ -254,7 +254,7 @@ If you end up addressing a large crowd, you will have to make presentations and 
  
 
 
-[![](https://3.bp.blogspot.com/-8K18VnEM2aU/WaLZwUrtWuI/AAAAAAAAGRs/RoTEA2IsNk4bbDJQH0jpMBG_mpERnmmWQCLcBGAs/s320/diagrams.png)](https://3.bp.blogspot.com/-8K18VnEM2aU/WaLZwUrtWuI/AAAAAAAAGRs/RoTEA2IsNk4bbDJQH0jpMBG_mpERnmmWQCLcBGAs/s1600/diagrams.png)
+<re-img src="diagrams.png"></re-img>
 
  
 
@@ -308,7 +308,7 @@ I can't emphasize this point enough. There are excellent pieces of literature wh
  
 
 
-[![](https://1.bp.blogspot.com/-Qg88CHCpJB0/WaLfYuH3jSI/AAAAAAAAGR8/AlIVcdNl8sE-bij49SsNeqw0N5dkXOVMQCLcBGAs/s320/how-to-read.jpg)](https://1.bp.blogspot.com/-Qg88CHCpJB0/WaLfYuH3jSI/AAAAAAAAGR8/AlIVcdNl8sE-bij49SsNeqw0N5dkXOVMQCLcBGAs/s1600/how-to-read.jpg)
+<re-img src="how-to-read.jpg"></re-img>
 
  
 

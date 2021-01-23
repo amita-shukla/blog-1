@@ -42,16 +42,27 @@ do
   # echo "file_content: ${file_content}"
   dir_name=${date}--${slug}
   file_name="index.md"
-  file_path=${posts_dir}/${dir_name}/${file_name}
-  mkdir ${posts_dir}/${dir_name}
+  post_dir=${posts_dir}/${dir_name}
+  file_path=${post_dir}/${file_name}
+  mkdir ${post_dir}
   # join_tags=$(printf ",\"%s" "${tags[@]}")
   # file_content="---\ntitle:${title}\ntags:[${join_tags}]\nauthor: Amita Shukla---\n\n${markdown_body}"
   echo "adding content to file ${file_path}"
   echo -e ${file_content} > ${file_path}
   echo "reading ${file_path} for imageurls..."
-  grep -Eo "https?://[^][ ]+.(jpg|png|gif)" $file_path | sort -u > ${posts_dir}/${dir_name}/img_urls.txt
+  img_urls_file=${post_dir}/img_urls.txt
+  grep -Eo "https?://[^][ ]+.(jpg|png|gif)" $file_path | sort -u > ${img_urls_file}
   echo "downloading urls..."
-  wget -i ${posts_dir}/${dir_name}/img_urls.txt -P ${posts_dir}/${dir_name}
+  wget -i ${img_urls_file} -P ${post_dir}
   echo "images for $slug downloaded."
+  echo "replacing image urls with image tag"
+  while read line
+  do
+    echo "url read: $line"
+    base_img_file=$(basename $line)
+    echo "base_img_file: $base_img_file"
+    echo "running command: sed -i \"s~.*${line}.*~<re-img src=\"${base_img_file}\"></re-img>~g\" ${file_path}"
+    sed -i "s~.*${line}.*~<re-img src=\"${base_img_file}\"></re-img>~g" ${file_path}
+  done < ${img_urls_file}
 done
 echo "all files processed successfully"

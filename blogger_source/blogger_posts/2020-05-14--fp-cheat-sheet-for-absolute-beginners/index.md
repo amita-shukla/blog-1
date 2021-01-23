@@ -11,7 +11,7 @@ Functional Programming languages, in general, turn into a challenging venture at
  
 
 
-[![](https://1.bp.blogspot.com/-of1367G_UEw/Xr0YgC8QLyI/AAAAAAAANWo/6zVvXqXDTC4_GSrzMsF1X6q9Gf2hUKCgwCK4BGAsYHg/s320/meme.jpg)](https://1.bp.blogspot.com/-of1367G_UEw/Xr0YgC8QLyI/AAAAAAAANWo/6zVvXqXDTC4_GSrzMsF1X6q9Gf2hUKCgwCK4BGAsYHg/meme.jpg)
+<re-img src="meme.jpg"></re-img>
 
  
 

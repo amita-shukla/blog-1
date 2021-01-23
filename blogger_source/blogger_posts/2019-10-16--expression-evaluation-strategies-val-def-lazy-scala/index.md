@@ -67,7 +67,7 @@ This is because **Scala differentiates between functions and methods**. The 'fun
  
 
 
-[![](https://1.bp.blogspot.com/-l4lUeMRIY2M/XadmgbFuDVI/AAAAAAAALA0/qUGzB2tcbGscuPR4RCXiGGwbjKYkFO9ZwCLcBGAsYHQ/s320/scala_meme.jpg)](https://1.bp.blogspot.com/-l4lUeMRIY2M/XadmgbFuDVI/AAAAAAAALA0/qUGzB2tcbGscuPR4RCXiGGwbjKYkFO9ZwCLcBGAsYHQ/s1600/scala_meme.jpg)
+<re-img src="scala_meme.jpg"></re-img>
 
  
  

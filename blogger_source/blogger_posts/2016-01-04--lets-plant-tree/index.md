@@ -6,7 +6,7 @@ author: Amita Shukla
 ---
 
 
-[![](http://4.bp.blogspot.com/-ajriRld_14w/VoqIpnNSJCI/AAAAAAAAAsw/FDBRk_-CLXw/s320/1ff9c42b-52ba-429d-aaaf-f0c06bc1e894.jpg)](http://4.bp.blogspot.com/-ajriRld_14w/VoqIpnNSJCI/AAAAAAAAAsw/FDBRk_-CLXw/s1600/1ff9c42b-52ba-429d-aaaf-f0c06bc1e894.jpg)
+<re-img src="1ff9c42b-52ba-429d-aaaf-f0c06bc1e894.jpg"></re-img>
 
  
 Trees seem like an interesting topic but scared to start? Lets start by learning the basics of trees and move on to play with them! Like the trees' structure in relevance to computer science, we need to start from the root. 
@@ -24,7 +24,7 @@ If you have not read about trees before, this will blow your mind. A recursive d
 Somewhat like this: 
 
 
-[![](http://www.sqa.org.uk/e-learning/LinkedDS04CD/images/pic026.jpg)](http://www.sqa.org.uk/e-learning/LinkedDS04CD/images/pic026.jpg)
+<re-img src="pic026.jpg"></re-img>
 
  
 Done with the textbook definition, why should we bother about binary trees? 

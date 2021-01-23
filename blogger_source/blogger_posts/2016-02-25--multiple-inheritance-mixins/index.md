@@ -19,7 +19,7 @@ Consider the inheritance situation as displayed below:
  
 
 
-[![](https://4.bp.blogspot.com/-YvYw4MTsW64/VtHTSpQa6oI/AAAAAAAAAx4/AqK0ZjxpPZkdING188Hek_mRRGcJkQ4WgCKgB/s1600/Diamond%252BProblem.png)](https://4.bp.blogspot.com/-YvYw4MTsW64/VtHTSpQa6oI/AAAAAAAAAx4/AqK0ZjxpPZkdING188Hek_mRRGcJkQ4WgCKgB/s1600/Diamond%252BProblem.png)
+<re-img src="Diamond%252BProblem.png"></re-img>
 
  
 

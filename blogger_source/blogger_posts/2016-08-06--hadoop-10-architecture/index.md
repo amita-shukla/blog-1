@@ -57,7 +57,7 @@ Let’s have a look at the following figure to understand the work-flow of Hadoo
  
 
 
-[![](https://2.bp.blogspot.com/-a2HnO1tuoSU/V6ZK9OMP2NI/AAAAAAAABlQ/dTfzh-da73Eww6at-8C8AVuDRBUVrxosACLcB/s640/hadoop2.x-components-architecture.png)](https://2.bp.blogspot.com/-a2HnO1tuoSU/V6ZK9OMP2NI/AAAAAAAABlQ/dTfzh-da73Eww6at-8C8AVuDRBUVrxosACLcB/s1600/hadoop2.x-components-architecture.png)
+<re-img src="hadoop2.x-components-architecture.png"></re-img>
 
  
 

@@ -22,7 +22,7 @@ And when it comes to the look of your page. What does wonders is:
 
 ### CSS !!
 
-[![](https://2.bp.blogspot.com/-DNLmmOlaZP8/V1Rg8-JI4kI/AAAAAAAABMY/I843zqOZC5MHJ9IVKzyzAoUAws2oeTMTQCLcB/s1600/blog_css.png)](https://2.bp.blogspot.com/-DNLmmOlaZP8/V1Rg8-JI4kI/AAAAAAAABMY/I843zqOZC5MHJ9IVKzyzAoUAws2oeTMTQCLcB/s1600/blog_css.png)
+<re-img src="blog_css.png"></re-img>
 
  
 First I needed to find out the class that surrounds this image. 

@@ -9,7 +9,7 @@ author: Amita Shukla
  
 
 
-[![Github](https://1.bp.blogspot.com/-wHOJz6aX0Mk/V1QxYb3-n0I/AAAAAAAABL0/MQfFIdPTZ0wCkoTr8EJ9X-G8j1Q4WUqGACLcB/s1600/Github.png \"Github\")](https://1.bp.blogspot.com/-wHOJz6aX0Mk/V1QxYb3-n0I/AAAAAAAABL0/MQfFIdPTZ0wCkoTr8EJ9X-G8j1Q4WUqGACLcB/s1600/Github.png)
+<re-img src="Github.png"></re-img>
 
  
 Its been a while I have been working with git and Github. But I almost forgot how confused I got at the the starting! I could understand all the theory and command, but how to start? This was a big question back then. 

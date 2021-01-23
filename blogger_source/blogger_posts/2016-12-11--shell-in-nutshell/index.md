@@ -11,7 +11,7 @@ It looks like I am getting quite proverbial these days. For those who didn't und
  
 
 
-[![](https://4.bp.blogspot.com/-9iag99Llw-M/WEaLilMFRRI/AAAAAAAAFPM/73BBEPdmUroYGnCtAKbbw_v9jVKvXWOmACLcB/s320/m1rI9.png)](https://4.bp.blogspot.com/-9iag99Llw-M/WEaLilMFRRI/AAAAAAAAFPM/73BBEPdmUroYGnCtAKbbw_v9jVKvXWOmACLcB/s1600/m1rI9.png)
+<re-img src="m1rI9.png"></re-img>
 
  
 

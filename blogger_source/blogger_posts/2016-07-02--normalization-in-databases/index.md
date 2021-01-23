@@ -54,14 +54,14 @@ For an FD to be fully functional, any subset of the candidate key (i.e. the prim
 
 Consider the following diagrams for a relation R(ABCD), here the arrows represent dependency.
 
-| [![](https://1.bp.blogspot.com/-B98Be2W44Mc/V3ZPh8bumSI/AAAAAAAABOs/TlFmJii3KfAzo0tc3VQBA521ZHR1JtoJACLcB/s1600/Fully%252BFunctional%252BDependency.png)](https://1.bp.blogspot.com/-B98Be2W44Mc/V3ZPh8bumSI/AAAAAAAABOs/TlFmJii3KfAzo0tc3VQBA521ZHR1JtoJACLcB/s1600/Fully%252BFunctional%252BDependency.png) |
+<re-img src="Fully%252BFunctional%252BDependency.png"></re-img>
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Fully Functional Dependency |
 
  
 
 
-| [![](https://2.bp.blogspot.com/-0C0A464XgsU/V3ZP-adQklI/AAAAAAAABOw/FTrTT_26-aQo6isUxeJ9ft12_DnZ2XSzACLcB/s1600/Partial%252BDependency.png)](https://2.bp.blogspot.com/-0C0A464XgsU/V3ZP-adQklI/AAAAAAAABOw/FTrTT_26-aQo6isUxeJ9ft12_DnZ2XSzACLcB/s1600/Partial%252BDependency.png) |
+<re-img src="Partial%252BDependency.png"></re-img>
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Partial Dependency |
 
@@ -82,7 +82,7 @@ But first, we must discuss what should be done if we find a relation that is not
 
 A relation can be decomposed into multiple relations in 2NF. The partial dependencies with the same attribute on the left are combined together to form a separate relation. Consider the following diagram:
 
-[![](https://4.bp.blogspot.com/-0C0A464XgsU/V3ZP-adQklI/AAAAAAAABO4/F7NmOheyNVcuoBMjewiACIDMU2VaoC_4ACKgB/s1600/Partial%252BDependency.png)](https://4.bp.blogspot.com/-0C0A464XgsU/V3ZP-adQklI/AAAAAAAABO4/F7NmOheyNVcuoBMjewiACIDMU2VaoC_4ACKgB/s1600/Partial%252BDependency.png)
+<re-img src="Partial%252BDependency.png"></re-img>
 
  
 
@@ -110,14 +110,14 @@ R2(B, C) \[Primary Key : B]
  
 
 
-| [![](https://3.bp.blogspot.com/-B98Be2W44Mc/V3ZPh8bumSI/AAAAAAAABO0/XkJIIb8ceRQovPz-IwS8K314RRjJ2JXAgCKgB/s1600/Fully%252BFunctional%252BDependency.png)](https://3.bp.blogspot.com/-B98Be2W44Mc/V3ZPh8bumSI/AAAAAAAABO0/XkJIIb8ceRQovPz-IwS8K314RRjJ2JXAgCKgB/s1600/Fully%252BFunctional%252BDependency.png) |
+<re-img src="Fully%252BFunctional%252BDependency.png"></re-img>
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | R1 in 2 NF |
 
  
 
 
-| [![](https://3.bp.blogspot.com/-9WgR-Qd_Bjo/V3acYI8RLtI/AAAAAAAABQA/keQ8eI1g7PASQSzeX2tgb3LQj3HjVKFGwCLcB/s1600/R2%252BIn%252B2%252BNF.png)](https://3.bp.blogspot.com/-9WgR-Qd_Bjo/V3acYI8RLtI/AAAAAAAABQA/keQ8eI1g7PASQSzeX2tgb3LQj3HjVKFGwCLcB/s1600/R2%252BIn%252B2%252BNF.png) |
+<re-img src="R2%252BIn%252B2%252BNF.png"></re-img>
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | R2 in 2NF |
 
@@ -143,7 +143,7 @@ AB→D
 
 C →D
 
-[![](https://2.bp.blogspot.com/-qI9BVFFvhew/V3Z6DSi7HAI/AAAAAAAABPM/kb4YvKwHaHcQC_q1NfZ_ZTsBQrPnPi-EACLcB/s1600/Not%252BIn%252B3NF.png)](https://2.bp.blogspot.com/-qI9BVFFvhew/V3Z6DSi7HAI/AAAAAAAABPM/kb4YvKwHaHcQC_q1NfZ_ZTsBQrPnPi-EACLcB/s1600/Not%252BIn%252B3NF.png)
+<re-img src="Not%252BIn%252B3NF.png"></re-img>
 
  
 
@@ -169,11 +169,11 @@ R2(CD) \[Primary Key : C]
  
 
 
-| [![](https://2.bp.blogspot.com/-KvqlY8he8iA/V3Z60tnXBFI/AAAAAAAABPU/oWcSwgouNdwYob6edEEgVGwU5LpElQpIACLcB/s1600/R1%252BIn%252B3NF.png)](https://2.bp.blogspot.com/-KvqlY8he8iA/V3Z60tnXBFI/AAAAAAAABPU/oWcSwgouNdwYob6edEEgVGwU5LpElQpIACLcB/s1600/R1%252BIn%252B3NF.png) |
+<re-img src="R1%252BIn%252B3NF.png"></re-img>
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | R1 in 3 NF |
 
-| [![](https://3.bp.blogspot.com/-tkrREusspjI/V3Z7p5Umo5I/AAAAAAAABPg/8fIy1QK1SkciNk45AVpFCpKftFgQ5ZoKQCLcB/s1600/R2%252BIn%252B3NF.png)](https://3.bp.blogspot.com/-tkrREusspjI/V3Z7p5Umo5I/AAAAAAAABPg/8fIy1QK1SkciNk45AVpFCpKftFgQ5ZoKQCLcB/s1600/R2%252BIn%252B3NF.png) |
+<re-img src="R2%252BIn%252B3NF.png"></re-img>
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | R2 in 3 NF |
 
@@ -204,7 +204,7 @@ Below is an example depicting a relation which is in 3 NF but not in BCNF:
  
 
 
-| [![](https://3.bp.blogspot.com/-QbabxlUaZlc/V3aduDnAolI/AAAAAAAABQM/DIZz7GxyrIQQKaBZm0S_PXgHZxjzeXClgCLcB/s1600/Not%252BIn%252B3NF.png)](https://3.bp.blogspot.com/-QbabxlUaZlc/V3aduDnAolI/AAAAAAAABQM/DIZz7GxyrIQQKaBZm0S_PXgHZxjzeXClgCLcB/s1600/Not%252BIn%252B3NF.png) |
+<re-img src="Not%252BIn%252B3NF.png"></re-img>
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | In 3 NF but NOT in BCNF |
 

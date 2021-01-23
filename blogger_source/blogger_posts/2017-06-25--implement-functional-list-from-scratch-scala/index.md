@@ -25,7 +25,7 @@ In my previous [post](http://blog.amitashukla.in/2017/02/why-functional-programm
  
 
 
-[![](https://3.bp.blogspot.com/-bs3U7ItWSLQ/WU06favmttI/AAAAAAAAFZ8/Ms1d1bTYRrATK4wF3TWPGtnW_5pauN3yACLcBGAs/s320/keep-calm-and-do-it-yourself.png)](https://3.bp.blogspot.com/-bs3U7ItWSLQ/WU06favmttI/AAAAAAAAFZ8/Ms1d1bTYRrATK4wF3TWPGtnW_5pauN3yACLcBGAs/s1600/keep-calm-and-do-it-yourself.png)
+<re-img src="keep-calm-and-do-it-yourself.png"></re-img>
 
  
  
@@ -65,7 +65,7 @@ Before coding anything, let's ponder over what exactly are we going to make. Her
 Fundamentally, a linked list is a chain of nodes each referring to exactly one other node until you reach the end of the chain. Lists preserve order, can contain duplicates, can insert, remove elements in constant time (the first element, of course). 
 
 
-[![](https://4.bp.blogspot.com/-gjXJzX72dqs/WU_NPI74VcI/AAAAAAAAFbw/TqWvlBrtSF8CIjC7kYbd2rPsiPPwGxDdgCLcBGAs/s320/linked-list.png)](https://4.bp.blogspot.com/-gjXJzX72dqs/WU_NPI74VcI/AAAAAAAAFbw/TqWvlBrtSF8CIjC7kYbd2rPsiPPwGxDdgCLcBGAs/s1600/linked-list.png)
+<re-img src="linked-list.png"></re-img>
 
  
 Linked List enables to make Scala's list **immutable**. Why immutable? I discussed the need of immutability in my post [Going The Functional](http://blog.amitashukla.in/2017/02/why-functional-programming.html)[Way](http://blog.amitashukla.in/2017/02/why-functional-programming.html). In short, we can say that immutability lets you write a code that is free of side effects. 
@@ -83,7 +83,7 @@ Our list should be able to hold a piece of data (let's call it `head`), point to
  
 
 
-[![](https://3.bp.blogspot.com/-Tbku9YpHBY4/WU5QZmDZ7OI/AAAAAAAAFao/tKMotw8lQaE_dYTM09DgsLVgMwZA7j2KACLcBGAs/s1600/MyList.png)](https://3.bp.blogspot.com/-Tbku9YpHBY4/WU5QZmDZ7OI/AAAAAAAAFao/tKMotw8lQaE_dYTM09DgsLVgMwZA7j2KACLcBGAs/s1600/MyList.png)
+<re-img src="MyList.png"></re-img>
 
  
 However, this list doesn't suggest a way to indicate the end of the list. At first, it may occur to assign the `head` and the `tail` as `null`. But `null` has drawbacks associated with it (say, `NullPointerException` ). So, we need each node of the list to be either of the two types: 

@@ -19,7 +19,7 @@ Dynamic programming deals with optimization problems. This implies that this tec
  
 
 
-[![](https://1.bp.blogspot.com/-Ipk2UXKZCzA/V1QvPmNEJoI/AAAAAAAABLo/QMoA3Rcjw7Et1sQvnF2yRLPhmkJtVqX0QCLcB/s320/Blog_DP_Quote.png)](https://1.bp.blogspot.com/-Ipk2UXKZCzA/V1QvPmNEJoI/AAAAAAAABLo/QMoA3Rcjw7Et1sQvnF2yRLPhmkJtVqX0QCLcB/s1600/Blog_DP_Quote.png)
+<re-img src="Blog_DP_Quote.png"></re-img>
 
  
  

@@ -17,7 +17,7 @@ One of the solutions to the 4-Queen's Puzzle is:
  
 
 
-[![](http://4.bp.blogspot.com/-qrch24vNM4Q/VoVttnOzI9I/AAAAAAAAAr0/8woPBuzHis8/s1600/NQueen.png)](http://4.bp.blogspot.com/-qrch24vNM4Q/VoVttnOzI9I/AAAAAAAAAr0/8woPBuzHis8/s1600/NQueen.png)
+<re-img src="NQueen.png"></re-img>
 
  
 Solutions to this problem exist for all natural numbers N, with N=2 and N=3 as exception. 
@@ -139,7 +139,7 @@ false otherwise
 But now we need to map these boolean arrays to our 2 dimentional board: 
 
 
-| [![](http://4.bp.blogspot.com/-qiH-64xzPN4/VoV85r-YqyI/AAAAAAAAAsQ/OprNx8Q_AXM/s1600/DownDiag.png)](http://4.bp.blogspot.com/-qiH-64xzPN4/VoV85r-YqyI/AAAAAAAAAsQ/OprNx8Q_AXM/s1600/DownDiag.png) |
+<re-img src="DownDiag.png"></re-img>
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | upDiagonal = row + col |
 
@@ -160,7 +160,7 @@ But now we need to map these boolean arrays to our 2 dimentional board:
  
 
 
-| [![](http://3.bp.blogspot.com/-znpNqpsZHR8/VoV85sEp0hI/AAAAAAAAAsM/CVq84A0BCEg/s1600/UpDiag.png)](http://3.bp.blogspot.com/-znpNqpsZHR8/VoV85sEp0hI/AAAAAAAAAsM/CVq84A0BCEg/s1600/UpDiag.png) |
+<re-img src="UpDiag.png"></re-img>
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | downDiagonal = (boardSize - 1) + row - col |
 

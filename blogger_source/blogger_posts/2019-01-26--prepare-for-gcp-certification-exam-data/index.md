@@ -50,7 +50,7 @@ Most of them were based on which were tool was appropriate at what situation. He
  
 
 
-[![](https://1.bp.blogspot.com/-xCrCGPRZaD8/XEy6UCY1fOI/AAAAAAAAJAc/w6inBYlllIY5v0c6WubJU4A1RF10cvlxgCLcBGAs/s320/GCP.png)](https://1.bp.blogspot.com/-xCrCGPRZaD8/XEy6UCY1fOI/AAAAAAAAJAc/w6inBYlllIY5v0c6WubJU4A1RF10cvlxgCLcBGAs/s1600/GCP.png)
+<re-img src="GCP.png"></re-img>
 
  
 
