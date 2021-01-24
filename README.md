@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4e24a428-9862-4780-a83c-394809b92249/deploy-status)](https://app.netlify.com/sites/lucid-brown-a29dc1/deploys)
+
 # Blog
 
 Have a peek »»» [https://www.attejuvonen.fi](https://www.attejuvonen.fi)
