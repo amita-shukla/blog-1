@@ -1,5 +1,5 @@
 ---
-title: Dynamic Programming : Rod Cutting Problem
+title: "Dynamic Programming : Rod Cutting Problem"
 tags: ["ALGORITHMS","DATA STRUCTURES","JAVA","PROGRAMMING"]
 cover: 07-rodcutting-example.jpg
 author: Amita Shukla
