@@ -17,21 +17,31 @@ const Teaser = props => {
         title,
         tags,
         author,
-        cover: {
-          children: [{ fluid }]
-        }
+        cover
+        // cover: {children}
+        // cover: {
+          // children: [{ fluid }]
+        // }
       }
     },
     index
   } = props;
 
+  // const fluid1 = (!!cover) ? cover.children[{fluid}] : {}
+  // const children = cover || {}
+  // const [{fluid}] = children || {} 
+  // let { children: [{fluid}] } = cover;
+  // let { children } = cover;
+  // let [{fluid}] = children;
+
   return (
     <React.Fragment>
       <li>
         <Link to={slug} key={slug} className="link">
-          <div className="gatsby-image-outer-wrapper">
-            <Picture fluid={fluid} critical={index==0}/>
-          </div>
+          {/* <div className="gatsby-image-outer-wrapper"> */}
+            {/* {(cover==null) || (cover==undefined) || (children==undefined) || (children[0]==undefined) || (fluid==undefined) ? <div></div> : <Picture fluid={fluid} critical={index==0}/> } */}
+            {/* {(cover!=null) ? <Picture fluid={fluid} critical={index==0}/> : <div></div> } */}
+          {/* </div> */}
           <h1>
             {title} <FaArrowRight className="arrow" />
           </h1>
