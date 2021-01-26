@@ -38,10 +38,12 @@ const Teaser = props => {
     <React.Fragment>
       <li>
         <Link to={slug} key={slug} className="link">
-          {/* <div className="gatsby-image-outer-wrapper"> */}
-            {/* {(cover==null) || (cover==undefined) || (children==undefined) || (children[0]==undefined) || (fluid==undefined) ? <div></div> : <Picture fluid={fluid} critical={index==0}/> } */}
-            {/* {(cover!=null) ? <Picture fluid={fluid} critical={index==0}/> : <div></div> } */}
-          {/* </div> */}
+            {cover !== null && cover.childImageSharp !==null ? (
+              <div className="gatsby-image-outer-wrapper">
+                <Picture
+                  fluid={cover.childImageSharp.fluid}
+                  critical={index==0}
+                /> </div>) : null }
           <h1>
             {title} <FaArrowRight className="arrow" />
           </h1>
@@ -58,7 +60,8 @@ const Teaser = props => {
               </span>
             )}
           </p>
-          <p>{excerpt}</p>
+          {/* <p><span> {excerpt}</span></p> */}
+          <p> {excerpt}</p>
         </Link>
       </li>
 

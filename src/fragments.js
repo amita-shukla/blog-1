@@ -19,8 +19,7 @@ const blogPostTeaserFields = `
                 title
                 tags
                 cover {
-                    children {
-                        ... on ImageSharp {
+                    childImageSharp {
                             fluid(maxWidth: 800, maxHeight: 360, cropFocus: CENTER, quality: 90, traceSVG: { color: "#f9ebd2" }) {
                                 tracedSVG
                                 aspectRatio
@@ -30,7 +29,6 @@ const blogPostTeaserFields = `
                                 srcSetWebp
                                 sizes
                             }
-                        }
                     }
                 }
             }
