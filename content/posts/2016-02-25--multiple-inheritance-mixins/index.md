@@ -1,7 +1,7 @@
 ---
 title: Multiple Inheritance and Mixins
 tags: ["JAVA","PROGRAMMING"]
-cover: Diamond%252BProblem.png
+cover: Diamond_Problem.png
 author: Amita Shukla
 ---
 
@@ -19,7 +19,7 @@ Consider the inheritance situation as displayed below:
  
 
 
-<re-img src="Diamond%252BProblem.png"></re-img>
+<re-img src="Diamond_Problem.png"></re-img>
 
  
 

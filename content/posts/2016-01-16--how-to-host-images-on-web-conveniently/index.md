@@ -14,7 +14,7 @@ As I was developing my blog, I had to post my photograph for the 'About Me' sect
 I went on to write my content as: 
  
 
-
+```
  <div class=\"textwidget\">
  <img height=\"240\" src=\"\" style=\"margin-bottom: 10px;\" width=\"240\" /> <br />
  <br />
@@ -25,7 +25,7 @@ I went on to write my content as:
  blah blah blah...<br />
  <center> </center>
  </div>
-
+```
  
 The main problem here was the attribute '**src**'. For displaying the image, I needed it to host somewhere on the web, so that I can provide the link here.
 
@@ -61,7 +61,7 @@ I quickly clicked on the HTML option that handed me with the following code:
  
 
 
-
+```
  <center>
  <a href=\"http://s1159.photobucket.com/user/amitashukla0906/media/Amita-Shukla_
 
@@ -72,7 +72,7 @@ I quickly clicked on the HTML option that handed me with the following code:
  photo Amita-Shukla_zpsxjmxhbdt.jpg\"/></a>
  </center>
 
- 
+``` 
 
 
  

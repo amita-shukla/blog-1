@@ -10,7 +10,7 @@ While I was making my [File Scanner Project](https://github.com/amita-shukla/fil
  
 
 
-<re-img src="JAVA_%2Bwatch_service_api.jpg"></re-img>
+<re-img src="JAVA_watch_service_api.jpg"></re-img>
 
  
  

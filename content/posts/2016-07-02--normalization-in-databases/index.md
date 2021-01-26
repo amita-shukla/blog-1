@@ -1,7 +1,7 @@
 ---
 title: Normalization in Databases
 tags: ["DATABASE","TECHNOLOGY"]
-cover: Fully%252BFunctional%252BDependency.png
+cover: Fully_Functional_Dependency.png
 author: Amita Shukla
 ---
 
@@ -54,14 +54,14 @@ For an FD to be fully functional, any subset of the candidate key (i.e. the prim
 
 Consider the following diagrams for a relation R(ABCD), here the arrows represent dependency.
 
-<re-img src="Fully%252BFunctional%252BDependency.png"></re-img>
+<re-img src="Fully_Functional_Dependency.png"></re-img>
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Fully Functional Dependency |
 
  
 
 
-<re-img src="Partial%252BDependency.png"></re-img>
+<re-img src="Partial_Dependency.png"></re-img>
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Partial Dependency |
 
@@ -82,7 +82,7 @@ But first, we must discuss what should be done if we find a relation that is not
 
 A relation can be decomposed into multiple relations in 2NF. The partial dependencies with the same attribute on the left are combined together to form a separate relation. Consider the following diagram:
 
-<re-img src="Partial%252BDependency.png"></re-img>
+<re-img src="Partial_Dependency.png"></re-img>
 
  
 
@@ -110,14 +110,14 @@ R2(B, C) \[Primary Key : B]
  
 
 
-<re-img src="Fully%252BFunctional%252BDependency.png"></re-img>
+<re-img src="Fully_Functional_Dependency.png"></re-img>
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | R1 in 2 NF |
 
  
 
 
-<re-img src="R2%252BIn%252B2%252BNF.png"></re-img>
+<re-img src="R2_In_2_NF.png"></re-img>
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | R2 in 2NF |
 
@@ -143,7 +143,7 @@ AB→D
 
 C →D
 
-<re-img src="Not%252BIn%252B3NF.png"></re-img>
+<re-img src="Not_In_3NF.png"></re-img>
 
  
 
@@ -169,11 +169,11 @@ R2(CD) \[Primary Key : C]
  
 
 
-<re-img src="R1%252BIn%252B3NF.png"></re-img>
+<re-img src="R1_In_3NF.png"></re-img>
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | R1 in 3 NF |
 
-<re-img src="R2%252BIn%252B3NF.png"></re-img>
+<re-img src="R2_In_3NF.png"></re-img>
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | R2 in 3 NF |
 
@@ -204,7 +204,7 @@ Below is an example depicting a relation which is in 3 NF but not in BCNF:
  
 
 
-<re-img src="Not%252BIn%252B3NF.png"></re-img>
+<re-img src="Not_In_3NF.png"></re-img>
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | In 3 NF but NOT in BCNF |
 
