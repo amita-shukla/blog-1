@@ -84,7 +84,7 @@ export const postQuery = graphql`
         }
       }
     }
-    authornote: markdownRemark(fileAbsolutePath: { regex: "/author/" }) {
+    authornote: markdownRemark(frontmatter: {title: {eq: "author"}}) {
       id
       html
       htmlAst
