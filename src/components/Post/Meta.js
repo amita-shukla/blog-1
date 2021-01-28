@@ -43,10 +43,13 @@ const Meta = props => {
           display: block;
           // flex-flow: row wrap;
           font-size: 0.8em;
-          // background: transparent;
+          // margin: ${theme.space.m} 0;
+          background: transparent;
           color: ${theme.color.neutral.gray.j};
 
           :global(svg) {
+            position: relative;
+            bottom: -0.4em;
             fill: ${theme.icon.color};
             margin: ${theme.space.inline.xs};
           }
