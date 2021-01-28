@@ -50,7 +50,7 @@ const Post = props => {
       <Bodytext content={post} theme={theme} />
       <footer>
           <SocialShare postUrl={postUrl} title={title} excerpt={excerpt} siteDescription={description} coverImage={absolutePath}/>
-          <Author note={authornote} theme={theme} />
+          {/* <Author note={authornote} theme={theme} /> */}
           <NextPrev next={nextPost} prev={prevPost} theme={theme} />
           <Disqus config ={disqusConfig} />
       </footer>
