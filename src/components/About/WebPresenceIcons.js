@@ -7,12 +7,12 @@ const WebPresenceIcons = () => {
     return (
         <div className="wrapper">
             <div className="icons">
-                <a href={config.authorLinkedin} target="_blank"><FaLinkedin/></a>
-                <a href={config.authorGithub} target="_blank"><FaGithub/></a>
-                <a href={config.authorTwitter} target="_blank"><FaTwitter/></a>
-                <a href={config.authorStackoverflow} target="_blank"><FaStackOverflow/></a>
-                <a href={config.authorPocket} target="_blank"><FaGetPocket/></a>
-                <a href={config.authorGoodreads} target="_blank"><FaGoodreads/></a>
+                <a href={config.authorLinkedin} target="_blank" title="LinkedIn"><FaLinkedin/></a>
+                <a href={config.authorGithub} target="_blank" title="Github"><FaGithub/></a>
+                <a href={config.authorTwitter} target="_blank" title="Twitter"><FaTwitter/></a>
+                <a href={config.authorStackoverflow} target="_blank" title="StackOverflow"><FaStackOverflow/></a>
+                <a href={config.authorPocket} target="_blank" title="Pocket"><FaGetPocket/></a>
+                <a href={config.authorGoodreads} target="_blank" title="GoodReads"><FaGoodreads/></a>
             </div>
             <style jsx>{`
             .wrapper {

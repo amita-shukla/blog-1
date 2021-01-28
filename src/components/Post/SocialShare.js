@@ -15,12 +15,12 @@ const SocialShare = props => {
     return (
         <React.Fragment>
             <div className="icons">
-                <span><a target='_blank' href={twitterLink}><FaTwitter /></a></span>
-                <span><a target='_blank' href={facebookLink}><FaFacebook /></a> </span>
-                <span><a target='_blank' href={redditLink}><FaReddit /></a> </span>
-                <span><a target='_blank' href={linkedinLink}><FaLinkedin /></a> </span>
-                <span><a target='_blank' href={pocketLink}><FaGetPocket /></a> </span>
-                <span><a target='_blank' href={emailLink}><FaEnvelopeOpen /></a> </span>
+                <span><a target='_blank' href={twitterLink} title="Share on Twitter"><FaTwitter /></a></span>
+                <span><a target='_blank' href={facebookLink} title="Share on Facebook"><FaFacebook /></a> </span>
+                <span><a target='_blank' href={redditLink} title="Share on Reddit"><FaReddit /></a> </span>
+                <span><a target='_blank' href={linkedinLink} title="Share on LinkedIn"><FaLinkedin /></a> </span>
+                <span><a target='_blank' href={pocketLink} title="Share on Pocket"><FaGetPocket /></a> </span>
+                <span><a target='_blank' href={emailLink} title="Email this post"><FaEnvelopeOpen /></a> </span>
             </div>
             <style jsx>{`
             .icons {
