@@ -13,8 +13,8 @@ Google Cloud Platform (GCP) is fairly new in the cloud market, dominated by the 
 ### Google Cloud Certified Professional Data Engineer
 
 _A Professional Data Engineer enables data-driven decision making by collecting, transforming, and visualizing data. The Data Engineer designs, builds, maintains, and troubleshoots data processing systems with a particular emphasis on the security, reliability, fault-tolerance, scalability, fidelity, and efficiency of such systems._ 
-_ 
-_ A Data Engineer Certification proves that you are able to leverage the cloud platform for development, from using cloud storage, processing batch and real-time data, publish/subscribe messages, build machine learning models, save results to data warehouse, to visualize this data on cloud. The certification calls for not mere knowledge but prior hands-on with the GCP suite. 
+ 
+_ A Data Engineer Certification proves that you are able to leverage the cloud platform for development, from using cloud storage, processing batch and real-time data, publish/subscribe messages, build machine learning models, save results to data warehouse, to visualize this data on cloud. The certification calls for not mere knowledge but prior hands-on with the GCP suite._
  
 
 
@@ -41,7 +41,7 @@ The course is lengthy and thorough (it took me 1 month to finish it). Also, it i
  
 
 
-The exam is quite scenario bases. Thinking that the Case Studies mentioned in the guide only ones coming your way? Nope. There are many more scenario based questions, that are asked, testing your knowledge on the myriad of tools available.
+The exam is quite scenario based. Thinking that the Case Studies mentioned in the guide only ones coming your way? Nope. There are many more scenario based questions, that are asked, testing your knowledge on the myriad of tools available.
 
  
 Most of them were based on which were tool was appropriate at what situation. Here is a link that helped me prepare for the same: <https://cloud.google.com/storage-options/> 

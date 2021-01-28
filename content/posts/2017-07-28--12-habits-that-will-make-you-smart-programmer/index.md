@@ -74,11 +74,11 @@ Quite often you must have stumbled upon pattern matching. And be it any programm
 
  
 Here is the basic regular expression notation: 
-\[ ] matches a single character contained within the brackets. 
-\[^ ] matches a single character that is not contained within the brackets. 
-^ matches the first character of the string 
-$ matches the last character of the string 
-\* matches characters preceding it one or more times 
+`\[ ]` matches a single character contained within the brackets. 
+`\[^ ]` matches a single character that is not contained within the brackets. 
+`^` matches the first character of the string 
+`$` matches the last character of the string 
+`\*` matches characters preceding it one or more times 
  
 There are several cheat sheets available on the internet, it is useful to keep one bookmarked. [Here](https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/) is what I keep with me. 
  
@@ -256,11 +256,6 @@ If you end up addressing a large crowd, you will have to make presentations and 
 
 <re-img src="diagrams.png"></re-img>
 
- 
-
-
-### 
-
 
 ### 8. Read Code. A lot of Code.
 
@@ -336,7 +331,3 @@ For a more comprehensive list, you can read [this](https://stackoverflow.com/que
 
 That's all for now. Eat right, exercise, and don't drink too much coffee. Try to be the best and you will surely get better and better. Have some excellent tips that you follow? The comments section is all yours! 
  
- 
- 
-
-
