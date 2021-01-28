@@ -5,7 +5,6 @@ cover: 1*ok5iNXeD1HjzDHhKUcl5cQ.gif
 author: Amita Shukla
 ---
 
-
 Let's talk about testing today. And testing is _hard_. The most common way we have been testing is what is known as **Example Based Testing**. 
 Following steps are followed for writing test cases: 
 
@@ -60,20 +59,20 @@ What can be the properties of an `add` function?
 
 Let's run this property: 
 
-
+```shell
  [info] ! Add.identity: Falsified after 0 passed tests.
  [info] > ARG_0: 0
  [info] > ARG_0_ORIGINAL: 1
-
+```
  
 This test failed as expected, but the property alone is not sufficient. Suppose our bad code already contains this handling: 
 Let's run this property now: 
 
-
+```shell
  > test
  > [info] AddTest:
  > [info] + Add.identity: OK, passed 100 tests.
-
+```
  
 This test easily passed. There can be many wrong such implementations of a function on an integer that return the same integer back. What properties can make `add` fool-proof to test? 
 Let's try putting one more property: 
@@ -84,17 +83,17 @@ Let's try putting one more property:
  
 Running this now: 
 
-
+```shell
  > test
  > [info] AddTest:
  > [info] + Add.identity: OK, passed 100 tests.
  > [info] + Add.commutative: OK, passed 100 tests.
-
+```
  
 Shockingly, our commutative property does not suffice. But why? Let's try printing the randomly generated tests here: 
 Running tests now: 
 
-
+```shell
  > test
  > [info] AddTest:
  x = -283328897 and y = 1735471989
@@ -199,7 +198,7 @@ Running tests now:
  x = -2147483648 and y = 2147483647
  x = -2147483648 and y = -987661912
  [info] + Add.commutative: OK, passed 100 tests.
-
+```
  
 As we see here, a lot of random test cases are generated, but our implementation puts a default answer for all the test cases that it doesn't cover, i.e. 42. So if `x = 1099702277` and `y = -2034975121`, `add(1099702277,-2034975121)` = 42 = `add(-2034975121,2034975121)`. 
  
@@ -220,7 +219,7 @@ Here, `Gen.posNum[Int]` generates a set of positive integers. The `Gen` class ha
  
 Testing this: 
 
-
+```shell
  > test
  > [info] AddTest:
  [info] + Add.identity: OK, passed 100 tests.
@@ -232,7 +231,7 @@ Testing this:
  [info] > ARG_1_ORIGINAL: 378231530
  [info] ScalaCheck
  [info] Failed: Total 3, Failed 1, Errors 0, Passed 2
-
+```
  
 One more thing to mention here. We see scala check mentions two cases, one like 
 `ARG_0` and `ARG_1`, and other like `ARG_0_ORIGINAL` and `ARG_1_ORIGINAL`. This is a feature called Shrinking. 
@@ -244,14 +243,14 @@ One more thing to mention here. We see scala check mentions two cases, one like
 Shrinking is a mechanism by which we can simplify failure cases to present the minimal one, readable to the human eye. So as we see above, there are 2 sets of failed test cases presented, one with ARG_0 and ARG_1 and the other as ARG_0_ORIGINAL and ARG_1_ORIGINAL, where: 
  
 
-
+```shell
  ARG_0: 1
 
  ARG_1: 59
 
  ARG_0_ORIGINAL: 722748975
  ARG_1_ORIGINAL: 378231530
-
+```
  
 The value of ARG_0 and ARG_1 is simplified as compared to the original one. 
  
@@ -259,7 +258,7 @@ We can disable shrinking using `forAllNoShrink` method:
  
  
 
-
+```shell
  [IJ]sbt:ScalacheckDemo> test
  [info] Compiling 1 Scala source to /home/ashukla/code/scala/ScalacheckDemo/target/scala-2.13/test-classes ...
  [info] Done compiling.
@@ -271,7 +270,7 @@ We can disable shrinking using `forAllNoShrink` method:
  [info] AddTest:
  [info] ScalaCheck
  [info] Failed: Total 3, Failed 1, Errors 0, Passed 2
-
+```
  
 Observe that here the failing test case given are huge integers, without further reduction. 
 So that's all with the simple example. Let's go deeper and see how we would go about writing tests for a `Tree` data structure... 
@@ -298,5 +297,4 @@ There are many more ways in which we can think of defining properties. Still not
  
 It's been a while that PBT has existed, and its poularity has been growing ever since. It is being used in a number of real world applications. I myself am using it at my work. PBT was originally developed as part of QuickCheck framework in Haskell and since then it has been developed in a number of languages. Give it a shot and you might never look back! 
  
-
 
