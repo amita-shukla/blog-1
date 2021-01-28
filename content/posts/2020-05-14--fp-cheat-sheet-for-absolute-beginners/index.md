@@ -37,17 +37,18 @@ In Haskell, everything is a function. These functions can be composed together, 
 
 Let's define a function that takes an integer, adds 1, and returns another integer: 
 
-
+```haskell
  addOne :: Int -> Int
  addOne x = x + 1
-
+```
  
 
 Now this goes by the law, as `addOne` needs to take only 1 parameter. Let's move over to another function `add`, that takes two numbers and adds them to return another number:
 
+```haskell
  add :: Int -> Int -> Int
  add x y = x + y
-
+```
  
 
 This function `add` actually takes one param only, that is the first integer x, and then it returns another function, that takes the second integer y and then returns the final value. So now I am going to cease writing (and stop thinking) in terms of what a function takes as input, and what it returns as output. Instead, let us think of it in terms of what the type signature is.
@@ -62,9 +63,10 @@ Also, functions can be named as symbols also. In this cheat sheet, I have mentio
 
 Remember in mathematical equations how we could cancel a variable from both sides of an equation? We can do something similar here, but of course, there are some conditions. One that I use is this: _We can remove an input parameter name, if it is the last parameter and is being used on both sides of the function_. e.g. `addOne` can be shortened as:
 
+```haskell
  addOne :: Int -> Int
  addOne = (+1)
-
+```
  
 
 Now, this is not a strict rule, and I am not sure how valid this rule stands. We can read more about it in the [Haskell wiki](https://wiki.haskell.org/Pointfree).
@@ -87,9 +89,103 @@ I am purposefully not going into more details of Haskell syntax, as I want this 
 
 Having said that, here is the list of functions, definitions, constructs I keep coming back to again and again, whenever I have to read FP code or write a functional style code. 
 
+```haskell
+-- basic functions 
+id :: a -> a
 
+const :: a -> b -> a
+
+flip :: (a -> b -> c) -> b -> a -> c 
+
+-- function composition
+-- compose
+(.) :: (b -> c) -> (a -> b) -> a -> c
+g :: Int -> Bool
+f :: String -> Int
+h :: String -> Bool
+h = (g . f)
+h x = g $ f x
+
+-- fmap
+<$> :: Functor f => (a->b) -> f a -> f b
+<$> :: (a -> b) -> [a] -> [b]
+
+-- apply
+<*> :: Applicative f => f (a -> b) -> f a -> f b
+<*> :: [(a -> b)] -> [a] -> [b]
+
+<**> :: Applicative f => f a -> f (a -> b) -> f b -- <*> with arguments reversed, this is not equivalent to `flip <*>`
+
+pure :: Applicative f => a -> f a
+pure :: a -> [a]
+
+-- lifts
+lift0 :: Applicative f => a -> f a
+lift1 :: Applicative f => (a -> b) -> f a -> f b -- liftA
+lift2 :: Applicative f => (a -> b -> c) -> f a -> f b -> f c --liftA2
+lift3 :: Applicative f => (a -> b -> c -> d) -> f a -> f b -> f c -> f d --liftA3
+
+-- When liftA2 is fully applied, 
+-- as in `liftA2 f arg1 arg2`, it is typically better style to instead use `f <$> arg1 <*> arg2`.
+lift0 = pure
+lift1 = <$>
+lift2 f a b = f <$> a <*> b
+lift3 f a b c = lift2 f a b <*> c
+lift4 f a b c d = lift3 f a b c <*> d
+
+-- bind
+>>= :: Monad m => m a -> (a -> m b) -> m b
+
+-- reverse bind, observe the resemblence with `<$>` and `<*>` type signatures
+ =<< :: Monad m => (a -> m b) -> m a -> m b
+concatMap :: (a -> [b]) -> [a] -> [b] -- concatMap :: Foldable t => (a -> [b]) -> t a -> t b
+
+--join
+join :: Monad m => m (m a) -> m a
+concat :: [[a]] -> a -- concat :: Foldable t => t [a] -> [a]
+
+return :: Monad m => a -> m a -- same as `pure`, for monads
+
+-- kleisli composition : composition within Monad environment
+<=< :: Monad m => (b -> m c) -> (a -> m b) -> a -> m c -- note resemblance with function composition
+g :: Int -> [Bool]
+f :: String -> [Int]
+h :: String -> [Bool]
+h = (g <=< f)
+
+-- compare it with function composition: 
+(.) ::            (b ->   c) -> (a ->   b) -> a ->   c
+g :: Int -> Bool
+f :: String -> Int
+h :: String -> Bool
+h = (g . f)
+
+-- mappend -- semigroup + monoid
+<> :: a -> a -> a
+
+-- Foldable
+foldl :: Foldable t => (b -> a -> b) -> b -> t a -> b
+foldr :: Foldable t => (a -> b -> b) -> b -> t a -> b
+
+-- Traversable
+traverse :: (Traversable t, Applicative f) => (a -> f b) -> t a -> f (t b)
+sequence :: (Traversable t, Monad m) => t (m a) -> m (t a)
+
+-- State
+newtype State s a = State {runState :: s -> (s, a)}
+
+exec :: State s a => s -> s
+
+eval :: State s a => s -> a
+
+-- Transformer
+newtype StateT s f a => StateT { runStateT :: s -> f (s,a) }
+
+```
  
 
 
 Hope this list would be helpful to someone (other than me!). All these functions are a topic in themselves and deserve a separate blog post for each of them. I also have tried to explain a lot of such FP practices using Scala and Haskell [here](https://blog.amitashukla.in/2019/07/unfolding-folds.html), [here](https://blog.amitashukla.in/2017/06/implement-functional-list-from-scratch-scala.html), [here](https://blog.amitashukla.in/2017/03/tail-recursion-in-functional-programming.html) and [here](https://blog.amitashukla.in/2017/02/why-functional-programming.html). I have also refrained from mentioning the laws associated with type classes to which most of these functions belong, but they also form an interesting read.
+
+
 
