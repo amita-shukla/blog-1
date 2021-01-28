@@ -25,21 +25,24 @@ const SocialShare = props => {
             <style jsx>{`
             .icons {
                 font-size: 20px;
-                display: inline-block;
+                // display: inline-block;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 25px;
                 :global(svg) {
-                    margin: 2px;
+                    margin: 10px;
                     fill: ${theme.color.brand.primary} !important;
                 }
             }
             @from-width desktop {
                 .icons :global(a svg) {
-                    margin-top: 2px;
+                    margin: 10px;
                     transition: 500ms;
                 }
                 @media (hover: hover) {
                     .icons :global(a:hover svg) {
-                        margin-top: 0px;
-                        margin-bottom: 10px;
+                        // margin-top: 0px;
+                        // margin-bottom: 10px;
                         fill: ${theme.color.brand.primaryDark} !important;
                     }
                 }
