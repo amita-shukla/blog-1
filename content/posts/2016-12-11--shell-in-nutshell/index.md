@@ -59,22 +59,15 @@ If I have a variable `$var` and I want to append '`_temp`' to `$var` and assign 
 
 ! is used for indirect expansion, that is, introducing one level of expansion of variable. Let me illustrate:
 
-`` 
-
-
- var1=first
- var2=second
- i=1
- readvar=var$i
- echo $readvar #prints var1
- echo ${!readvar} #prints first, i.e. the value of $var1
-
+``` 
+var1=first
+var2=second
+i=1
+readvar=var$i
+echo $readvar #prints var1
+echo ${!readvar} #prints first, i.e. the value of $var1
+```
  
-
-
- 
-
-
 ### Replace command
 
 The replace command comes handy whenever I want to replace string in-place in files. As simple as:
@@ -103,16 +96,3 @@ Sed is a stream editor, comes handy when you want to modify files, or do some co
 
 
 The list seems too short for now. Possibly it is rather the experience that counts. We can learn a hundred facts from books, as I did in college, but it is its application that brings that confidence in you.
-
- 
-
-
- 
-
-
- 
-
-
- 
-
-

@@ -5,23 +5,35 @@ cover: rec.png
 author: Amita Shukla
 ---
 
-
 In my previous post [Going The Functional Way](http://blog.amitashukla.in/2017/02/why-functional-programming.html), I discussed the reasons for venturing into functional programming. Taking my explorations further, I soon realised a truth: Functional Programming relies heavily on Recursion. 
  
 
 
 <re-img src="rec.png"></re-img>
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| When Google plays Recursively with You! |
-
  
  
 Consider a simple task: Write a function to calculate the factorial of a given number 'n'. 
 Let's attempt it with Java. 
- 
+
+```java
+public int factorial(int n){
+  int fact = 1;
+  for(int i = n; i > 0; i--) fact *= i;
+  return fact;
+}
+``` 
  
 Attempting the same with Scala: 
- 
+
+```scala
+def factorial(n : Int) :Int = {
+  def loop(acc : Int, n : Int) : Int = {
+    if(n == 0) acc
+    else loop(acc*n,n-1)
+  }
+  loop(1,n)
+}
+```  
  
 You see there is a lot of difference. First Java code is the Imperative style whereas the second Scala code is the Functional Style. At first I thought it is just another way of looking through a problem, but looks like it's a lot more than that. Functional Style uses Recursion a lot. A hell lot. 
  
@@ -38,6 +50,15 @@ Look at the second code now. There is a function in a function (Oh! it's 'functi
 Yes we know it - Recursion is bad for a code's health. For any given large number, recursion can get costly on memory. It is because the memory has to keep track of variables used in each cycle of recursion.
 
 Consider a recursive function to calculate factorial in java:
+
+```java
+public int recFactorial(int n){
+  if(n==0)
+    return 1
+  else
+    return n*recFactorial(n-1);
+}
+```
 
 This code, though may be intuitive, can result in memory and performance related issues. 
  
@@ -75,6 +96,15 @@ Given the reason that a function is written recursively, how can we approach a s
 
 Functional Programming gives us the freedom to define a function inside a function. Hence, we can create another function called 'loop', which takes up an extra parameter called `acc`. This variable, as its name suggests, is used to 'accumulate' the result over multiple recursive calls. 
  
+```scala
+def factorial(n : Int) :Int = {
+  def loop(acc : Int, n : Int) : Int = {
+    if(n == 0) acc
+    else loop(acc*n,n-1)
+  }
+  loop(1,n)
+}
+```
 
 
 The original function is used to call the helper function, supplying it with the initial value of the accumulator. We keep the outer function to maintain the signature of the factorial function, so that the user is not affected by the implementation side of it. 
@@ -85,7 +115,22 @@ The original function is used to call the helper function, supplying it with the
 
 In Scala, only directly recursive calls to the current function are optimised by the compiler to be used in a way equivalent to that of Iteration. One can require that a function is tail recursive by using the annotation `@tailrec`
 
+```scala
+import scala.annotation.tailrec
+
+object factExercise {
+  def factorial(n : Int) :Int = {
+    @tailrec
+    def loop(acc : Int, n : Int) : Int = {
+      if(n == 0) acc
+      else loop(acc*n,n-1)
+    }
+    loop(1,n)
+  }
+
+  factorial(4)
+}
+```
  
 I hope now the not-so-intuitive-functional-code starts to make sense. 
 A side - effect free language, though seems to have adopted complex ways, unfolds into really simple version as we get used to it. Let's see what all it has for us!
-
