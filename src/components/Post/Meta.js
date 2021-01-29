@@ -20,7 +20,7 @@ const Meta = props => {
       {tags && tags.map(tag => 
         <span key={tag}>
           
-          <Link to={`/tag/${tag.split(" ").join("-")}`}>
+          <Link to={`/tag/${tag.split(" ").join("-").toLowerCase()}`}>
             <span>
               <FaTag size={18} />
               {tag}
