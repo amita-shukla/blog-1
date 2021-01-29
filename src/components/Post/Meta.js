@@ -43,7 +43,7 @@ const Meta = props => {
           display: block;
           // flex-flow: row wrap;
           font-size: 0.8em;
-          // margin: ${theme.space.m} 0;
+          margin: ${theme.space.m} 0;
           background: transparent;
           color: ${theme.color.neutral.gray.j};
 
