@@ -6,6 +6,7 @@ import Picture from "gatsby-image";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
+import Meta from "../Post/Meta";
 
 const Teaser = props => {
   const {
@@ -13,16 +14,8 @@ const Teaser = props => {
     post: {
       excerpt,
       fields: { slug, prefix },
-      frontmatter: {
-        title,
-        tags,
-        author,
-        cover
-        // cover: {children}
-        // cover: {
-          // children: [{ fluid }]
-        // }
-      }
+      frontmatter: { title, tags, author, cover },
+      timeToRead
     },
     index
   } = props;
@@ -38,28 +31,31 @@ const Teaser = props => {
     <React.Fragment>
       <li>
         <Link to={slug} key={slug} className="link">
-            {cover !== null && cover.childImageSharp !==null ? (
+            {/* {cover !== null && cover.childImageSharp !==null ? (
               <div className="gatsby-image-outer-wrapper">
                 <Picture
                   fluid={cover.childImageSharp.fluid}
                   critical={index==0}
-                /> </div>) : null }
+                /> </div>) : null } */}
           <h1>
-            {title} <FaArrowRight className="arrow" />
+            {title} {/*<FaArrowRight className="arrow" />*/}
           </h1>
           <p className="meta">
+            <Meta prefix={prefix} author={author} tags={tags} timeToRead={timeToRead} theme={theme} />
+          </p>
+          {/* <p className="meta">
             <span>
               <FaCalendar size={18} /> {prefix}
             </span>
             {/* <span>
               <FaUser size={18} /> {author}
             </span> */}
-            {tags && tags.map(tag =>
+            {/*tags && tags.map(tag =>
               <span key={tag}>
               <FaTag size={18} /> {tag}
               </span>
             )}
-          </p>
+          </p> */}
           {/* <p><span> {excerpt}</span></p> */}
           <p> {excerpt}</p>
         </Link>
@@ -91,7 +87,7 @@ const Teaser = props => {
           }
 
           &::after {
-            border-top: 1px solid ${theme.line.color};
+            // border-top: 1px solid ${theme.line.color};
             content: "";
             height: 0;
             position: absolute;
@@ -102,6 +98,9 @@ const Teaser = props => {
             width: 50%;
           }
 
+          &:first-child {
+            margin-top: 10px;   
+          }
           &:last-child {
             margin-bottom: 10px;
           }
@@ -124,7 +123,7 @@ const Teaser = props => {
           display: flex;
           flex-flow: row wrap;
           font-size: 0.8em;
-          padding: ${theme.space.m} ${theme.space.s};
+          padding: ${theme.space.s} ${theme.space.s};
           background: transparent;
 
           :global(svg) {
@@ -167,7 +166,8 @@ const Teaser = props => {
             transition: all 0.5s;
           }
           .meta {
-            padding: ${`calc(${theme.space.m} * 1.5) ${theme.space.m}`};
+            // padding: ${`calc(${theme.space.m} * 1.5) ${theme.space.m}`};
+            padding: ${theme.space.m} ${theme.space.m};
           }
           p {
             padding: 0 ${theme.space.default};
@@ -191,7 +191,8 @@ const Teaser = props => {
         }
         @from-width desktop {
           li {
-            margin: ${`calc(${theme.space.default} * 4) 0 calc(${theme.space.default} * 5)`};
+            // margin: ${`calc(${theme.space.default} * 4) 0 calc(${theme.space.default} * 5)`};
+            margin: 0 0 0;
             padding: 0 0 ${`calc(${theme.space.default} * 2)`};
 
             &::after {
@@ -213,8 +214,8 @@ const Teaser = props => {
             padding: ${`calc(${theme.space.default} * 1.2) calc(${theme.space.default} * 2) 0`};
           }
           .meta {
-            padding: ${`calc(${theme.space.default} * 1.5) calc(${theme.space.default} * 2)
-              calc(${theme.space.default} * 0.5)`};
+            // padding: ${`calc(${theme.space.default} * 0.25) calc(${theme.space.default} * 2) calc(${theme.space.default} * 0.5)`};
+              padding: 0 ${`calc(${theme.space.default} * 2)`} 0;
           }
           p {
             padding: ${`0 calc(${theme.space.default} * 2)`};
@@ -234,9 +235,9 @@ const Teaser = props => {
                 color: ${theme.blog.h1.hoverColor};
               }
               :global(.arrow) {
-                opacity: 1;
-                stroke: ${theme.color.special.attention};
-                transform: translateX(0);
+                // opacity: 1;
+                // stroke: ${theme.color.special.attention};
+                // transform: translateX(0);
               }
             }
             :global(.gatsby-image-wrapper) {

@@ -5,18 +5,16 @@ import { currDate } from "../../utils/helpers";
 import { FaUser, FaTag, FaCalendar, FaClock } from "react-icons/fa/";
 
 const Meta = props => {
-  const { author: authorName, tags, theme, lastEdit, timeToRead} = props;
+  const { author: authorName, tags, theme, timeToRead} = props;
   const prefix = props.prefix || currDate() /* Intent: get date placeholder for viewing drafts. */
   
-  //TODO: lastEdit
-
   return (
     <div className="meta">
     <p>
         <span>
-          <FaCalendar size={18} /> {prefix}
+          <FaCalendar size={18} />{prefix}
         </span>
-        <span><FaClock size={18}/>{timeToRead} mins</span>
+        <span>  <FaClock size={18}/>{timeToRead} mins</span>
     </p>
     <p>
       {tags && tags.map(tag => 
@@ -62,7 +60,8 @@ const Meta = props => {
         }
         @from-width tablet {
           .meta {
-            margin: ${`calc(${theme.space.m} * 1.5) 0 ${theme.space.m}`};
+            // margin: ${`calc(${theme.space.m} * 1.5) 0 ${theme.space.m}`};
+            margin: ${theme.space.s} 0 ${theme.space.s};
           }
         }
         @media (hover: hover) {
