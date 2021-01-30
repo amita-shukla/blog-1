@@ -49,16 +49,21 @@ const TagsPage = props => {
         <header>
           <Headline title="Posts by tags" theme={theme} />
         </header>
-        {tagList.map(item => (
-          <section key={item[0]}>
-            <h2>
-              <FaTag /> {item[0]}
-            </h2>
-            <List edges={item[1]} theme={theme} />
-          </section>
-        ))}
+        <p> 
+          {tagList.map(item => (
+            <section key={item[0]}>
+              <h2>
+                <FaTag /> {item[0]}
+              </h2>
+              <List edges={item[1]} theme={theme} />
+            </section>
+          ))}
+        </p>
         {/* --- STYLES --- */}
         <style jsx>{`
+          p {
+            margin-top: ${theme.space.l};
+          }
           h2 {
             margin: 0 0 0.5em;
             color: ${theme.color.neutral.gray.j};
