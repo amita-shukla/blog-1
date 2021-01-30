@@ -167,7 +167,7 @@ const Teaser = props => {
           }
           .meta {
             // padding: ${`calc(${theme.space.m} * 1.5) ${theme.space.m}`};
-            // padding: ${theme.space.m} ${theme.space.m};
+            padding: ${theme.space.m} ${theme.space.m};
           }
           p {
             padding: 0 ${theme.space.default};
@@ -215,10 +215,10 @@ const Teaser = props => {
           }
           .meta {
             // padding: ${`calc(${theme.space.default} * 0.25) calc(${theme.space.default} * 2) calc(${theme.space.default} * 0.5)`};
-              padding: 0 ${`calc(${theme.space.default} * 2)`} 0;
+              padding: ${`0 calc(${theme.space.default} * 2) 0`};
           }
           p {
-            padding: ${`0 calc(${theme.space.default} * 2)`};
+            padding: ${`0 calc(${theme.space.default} * 2) 0`};
           }
           li {
             &:hover {
