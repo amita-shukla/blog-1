@@ -40,7 +40,7 @@ const Teaser = props => {
           <h1 className="title">
             {title} {/*<FaArrowRight className="arrow" />*/}
           </h1>
-          <p className="meta">
+          <p className="meta-wrapper">
             <Meta prefix={prefix} author={author} tags={tags} timeToRead={timeToRead} theme={theme} />
           </p>
           {/* <p className="meta">
@@ -119,7 +119,7 @@ const Teaser = props => {
           }
         }
 
-        .meta {
+        .meta-wrapper {
           display: flex;
           flex-flow: row wrap;
           font-size: 0.8em;
@@ -165,7 +165,7 @@ const Teaser = props => {
             padding: ${`calc(${theme.space.default} * 1.5) ${theme.space.default} 0`};
             transition: all 0.5s;
           }
-          .meta {
+          .meta-wrapper {
             // padding: ${`calc(${theme.space.m} * 1.5) ${theme.space.m}`};
             padding: ${theme.space.m} ${theme.space.m};
           }
@@ -213,7 +213,7 @@ const Teaser = props => {
             font-size: 2.5em;
             padding: ${`calc(${theme.space.default} * 1.2) calc(${theme.space.default} * 2) 0`};
           }
-          .meta {
+          .meta-wrapper {
             // padding: ${`calc(${theme.space.default} * 0.25) calc(${theme.space.default} * 2) calc(${theme.space.default} * 0.5)`};
               padding: ${`0 calc(${theme.space.default} * 2) 0`};
           }
