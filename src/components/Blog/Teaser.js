@@ -167,7 +167,7 @@ const Teaser = props => {
           }
           .meta {
             // padding: ${`calc(${theme.space.m} * 1.5) ${theme.space.m}`};
-            padding: ${theme.space.m} ${theme.space.m};
+            // padding: ${theme.space.m} ${theme.space.m};
           }
           p {
             padding: 0 ${theme.space.default};
