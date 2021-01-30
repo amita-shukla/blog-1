@@ -9,7 +9,7 @@ const blogPostTeaserFields = `
     edges {
         node {
             id
-            excerpt
+            excerpt(pruneLength: 200)
             timeToRead
             fields {
                 slug
