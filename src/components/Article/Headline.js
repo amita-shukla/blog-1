@@ -42,13 +42,13 @@ const Headline = props => {
 
         @from-width tablet {
           h1 {
-            font-size: ${`calc(${theme.font.size.xl} * 1.2)`};
+            font-size: ${`calc(${theme.font.size.xxxl} * 1.2)`};
           }
         }
 
         @from-width desktop {
           h1 {
-            font-size: ${`calc(${theme.font.size.xl} * 1.4)`};
+            font-size: ${`calc(${theme.font.size.xxxl} * 1.4)`};
           }
         }
       `}</style>

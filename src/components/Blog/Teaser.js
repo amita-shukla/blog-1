@@ -37,7 +37,7 @@ const Teaser = props => {
                   fluid={cover.childImageSharp.fluid}
                   critical={index==0}
                 /> </div>) : null } */}
-          <h1>
+          <h1 className="title">
             {title} {/*<FaArrowRight className="arrow" />*/}
           </h1>
           <p className="meta">
@@ -106,7 +106,7 @@ const Teaser = props => {
           }
         }
 
-        h1 {
+        .title {
           padding: ${theme.space.m} ${theme.space.s} 0;
           line-height: ${theme.blog.h1.lineHeight};
           font-size: ${theme.blog.h1.size};
@@ -160,7 +160,7 @@ const Teaser = props => {
             }
           }
 
-          h1 {
+          .title {
             font-size: ${`calc(${theme.blog.h1.size} * 1.2)`};
             padding: ${`calc(${theme.space.default} * 1.5) ${theme.space.default} 0`};
             transition: all 0.5s;
@@ -209,7 +209,7 @@ const Teaser = props => {
           :global(.blogItemLink:first-child) > li::before {
             top: ${`calc(${theme.space.default} * -2.75)`};
           }
-          h1 {
+          .title {
             font-size: 2.5em;
             padding: ${`calc(${theme.space.default} * 1.2) calc(${theme.space.default} * 2) 0`};
           }
@@ -231,7 +231,7 @@ const Teaser = props => {
               :global(.gatsby-image-wrapper) {
                 transform: scale(1.1);
               }
-              h1 {
+              .title {
                 color: ${theme.blog.h1.hoverColor};
               }
               :global(.arrow) {

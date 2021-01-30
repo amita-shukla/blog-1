@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
 
+import Article from "../Article";
+import Headline from "../Article/Headline";
 import Teaser from "./Teaser";
 
 const Blog = props => {
@@ -9,6 +11,10 @@ const Blog = props => {
 
   return (
     <React.Fragment>
+    <Article theme={theme}>
+        <header className="header">
+          <Headline title="Blog" theme={theme} />
+        </header>
       <main className="main">
         <ul>
           {posts.map((post,index) => {
@@ -28,11 +34,14 @@ const Blog = props => {
         .main {
           padding: 0 ${theme.space.inset.default};
         }
+        .header {
+          padding: ${`0 calc(${theme.space.default} * 2)`};
+        }
 
         ul {
           list-style: none;
           margin: 0 auto;
-          padding: ${`calc(${theme.space.default} * 1.5) 0 calc(${theme.space.default} * 0.5)`};
+          padding: ${`calc(${theme.space.default} * 0.5) 0 calc(${theme.space.default} * 0.5)`};
         }
 
         @above tablet {
@@ -54,6 +63,7 @@ const Blog = props => {
           }
         }
       `}</style>
+      </Article>
     </React.Fragment>
   );
 };
