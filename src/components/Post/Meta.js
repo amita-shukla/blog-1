@@ -14,7 +14,7 @@ const Meta = props => {
         <span>
           <FaCalendar size={18} />{prefix}
         </span>
-        <span>  <FaClock size={18}/>{timeToRead} mins</span>
+        <span>  <FaClock size={18}/>{timeToRead} minutes read</span>
     </p>
     <p>
       {tags && tags.map(tag => 

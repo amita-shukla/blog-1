@@ -10,6 +10,7 @@ const blogPostTeaserFields = `
         node {
             id
             excerpt
+            timeToRead
             fields {
                 slug
                 prefix
