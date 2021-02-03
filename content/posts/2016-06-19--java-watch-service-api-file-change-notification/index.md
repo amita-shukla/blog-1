@@ -96,8 +96,7 @@ You can get the code and project [here](https://github.com/amita-shukla/file-sca
  
 _Want to suggest edits? Get this post on Github : <https://github.com/amita-shukla/blog/blob/master/21WatchService.md>_
 
-_ 
-Want to view how I tackled other problems in other projects? Check Out : <http://shuklaamita.blogspot.in/2016/02/implement-own-session-mechanism-java.html> 
+_Want to view how I tackled other problems in other projects? Check Out : <http://shuklaamita.blogspot.in/2016/02/implement-own-session-mechanism-java.html>_
  
-EDIT (26/06/2016) : Image added_
+EDIT (26/06/2016) : Image added
 
