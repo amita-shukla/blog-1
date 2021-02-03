@@ -15,18 +15,15 @@ So I tried the following approach:
  
 In my file [script.js](https://github.com/amita-shukla/amita-shukla.github.io/blob/master/js/script.js), I wrote: 
  
-`` 
-
-
+```js
  $(document).ready(function(e) {
  $('.regular-link').click(function(e){
  e.stopPropagation();
  });
  //more code here
  }
-
+```
  
-`
-`The `e.stopPropagation()` prevents an event to bubble up to its parent, i.e, this event is not caught by the parent element `data-slide=\"1\"`. 
+The `e.stopPropagation()` prevents an event to bubble up to its parent, i.e, this event is not caught by the parent element `data-slide=\"1\"`. 
 Now whenever I needed a link to work, I added class `regular-link` in the `<a>` tag and whoa! it works now!
 
