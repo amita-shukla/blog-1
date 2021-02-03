@@ -58,7 +58,9 @@ Dig more: [LoginWebService.java](http://mail-aggregator/src/webservices/LoginWeb
 For creating a unique token, I assume that no two users attempt to login at the same time instant. This assumption holds true until the interface receives a lot of hits.
 
 The token is chosen as: 
- 
+```java
+int token = (int) (System.currentTimeMillis() % 1000000000);
+``` 
 
 
 The code above returns a 9 digit number. 
@@ -69,11 +71,19 @@ The code above returns a 9 digit number.
 
 We can write a function that inserts this token in the database, such as given below. Let the table name be `token`.
 
- 
+```java
+public boolean insertToken(int user_id, int token) throws SQLException {
+	ps = con.prepareStatement("insert into token(user_id, token) values (?,?)");
+	ps.setInt(1, user_id);
+	ps.setInt(2, token);
+	
+	if (ps.executeUpdate() == 1) {
+		return true;
+	}
 
-
- 
-
+	return false;
+}
+```
 
 #### 4. Send token back to client side
 
@@ -98,14 +108,25 @@ For example, here I send the token (int type), whereas I send an arrayList of em
 
 So here, I set the object as token:
 
- 
+```java
+ServerResponse serverResponse = new ServerResponse();
+//a funtion that validates email and password
+Status status = lv.validate(email, password); 
 
+// === some code ===
 
- 
+serverResponse.setStatus(status);
+serverResponse.setObject(token);
 
+// === some more code ===
+
+return serverResponse;
+``` 
 
 This token is wrapped as JSON object and extracted on the client side using AJAX. The access token is saved in the user's browser: 
- 
+```js
+localStorage.setItem("accessToken", data.obj);
+``` 
 
 
  
@@ -118,7 +139,17 @@ Dig in more: [Object type in java](https://docs.oracle.com/javase/7/docs/api/jav
 
 The token is attached with the data for each request that is made after the login as follows:
 
- 
+```java
+invokeService(){
+  // == some code ==
+  data: JSON.stringify(
+      "accessToken" : localStorage.getItem("accessToken");
+      // == other data ==
+  );
+  
+  // == some more code ==
+}
+``` 
 
 
  
@@ -133,42 +164,87 @@ For example, you can check function `invokeAddAccount()` in this [file](https://
 
 The following function makes an SQL query to check if the token exists in the table.
 
- 
-
-
- 
-
+```java
+public ResultSet selectUserIdFromToken(int accessToken) throws SQLException {
+		ResultSet rs = null;
+		ps = con.prepareStatement("select user_id from token where token=?");
+		ps.setInt(1, accessToken);
+		rs = ps.executeQuery();
+		return rs;
+}
+``` 
 
 #### 7. If no entry exists, declare the session invalid.
 
 This function is called in a `Validator` class. If no entry exists, i.e. `selectUserIdFromToken.first()` returns false, an error message is displayed.
 
- 
+```java
+public Status validate(int accessToken) throws SQLException {
+		Status status = new Status();
+		DB_Queries d = DB_Queries.getInstance();
+		// ResultSet rs = null;
+
+		if (!(d.selectUserFromToken(accessToken)).first()) {
+			status.setErrMessage("User Logged Out");
+			status.setResponseStatus(ResponseStatus.FAILURE);
+
+		} else {
+			status.setResponseStatus(ResponseStatus.SUCCESS);
+		}
+
+		return status;
+}
+``` 
 
 
 #### 8. Extract user information if an entry exists
 
 Given a token if it exists, we can extract the corresponding `user_id` from the `token` table. Hence we can obtain all the user information, as a `user` table exists with all the user information with `user_id` as the primary key. 
  
+```java
+DB_Queries d = DB_Queries.getInstance();
 
+rs1 = d.selectUserFromToken(token);
+
+int user_id = 0;
+if (rs1.next()) {
+	user_id = rs1.getInt(1);
+}
+
+//given the user id,
+//extract other information
+ResultSet rs = d.selectEmail(user_id);
+// == more code == 
+```
 
 #### 9. On logging out, delete the token
 
 Once the user clicks on the logout button, the entry of token stored in the browser using the following javascript code.
 
- 
+```js
+function logout() {
+	if (localStorage.getItem("accessToken") != null) {
+		invokeLogout(localStorage.getItem("accessToken"));
+		localStorage.removeItem("accessToken");
+	}
+
+	// == more code ==
+}
+``` 
 
 
 On the server side, we need to delete the token entry. This is a precautionary measure, if suppose the token is not deleted even on logout. Also, once user has logged out, the entry with the token becomes useless. So it should be deleted for reducing memory overhead.
 
- 
-
-
- 
-
-
- 
+```java
+public boolean deleteToken(int accessToken) throws SQLException {
+		ps = con.prepareStatement("delete from token where token=?");
+		ps.setInt(1, accessToken);
+		if (ps.executeUpdate() == 1)
+			return true;
+		else
+			return false;
+}
+```
 
 
 To explore more, you can check out [OAuth 2](http://oauth.net/2/), popular for its use by Google APIs for authentication and authorization.
-
