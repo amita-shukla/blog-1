@@ -14,7 +14,7 @@ As I was developing my blog, I had to post my photograph for the 'About Me' sect
 I went on to write my content as: 
  
 
-```
+```html
  <div class=\"textwidget\">
  <img height=\"240\" src=\"\" style=\"margin-bottom: 10px;\" width=\"240\" /> <br />
  <br />
@@ -61,7 +61,7 @@ I quickly clicked on the HTML option that handed me with the following code:
  
 
 
-```
+```html
  <center>
  <a href=\"http://s1159.photobucket.com/user/amitashukla0906/media/Amita-Shukla_
 
@@ -79,4 +79,3 @@ I quickly clicked on the HTML option that handed me with the following code:
 
 
 Thanks PhotoBucket!
-

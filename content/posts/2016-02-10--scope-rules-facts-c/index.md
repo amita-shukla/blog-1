@@ -4,7 +4,6 @@ tags: ["C"]
 author: Amita Shukla
 ---
 
-
 Variables to programming is the same as words to a language. These are probably the first thing that we start to deal with as soon as we start making programs. But as we go on more and more, we get to face an issue: 
 \"To what parts of the program is this variable accessible?\" 
  
@@ -23,7 +22,14 @@ When we start write a program, we want to govern the way it works, instead of be
 A scope of a name is the part of the program within which the name can be used. 
  
 So, if you use a variable 'a' as follows: 
- 
+
+```c
+if(condition){
+	int a = 1;
+	printf("%d", a); //works
+}
+	printf("%d", a); //compilation error
+```     
  
 then you can access the variable in the scope of the `if` section and no where else. 
  
@@ -71,7 +77,16 @@ What if we want a variable to be accessed outside a function?
 If we declare a function at the beginning of the file, it is accessible all throughout the file. If we place it somewhere in between the definitions of two functions, it is accessible to all functions following the declaration. 
 As beautifully illustrated in K&R : if we want some variables to be common to the `push()` and `pop()` functions, but not visible to other functions such as `main()`, then we can declare them after the `main()` function and before the `push()` and `pop()` functions.
 
- 
+```c
+main() { ... }
+	
+int sp = 0;
+double val[MAXVAL];
+	
+void push(double f) { ... }
+	
+double pop(void) { ... }
+``` 
  
 
 
@@ -81,7 +96,18 @@ But what if we want to use a variable before it is defined?
 or,what if it is defined in a different source file other than in which it is being used?
 
 In such case, we need to declare the variable extern: 
- 
+```c
+In file 1:
+	extern int sp;
+	extern double val[];
+	
+	void push(double f) { ... }
+	double pop(void) { ... }
+	
+In file 2:
+	int sp = 0;
+	double val[MAXVAL];
+```
  
 Here, the variables `sp`, `val` are defined in file 2, so to use them in file 1, we need to declare these variables as `extern` to be accessed by `push()` and `pop()` functions. 
  
@@ -105,5 +131,3 @@ If a variable is declared as static inside a function, they are local to the fun
  
 The external and static variables are restricted to be assigned only constant and initialized only once, whereas automatic and register variables may be constant, or a part of expression, or can be assigned to the result of a function call. 
  
-
-

@@ -33,21 +33,21 @@ These classes are most likely to affect the image in the blog.
 I found out the code as : 
  
 
-
+```css
  .post-image img{
  max-width:100%;
  height:auto;
  }
-
+```
 I changed the attributes here, as: 
  
 
-
+```css
  .post-image img{
  max-width:50%;
  height:auto;
  }
-
+```
  
 
 
@@ -58,7 +58,7 @@ But this caused another problem, all the images were shifted to the left!
 To fix this, I decided to make it up by coding CSS to bring images to the center area of the surrounding `div`. This is done by : 
  
 
-
+```css
  .post-image img{
  display:block;
  margin-left:auto;
@@ -66,7 +66,7 @@ To fix this, I decided to make it up by coding CSS to bring images to the center
  max-width:50%;
  height:auto;
  }
-
+```
 Lets review what these properties do. 
  
 
