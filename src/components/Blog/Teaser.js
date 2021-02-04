@@ -40,22 +40,26 @@ const Teaser = props => {
           <h1 className="title">
             {title} {/*<FaArrowRight className="arrow" />*/}
           </h1>
-          <p className="meta-wrapper">
-            <Meta prefix={prefix} author={author} tags={tags} timeToRead={timeToRead} theme={theme} />
-          </p>
-          {/* <p className="meta">
+          {/* <p className="meta-wrapper"> */}
+            {/* <Meta prefix={prefix} author={author} tags={tags} timeToRead={timeToRead} theme={theme} /> */}
+          {/* </p> */}
+          <p className="meta">
             <span>
               <FaCalendar size={18} /> {prefix}
-            </span>
+              </span>
             {/* <span>
               <FaUser size={18} /> {author}
             </span> */}
-            {/*tags && tags.map(tag =>
+            <div className="tags">
+            {tags && tags.map(tag =>
+              <Link to={`/tag/${tag.split(" ").join("-").toLowerCase()}`}>
               <span key={tag}>
-              <FaTag size={18} /> {tag}
+                <FaTag size={18} /> {tag}
               </span>
+              </Link>
             )}
-          </p> */}
+            </div>
+          </p>
           {/* <p><span> {excerpt}</span></p> */}
           <p> {excerpt}</p>
         </Link>
@@ -119,18 +123,27 @@ const Teaser = props => {
           }
         }
 
-        .meta-wrapper {
-          display: flex;
-          // flex-flow: row wrap;
+
+        .meta {
+          display: block;
           font-size: 0.8em;
           padding: ${theme.space.s} ${theme.space.s};
-          margin: ${theme.space.xxs} 0;
+          margin: ${theme.space.m} 0;
           background: transparent;
 
+          .tags {
+            display: flex;
+            flex-flow: row wrap;
+            font-size: 0.8em;
+          }
+
           :global(svg) {
-            fill: ${theme.icon.color};
+            // fill: ${theme.icon.color};
+            fill: ${theme.text.color.primary};
+            opacity: 0.5;
             margin: ${theme.space.inline.xs};
           }
+
           span {
             align-items: center;
             display: flex;
@@ -166,7 +179,7 @@ const Teaser = props => {
             padding: ${`calc(${theme.space.default} * 1.5) ${theme.space.default} 0`};
             transition: all 0.5s;
           }
-          .meta-wrapper {
+          .meta {
             // padding: ${`calc(${theme.space.m} * 1.5) ${theme.space.m}`};
             padding: ${theme.space.m} ${theme.space.m};
           }
@@ -214,7 +227,7 @@ const Teaser = props => {
             font-size: 2.5em;
             padding: ${`calc(${theme.space.default} * 1.2) calc(${theme.space.default} * 2) 0`};
           }
-          .meta-wrapper {
+          .meta {
             // padding: ${`calc(${theme.space.default} * 0.25) calc(${theme.space.default} * 2) calc(${theme.space.default} * 0.5)`};
               padding: ${`0 calc(${theme.space.default} * 2) 0`};
           }
@@ -253,6 +266,22 @@ const Teaser = props => {
               opacity: 0;
               transition: all 0.5s;
               transform: translateX(-50%);
+            }
+          }
+        }
+        @media (hover: hover) {
+          .meta {
+            :global(a svg) {
+              transition: all 0.5s ease-in-out;
+              -webkit-transition: all 0.5s ease-in-out;
+              -moz-transition: all 0.5s ease-in-out;
+            }
+            :global(a:hover svg) {
+              transition: all 0.5s ease-in-out;
+              -webkit-transition: all 0.5s ease-in-out;
+              -moz-transition: all 0.5s ease-in-out;
+              transform: scale(1.3);
+              color: ${theme.color.brand.primary};
             }
           }
         }
