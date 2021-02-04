@@ -121,9 +121,10 @@ const Teaser = props => {
 
         .meta-wrapper {
           display: flex;
-          flex-flow: row wrap;
+          // flex-flow: row wrap;
           font-size: 0.8em;
           padding: ${theme.space.s} ${theme.space.s};
+          margin: ${theme.space.xxs} 0;
           background: transparent;
 
           :global(svg) {
