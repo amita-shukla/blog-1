@@ -10,6 +10,7 @@ space:
   m: 20px
   l: 40px
   xl: 80px
+  xxl: 100px
   inset:
     default: 20px
     xs: 5px

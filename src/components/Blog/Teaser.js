@@ -74,20 +74,20 @@ const Teaser = props => {
 
         li {
           border: 1px solid transparent;
-          border-radius: ${theme.size.radius.default};
-          margin: ${`calc(${theme.space.default} * 2) 0 calc(${theme.space.default} * 3)`};
+          // border-radius: ${theme.size.radius.default};
+          margin: ${theme.space.l} 0 ${`calc(${theme.space.l} * 3)`};
           padding: ${theme.space.inset.s};
           position: relative;
           transition: all ${theme.time.duration.default};
           background: transparent;
 
           :global(.gatsby-image-outer-wrapper) {
-            border-radius: ${theme.size.radius.default};
-            border: 1px solid ${theme.line.color};
-            overflow: hidden;
+            // border-radius: ${theme.size.radius.default};
+            // border: 1px solid ${theme.line.color};
+            // overflow: hidden;
           }
           :global(.gatsby-image-outer-wrapper img) {
-            z-index: -1;
+            // z-index: -1;
           }
 
           &::after {
@@ -125,7 +125,7 @@ const Teaser = props => {
 
 
         .meta {
-          display: block;
+          // display: block;
           font-size: 0.8em;
           padding: ${theme.space.s} ${theme.space.s};
           margin: ${theme.space.m} 0;
@@ -134,7 +134,7 @@ const Teaser = props => {
           .tags {
             display: flex;
             flex-flow: row wrap;
-            font-size: 0.8em;
+            // flex-shrink: 0;
           }
 
           :global(svg) {
@@ -142,13 +142,16 @@ const Teaser = props => {
             fill: ${theme.text.color.primary};
             opacity: 0.5;
             margin: ${theme.space.inline.xs};
+            position: relative;
+            bottom: -0.4em;
           }
 
           span {
-            align-items: center;
-            display: flex;
+            // align-items: baseline;
+            // display: flex;
             text-transform: uppercase;
             margin: ${theme.space.xs} ${theme.space.s} ${theme.space.xs} 0;
+            font-size: 0.8em;
           }
         }
 
@@ -160,7 +163,7 @@ const Teaser = props => {
 
         @from-width tablet {
           li {
-            margin: ${`calc(${theme.space.default} * 3) 0 calc(${theme.space.default} * 4)`};
+            margin: ${`calc(${theme.space.default} * 3)`} 0 ${theme.space.xl};
             padding: ${theme.space.default};
 
             &::after {
@@ -180,8 +183,8 @@ const Teaser = props => {
             transition: all 0.5s;
           }
           .meta {
-            // padding: ${`calc(${theme.space.m} * 1.5) ${theme.space.m}`};
-            padding: ${theme.space.m} ${theme.space.m};
+            // padding: ${`calc(${theme.space.default} * 1.5) ${theme.space.default}`};
+            padding: ${theme.space.default} ${theme.space.default};
           }
           p {
             padding: 0 ${theme.space.default};
@@ -205,9 +208,9 @@ const Teaser = props => {
         }
         @from-width desktop {
           li {
-            // margin: ${`calc(${theme.space.default} * 4) 0 calc(${theme.space.default} * 5)`};
+            // margin: ${theme.space.xl} 0 ${theme.space.xxl};
             margin: 0 0 0;
-            padding: 0 0 ${`calc(${theme.space.default} * 2)`};
+            padding: 0 0 ${theme.space.l};
 
             &::after {
               bottom: ${`calc(${theme.space.default} * -1.5)`};
@@ -225,14 +228,14 @@ const Teaser = props => {
           }
           .title {
             font-size: 2.5em;
-            padding: ${`calc(${theme.space.default} * 1.2) calc(${theme.space.default} * 2) 0`};
+            padding: ${`calc(${theme.space.default} * 1.2)`} ${theme.space.l} 0;
           }
           .meta {
             // padding: ${`calc(${theme.space.default} * 0.25) calc(${theme.space.default} * 2) calc(${theme.space.default} * 0.5)`};
-              padding: ${`0 calc(${theme.space.default} * 2) 0`};
+              padding: 0 ${theme.space.l} 0;
           }
           p {
-            padding: ${`0 calc(${theme.space.default} * 2) 0`};
+            padding: 0 ${theme.space.l} 0;
           }
           li {
             &:hover {
@@ -255,17 +258,17 @@ const Teaser = props => {
               }
             }
             :global(.gatsby-image-wrapper) {
-              transition: all ${theme.time.duration.default};
+              // transition: all ${theme.time.duration.default};
             }
             :global(.arrow) {
-              display: inline-block;
-              fill: ${theme.color.special.attention};
-              stroke: ${theme.color.special.attention};
-              stroke-width: 40;
-              stroke-linecap: round;
-              opacity: 0;
-              transition: all 0.5s;
-              transform: translateX(-50%);
+              // display: inline-block;
+              // fill: ${theme.color.special.attention};
+              // stroke: ${theme.color.special.attention};
+              // stroke-width: 40;
+              // stroke-linecap: round;
+              // opacity: 0;
+              // transition: all 0.5s;
+              // transform: translateX(-50%);
             }
           }
         }
