@@ -71,7 +71,7 @@ module.exports = {
             options: {
               maxWidth: 800,
               backgroundColor: "transparent",
-              tracedSVG: { color: '#f9ebd2' }
+              tracedSVG: { color: '#d1d0e4' }
             }
           },
           {
@@ -80,7 +80,7 @@ module.exports = {
               tag: 're-img',
               maxWidth: 800,
               quality: 90,
-              tracedSVG: { color: '#f9ebd2' },
+              tracedSVG: { color: '#d1d0e4'},
               generateTracedSVG: true
             }
           },

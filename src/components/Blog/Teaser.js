@@ -45,7 +45,7 @@ const Teaser = props => {
           {/* </p> */}
           <p className="meta">
             <span>
-              <FaCalendar size={18} /> {prefix}
+              <FaCalendar /> {prefix}
               </span>
             {/* <span>
               <FaUser size={18} /> {author}
@@ -54,7 +54,7 @@ const Teaser = props => {
             {tags && tags.map(tag =>
               <Link to={`/tag/${tag.split(" ").join("-").toLowerCase()}`}>
               <span key={tag}>
-                <FaTag size={18} /> {tag}
+                <FaTag /> {tag}
               </span>
               </Link>
             )}
@@ -75,7 +75,7 @@ const Teaser = props => {
         li {
           border: 1px solid transparent;
           // border-radius: ${theme.size.radius.default};
-          margin: ${theme.space.l} 0 ${`calc(${theme.space.l} * 3)`};
+          margin: ${theme.space.l} 0 ${theme.space.l};
           padding: ${theme.space.inset.s};
           position: relative;
           transition: all ${theme.time.duration.default};
@@ -114,12 +114,13 @@ const Teaser = props => {
           padding: ${theme.space.m} ${theme.space.s} 0;
           line-height: ${theme.blog.h1.lineHeight};
           font-size: ${theme.blog.h1.size};
+          // color: ${theme.color.brand.primary};
           text-remove-gap: both;
 
           :global(.arrow) {
-            display: none;
-            position: relative;
-            top: 7px;
+            // display: none;
+            // position: relative;
+            // top: 7px;
           }
         }
 
@@ -127,32 +128,38 @@ const Teaser = props => {
         .meta {
           // display: block;
           font-size: 0.8em;
-          padding: ${theme.space.s} ${theme.space.s};
+          // padding: ${theme.space.s} ${theme.space.s};
           margin: ${theme.space.m} 0;
           background: transparent;
 
-          .tags {
-            display: flex;
-            flex-flow: row wrap;
-            // flex-shrink: 0;
-          }
+
+
+        }
+
+        span {
+          // align-items: baseline;
+          // display: flex;
+          text-transform: uppercase;
+          margin: ${theme.space.xs} ${theme.space.s} ${theme.space.xs} 0;
+          font-size: 0.8em;
 
           :global(svg) {
-            // fill: ${theme.icon.color};
-            fill: ${theme.text.color.primary};
-            opacity: 0.5;
+            // fill: ${theme.color.brand.hover};
+            // fill: ${theme.text.color.primary};
+            fill: ${theme.icon.color};
+            height: 18px;
+            width: 18px;
+            // opacity: 0.4;
             margin: ${theme.space.inline.xs};
             position: relative;
-            bottom: -0.4em;
+            bottom: -0.5em;
           }
+        }
 
-          span {
-            // align-items: baseline;
-            // display: flex;
-            text-transform: uppercase;
-            margin: ${theme.space.xs} ${theme.space.s} ${theme.space.xs} 0;
-            font-size: 0.8em;
-          }
+        .tags {
+          display: flex;
+          flex-flow: row wrap;
+          // flex-shrink: 0;
         }
 
         p {
@@ -163,7 +170,7 @@ const Teaser = props => {
 
         @from-width tablet {
           li {
-            margin: ${`calc(${theme.space.default} * 3)`} 0 ${theme.space.xl};
+            margin: ${`calc(${theme.space.default} * 3) 0 ${theme.space.xl}`};
             padding: ${theme.space.default};
 
             &::after {
@@ -228,7 +235,7 @@ const Teaser = props => {
           }
           .title {
             font-size: 2.5em;
-            padding: ${`calc(${theme.space.default} * 1.2)`} ${theme.space.l} 0;
+            padding: ${`calc(${theme.space.default} * 1.2) ${theme.space.l} 0`};
           }
           .meta {
             // padding: ${`calc(${theme.space.default} * 0.25) calc(${theme.space.default} * 2) calc(${theme.space.default} * 0.5)`};
@@ -246,10 +253,12 @@ const Teaser = props => {
                 bottom: ${`calc(${theme.space.default} * -2.5)`};
               }
               :global(.gatsby-image-wrapper) {
-                transform: scale(1.1);
+                // transform: scale(1.1);
               }
               .title {
-                color: ${theme.blog.h1.hoverColor};
+                // color: ${theme.blog.h1.hoverColor};
+                // color: ${theme.color.brand.hover};
+                color: ${theme.color.brand.primaryDark};
               }
               :global(.arrow) {
                 // opacity: 1;
