@@ -1,8 +1,8 @@
 module.exports = {
-  siteTitle: "Scribble", // <title>
-  shortSiteTitle: "Scribble", // <title> ending for posts and pages
-  siteDescription: "Scribble: Blog by Amita Shukla",
-  siteUrl: "https://www.blog.amitashukla.in",
+  siteTitle: "Amita Shukla", // <title>
+  shortSiteTitle: "Amita Shukla", // <title> ending for posts and pages
+  siteDescription: "Amita Shukla's Personal Website",
+  siteUrl: "https://www.amitashukla.in",
   // pathPrefix: "",
   siteImage: "preview.jpg",
   siteLanguage: "en",
@@ -17,12 +17,12 @@ module.exports = {
   authorGoodreads: "https://www.goodreads.com/amita_shukla",
 
   /* header text */
-  headerTitle: "scribble",
+  headerTitle: "Amita Shukla",
   headerSubTitle: "blog by Amita Shukla",
 
   /* manifest.json */
-  manifestName: "Scribble",
-  manifestShortName: "scribble", // max 12 characters
+  manifestName: "Amita Shukla",
+  manifestShortName: "Amita Shukla", // max 12 characters
   manifestStartUrl: "/index.html",
   manifestBackgroundColor: "white",
   manifestThemeColor: "#666",
