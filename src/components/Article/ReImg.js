@@ -10,9 +10,11 @@ const ReImg = (props) => {
     const relativeStyle = {
         position: 'relative',
         top: 0,
-        left: (props.meme ? '15%' : '0'),
+        // left: (props.meme ? '15%' : '0'),
+        left: '15%',
         margin: '2.5em 0',
-        width: (props.meme ? '70%' : '100%'),
+        width: (props.meme ? '50%' : '70%'),
+        // height: (props.meme ? '50%' : '70%'),
         display: 'block',
         borderRadius: theme.size.radius.default,
         overflow: 'hidden'
@@ -20,8 +22,9 @@ const ReImg = (props) => {
     const absoluteStyle = {
         position: 'absolute',
         top: 0,
-        left: 0,
-        width: "100%",
+        left: "15%",
+        width: "70%",
+        // height: "70%",
         borderRadius: theme.size.radius.default,
         overflow: 'hidden'
     }
