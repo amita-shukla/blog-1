@@ -47,9 +47,9 @@ const FollowPage = props => {
               <header>
                 <Headline title="Follow" theme={theme} />
               </header>
+              <div className="form">
               <p>No fuss. Only new posts.
               Sign up to never miss an update!</p>
-              <div className="form">
                 <form
                   name="subscribe"
                   method="post"
@@ -79,16 +79,18 @@ const FollowPage = props => {
                     <div className="success"><FaCheck /> {ReactHtmlParser(res.msg)} </div> : 
                     <div className="error"><FaExclamation /> {ReactHtmlParser(res.msg)} </div>}
                   </label>
-                </form>
-              </div>
+                  <br/><br/>
                 <p className="rss">Don't want to share email? No worries! <br/>
                 Follow this blog's feed via <a href="http://feeds.feedburner.com/ShuklaAmita" target="_blank"><FaRss /> RSS</a> </p>
+                </form>
+              </div>
 
               <style jsx>{`
-                form{
-                  max-width: 700px;
-                  margin-top: 20px;
+                .form{
+                  max-width: ${theme.text.maxWidth.desktop};
+                  margin-top: 40px;
                   margin-bottom: 20px;
+                  text-align: center;
                 }
                 p {
                   font-size: ${theme.font.size.s};
@@ -116,7 +118,7 @@ const FollowPage = props => {
                   max-width: 500px;
                   border: 1px solid ${theme.color.brand.primary};
                   border-radius: 5px;
-                  margin-right: 10px;
+                  // margin-right: 10px;
                   margin-bottom: 10px;
                 }
                 #emailInput:hover {
