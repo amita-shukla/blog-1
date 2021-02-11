@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Headline = props => {
-  const { title, children, theme } = props;
+  const { title, children, theme, customStyle } = props;
 
   return (
     <React.Fragment>
-      {title ? <h1>{title}</h1> : <h1>{children}</h1>}
+      {title ? <h1 style={customStyle}>{title}</h1> : <h1 style={customStyle}>{children}</h1>}
 
       {/* --- STYLES --- */}
       <style jsx>{`

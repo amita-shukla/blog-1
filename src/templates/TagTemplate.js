@@ -22,7 +22,7 @@ const TagTemplate = props => {
         {theme => (
           <Article theme={theme}>
             <header>
-              <Headline theme={theme}>
+              <Headline theme={theme} customStyle={{textAlign: "left"}}>
                 <span>Posts with tag</span> <FaTag />
                 {tag}
               </Headline>

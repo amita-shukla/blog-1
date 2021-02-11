@@ -44,7 +44,7 @@ const Post = props => {
   return (
     <React.Fragment>
       <header>
-        <Headline title={title} theme={theme} />
+        <Headline title={title} theme={theme} customStyle={{textAlign: "left"}} />
         <Meta prefix={prefix} author={author} tags={tags} timeToRead={timeToRead} theme={theme} />
       </header>
       <Bodytext content={post} theme={theme} />
