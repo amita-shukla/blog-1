@@ -47,7 +47,7 @@ const TagsPage = props => {
     <React.Fragment>
       <Article theme={theme}>
         <header>
-          <Headline title="Posts by tags" theme={theme} />
+          <Headline title="Posts by Tags" theme={theme} />
         </header>
         <p> 
           {tagList.map(item => (

@@ -13,7 +13,7 @@ const ContactPage = props => {
     <React.Fragment>
         <Article theme={theme}>
           <header>
-            <Headline theme={theme}><FaEnvelope /> Contact</Headline>
+            <Headline theme={theme}>Contact</Headline>
           </header>
           <div className="contactText" dangerouslySetInnerHTML={{ __html: contactPageText }}/>
           <style jsx>{`
