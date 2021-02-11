@@ -27,6 +27,10 @@ const Teaser = props => {
   // let { children } = cover;
   // let [{fluid}] = children;
 
+  const monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+  const date = new Date(Date.parse(prefix))
+  const fullDate = monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear()
+
   return (
     <React.Fragment>
       <li>
@@ -45,7 +49,7 @@ const Teaser = props => {
           {/* </p> */}
           <p className="meta">
             <span>
-              <FaCalendar /> {prefix}
+              <FaCalendar /> {fullDate}
               </span>
             {/* <span>
               <FaUser size={18} /> {author}

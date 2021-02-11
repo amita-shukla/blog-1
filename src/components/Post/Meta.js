@@ -8,11 +8,15 @@ const Meta = props => {
   const { author: authorName, tags, theme, timeToRead} = props;
   const prefix = props.prefix || currDate() /* Intent: get date placeholder for viewing drafts. */
   
+  const monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
+  const date = new Date(Date.parse(prefix))
+  const fullDate = monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear()
+
   return (
     <div className="meta">
     <p>
         <span>
-          <FaCalendar size={18} />{prefix}
+          <FaCalendar size={18} />{fullDate}
         </span>
         <span>  <FaClock size={18}/>{timeToRead} minutes read</span>
     </p>
