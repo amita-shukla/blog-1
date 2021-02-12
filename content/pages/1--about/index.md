@@ -1,5 +1,5 @@
 ---
-title: About
+title: About Me
 ---
 <re-img src="avatar-large.jpg" hovereffect=true></re-img>
 
