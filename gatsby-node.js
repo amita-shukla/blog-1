@@ -130,7 +130,7 @@ exports.createPages = ({ graphql, actions }) => {
           const source = node.fields.source;
 
           createPage({
-            path: slug,
+            path: `/blog`+ slug,
             component: postTemplate,
             context: {
               slug,
@@ -173,7 +173,7 @@ exports.createPages = ({ graphql, actions }) => {
     
           createPaginationJSON(pathSuffix, pagePosts);
           createPage({
-            path: `/`+pathSuffix,
+            path: `/blog/`+pathSuffix,
             component: path.resolve("./src/templates/index.js"),
             context: {
               numPages,
