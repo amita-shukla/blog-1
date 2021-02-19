@@ -203,8 +203,8 @@ module.exports = {
                   sort: { order: DESC, fields: [fields___prefix] },
                   filter: {
                     fields: {
-                      prefix: { regex: "/[0-9]{4}.*/" },
-                      slug: { ne: null }
+                      prefix: {nin: ["", null] },
+                      slug: { nin: ["", null] }
                     }
                   }
                 ) {

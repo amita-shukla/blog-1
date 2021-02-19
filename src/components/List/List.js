@@ -17,8 +17,8 @@ const List = props => {
           } = edge;
 
           return (
-            <li key={slug}>
-              <Link to={slug}>{title}</Link>
+            <li key={`/blog`+slug}>
+              <Link to={`/blog`+slug}>{title}</Link>
             </li>
           );
         })}

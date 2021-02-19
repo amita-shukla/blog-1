@@ -34,7 +34,7 @@ const Teaser = props => {
   return (
     <React.Fragment>
       <li>
-        <Link to={slug} key={slug} className="link">
+        <Link to={`/blog`+slug} key={slug} className="link">
             {/* {cover !== null && cover.childImageSharp !==null ? (
               <div className="gatsby-image-outer-wrapper">
                 <Picture

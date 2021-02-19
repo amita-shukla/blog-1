@@ -130,7 +130,7 @@ exports.createPages = ({ graphql, actions }) => {
           const source = node.fields.source;
 
           createPage({
-            path: slug,
+            path: `/blog`+ slug,
             component: postTemplate,
             context: {
               slug,
@@ -141,7 +141,7 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
-        // and pages.
+        // and pages. // currently there are no pages
         const pages = items.filter(item => item.node.fields.source === "pages");
         pages.forEach(({ node }) => {
           const slug = node.fields.slug;
@@ -173,7 +173,7 @@ exports.createPages = ({ graphql, actions }) => {
     
           createPaginationJSON(pathSuffix, pagePosts);
           createPage({
-            path: `/`+pathSuffix,
+            path: `/blog/`+pathSuffix,
             component: path.resolve("./src/templates/index.js"),
             context: {
               numPages,

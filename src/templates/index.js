@@ -5,7 +5,7 @@ import View from "../components/Blog/View.js";
 import { GlobalStateContext } from "../components/GlobalState/GlobalState.js"
 import { ThemeContext } from "../layouts";
 
-/** Template for "home" page with infinite scroll and fallback to pagination. */
+/** Template for "blog" page with infinite scroll and fallback to pagination. */
 class IndexPage extends React.Component {
 
   render() {
@@ -17,7 +17,7 @@ class IndexPage extends React.Component {
               <ThemeContext.Consumer>
                 {theme =>
                   <React.Fragment>
-                    <Seo pageTitle="Blog home"/>
+                    <Seo pageTitle="Blog"/>
                     <View globalState={g} pageContext={this.props.pageContext} theme={theme} />
                   </React.Fragment>
                 }
