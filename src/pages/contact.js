@@ -22,6 +22,7 @@ const ContactPage = props => {
               margin: 0 0 0.5em;
               font-size: ${theme.font.size.s};
               font-weight: 400;
+              text-align: center;
             }
             .contactText{
               :global(a) {
