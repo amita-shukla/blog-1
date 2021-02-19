@@ -141,7 +141,7 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
-        // and pages.
+        // and pages. // currently there are no pages
         const pages = items.filter(item => item.node.fields.source === "pages");
         pages.forEach(({ node }) => {
           const slug = node.fields.slug;
