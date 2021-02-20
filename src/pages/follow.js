@@ -9,6 +9,8 @@ import ReactHtmlParser from 'react-html-parser'
 
 const FollowPage = props => {
 
+  const siteUrl = props.data.site.siteMetadata.siteUrl
+
   const [email, setValue] = useState('')
   const [res, setRes] = useState('')
 
@@ -81,7 +83,7 @@ const FollowPage = props => {
                   </label>
                   <br/><br/>
                 <p className="rss">Don't want to share email? No worries! <br/>
-                Follow this blog's feed via <a href="http://feeds.feedburner.com/ShuklaAmita" target="_blank"><FaRss /> RSS</a> </p>
+                Follow this blog's feed via <a href={`${siteUrl}`+"/rss.xml"} target="_blank"><FaRss /> RSS</a> </p>
                 </form>
               </div>
 
@@ -161,3 +163,15 @@ const FollowPage = props => {
 };
 
 export default FollowPage;
+
+
+//eslint-disable-next-line no-undef
+export const query = graphql`
+  query FollowPageQuery {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+  }
+`;
