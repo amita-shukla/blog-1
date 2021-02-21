@@ -31,6 +31,7 @@ const Expand = props => {
             overflow: hidden;
             z-index: 1;
             transform: translateX(-50%);
+            margin: ${theme.space.stack.s};
 
             &:focus {
               outline: none;
