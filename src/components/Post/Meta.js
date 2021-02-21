@@ -65,7 +65,7 @@ const Meta = props => {
         @from-width tablet {
           .meta {
             // margin: ${`calc(${theme.space.m} * 1.5) 0 ${theme.space.m}`};
-            margin: ${theme.space.xl} 0 ${theme.space.m};
+            margin: ${theme.space.m} 0 ${theme.space.m};
           }
         }
         @media (hover: hover) {
