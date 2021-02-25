@@ -8,9 +8,12 @@ title: About Me
 
 <br/>
 
-Hi :wave: I'm Amita. I am Software Engineer with around 5 years of experience. I mostly work in the Big Data & Cloud Ecosystem, creating magic on data using  Scala, Java, SQL and Bash. I maintain this blog built mainly on React, and also enjoy Machine Learning/ Python. 
+Hi :wave: I'm Amita, a Software Developer with 5 years of experience. I mostly work in Big Data & Cloud Ecosystem, creating magic on data using  Scala, Java, SQL and Bash. I maintain this blog built mainly on React, and also enjoy Machine Learning/ Python. 
 
-Having said all that, I do not restrict myself to the programming language but rather focus on the purpose it solves, having switched gears from Haskell, Groovy, .Net/ C#, PHP, C++ in the past. I am passionate about writing clean and maintanable code, and over the time have inclined more towards type safe languages. 
+I believe in not restricting myself to the programming language or framework but rather focus on the purpose it solves, having switched gears between Haskell, Groovy, .Net/ C#, PHP, C++ in the past. I am passionate about writing clean and maintainable code, and over time have inclined more towards type-safe languages. 
+
+### Get in Touch
+You can reach out to me directly [here](https://amitashukla.in/contact), [subscribe](https://amitashukla.in/follow) to my blog or check out my profiles below:
 
 <re-icons></re-icons>
 
