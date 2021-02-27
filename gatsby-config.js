@@ -171,6 +171,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-feed`,
       options: {
+        setup: (options) => ({          
+          ...options,          
+          custom_namespaces: {            
+            media: "http://search.yahoo.com/mrss/",
+          },
+        }),
         query: `
           {
             site {
@@ -194,7 +200,13 @@ module.exports = {
                   guid: site.siteMetadata.siteUrl + '/blog' + edge.node.fields.slug,
                   categories: edge.node.frontmatter.tags,
                   custom_elements: [
-                    { "content:encoded": edge.node.html }
+                    { "content:encoded": edge.node.html },
+                    edge.node.frontmatter.cover != null ? { "media:content" : {
+                      _attr: {
+                        url: site.siteMetadata.siteUrl + edge.node.frontmatter.cover.publicURL,
+                        type: edge.node.frontmatter.cover.internal.mediaType
+                      }
+                    }} : {}
                   ]
                 });
               });
@@ -223,6 +235,10 @@ module.exports = {
                         author
                         tags
                         title
+                        cover {
+                          publicURL
+                          internal { mediaType }
+                        }
                       }
                     }
                   }
@@ -230,7 +246,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: config.title
+            title: config.siteTitle
           }
         ]
       }
