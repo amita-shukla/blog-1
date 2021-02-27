@@ -192,7 +192,10 @@ module.exports = {
                   date: edge.node.fields.prefix,
                   url: site.siteMetadata.siteUrl + '/blog' + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + '/blog' + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }]
+                  categories: edge.node.frontmatter.tags,
+                  custom_elements: [
+                    { "content:encoded": edge.node.html }
+                  ]
                 });
               });
             },
@@ -210,13 +213,15 @@ module.exports = {
                 ) {
                   edges {
                     node {
-                      excerpt
+                      excerpt(pruneLength: 400)
                       html
                       fields {
                         slug
                         prefix
                       }
                       frontmatter {
+                        author
+                        tags
                         title
                       }
                     }
@@ -224,7 +229,8 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml"
+            output: "/rss.xml",
+            title: config.title
           }
         ]
       }
