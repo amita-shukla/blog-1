@@ -171,11 +171,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-feed`,
       options: {
-        setup: (options) => ({          
+        setup: options => ({          
           ...options,          
+          site_url: config.siteUrl,
+          description: config.siteDescription,
           custom_namespaces: {            
             media: "http://search.yahoo.com/mrss/",
-          },
+          }
         }),
         query: `
           {
