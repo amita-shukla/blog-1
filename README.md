@@ -2,7 +2,7 @@
 
 # Personal Website + Blog
 
-Have a peek »»» [https://www.amitashukla.in](https://www.amitashukla.in)
+Have a peek: [https://www.amitashukla.in](https://www.amitashukla.in)
 
 ## Features
 
@@ -47,30 +47,26 @@ You are free to use this repo to create your own blog (code is MIT licensed). Yo
 - Creating content
     - Blog posts are in `mock_posts` and `posts` folders. By default only mock posts are used (to help you tweak the website before you have a lot of content). You can switch to real posts by creating an environment variable `POSTS_FOLDER=posts`. Please try not to accidentally repost my real posts if you are only tinkering.
     - When you create posts, a folder with a name like `2020-03-05--my-book-review` will be published, whereas a name like `my-book-review` will be considered a draft and will not be published. There are ways to accidentally publish drafts. If you are worried about that, the easiest way to avoid it is to deploy your site from GitHub via Netlify and _never commit draft posts to the repo_.
-    - You have to manually crop images to 2.222 aspect ratio.
 
 ## Attribution
 
-Hi, I'm Baobab. I didn't do everything by myself; I leveraged the work of many awesome creators.
+Hi, I'm Amita. I didn't do everything by myself; I leveraged the work of many awesome creators.
 
-- Photos are mostly from [Unsplash](https://www.unsplash.com/), hover over to see photographer attribution.
-- Icons are mostly from [FontAwesome](https://origin.fontawesome.com/).
+I started building on top of [Atte Juvonen](https://github.com/baobabKoodaa) awesome [blog](https://github.com/baobabKoodaa/blog). Icons are mostly from [FontAwesome](https://origin.fontawesome.com/).
 
-I started building on top of [Greg Lobinski's](https://github.com/greglobinski) excellent [hero-blog-starter](https://github.com/greglobinski/gatsby-starter-hero-blog/). Main changes from Greg's version:
+Main changes from Atte's version:
 
-- Fixed draft posts (used to leak draft posts into production)
-- Fixed RSS feed
-    - Dates were added to RSS items so that RSS readers are able to tell which content is new.
-    - Non-post pages removed from RSS feed.
-- Fixed 404 page (text used to be hidden under header)
-- Contact page entirely redone.
-    - Had a font issue caused by antd library. I was unable to reproduce the issue locally to find what was causing it, so I redid the entire form without the library.
-    - Submission used to require entire web site to be hosted on Netlify. Now the Contact Form submission uses Google Scripts and web site hosting / form handling can be changed independently.
-    - Submission works for users who have JS disabled.
-- Allow multiple tags (used to be just 1 category per post)
-- Allow custom React components inside Markdown files.
-- Added 'Follow' page, so users know that RSS feed exists (the page also contains a link to email newsletter)
-- Added infinite scroll, which gracefully degrades into pagination.
-- Many design changes. Spent a lot of time tweaking image placeholders :gem: Removed and simplified a lot of features to create a less cluttered look (matter of preference, eye of the beholder and so forth...)
+- Converted the blog starter to a portfolio website. This involved creating a new  landing pagen, and an `About` component, and creating a new `/blog` page for blog posts.
+- add support for [Disqus](https://disqus.com/) comments under each blog post
+- Removed author bio from under each post, as the blog says everywhere that the posts are written by me. (The author content still exists, to be included in case of guest posts).
+- Removed the contact form, and simply provided the email address. This has its pros and cons but I decided to go for a hassle free approach...
+- Added subscribtion form in the follow page itself, that hits the [MailChimp](https://mailchimp.com/) subscribe API directly.
+- Fixed RSS feed and added more properties. Added title, link, image, tags etc. information. This RSS feed I then utilize to create Newsletter in MailChimp.
+- Added 'time to read' metadata for each blog post.
+- Added social share buttons at the bottom of each blog post.
+- Removed the cover image for each post on the blog page. They needed to be resized to an aspect ratio, and I felt images were taking much more space than the actual content.
+- Earlier it was mandatory to supply a cover image for each post. Removed the condition as I felt this condition was a hinderance in competion of a blog post. Added appropriate conditions in the `ReImg` component and elsewhere to handle that.
+- Fixed tags to point to correct path
+- Changed the date format to a more user friendly one.
 
-
+You can checkout the list of issues to see what all is under development!
