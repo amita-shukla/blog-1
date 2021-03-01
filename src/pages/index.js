@@ -14,23 +14,6 @@ const AboutPage = props => {
     <React.Fragment>
         <Article theme={theme}>
           <About theme={theme} aboutContent={aboutContent}/>
-          <style jsx>{`
-            .aboutText {
-              color: ${theme.color.neutral.gray.j};
-              margin: 0 0 0.5em;
-              font-size: ${theme.font.size.s};
-              font-weight: 400;
-            }
-            .aboutText{
-              :global(a) {
-                font-weight: ${theme.font.weight.bold};
-                color: ${theme.color.brand.primary};
-              }
-              :global(a:hover) {
-                color: ${theme.color.brand.primaryDark};
-              }
-            }
-          `}</style>
         </Article>
       <Seo pageTitle="Home"/>
     </React.Fragment>
