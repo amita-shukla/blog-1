@@ -18,19 +18,19 @@ const Seo = props => {
   const url = config.siteUrl + postSlug;
 
   return (
-    <StaticQuery
-    query={graphql`
-      query plausibleDomainQuery {
-        site {
-          siteMetadata {
-            plausibleDomain
-          }
-        }
-      }
-    `}
-    render={ queryResults => {
-      const domain = queryResults.site.siteMetadata.plausibleDomain
-      return (
+    // <StaticQuery
+    // query={graphql`
+    //   query plausibleDomainQuery {
+    //     site {
+    //       siteMetadata {
+    //         plausibleDomain
+    //       }
+    //     }
+    //   }
+    // `}
+    // render={ queryResults => {
+    //   // const domain = queryResults.site.siteMetadata.plausibleDomain
+    //   return (
         <Helmet
           htmlAttributes={{
             lang: config.siteLanguage,
@@ -47,11 +47,11 @@ const Seo = props => {
           <meta property="og:image" content={image} />
           <meta property="og:type" content="website" />
           {/* Plausible Analytics */}
-          {process.browser && <script async defer data-domain={domain} src="https://plausible.io/js/plausible.js"/>}
+          {/* {process.browser && <script async defer data-domain={domain} src="https://plausible.io/js/plausible.js"/>} */}
         </Helmet>
-      )
-    }}
-    />
+      // )
+    // }}
+    // />
   )
 };
 
