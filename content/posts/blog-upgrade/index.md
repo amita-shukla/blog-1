@@ -1,7 +1,7 @@
 ---
-title: blog upgrade
-tags: ["META", "PROJECT"]
-cover: 
+title: Checkout my New and Improved Portfolio + Blog
+tags: ["PROJECT"]
+cover: blogging_meme.jpg 
 author: Amita Shukla
 ---
 
@@ -35,6 +35,26 @@ Blogger has been specialized for Blogging for a layman, but being a programmer i
 * Blogger is a Content Management System (CMS). CMSs run on a server and the data is saved in a DB. Whenever we land on a page, these servers construct the entire page, populate data from database and serves it on the browser. A CMS has just too many moving parts that are simply out of your control.
 * probably the most signinfcant of all, your blogger posts are owned by Google. 5-6 years before I wasn't really concerned about Big Companies owning all the data in the world, but these days scenario is different. The last thing I wanted was that I publish something that Google gets offended with and blocks by years of hardwork.
 
+## Options
+Well, there are a number of options out there apart from my current arrangements that I thought to move onto.
+
+### WordPress 
+Wordpress is on the same wagon as Blogger, it is also a CMS. But wordpress is much more powerful:
+  - It has a lot of plugins that you can think about. 
+  - You can also self-host it on the platform of your choice. 
+  - It also has innumerable resources on every requirement possible. 
+
+This was actually the option I thought about moving to first, but it has its own set of limitations.
+  - Wordpress needs more resources to be hosted. I would need to not only buy space on cloud to host my files, but also processing power to run it continuously.
+  - This means I would need to worry about managing the platform
+  - After Blogger, I didn't want to be tied to any platform. While wordpres provides you it's own nice editor, I will be in the same position years down the line as I am today with Blogger.
+
+### Medium
+While medium looks like an excellent platform, but it again poses the problem of owning your content.
+  - It looks like I own my content, would I ever read its terms of service before posting?
+  - I can own my content, but I have no control over the reading experience it provides. I have heard people bickering about the pop ups, and Medium is just a company whose main focus is to maximise the audience.
+It doesn't mean that I am totally anti-medium or similar platforms, a larger audience doesn't hurt. May be I post some of my content there!
+
 ## The curious case of Static Site Generators
 5 years before when I hadn't even heard about Static Site Generators, I did realize that it was wise to keep my blog posts at a place other than my blogs, and I created a repository [blog](https://github.com/amita-shukla/blog) on Github where I would manually download all the HTML of my post and save them in markdown format. This obviously didn't work for long.
 
@@ -51,8 +71,25 @@ To add content:
 * the static site generator on building picks up these files and creates a separate page on the site for them automatically
 
 ## Why Gatsby?
-There are a number of Static Site Generators out there, and I wanted to work on an ecosystem which gives me a lot of exposure to a number of libraries. I hence narrowed down on Javascript based SSGs. I further had experience in React, so Gatsby was one of the top choices.
+There are a number of Static Site Generators out there, and I wanted to work on an ecosystem which gives me a lot of exposure to a number of libraries. I therefore narrowed down on Javascript based SSGs. I further had experience in React, so Gatsby was one of the top choices.
 * Gastby is built on react, I can go on to do all what I can do with React. 
 * Gatsby provides an interface on top of React so I don't need to worry about low level plumbing (such as routing) again.
 * Optimized for Image hosting: Even though I don't have many images on my blog, I have struggled with images a lot as they seriously affect site performance. Gatsby has advanced mechanisms for keeping images responsive and creating placeholders for smooth transition while an image loads.
 * **GraphQL!** Gatsby uses GraphQl to fetch all kinds of data, which I can use anywhere. I found this feature especially empowering.
+
+## Netlify
+[Netlify](https://www.netlify.com/) deserves a mention here as switching to it has made the entire workflow easier, with CI/CD, previews, builds, domain settings... all for free!
+
+## What New is In and What old has Gone
+- A faster website
+- On SSL
+- Well structured pages
+- No clutter view
+- Refined, responsive images
+- A more descriptive 'about me' section
+- A super cool logo and favicon
+- No overflowing Code Snippets
+- Emoji support :laughing:
+
+## OpenSource
+The blog is open source, meaning that all the source code and content is [here](https://github.com/amita-shukla/blog-1). Do checkout the README file and the issues in pipeline. If interested, you are free to fork (checkout the license).  I am still a beginner in React development, and simply abhore CSS, so all suggestion to improve the code are welcome! :smile:
