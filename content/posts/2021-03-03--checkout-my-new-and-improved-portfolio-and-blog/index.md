@@ -1,5 +1,5 @@
 ---
-title: Checkout my New and Improved Portfolio + Blog
+title: Checkout my New and Improved Portfolio and Blog
 tags: ["PROJECT"]
 cover: blogging_meme.jpg 
 author: Amita Shukla
@@ -11,32 +11,21 @@ And since then I kept on adding new stuff to it. I named the blog Scribble, coz 
 
 ## Problems with Blogger
 Blogger has been specialized for Blogging for a layman, but being a programmer it always felt limiting to use.
-* It has its own platform specific syntax to code its theme. This had a lot of disadvantes, particularly:
-  - The theme code was almost opaque. Though it was possible to locate the code for a particular widget, it was always tightly bound to the syntax. The free theme I downloaded had some code like where variables defined in unicodes like below that you just couldn't touch. 
-  ```
-  _0xeeb6 = eval(function(_0xf41ex1,_0xf41ex2,_0xf41ex3,_0xf41ex4,_0xf41ex5,_0xf41ex6){}...){if(_0xf41ex4[_0xf41ex3]){_0xf41ex1=_0xf41ex1[_0xeeb6[6]]( new RegExp(_0xeeb6[8]+_0xf41ex5(_0xf41ex3)+_0xeeb6[8],_0xeeb6[9]),_0xf41ex4[_0xf41ex3])}};return _0xf41ex1;}(_0xeeb6[0],62,118,_0xeeb6[3][_0xeeb6[2]](_0xeeb6[1]),0,{}));
-  ```
-  - customizing any widget code was difficult as you needed to understand the special syntax and escape HTML characters inside. Have a look at this navbar code:
-  ```
-  <b:widget id='Navbar1' locked='false' title='Navbar' type='Navbar'>
-  <b:includable id='main'>&lt;script type=&quot;text/javascript&quot;&gt;
-  &lt;div id=&quot;navbar-iframe-container&quot;&gt;&lt;/div&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;https://apis.google.com/js/plusone.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text/javascript&quot;&gt; gapi.load(&quot;gapi.iframes:gapi.iframes.style.bubble&quot;, function() {if (gapi.iframes &amp;&amp; gapi.iframes.getContext) {
-          gapi.iframes.getContext().openChild({
-              url: &#39;https://www.blogger.com/navbar.g?targetBlogID\x3d1167440767733751967\x26blogName\x3dScribble\x26publishMode\x3dPUBLISH_MODE_HOSTED\x26navbarType\x3dDISABLED\x26layoutType\x3dLAYOUTS\x26searchRoot\x3dhttp://blog.amitashukla.in/search\x26blogLocale\x3den_GB\x26v\x3d2\x26homepageUrl\x3dhttp://blog.amitashukla.in/\x26vt\x3d-6316158993390569589&#39;,
-              where: document.getElementById(&quot;navbar-iframe-container&quot;),
-              id: &quot;navbar-iframe&quot;
-          });
-        }
-      });
-  ```   
-  If you look closely you would realize it was a script, but it screamed on your face that it wanted to be left alone.
-* Blogger has a range of free widgets. After wordpress, perhaps blogger is the one which has the highest number of widgets. These widgets were more or less black-boxed, and that is all there is to it. Anything new I want to add means I again need to code in that blogger specific madness.
-* Edit HTML. Blogger has this okeyish editor that you can write on, but anything the least creative needed to be coded in HTML, and I ended up doing that almost everytime. Apart from focussing on content, I was also contantly taking care of breaklines and headers and codesnippets.
-* Blogger is a Content Management System (CMS). CMSs run on a server and the data is saved in a DB. Whenever we land on a page, these servers construct the entire page, populate data from database and serves it on the browser. A CMS has just too many moving parts that are simply out of your control.
-* probably the most signinfcant of all, your blogger posts are owned by Google. 5-6 years before I wasn't really concerned about Big Companies owning all the data in the world, but these days scenario is different. The last thing I wanted was that I publish something that Google gets offended with and blocks by years of hardwork.
+<ul>
+<li>It has its own platform specific syntax to code its theme. This had a lot of disadvantes, particularly: 
+  <ul>
+  <li>The theme code was almost opaque. Though it was possible to locate the code for a particular widget, it was always tightly bound to the syntax. The free theme I downloaded had some code like where variables defined in unicodes like below that I just couldn't touch.
+  </li>
+  <li>customizing any widget code was difficult as you needed to understand the special syntax and escape HTML characters inside. The XML blog seemed to scream on your face that it wanted to be left alone!</li></ul>
+<li>Blogger has a range of free widgets. After wordpress, perhaps blogger is the one which has the highest number of widgets. These widgets were more or less black-boxed, and that is all there is to it. Anything new I want to add means I again need to code in that blogger specific madness. </li>
+<li>Edit HTML. Blogger has this okeyish editor that you can write on, but anything the least creative needed to be coded in HTML, and I ended up doing that almost everytime. Apart from focussing on content, I was also contantly taking care of breaklines and headers and codesnippets. </li>
+<li> Blogger is a Content Management System (CMS). CMSs run on a server and the data is saved in a DB. Whenever we land on a page, these servers construct the entire page, populate data from database and serves it on the browser. A CMS has just too many moving parts that are simply out of your control.</li>
+<li> probably the most signinfcant of all, your blogger posts are owned by Google. 5-6 years before I wasn't really concerned about Big Companies owning all the data in the world, but these days scenario is different. The last thing I wanted was that I publish something that Google gets offended with and blocks by years of hardwork.</li></ul>
 
 ## Options
 Well, there are a number of options out there apart from my current arrangements that I thought to move onto.
+
+<re-img src="blogging_meme.jpg"></re-img>
 
 ### WordPress 
 Wordpress is on the same wagon as Blogger, it is also a CMS. But wordpress is much more powerful:
