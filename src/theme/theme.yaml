@@ -87,6 +87,16 @@ font:
     xl: &font-size-xl 2em
     xxl: &font-size-xl 2.2em
     xxxl: &font-size-xxl 2.8em
+  # https://stackoverflow.com/a/43439303/3858467
+  sizerem:
+    xxs: &font-sizerem-xxs .8rem
+    xs: &font-sizerem-xs .95rem
+    s: &font-sizerem-s 1.1rem
+    m: &font-sizerem-m 1.35rem
+    l: &font-sizerem-l 1.7rem
+    xl: &font-sizerem-xl 2rem
+    xxl: &font-sizerem-xl 2.2rem
+    xxxl: &font-sizerem-xxl 2.8rem
   lineHeight:
     xs: &font-line-height-xs 1.1
     s: &font-line-height-s 1.2
