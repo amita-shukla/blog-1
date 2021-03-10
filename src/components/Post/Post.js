@@ -34,7 +34,7 @@ const Post = props => {
     theme
   } = props;
 
-  const postUrl = `${siteUrl+slug}`
+  const postUrl = `${siteUrl+ '/blog' + slug}`
   let disqusConfig = {
     url: postUrl,
     identifier: id,
