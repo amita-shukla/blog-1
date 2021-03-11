@@ -1,5 +1,8 @@
 ---
-
+title: SubTying & Variance
+tags: ["PROGRAMMING", "SCALA"]
+cover: meme.jpg
+author: Amita Shukla
 ---
 
 While we frequently and casually use subtyping while coding, in this post we take it to a level further and understand how Variance affects our code behaviour.
@@ -8,8 +11,8 @@ Let's begin with an example. Let's say we have a class `Animal`. It can `speak`,
 
 ```scala
 class Animal(val name: String){
-  def speak(): Unit = println("animal speaking")
-  def eat(): Unit = println("animal eats")
+  def speak = "animal speaking"
+  def eat = "animal eats"
   override def toString = "animal: " + name
 }
 ```
@@ -18,14 +21,14 @@ While `Animal` has general properties, it can also be of two types: `Cat` and `D
 
 ```scala
 class Cat(override val name: String) extends Animal(name) {
-  override def speak(): Unit = println("meow")
-  override def eat(): Unit = println("fish")
+  override def speak = "meow"
+  override def eat = "fish"
   def catonly : String = "cat only"
 }
 
 class Dog(override val name: String) extends Animal(name) {
-  override def speak(): Unit = println("woof")
-  override def eat(): Unit = println("bone")
+  override def speak = "woof"
+  override def eat = "bone"
   def dogonly : String = "dog only"
 }
 ```
@@ -99,9 +102,14 @@ Complex types are types which are composed of other types. e.g. `List`s, `Map`s,
 Variance defined formally is 
 > Variance is the correlation of subtyping relationships of complex types and the subtyping relationships of their component types.
 
-We are going to continue with our example above to understand this concept step by step. We will take a complex type, a `List`. If we have types `A` and `B` such that `A:>B`, how do we relate `List[A]` to a `List[B]`?
+### Subtyping with Lists: An instance of Covariance
+We are going to continue with our example above to understand this concept step by step. Let's take a complex type, a `List`. If we have types `A` and `B` such that `A:>B`, how do we relate `List[A]` to a `List[B]`?
 
-Reiterating on what we established above, if `A:>B`, we can pass `B` wherever we expect `A`. Can we then pass `List[B]` wherever we expect `List[A]`? Let's find out.
+Reiterating on what we established above, if `A:>B`, we can pass `B` wherever we expect `A`. 
+
+Subtyping on complex types gives rise to 2 cases: 
+
+#### case 1: pass `List[B]` where we expect `List[A]`
 
 I have a function that expects a `List[Animal]` and does something with it:
 
@@ -113,122 +121,139 @@ def expectingListOfSupertype(animals : List[Animal]): Unit ={
 Can I pass `cats: List[Cat]` in place of `animals: List[Animal]`?
 
 ```scala
-expectingListOfSupertype(animals)
 expectingListOfSupertype(cats) // yes, I can!
 ```
-
-This proves a direct relationship: 
-
-> if `A:>B`, then `List[A]:>List[B]`
-
-Can I do the converse?
+#### case 2: pass `List[A]` where we expect `List[B]`
+This is the converse case to case 1.
 
 ```scala
 def expectingListOfSubtype(cats: List[Cat]): Unit = {
   println(cats.map(_.catonly))
 }
 
-expectingListOfSubtype(cats)
 expectingListOfSubtype(animals) //type mismatch compile time error
 ```
 
-No I can't. This makes sense because if we could pass `List[Animal]` to the function where `List[Cat]` is expected, it would have fail on calling the special function `catonly` on an animal. 
+No I can't. This makes sense because if we could pass `List[Animal]` to the function where `List[Cat]` is expected, it could fail on calling the specific function `catonly` on an animal instance. 
+
+Hence, in case of Lists, we can substitute `List[B]` in place of `List[B]` when `A:>B` but not the opposite.
+
+This proves a direct relationship: 
+> if `A:>B`, then `List[A]:>List[B]`
+
+The above phenomenon is called **Covariance**.
+
+### Subtyping with functions: an instance of Contravariance
+Let's take the another example a complex type `Function`. If we have types `A` and `B` such that `A:>B`, how do we relate `Function[A]` to a `Function[B]`?
+
+Reiterating our subtyping relation of componenet types `A` and `B`, if `A:>B`, we can pass `B` wherever we expect `A`. Can this relation hold true for complex type Functions as well?
+
+Lets define a function with supertype, and another function that calls this function.
 
 ```scala
-val cat1 = new Cat("cat1")
-val cat2 = new Cat("cat2")
-val cats : List[Cat] = List(cat1, cat2)
-cats.map(e => e.catonly)
+val superTypeFunction : Animal => String = animal => s"${animal.name} is here"
 
-val dog1 = new Dog("dog1")
-val dog2 = new Dog("dog2")
-val dogs : List[Dog] = List(dog1, dog2)
-dogs.map(e => e.dogonly)
+def functionThatExpectsSupertypeFunction(fun: Animal => String) = {
+    // calls fun somewhere
+}
+```
+Similarly we define a function with subtype, and another function that calls this function
 
-val animal1 = new Animal("animal1")
-val animal2 = new Animal("animal2")
-val animals = List(cat1, dog1, animal1)
+```scala
+val subTypeFunction : Cat => String = cat => s"${cat.name} cat is here and has special ${cat.catonly} behaviour"
 
-//val newCats : List[Cat] = cats.::(animal) // you can't add an animal to a list of cats
-val newAnimals : List[Animal] = animals.::(cat1) // but you can do the opposite as Animal is supertype
+def functionThatExpectsSubtypeFunction(fun: Cat => String) = {
+    // calls fun somewhere
+}
+```
+How are the functions going to behave in the following cases?
+#### case1: pass f[B] where we expect f[A] 
+Lets try passing the subtype function to `functionThatExpectsSupertypeFunction`:
+
+```scala
+functionThatExpectsSupertypeFunction(subTypeFunction) // type mismatch!
 ```
 
-/*
-But what about complex types?
-*/
+The above scenario in case of functions doesn't compile. But why?
 
-/*
-if A :> B,
-implies that anywhere A is expected, we can pass B
-therefore List[A] > List[B],
-because, anywhere List[A] is expected, we can pass List[B]
-*/
-def expectingListOfSupertype(animals : List[Animal]): Unit ={
-println(animals.map(_.toString))
+Lets consider the below implementation of `functionThatExpectsSupertypeFunction`:
+
+```scala
+def functionThatExpectsSupertypeFunction(fun: Animal => String) = {
+  val fish = new Animal("nemo")
+  println(fun(fish))
+}
+```
+If the compiler could allow passing subtype function to the above, it would break coz internally it would call `fun: Cat => String` which can then try to call `catonly` on an `Animal`. Ouch!
+
+#### case2: pass f[A] where we expect f[B]
+Now lets try passing supertype function to `functionThatExpectsSubtypeFunction`:
+
+```scala
+functionThatExpectsSubtypeFunction(superTypeFunction) // compiles!
+```
+
+On the other hand, we can pass a function of supertype where subtype is expected.
+
+The intution can be understood by thinking how this works in an example implementation. Suppose I implement `functionThatExpectsSubtypeFunction` like this:
+
+```scala
+def functionThatExpectsSubtypeFunction(fun: Cat => String) = {
+  val cat = new Cat("kitty")
+  println(fun(cat))
+}
+```
+In the above scenario, even if we pass an `Animal => String` function to  `fun` parameter, it always supplies the subtype is supplied to it. And by defintion of subtyping, `Cat` can be used wherever `Animal` is expected. Hence this works!
+
+You can rightly observe, that `Function`s have the opposite subtyping behaviour as compared to `List`s. 
+
+> if `A:>B`, then `Function[B]:>Function[A]`
+
+This is called **Contravariance**.
+
+### Subtyping with Arrays: an instance of Invariance
+Lets talk about another data structure: `Arrays`. These are mutable data structures, so for an `Array[Animal]` we can write `Array[Cat]` anytime. At the same time while reading we can expect `Array[i]` can be an instance of `Animal`, `Cat` or `Dog`...
+
+Thus, we can say that it can neither be safe for arrays to be Covariant or Contravariant. Confused? This extract from Wikipedia explains it better:
+
+> If we wish to avoid type errors, then only the third choice is safe. Clearly, not every Animal[] can be treated as if it were a Cat[], since a client reading from the array will expect a Cat, but an Animal[] may contain e.g. a Dog. So the contravariant rule is not safe.
+
+> Conversely, a Cat[] cannot be treated as an Animal[]. It should always be possible to put a Dog into an Animal[]. With covariant arrays this cannot be guaranteed to be safe, since the backing store might actually be an array of cats. So the covariant rule is also not safe—the array constructor should be invariant.
+
+```scala
+val animalarray: Array[Animal] = Array(animal1, animal2)
+val catarray: Array[Cat] = Array(cat1)
+
+def expectingArrayOfSupertype(animals: Array[Animal])= {
+  // some read/write operations
+}
+def expectingArrayOfSubtype(cats: Array[Cat]) = {
+  // some read/write operations
 }
 
-expectingListOfSupertype(animals)
-expectingListOfSupertype(cats)
-// Observe above that we can pass a list of subtype where a list of supertype is expected
+expectingArrayOfSupertype(catarray) // type mismatch!!
+expectingArrayOfSubtype(animalarray) // type mismatch!!
 
-def expectingListOfSubtype(cats: List[Cat]): Unit = {
-println(cats.map(_.catonly))
-}
+```
+Both our cases fail for Arrays, they being **Invariant**.
 
-expectingListOfSubtype(cats)
+#### Special case of Variance of Arrays in Java
+For Java / C# developers, it is worth noting that Arrays are covariant. The reason is in detail <a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)#Covariant_arrays_in_Java_and_C#" target="_blank">here</a>. Hint: it's because Generics were included much later in the language than Arrays...
 
-//expectingListOfSubtype(animals) //type mismatch compile time error
+## Rule of Thumb
 
-// On the other hand,
-// we cannot pass a list of supertype where a list of subtype is expected
+Well, at this point it can be too much to digest. But there can be a simple rule of thumb to it:
+- Read-only data types/sources can be covariant, e.g. immutable `List`s
+- write-only data types/sinks can be contravariant, e.g. functions
+- Mutable data types which act as both sources and sinks should be invariant. e.g. `Array`s
 
-/**
-* Let's talk about functions now
-*/
-val superTypeFunction : Animal => String = animal => s"${animal.name} is here"
-superTypeFunction(animal1)
-superTypeFunction(cat1)
+Contravariance is quite unituitive in nuture, as it is difficult to imagine a type with just write-only capabilities. In case of functions(the case where we're only talking about it *accepting* a type *once*), we can think that it took a subtype, but did not return it, hence making it 'write-only'. Usually a complex type that accepts a simple type and simply consumes it, can be treated as contravariant.
 
-val subTypeFunction : Cat => String = cat => s"${cat.name} cat is here"
-subTypeFunction(cat1)
-// subTypeFunction(animal) // this won't work as per definition ( Just as in case of Lists):
-// can't pass a supertype where a subype is expected
-// but vice-versa holds true (again, as expected)
+## Try this code
+This whole post makes more sense on running the code snippets. Checkout <a href="https://gist.github.com/amita-shukla/32f14cf325aa89296b10297862fc198f" target="_blank">this</a> gist which contains the entire code. I would recommend running them one by one and observe the magic of types yourself!
 
-def funcThatExpectsSupertypeFunction(fun: Animal => String) = {
-val fish = new Animal("nemo")
-println(fun(fish))
-}
-
-funcThatExpectsSupertypeFunction(superTypeFunction)
-//funcThatExpectsSupertypeFunction(subTypeFunction) // type mismatch
-
-// observe above that we cannot pass a function of subtype where a function of supertype is expected
-
-def funcThatExpectsSubTypeFunction(fun : Cat => String) = {
-val cat = new Cat("fun cat")
-println(fun(cat))
-}
-
-funcThatExpectsSubTypeFunction(subTypeFunction)
-funcThatExpectsSubTypeFunction(superTypeFunction)
-// on the other hand, we can pass a function of supertype where subtype is expected
-
-// so you can't pass a sub type function that expects a super type func.
-// this is opposite to the case we have for list
-// we call this variance: lists are covariant whereas functions are contravariant
-
-// So: if A:>B,
-// List[A] :> List[B] (covariance)
-// Function[A] <: Function[B] (contravariance)
-
-
-/*
-Let's talk about another structure, Arrays
-*/
-
-val catsArray : Array[Cat] = Array(cat1, cat2)
-val animalArray : Array[Animal] = Array(animal1, animal2)
-
-
-val seq = Seq(Seq("abc","f","12",1.0,2.0,3.0))
+## Further Reading
+- This <a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)" target="_blank">Wikipedia article</a> is my starting point, and the `Animal` example is inspired from here.
+- <a href="https://www.cs.princeton.edu/courses/archive/fall98/cs441/mainus/node12.html" target="_blank">SubTypes v/s Subclasses</a>
+- <a href="https://www.cmi.ac.in/~madhavan/courses/pl2009/lecturenotes/lecture-notes/node28.html" target="_blank">Subtyping vs Inheritance</a>
+- <a href="https://docs.scala-lang.org/tour/variances.html" target="_blank">Scala Docs: Variance</a>
