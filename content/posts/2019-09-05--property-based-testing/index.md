@@ -1,7 +1,7 @@
 ---
 title: Property Based Testing
 tags: ["DATA STRUCTURES","FUNCTIONAL PROGRAMMING","HASKELL","SCALA","TESTING"]
-cover: 1*ok5iNXeD1HjzDHhKUcl5cQ.gif
+cover: pbt.gif
 author: Amita Shukla
 ---
 
