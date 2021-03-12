@@ -5,7 +5,7 @@ cover: meme.jpg
 author: Amita Shukla
 ---
 
-While we frequently and casually use subtyping while coding, in this post we take it to a level further and understand how Variance affects our code behaviour.
+While we frequently and casually use subtyping while designing a program. Subtyping happens when we build one type out of another. Infact, it is almost unimaginable to code without using the power to build new things on top of other things. In this post, we take subtyping a level further and understand how the assignment and substitution capabilities of our types affects our code behaviour (and subsequently ours).
 
 Let's begin with an example. Let's say we have a class `Animal`. It can `speak`, `eat` and `describe` itself.
 
@@ -143,7 +143,7 @@ This proves a direct relationship:
 
 The above phenomenon is called **Covariance**.
 
-### Subtyping with functions: an instance of Contravariance
+### Subtyping with Functions: An instance of Contravariance
 Let's take the another example a complex type `Function`. If we have types `A` and `B` such that `A:>B`, how do we relate `Function[A]` to a `Function[B]`?
 
 Reiterating our subtyping relation of componenet types `A` and `B`, if `A:>B`, we can pass `B` wherever we expect `A`. Can this relation hold true for complex type Functions as well?
@@ -211,10 +211,10 @@ You can rightly observe, that `Function`s have the opposite subtyping behaviour 
 
 This is called **Contravariance**.
 
-### Subtyping with Arrays: an instance of Invariance
+### Subtyping with Arrays: An instance of Invariance
 Lets talk about another data structure: `Arrays`. These are mutable data structures, so for an `Array[Animal]` we can write `Array[Cat]` anytime. At the same time while reading we can expect `Array[i]` can be an instance of `Animal`, `Cat` or `Dog`...
 
-Thus, we can say that it can neither be safe for arrays to be Covariant or Contravariant. Confused? This extract from Wikipedia explains it better:
+Thus, we can say that it can neither be safe for arrays to be Covariant or Contravariant. Confused? Wikipedia explains it better:
 
 > If we wish to avoid type errors, then only the third choice is safe. Clearly, not every Animal[] can be treated as if it were a Cat[], since a client reading from the array will expect a Cat, but an Animal[] may contain e.g. a Dog. So the contravariant rule is not safe.
 
@@ -254,6 +254,7 @@ This whole post makes more sense on running the code snippets. Checkout <a href=
 
 ## Further Reading
 - This <a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)" target="_blank">Wikipedia article</a> is my starting point, and the `Animal` example is inspired from here.
+- <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle" target="_blank">Liskov's Substituion Principle</a>
 - <a href="https://www.cs.princeton.edu/courses/archive/fall98/cs441/mainus/node12.html" target="_blank">SubTypes v/s Subclasses</a>
 - <a href="https://www.cmi.ac.in/~madhavan/courses/pl2009/lecturenotes/lecture-notes/node28.html" target="_blank">Subtyping vs Inheritance</a>
 - <a href="https://docs.scala-lang.org/tour/variances.html" target="_blank">Scala Docs: Variance</a>
