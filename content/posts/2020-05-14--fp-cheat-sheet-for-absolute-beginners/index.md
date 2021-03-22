@@ -6,7 +6,7 @@ author: Amita Shukla
 ---
 
 
-Functional Programming languages, in general, turn into a challenging venture at the very start. On one hand, it sounds simple when all you have to do is use functions instead of loads of language constructs. [Who needs a loop when we have folds](https://blog.amitashukla.in/2019/07/unfolding-folds.html)! But there is another problem. Now we don't know which function we need to use when. A lot of times for coding a simple task, I had to rush to the docs, search extensively, only to discover half an hour later that all I had to use was a `lift`. or a `fold`. or a `map`. Aghhh! At this learning level, what comes handy is a pool of functions to refer to first before jumping into the sea of all the libraries and functions ever created. Gradually over time, these functions (and their type signatures) embed themselves on our minds, and then programming becomes a breeze.
+Functional Programming languages, in general, turn into a challenging venture at the very start. On one hand, it sounds simple when all you have to do is use functions instead of loads of language constructs. [Who needs a loop when we have folds](https://amitashukla.in/blog/unfolding-folds.html)! But there is another problem. Now we don't know which function we need to use when. A lot of times for coding a simple task, I had to rush to the docs, search extensively, only to discover half an hour later that all I had to use was a `lift`. or a `fold`. or a `map`. Aghhh! At this learning level, what comes handy is a pool of functions to refer to first before jumping into the sea of all the libraries and functions ever created. Gradually over time, these functions (and their type signatures) embed themselves on our minds, and then programming becomes a breeze.
 
  
 
@@ -185,7 +185,7 @@ newtype StateT s f a => StateT { runStateT :: s -> f (s,a) }
  
 
 
-Hope this list would be helpful to someone (other than me!). All these functions are a topic in themselves and deserve a separate blog post for each of them. I also have tried to explain a lot of such FP practices using Scala and Haskell [here](https://blog.amitashukla.in/2019/07/unfolding-folds.html), [here](https://blog.amitashukla.in/2017/06/implement-functional-list-from-scratch-scala.html), [here](https://blog.amitashukla.in/2017/03/tail-recursion-in-functional-programming.html) and [here](https://blog.amitashukla.in/2017/02/why-functional-programming.html). I have also refrained from mentioning the laws associated with type classes to which most of these functions belong, but they also form an interesting read.
+Hope this list would be helpful to someone (other than me!). All these functions are a topic in themselves and deserve a separate blog post for each of them. I also have tried to explain a lot of such FP practices using Scala and Haskell [here](https://amitashukla.in/blog/unfolding-folds.html), [here](https://amitashukla.in/blog/implement-functional-list-from-scratch-scala.html), [here](https://amitashukla.in/blog/tail-recursion-in-functional-programming.html) and [here](https://amitashukla.in/blog/why-functional-programming.html). I have also refrained from mentioning the laws associated with type classes to which most of these functions belong, but they also form an interesting read.
 
 
 
