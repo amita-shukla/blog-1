@@ -4,7 +4,7 @@ module.exports = {
   siteDescription: "Amita Shukla's Personal Website",
   siteUrl: "https://www.amitashukla.in",
   // pathPrefix: "",
-  siteImage: "preview.jpg",
+  siteImage: "preview.png",
   siteLanguage: "en",
 
   /* author */

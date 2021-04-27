@@ -59,7 +59,7 @@ When you write awesome code, what is the point in keeping it hidden? Show Off. T
  
 
 
-Beware! Git is a steep learning curve if you have never tried it before. [Here](http://blog.amitashukla.in/2016/04/how-to-set-up-git-repository.html) is one article to get you started.
+Beware! Git is a steep learning curve if you have never tried it before. [Here](https://amitashukla.in/blog/how-to-set-up-git-repository.html) is one article to get you started.
 
  
 
@@ -244,7 +244,7 @@ Don't type a command again and again. Press `ctrl+r` and type any key words that
  
 
 
-There are so many other tricks out there that an entire post (perhaps a book) can be dedicated to it. Also, a lot more can be done by scripting your long list of commands. I mentioned a few of them in my post [Shell In a Nutshell](http://blog.amitashukla.in/2016/12/shell-in-nutshell.html). 
+There are so many other tricks out there that an entire post (perhaps a book) can be dedicated to it. Also, a lot more can be done by scripting your long list of commands. I mentioned a few of them in my post [Shell In a Nutshell](https://amitashukla.in/blog/shell-in-nutshell.html). 
  
 
 
