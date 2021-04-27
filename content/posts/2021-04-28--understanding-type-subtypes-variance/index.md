@@ -1,13 +1,14 @@
 ---
-title: SubTying & Variance
+title: Understanding Types, Subtypes and Type Variance
 tags: ["PROGRAMMING", "SCALA"]
-cover: meme.jpg
 author: Amita Shukla
 ---
 
-While we frequently and casually use subtyping while designing a program. Subtyping happens when we build one type out of another. Infact, it is almost unimaginable to code without using the power to build new things on top of other things. In this post, we take subtyping a level further and understand how the assignment and substitution capabilities of our types affects our code behaviour (and subsequently ours).
+Most of us when we just start with programming, get confused with concepts of types, subtypes, inheritance, etc. But just as with the process of learning any language this all starts to come naturally to us, we grow up to casually use subtyping wherever we want in a program, infact, it becomes almost unimaginable to code without these.  
 
-Let's begin with an example. Let's say we have a class `Animal`. It can `speak`, `eat` and `describe` itself.
+Subtyping is nothing but writing one type in terms of another. Only when I started exploring other languages I realized that there are deeper theories to it, and may be I do not understand subtypes to the extent I thought I did. I am writing this post in order to pass on this programming existential crisis to my fellow readers (but also attempting to develop an understanding along the way). We take subtyping a level further and understand how the assignment and substitution behaviour of our types affects our code behaviour (and subsequently ours).
+
+Let's begin with an example. Let's say we have a class `Animal`. It can `speak` and `eat`.
 
 ```scala
 class Animal(val name: String){
@@ -17,7 +18,7 @@ class Animal(val name: String){
 }
 ```
 
-While `Animal` has general properties, it can also be of two types: `Cat` and `Dog`. `Cat` and `Dog` `speak`, `eat` and `describe` themselves in their own way. Also, a dog has its own added function as well, `dogonly`. Similarly, a cat is special in its own way, say `catonly`.
+While `Animal` has general properties, it can also be of two types: `Cat` and `Dog`. `Cat` and `Dog` `speak`, `eat` in their own way. Also, a dog has its own special function as well, `dogonly`. Similarly, a cat is special in its own way, say `catonly`.
 
 ```scala
 class Cat(override val name: String) extends Animal(name) {
@@ -33,13 +34,15 @@ class Dog(override val name: String) extends Animal(name) {
 }
 ```
 
-With the above examples in mind, let's over some concepts formally.
+(_I do not have experience with pets, so pardon me if I did not implement Dog's and Cat's functions correctly..._)
+
+With the above examples in mind, let's go over some concepts formally.
   
 ## Type
 A type or a data type represents the type of data which tells the compiler/interpreter as to how the programmer intends to use that data. So, a type can be `Integer`, `String`, `Boolean`. We can create our own types as well, such as `Animal`, `Cat` and `Dog` as above. A type, the way it is defined, indicates what values it can take and what operations can be done on it.
 
 ## Subtyping 
-Subtyping talks about the relationship between different types. We have a subtype and we have a supertype.
+Subtyping talks about the relationship between different types. We have a **subtype** and we have a **supertype**.
 
 We can say that a type `B` is a subtype of `A` if:
 - we can substitute `B` subtype in place of `A` supertype. 
@@ -79,7 +82,7 @@ Using the above example, it becomes clear that while we can add a `Cat` to a `Li
 Working in OOP based lanuages makes this sound kinda obvious as we think about the same concept it in terms of Inheritance: an object of subclass cannot be passed where an object of superclass is required.
 
 ### Subtyping v/s Inheritance
-At this point you may ask me, "Amita, why are you confusing us with subtyping and inheritance? Aren't we talking about inheritance here?" Well, actually, yes and no. I found this article [here](https://www.cmi.ac.in/~madhavan/courses/pl2009/lecturenotes/lecture-notes/node28.html#:~:text=In%20the%20object%2Doriented%20framework,refers%20to%20compatibility%20of%20interfaces.&text=Inheritance%20refers%20to%20reuse%20of%20implementations.) that can help:
+At this point you may ask me, "Amita, why are you confusing us with subtyping and inheritance? Aren't we talking about inheritance here?" Well, actually, yes and no. I found this article <a href="https://www.cmi.ac.in/~madhavan/courses/pl2009/lecturenotes/lecture-notes/node28.html#:~:text=In%20the%20object%2Doriented%20framework,refers%20to%20compatibility%20of%20interfaces.&text=Inheritance%20refers%20to%20reuse%20of%20implementations." target="_blank">here</a> that can help:
 
 > Subtyping refers to compatibility of interfaces. A type `B` is a subtype of `A` if every function that can be invoked on an object of type `A` can also be invoked on an object of type `B`.
 
@@ -87,11 +90,11 @@ At this point you may ask me, "Amita, why are you confusing us with subtyping an
 
 In OOPs, inheritance and subtyping usually go hand in hand, the syntax being the same makes it more confusing. For example, in our case, `Cat` and `Dog` are subtypes of `Animal`: any operations done on `Animal` can be done on `Cat` and `Dog` as well. Also, `Cat` and `Dog` inherit from `Animal`: we have redefined (overridden) the function in `Animal` in `Dog` and `Cat`.
 
-The objective of this article is about understanding this difference. Inheritance helps you reuse the implementations  of methods/instance variables inside the super class, on the other hand, Subtyping deals with the safe behaviour of this class (a type) on the whole when it is passed to another data structure or function (formally called Variance).
+Inheritance helps you reuse the implementations  of methods/instance variables inside the super class, on the other hand, Subtyping deals with the safe behaviour of this class (a type) on the whole when it is passed to another data structure or function (formally called Variance, which we talk about later).
 
 > Subclassing doesn't guarentee Subtyping.
 
-As here we are not discussing about reusing implementations, but actually dvelving into the beaviours of types in different conditions, we can get rid of this confusion and  rightly focus on the subtyping at this point.
+When we talk about subtyping here, we don't discuss reusing implementations, but actually dvelving into the beaviours of types in different conditions.
 
 ## Variance -  Subtyping for complex types
 Now that we have established how subtypes and super types are used and how they behave, lets take it a bit further. What about complex types? 
@@ -109,7 +112,7 @@ Reiterating on what we established above, if `A:>B`, we can pass `B` wherever we
 
 Subtyping on complex types gives rise to 2 cases: 
 
-#### case 1: pass `List[B]` where we expect `List[A]`
+#### Case 1: pass `List[B]` where we expect `List[A]`
 
 I have a function that expects a `List[Animal]` and does something with it:
 
@@ -123,7 +126,8 @@ Can I pass `cats: List[Cat]` in place of `animals: List[Animal]`?
 ```scala
 expectingListOfSupertype(cats) // yes, I can!
 ```
-#### case 2: pass `List[A]` where we expect `List[B]`
+
+#### Case 2: pass `List[A]` where we expect `List[B]`
 This is the converse case to case 1.
 
 ```scala
@@ -167,7 +171,7 @@ def functionThatExpectsSubtypeFunction(fun: Cat => String) = {
 }
 ```
 How are the functions going to behave in the following cases?
-#### case1: pass f[B] where we expect f[A] 
+#### Case1: pass f[B] where we expect f[A] 
 Lets try passing the subtype function to `functionThatExpectsSupertypeFunction`:
 
 ```scala
@@ -186,7 +190,7 @@ def functionThatExpectsSupertypeFunction(fun: Animal => String) = {
 ```
 If the compiler could allow passing subtype function to the above, it would break coz internally it would call `fun: Cat => String` which can then try to call `catonly` on an `Animal`. Ouch!
 
-#### case2: pass f[A] where we expect f[B]
+#### Case2: pass f[A] where we expect f[B]
 Now lets try passing supertype function to `functionThatExpectsSubtypeFunction`:
 
 ```scala
@@ -216,9 +220,9 @@ Lets talk about another data structure: `Arrays`. These are mutable data structu
 
 Thus, we can say that it can neither be safe for arrays to be Covariant or Contravariant. Confused? Wikipedia explains it better:
 
-> If we wish to avoid type errors, then only the third choice is safe. Clearly, not every Animal[] can be treated as if it were a Cat[], since a client reading from the array will expect a Cat, but an Animal[] may contain e.g. a Dog. So the contravariant rule is not safe.
+> If we wish to avoid type errors, then only the third choice is safe. Clearly, not every `Animal[]` can be treated as if it were a `Cat[]`, since a client reading from the array will expect a `Cat`, but an `Animal[]` may contain e.g. a `Dog`. So the contravariant rule is not safe.
 
-> Conversely, a Cat[] cannot be treated as an Animal[]. It should always be possible to put a Dog into an Animal[]. With covariant arrays this cannot be guaranteed to be safe, since the backing store might actually be an array of cats. So the covariant rule is also not safe—the array constructor should be invariant.
+> Conversely, a `Cat[]` cannot be treated as an `Animal[]`. It should always be possible to put a `Dog` into an `Animal[]`. With covariant arrays this cannot be guaranteed to be safe, since the backing store might actually be an array of cats. So the covariant rule is also not safe—the array constructor should be invariant.
 
 ```scala
 val animalarray: Array[Animal] = Array(animal1, animal2)
