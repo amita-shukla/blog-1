@@ -5,7 +5,7 @@ cover: keep-calm-and-do-it-yourself.png
 author: Amita Shukla
 ---
 
-After studying the [why](http://blog.amitashukla.in/2017/02/why-functional-programming.html) and [how](http://blog.amitashukla.in/2017/03/tail-recursion-in-functional-programming.html) of Functional Programming, the time had come to study the real-life implementation of this paradigm. So, I went on reading Scala source code. And why not? Scala [claims](https://www.scala-lang.org/what-is-scala.html#functional) to be a full-blown functional language, and allows an easy migration from imperative to functional. It was plain sailing until I stumbled upon List.scala and saw this: 
+After studying the [why](https://amitashukla.in/blog/why-functional-programming.html) and [how](https://amitashukla.in/blog/tail-recursion-in-functional-programming.html) of Functional Programming, the time had come to study the real-life implementation of this paradigm. So, I went on reading Scala source code. And why not? Scala [claims](https://www.scala-lang.org/what-is-scala.html#functional) to be a full-blown functional language, and allows an easy migration from imperative to functional. It was plain sailing until I stumbled upon List.scala and saw this: 
 
 ```scala
 def length: Int = {
@@ -37,7 +37,7 @@ It is not that I am against Imperative programming, but this was not something I
 
 ### With Expectations Come Disappointments. And then Hope.
 
-In my previous [post](http://blog.amitashukla.in/2017/02/why-functional-programming.html), I discussed why functional programming does not favour iteration, and how [Tail Recursion](http://blog.amitashukla.in/2017/03/tail-recursion-in-functional-programming.html) is the way to overcome the need of iteration. Then why an imperative approach? Well, I researched heavily and got some leads that I will talk about [later](#why_imperative_approach). Now that I felt cheated, I took matters in my own hand. 
+In my previous [post](https://amitashukla.in/blog/why-functional-programming.html), I discussed why functional programming does not favour iteration, and how [Tail Recursion](https://amitashukla.in/blog/tail-recursion-in-functional-programming.html) is the way to overcome the need of iteration. Then why an imperative approach? Well, I researched heavily and got some leads that I will talk about [later](#why_imperative_approach). Now that I felt cheated, I took matters in my own hand. 
  
 
 
@@ -84,7 +84,7 @@ Fundamentally, a linked list is a chain of nodes each referring to exactly one o
 <re-img src="linked-list.png"></re-img>
 
  
-Linked List enables to make Scala's list **immutable**. Why immutable? I discussed the need of immutability in my post [Going The Functional](http://blog.amitashukla.in/2017/02/why-functional-programming.html)[Way](http://blog.amitashukla.in/2017/02/why-functional-programming.html). In short, we can say that immutability lets you write a code that is free of side effects. 
+Linked List enables to make Scala's list **immutable**. Why immutable? I discussed the need of immutability in my post [Going The Functional](https://amitashukla.in/blog/why-functional-programming.html)[Way](https://amitashukla.in/blog/why-functional-programming.html). In short, we can say that immutability lets you write a code that is free of side effects. 
  
 A list has simulated operations as add or update or remove, these operations in each case return a new collection and leave the old collection unchanged. Hence, we can rely on the fact that accessing the same collection value repeatedly at different points in time will always yield a collection with the same elements. 
 We can try something similar to java.util.ArrayList, but then it can not be immutable. 
@@ -331,7 +331,7 @@ So far, we have implemented the functions add, last, map, foldLeft, filter. Ther
 
 - Remember that all the operations are on immutable lists, i.e. they return a new list every time they are called and do not modify the original list.
 - The scala.List has a similar structure with a few differences. The `MyEmptyList` discussed here is similar to the object `Nil`, and `MyNonEmptyList` is equivalent to the class `::` (pronounced as 'cons'). In Scala, the special properties of any method-name ending with `:` is that it makes the operation right-associative. Therefore, `MyNonEmptyList(head,tail)` can be written as `tail.::head` or `head :: tail` .
-- Not all functions in `MyList` are as efficient as they can be. As I discussed in my post about [Tail Recursion](http://blog.amitashukla.in/2017/03/tail-recursion-in-functional-programming.html), functions can be made tail recursive for efficiency. Let's take the simplest example, `length`:
+- Not all functions in `MyList` are as efficient as they can be. As I discussed in my post about [Tail Recursion](https://amitashukla.in/blog/tail-recursion-in-functional-programming.html), functions can be made tail recursive for efficiency. Let's take the simplest example, `length`:
 ```scala
 scala> val list = MyNonEmptyList(1,MyEmptyList) add 2 add 3
 list: MyList[Int] = 3 2 1 
