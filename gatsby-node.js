@@ -141,6 +141,26 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
+        // Create shorts
+        const shorts = items.filter(item => item.node.fields.source === "shorts");
+        shorts.forEach(({ node }, index) => {
+          const slug = node.fields.slug;
+          const prev = index === 0 ? undefined : posts[index - 1].node;
+          const next = index === posts.length - 1 ? undefined : posts[index + 1].node;
+          const source = node.fields.source;
+
+          createPage({
+            path: `/short`+ slug,
+            component: postTemplate,
+            context: {
+              slug,
+              next,
+              prev,
+              source
+            }
+          });
+        });
+
         // and pages. // currently there are no pages
         const pages = items.filter(item => item.node.fields.source === "pages");
         pages.forEach(({ node }) => {

@@ -58,6 +58,13 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `shorts`,
+        path: `${__dirname}/content/shorts/`
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -198,8 +205,10 @@ module.exports = {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.fields.prefix,
-                  url: site.siteMetadata.siteUrl + '/blog' + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + '/blog' + edge.node.fields.slug,
+                  url: site.siteMetadata.siteUrl + (edge.node.fields.source==='posts'? '/blog/' : edge.node.fields.source) + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + (edge.node.fields.source==='posts'? '/blog/' : edge.node.fields.source)+ edge.node.fields.slug,
+                  // url: site.siteMetadata.siteUrl + '/blog/' + edge.node.fields.slug,
+                  // guid: site.siteMetadata.siteUrl + '/blog' + edge.node.fields.slug,
                   categories: edge.node.frontmatter.tags,
                   custom_elements: [
                     { "content:encoded": edge.node.html },
@@ -232,6 +241,7 @@ module.exports = {
                       fields {
                         slug
                         prefix
+                        source
                       }
                       frontmatter {
                         author
