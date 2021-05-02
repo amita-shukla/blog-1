@@ -1,7 +1,7 @@
 import { FaTag } from "react-icons/fa/";
 import PropTypes from "prop-types";
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import theme from "../theme/theme.yaml";
 import Article from "../components/Article/";
 import Headline from "../components/Article/Headline";
@@ -53,7 +53,7 @@ const TagsPage = props => {
           {tagList.map(item => (
             <section key={item[0]}>
               <h2>
-                <FaTag /> {item[0]}
+                <Link to={`/tag/${item[0].split(" ").join("-").toLowerCase()}`}><FaTag />{item[0]}</Link> 
               </h2>
               <List edges={item[1]} theme={theme} />
             </section>
