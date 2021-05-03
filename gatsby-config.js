@@ -275,6 +275,13 @@ module.exports = {
           timeout: 3500,
       },
     },
+    {
+      resolve: `gatsby-plugin-goatcounter`,
+      options: {
+        code: process.env.GOATCOUNTER_CODE,
+        allowLocal: false // set this to true, if you want to test locally
+      }
+    }
     // {
     //   resolve: '@ghranek/gatsby-source-blogger',
     //   options: {
