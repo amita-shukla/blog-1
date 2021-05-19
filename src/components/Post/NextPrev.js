@@ -27,7 +27,7 @@ const NextPrev = props => {
       <div className="links">
 
         {nextSlug && (
-          <Link to={nextSlug}>
+          <Link to={`/blog`+ nextSlug}>
             <span className="next-link-text">
               <h4>
                 {nextTitle} <time>{nextPrefix} </time>
@@ -39,7 +39,7 @@ const NextPrev = props => {
           </Link>
         )}
         {prevSlug && (
-          <Link to={prevSlug}>
+          <Link to={`/blog`+ prevSlug}>
             <span className="live-arrow">
               <FaArrowLeft />
             </span>
