@@ -27,7 +27,7 @@ const Bodytext = props => {
         .bodytext {
           animation-name: bodytextEntry;
           animation-duration: 0;
-          color: ${theme.color.neutral.gray.j};
+          color: ${theme.color.neutral.gray.k};
 
           :global(blockquote) {
             border-left: 5px solid #bbbbbb;

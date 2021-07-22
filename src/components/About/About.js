@@ -24,7 +24,7 @@ const About = props => {
           </div> 
           <style jsx>{`
             .aboutText {
-              color: ${theme.color.neutral.gray.j};
+              color: ${theme.color.neutral.gray.k};
               margin: 0 0 0.5em;
               font-size: ${theme.font.size.s};
               font-weight: 400;
