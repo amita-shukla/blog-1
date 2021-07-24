@@ -8,13 +8,13 @@ const Seo = props => {
   const { data } = props;
   const pageTitle = props.pageTitle;
   const postTitle = ((data || {}).frontmatter || {}).title;
-  const postDescription = ((data || {}).frontmatter || {}).description;
-  const postCover = ((data || {}).frontmatter || {}).cover;
+  const postDescription = (data || {}).excerpt;
+  const postCoverURL = (((data || {}).frontmatter || {}).cover || {}).publicURL;
   const postSlug = ((data || {}).fields || {}).slug;
 
   const title = config.shortSiteTitle + " - " + (postTitle || pageTitle)
   const description = postDescription ? postDescription : config.siteDescription;
-  const image = postCover ? postCover : config.siteImage;
+  const imageURL = config.siteUrl + (postCoverURL ? postCoverURL : config.siteImage);
   const url = config.siteUrl + postSlug;
 
   return (
@@ -44,7 +44,7 @@ const Seo = props => {
           <meta property="og:url" content={url} />
           <meta property="og:title" content={title} />
           <meta property="og:description" content={description} />
-          <meta property="og:image" content={image} />
+          <meta property="og:image" content={imageURL} />
           <meta property="og:type" content="website" />
           {/* Plausible Analytics */}
           {/* {process.browser && <script async defer data-domain={domain} src="https://plausible.io/js/plausible.js"/>} */}

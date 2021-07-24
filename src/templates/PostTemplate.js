@@ -74,10 +74,11 @@ export const postQuery = graphql`
               src
             }
           }
+          publicURL
         }
       }
       timeToRead
-      excerpt
+      excerpt(pruneLength: 400)
       parent {
         ...on File {
           modifiedTime(formatString: "YYYY-MM-DD")
