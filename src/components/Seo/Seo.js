@@ -7,15 +7,16 @@ import config from "../../../content/meta/config";
 const Seo = props => {
   const { data } = props;
   const pageTitle = props.pageTitle;
+  const pageSlug = props.pageSlug;
   const postTitle = ((data || {}).frontmatter || {}).title;
   const postDescription = (data || {}).excerpt;
   const postCoverURL = (((data || {}).frontmatter || {}).cover || {}).publicURL;
   const postSlug = ((data || {}).fields || {}).slug;
 
-  const title = config.shortSiteTitle + " - " + (postTitle || pageTitle)
+  const title = config.shortSiteTitle + " - " + (postTitle || pageTitle);
   const description = postDescription ? postDescription : config.siteDescription;
-  const imageURL = config.siteUrl + (postCoverURL ? postCoverURL : config.siteImage);
-  const url = config.siteUrl + postSlug;
+  const imageURL = config.siteUrl + (postCoverURL ? postCoverURL : "/" + config.siteImage);
+  const url = config.siteUrl + (postSlug || pageSlug);
 
   return (
     // <StaticQuery
@@ -56,7 +57,9 @@ const Seo = props => {
 };
 
 Seo.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
+  pageTitle: PropTypes.string,
+  pageSlug: PropTypes.string
 };
 
 export default Seo;
