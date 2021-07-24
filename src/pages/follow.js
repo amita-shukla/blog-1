@@ -157,7 +157,7 @@ const FollowPage = props => {
                 }
               `}</style>
             </Article>
-            <Seo pageTitle="Follow"/>
+            <Seo pageTitle="Follow" pageSlug="/follow/"/>
           </React.Fragment>
   )
 };

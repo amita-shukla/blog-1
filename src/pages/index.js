@@ -6,16 +6,16 @@ import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaEnvelope } from "react-icons/fa";
-import About from "../components/About"
+import About from "../components/About";
 
 const AboutPage = props => {
-  const aboutContent = useStaticQuery(query).markdownRemark.htmlAst
+  const aboutContent = useStaticQuery(query).markdownRemark.htmlAst;
   return (
     <React.Fragment>
         <Article theme={theme}>
           <About theme={theme} aboutContent={aboutContent}/>
         </Article>
-      <Seo pageTitle="Home"/>
+      <Seo pageTitle="Home" pageSlug="/"/>
     </React.Fragment>
   );
 };
