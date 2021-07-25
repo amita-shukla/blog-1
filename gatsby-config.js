@@ -281,6 +281,19 @@ module.exports = {
         code: process.env.GOATCOUNTER_CODE,
         allowLocal: false // set this to true, if you want to test locally
       }
+    },
+    {
+      resolve: "gatsby-plugin-social-cards",
+      options: {
+        // ommit to skip
+        // authorImage: "./static/img/coffee-art.jpg",
+        // image to use when no cover in frontmatter
+        backgroundImage: "./static/twitter_card.jpg",
+        // author to use when no auth in frontmatter
+        defaultAuthor: config.authorName,
+        // card design
+        design: "default" // 'default' or 'card'
+      }
     }
     // {
     //   resolve: '@ghranek/gatsby-source-blogger',
