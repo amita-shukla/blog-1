@@ -47,6 +47,8 @@ const Seo = props => {
           <meta property="og:description" content={description} />
           <meta property="og:image" content={imageURL} />
           <meta property="og:type" content="website" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:image" content={imageURL} />
           {/* Plausible Analytics */}
           {/* {process.browser && <script async defer data-domain={domain} src="https://plausible.io/js/plausible.js"/>} */}
         </Helmet>
