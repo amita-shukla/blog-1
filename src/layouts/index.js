@@ -118,7 +118,8 @@ class Layout extends React.Component {
             }
             a {
               text-decoration: none;
-              color: #666;
+              color: #2b2826;
+              // color: #666;
             }
             main {
               width: auto;
