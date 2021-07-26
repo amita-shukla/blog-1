@@ -18,7 +18,7 @@ const ContactPage = props => {
           <div className="contactText" dangerouslySetInnerHTML={{ __html: contactPageText }}/>
           <style jsx>{`
             .contactText {
-              color: ${theme.color.neutral.gray.j};
+              color: ${theme.color.neutral.gray.k};
               margin: 0 0 0.5em;
               font-size: ${theme.font.size.s};
               font-weight: 400;

@@ -54,7 +54,7 @@ color:
       h: "#706e6b"
       i: "#514f4d"
       j: &color-gray-10 "#666" #'#3e3e3c'
-      k: "#2b2826"
+      k: &color-gray-11 "#2b2826"
     black: "#000000"
 
   brand:
@@ -120,7 +120,7 @@ background:
 text:
   family: *font-family-target
   color:
-    primary: *color-gray-10
+    primary: *color-gray-11
     primaryInverse: *color-white
     brand: *color-brand-primary
     attention: *color-special-attention

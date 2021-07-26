@@ -66,7 +66,7 @@ const TagsPage = props => {
           }
           h2 {
             margin: 0 0 0.5em;
-            color: ${theme.color.neutral.gray.j};
+            color: ${theme.color.neutral.gray.k};
             
           }
           @from-width desktop {

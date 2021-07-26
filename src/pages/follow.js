@@ -99,7 +99,7 @@ const FollowPage = props => {
                   font-weight: 400;
                   margin: 0 0 1.5em;
                   margin-bottom: 20px;
-                  color: ${theme.color.neutral.gray.j};
+                  color: ${theme.color.neutral.gray.k};
                 }
                 .rss {
                   :global(a) {
@@ -131,7 +131,7 @@ const FollowPage = props => {
                   font-weight: normal;
                   margin-top: 5px;
                   margin-bottom: 10px;
-                  color: ${theme.color.neutral.gray.j};
+                  color: ${theme.color.neutral.gray.k};
                 }
                 .error, .success { 
                   :global(svg) {

@@ -47,7 +47,7 @@ const Meta = props => {
           font-size: 0.8em;
           margin: ${theme.space.m} 0;
           background: transparent;
-          color: ${theme.color.neutral.gray.j};
+          color: ${theme.color.neutral.gray.k};
 
           :global(svg) {
             position: relative;
