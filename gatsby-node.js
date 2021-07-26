@@ -58,8 +58,8 @@ exports.createPages = ({ graphql, actions }) => {
     const pageTemplate = path.resolve("./src/templates/PageTemplate.js");
     const tagTemplate = path.resolve("./src/templates/TagTemplate.js");
     
-    const activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development"
-    console.log(`Using environment config: '${activeEnv}'`)
+    const activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development";
+    console.log(`Using environment config: '${activeEnv}'`);
 
     let filters = `filter: { fields: { slug: { ne: null } } }`;
 

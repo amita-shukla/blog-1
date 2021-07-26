@@ -81,7 +81,7 @@ const TagsPage = props => {
         `}</style>
       </Article>
 
-      <Seo pageTitle="Tags"/>
+      <Seo pageTitle="Tags" pageSlug="/tags/"/>
     </React.Fragment>
   );
 };

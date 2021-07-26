@@ -35,7 +35,7 @@ const ContactPage = props => {
             }
           `}</style>
         </Article>
-      <Seo pageTitle="Contact"/>
+      <Seo pageTitle="Contact" pageSlug="/contact/"/>
     </React.Fragment>
   );
 };

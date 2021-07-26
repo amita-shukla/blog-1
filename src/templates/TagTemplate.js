@@ -7,6 +7,7 @@ import { ThemeContext } from "../layouts";
 import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import List from "../components/List";
+const _ = require("lodash");
 
 const TagTemplate = props => {
   const {
@@ -35,7 +36,7 @@ const TagTemplate = props => {
         )}
       </ThemeContext.Consumer>
 
-      <Seo />
+      <Seo pageTitle={tag} pageSlug={"/tag/"+_.kebabCase(tag)} />
     </React.Fragment>
   );
 };
