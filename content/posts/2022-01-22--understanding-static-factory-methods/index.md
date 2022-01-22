@@ -1,12 +1,13 @@
 ---
-title: The Case of Static Factory Methods 
+title: Understanding Static Factory Methods 
 tags: ["PROGRAMMING", "JAVA", "EFFECTIVE JAVA"]
+cover: true_and_false.png
 author: Amita Shukla
 ---
 
-There is ample evidence how we can use constructors to create new objects, but still we can opt out the use of constructors somtimes. In the object oriented world, where everything is an object, sometimes need not be so. It is obvious to use the `new` keyword, as the only way to deal with an object. 
+There is ample material on how we can use constructors to create new objects, but still we can opt out the use of constructors somtimes. In the object oriented world, where everything is an object, some need not be so. 
 
-But we may not want that all the time. Lets consider a very common scenario of `Boolean`. We know that a boolean value represents one of the two values, `true` or `false`. When we attempt to create a boxed type for the same, we can create a `Boolean` object like this:
+It is obvious to use the `new` keyword, as the only way to deal with an object. But we may not want that all the time. L'ets consider a very common scenario of `Boolean`. We know that a boolean value represents one of the two values, `true` or `false`. When we attempt to create a boxed type for the same, we can create a `Boolean` object like this:
 
 ```java
 class Boolean {
@@ -59,6 +60,7 @@ public Boolean {
   }
 }
 ```
+<re-img src="true_and_false.png"></re-img>
 
 ## Advantages
 
@@ -68,7 +70,7 @@ As in the example above, static factory methods are some of the most commonly us
 
 2. Static Factory methods can also help us with Singleton classes, where we always need to return a single object. By convention a `getInstance` method is created, that returns the same instance each time it is called.
    
-3. Another use is with returning some specific implementation of the class, depending on some criteria. While a constructor returns an instance of the object it is called in, with a static factory method we can return different implementations of the object depending upon some logic. 
+3. Another benefit is that we can returning some specific implementation of the class, depending on some criteria. While a constructor returns an instance of the object it is called in, with a static factory method we can return different implementations of the object depending upon some logic. 
 
 For example, consider the method `unmodifiableSet` from `Collections.java` that takes a `Set` and returns a non-public implementation called `UnmodifiableSet`:
 
@@ -84,5 +86,5 @@ However, the return type of the above method is kept `Set`, but it will throw an
 
 Hope the Static Factory Methods are a bit clearer now. We need not always use them in place of Constructors, but they're nice to have when constructors fall short. It's important to understand when to use what. 
 
-This post is actually my notes on Chapter 2 of the Effective Java book, a must read for all programmers who want to level up in the field.
+This post actually comes from my old notes on Chapter 2 of the Effective Java book, a must read for all programmers who want to level up in the field.
 
