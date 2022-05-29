@@ -1,6 +1,6 @@
 ---
 title: Git exclude v/s Git ignore
-tags: ["GIT", "SHORTS"]
+tags: ["GIT", "NOTES"]
 cover: git_info_exclude.jpg
 author: Amita Shukla
 ---
