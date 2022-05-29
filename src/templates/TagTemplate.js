@@ -1,4 +1,4 @@
-import { FaTag } from "react-icons/fa/";
+import { FaStickyNote, FaTag } from "react-icons/fa/";
 import PropTypes from "prop-types";
 import React from "react";
 import { graphql } from "gatsby";
@@ -17,6 +17,8 @@ const TagTemplate = props => {
     }
   } = props;
 
+  const isNotesPage = tag == "NOTES";
+
   return (
     <React.Fragment>
       <ThemeContext.Consumer>
@@ -24,11 +26,12 @@ const TagTemplate = props => {
           <Article theme={theme}>
             <header>
               <Headline theme={theme} customStyle={{textAlign: "left"}}>
-                <span>Posts with tag</span> <FaTag />
+                <span>{!isNotesPage ? "Posts with tag" : ""}</span> 
+                {isNotesPage ? <FaStickyNote /> : <FaTag />}
                 {tag}
               </Headline>
               <p className="meta">
-                <strong>{totalCount}</strong> post{totalCount > 1 ? "s " : " "} tagged:
+                <strong>{totalCount}</strong> post{totalCount > 1 ? "s " : " "}:
               </p>
               <List edges={edges} theme={theme} />
             </header>
