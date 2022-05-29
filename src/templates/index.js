@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import Seo from "../components/Seo"
+import Seo from "../components/Seo";
 import View from "../components/Blog/View.js";
 import { GlobalStateContext } from "../components/GlobalState/GlobalState.js";
 import { ThemeContext } from "../layouts";
