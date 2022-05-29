@@ -29,3 +29,10 @@ export function currDate() {
   const day = ("0" + today.getDate()).slice(-2);
   return year + "-" + month + "-" + day;
 }
+
+export function getExpandedDate(prefix) {
+  const monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+  const date = new Date(Date.parse(prefix));
+  const fullDate = monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
+  return fullDate;
+}

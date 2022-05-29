@@ -130,7 +130,27 @@ exports.createPages = ({ graphql, actions }) => {
           const source = node.fields.source;
 
           createPage({
-            path: `/blog`+ slug,
+            path: `/blog` + slug,
+            component: postTemplate,
+            context: {
+              slug,
+              next,
+              prev,
+              source
+            }
+          });
+        });
+
+        // create notes
+        const notes = items.filter(item => item.node.fields.source === "notes");
+        notes.forEach(({ node }, index) => {
+          const slug = node.fields.slug;
+          const prev = index === 0 ? undefined : notes[index - 1].node;
+          const next = index === notes.length - 1 ? undefined : notes[index + 1].node;
+          const source = node.fields.source;
+
+          createPage({
+            path: `/note` + slug,
             component: postTemplate,
             context: {
               slug,

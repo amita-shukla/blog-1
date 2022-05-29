@@ -51,7 +51,7 @@ export const postQuery = graphql`
   query PostBySlug($slug: String!) {
     site: site {
       siteMetadata {
-        siteUrl,
+        siteUrl
         description
       }
     }
@@ -62,6 +62,7 @@ export const postQuery = graphql`
       fields {
         slug
         prefix
+        source
       }
       frontmatter {
         title

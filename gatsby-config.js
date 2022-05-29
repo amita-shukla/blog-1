@@ -58,6 +58,13 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `notes`,
+        path: `${__dirname}/content/notes/`
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -195,11 +202,12 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
+                const postType = edge.node.fields.source === "notes" ? "/note" : "/blog";
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.fields.prefix,
-                  url: site.siteMetadata.siteUrl + '/blog' + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + '/blog' + edge.node.fields.slug,
+                  url: site.siteMetadata.siteUrl + postType + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + postType + edge.node.fields.slug,
                   categories: edge.node.frontmatter.tags,
                   custom_elements: [
                     { "content:encoded": edge.node.html },
@@ -232,6 +240,7 @@ module.exports = {
                       fields {
                         slug
                         prefix
+                        source
                       }
                       frontmatter {
                         author

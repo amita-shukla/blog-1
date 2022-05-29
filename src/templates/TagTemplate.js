@@ -28,24 +28,21 @@ const TagTemplate = props => {
         {theme => (
           <Article theme={theme}>
             <header>
-              <Headline theme={theme} customStyle={{textAlign: "left"}}>
-                <span>{!isNotesPage ? "Posts with tag" : ""}</span> 
+              <Headline theme={theme} customStyle={{ textAlign: "left" }}>
+                <span>{!isNotesPage ? "Posts with tag" : ""}</span>
                 {isNotesPage ? <FaStickyNote /> : <FaTag />}
                 {tag}
               </Headline>
               <p className="meta">
-                <strong>
-                  { !isNotesPage ? countText : noteText }
-              </strong>
+                <strong> {!isNotesPage ? countText : noteText} </strong>
               </p>
-              <List edges={edges} theme={theme} /> 
-              
+              <List edges={edges} theme={theme} />
             </header>
           </Article>
         )}
       </ThemeContext.Consumer>
 
-      <Seo pageTitle={tag} pageSlug={"/tag/"+_.kebabCase(tag)} />
+      <Seo pageTitle={tag} pageSlug={"/tag/" + _.kebabCase(tag)} />
     </React.Fragment>
   );
 };
@@ -70,6 +67,7 @@ export const tagQuery = graphql`
         node {
           fields {
             slug
+            source
           }
           excerpt
           timeToRead

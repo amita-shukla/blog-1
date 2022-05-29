@@ -15,7 +15,7 @@ class Menu extends React.Component {
     this.items = [
       { to: "/", label: "Home", icon: FaHome },
       { to: "/blog/", label: "Blog", icon: FaPen },
-      { to: "/tag/notes/", label: "Notes", icon: FaStickyNote },
+      { to: "/notes/", label: "Notes", icon: FaStickyNote },
       { to: "/tags/", label: "Tags", icon: FaTag },
       { to: "/follow/", label: "Follow", icon: FaRss },
       { to: "/contact/", label: "Contact", icon: FaEnvelope },

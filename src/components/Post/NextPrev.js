@@ -9,25 +9,26 @@ const NextPrev = props => {
   const {
     theme,
     next: {
-      fields: { prefix: nextPrefix, slug: nextSlug } = {},
+      fields: { prefix: nextPrefix, slug: nextSlug, source: nextSource } = {},
       frontmatter: { title: nextTitle } = {}
     } = {},
     prev: {
-      fields: { prefix: prevPrefix, slug: prevSlug } = {},
+      fields: { prefix: prevPrefix, slug: prevSlug, source: prevSource } = {},
       frontmatter: { title: prevTitle } = {}
     } = {}
   } = props;
 
   const flexb = (nextSlug && prevSlug ? "50%" : "100%") /* If only one link available, it can take 100% of space. */
+  const nextPostType = nextSource === "notes" ? "/note" : "/blog";
+  const prevPostType = prevSource === "notes" ? "/note" : "/blog";
 
   if (!nextSlug && !prevSlug) return (<span></span>); /* If neither prev nor next is available, don't put weird empty space there. */
 
   return (
     <React.Fragment>
       <div className="links">
-
         {nextSlug && (
-          <Link to={`/blog`+ nextSlug}>
+          <Link to={nextPostType + nextSlug}>
             <span className="next-link-text">
               <h4>
                 {nextTitle} <time>{nextPrefix} </time>
@@ -39,7 +40,7 @@ const NextPrev = props => {
           </Link>
         )}
         {prevSlug && (
-          <Link to={`/blog`+ prevSlug}>
+          <Link to={prevPostType + prevSlug}>
             <span className="live-arrow">
               <FaArrowLeft />
             </span>
