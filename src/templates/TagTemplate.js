@@ -18,6 +18,9 @@ const TagTemplate = props => {
   } = props;
 
   const isNotesPage = tag == "NOTES";
+  const plural = totalCount > 1 ? " posts" : " post";
+  const countText = totalCount + plural;
+  const noteText = "On Which I Couldn't Write An Entire Blog Post";
 
   return (
     <React.Fragment>
@@ -31,9 +34,12 @@ const TagTemplate = props => {
                 {tag}
               </Headline>
               <p className="meta">
-                <strong>{totalCount}</strong> post{totalCount > 1 ? "s " : " "}:
+                <strong>
+                  { !isNotesPage ? countText : noteText }
+              </strong>
               </p>
-              <List edges={edges} theme={theme} />
+              <List edges={edges} theme={theme} /> 
+              
             </header>
           </Article>
         )}
