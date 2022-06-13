@@ -8,7 +8,7 @@ title: About Me
 
 <br/>
 
-Hi :wave: I'm Amita, a Software Developer with 6 years of experience. I mostly work in Backend, Big Data & Cloud Ecosystem, creating magic on data using Java, Scala, SQL and Bash. I maintain this blog built mainly on React, and also enjoy Machine Learning/ Python. 
+Hi :wave: I'm Amita, a Software Developer with 6 years of experience. I mostly work on Backend, Big Data & Cloud Ecosystem, creating magic on data using Java, Scala, SQL and Bash. I maintain this blog built mainly on React and GraphQL, and also enjoy Machine Learning/ Python. 
 
 I believe in not restricting myself to the programming language or framework but rather focus on the purpose it solves, having switched gears between Python, Haskell, Groovy, .Net/ C#, PHP, C++ in the past. I am passionate about writing clean and maintainable code, and over time have inclined more towards type-safe languages. 
 
