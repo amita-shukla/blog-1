@@ -1,6 +1,6 @@
 ---
 title: REST - POST v/s PUT
-tags: ["PROGRAMMING", "JAVA"]
+tags: ["PROGRAMMING", "REST"]
 author: Amita Shukla
 ---
 
