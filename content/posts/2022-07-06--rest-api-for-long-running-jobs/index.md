@@ -57,7 +57,7 @@ This is a simple workflow for resources which are trivial to create. But sometim
 - Scan a pdf, process its contents and save in database.
 - Upload multiple files onto server, but before saving combine, resize, format those files.
 
-These all are long running operations that take a lot more time for an HTTP request. Most applications have a standard timeout, and such jobs can easily surpass thst time. Also, suppose a client application/ frontend calls this request, then it would need to wait for this call to complete. For such long running operations, it is always a better option that we trigger a background operation that does all the heavy lifting and the current request returns a token which the user can later use to cancel this ongoing request, or come back later to view results.
+These all are long running operations that take a lot more time for an HTTP request. Most applications have a standard timeout, and such jobs can easily surpass that time. Also, suppose a client application/ frontend calls this request, then it would need to wait for this call to complete. For such long running operations, it is always a better option that we trigger a background operation that does all the heavy lifting and the current request returns a token which the user can later use to cancel this ongoing request, or come back later to view results.
 
 Let's see how this API would look like:
 
@@ -104,7 +104,9 @@ If the status is "running", this job can be cancelled:
 ```atom
 DELETE /orders/3/cancel
 ```
-The delete call doesn't delete the resource here, but marks it as "cancelled". It also responds with 204 response code, meaning that the call has succeeded but the no-body response is intentional.
+The delete call doesn't delete the resource here, but marks the currently running task pertaining to this id as "cancelled". The backend may decide to try to interrupt the background task, or it may let the task complete but cleanup the result at sometime later. (At this point I feel it would be better I write a separate post about this...)
+
+It also responds with 204 response code, meaning that the call has succeeded but the no-body response is intentional.
 ```atom
 204 NO CONTENT 
 ```
@@ -145,4 +147,4 @@ GET /orders/3/result
 ```
 
 ## Conclusion
-Just like we have asynchronous calls (AJAX) on the frontend, designing the backend API as well decouples the frontend from backend as well. We can return more detailed status updates, or progress bars to update the user about the exact stage of this job. I got the chance to work on this feature once, which was a great boost to the user experience of our application. 
+Just like we have asynchronous calls (AJAX) on the frontend, and we have async jobs on the backend as well. But we can add one more level of decoupling between the frontend and backend by designing the API this way. We can return more detailed status updates, or progress bars to update the user about the exact stage of this job. I got the chance to work on this feature once, which was a great boost to the user experience of our application. 
