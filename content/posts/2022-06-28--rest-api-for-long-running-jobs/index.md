@@ -5,14 +5,14 @@ author: Amita Shukla
 ---
 
 ## The Case of Long Running Jobs
-Consider the case below where we have an API for a 'orders'. We want to expose endpoints for a user to create a new order, list all orders, or get order details for a particular order.
+Consider the case below where we have an API for 'orders'. We want to expose endpoints for a user/ client code to create a new order, list all orders, or get order details for a particular order.
 
 So we create a GET endpoint `/orders` to list all orders:
-```
+```text
 GET /orders
 ```
-The server responds:
-```
+The server responds with:
+```text
 200 OK
 {"orders" : [
     {"id": 1, "products": ["a", "b", "c"]},
@@ -20,29 +20,29 @@ The server responds:
 ]}
 ```
 And to get order details for a particular order:
-```
+```text
 GET /orders/2
 ```
-with the server responding:
-```
+the server responding with:
+```text
 200 OK
 {"id" : 2, "products" : ["b", "f", "x"]}
 ```
 For creating an order, we create a POST endpoint which accepts the list of products for that order:
-```
+```text
 POST /orders/
 {"products" : ["y", "z"]}
 ```
 The server gets back to you with:
-```
+```text
 201 CREATED
 {"id" : 3, "link": "/orders/3"}
 ```
 To check the result of this order:
-```
+```text
 GET /orders/3
 ```
-```
+```text
 200 OK
 {"id" : 3, "products" : ["y", "z"]}
 ```
@@ -58,11 +58,11 @@ These all are long running operations that take a lot more time for an HTTP requ
 Let's see how this API would look like:
 
 Get a list of orders:
-```
+```text
 GET /orders/
 ```
 Response:
-```
+```text
 200 OK
 {"orders" : [
     { "id" : 1, "products" : ["a", "b", "c"] }, 
@@ -70,14 +70,14 @@ Response:
 ]}
 ```
 Create a new order, send a POST request with the body containing order details.
-```
+```text
 POST /orders/
 {"products" : ["y", "z"]}
 ```
 In response, the creation is accepted (not completed), and the process starts in the background.
 
 An automatically generated "id" is assigned to the order.
-```
+```text
 202 ACCEPTED
 {
     "id" : 3
@@ -85,12 +85,12 @@ An automatically generated "id" is assigned to the order.
 }
 ```
 Now this resource creation is a long running process, so you keep polling for the status:
-```
+```text
 GET /orders/3/status
 200 OK
 ```
 The response to this call contains the status of the job, such as "started", "running", "cancelled", "completed" or "failed"...
-```
+```text
 {
     "id" : 3,
     "status" : "running"
@@ -98,18 +98,18 @@ The response to this call contains the status of the job, such as "started", "ru
 }
 ```
 If the status is "running", this job can be cancelled:
-```
+```text
 DELETE /orders/3/cancel
 ```
 The delete call doesn't delete the resource here, but marks it as "cancelled". It also responds with 204 response code, meaning that the call has succeeded but the no-body response is intentional.
-```
+```text
 204 NO CONTENT 
 ```
 You can check the status of this cancelled job using the `/status` endpoint:
-```
+```text
 GET /orders/3/status
 ```
-```
+```text
 200 OK
 {
     "id" : 3,
@@ -117,10 +117,10 @@ GET /orders/3/status
 }
 ```
 Now, if you really need the results, you can decide to keep polling the status for this job, until it's "complete":
-```
+```text
 GET /orders/3/status
 ```
-```
+```text
 200 OK
 {
     "id" : 1,
@@ -129,10 +129,10 @@ GET /orders/3/status
 }
 ```
 If the status is "complete", get the result:
-```
+```text
 GET /orders/3/result
 ```
-```
+```text
 200 OK
 {
     "id" : 3,
