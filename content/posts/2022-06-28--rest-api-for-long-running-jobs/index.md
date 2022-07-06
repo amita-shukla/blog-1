@@ -4,7 +4,6 @@ tags: ["PROGRAMMING", "REST"]
 author: Amita Shukla
 ---
 
-## The Case of Long Running Jobs
 Consider the case below where we have an API for 'orders'. We want to expose endpoints for a user/ client code to create a new order, list all orders, or get order details for a particular order.
 
 ## API Design
@@ -47,6 +46,7 @@ GET /orders/3
 200 OK
 {"id" : 3, "products" : ["y", "z"], "amount" : 200}
 ```
+## The Case of Long Running Jobs
 This is a simple workflow for resources which are trivial to create. But sometimes a lot of work can go into creating a resource, e.g. in our case we would need to access database,  call other services such as a products service, users service, a metadata service and so on. In general, even if it's not about creating a resource per se, a POST request caters to a variety of functions.
 
 ### More such Use Cases
@@ -87,10 +87,10 @@ In response, the creation is accepted (not completed), and the process starts in
 Now this resource creation is a long running process, so you keep polling for the status:
 ```atom
 GET /orders/3/status
-200 OK
 ```
 The response to this call contains the status of the job, such as "started", "running", "cancelled", "completed" or "failed"...
 ```atom
+200 OK
 {
     "id" : 3,
     "status" : "running"
@@ -142,4 +142,4 @@ GET /orders/3/result
 ```
 
 ## Conclusion
-Just like we have asynchronous calls (AJAX) on the frontend, designing the backend API as well decouples the frontend from backend as well. We can return more detailed status updates, or progress bars to update the user about the exact stage of this job. I got the chance to work on this feature once, which was a great relief to our user experience. 
+Just like we have asynchronous calls (AJAX) on the frontend, designing the backend API as well decouples the frontend from backend as well. We can return more detailed status updates, or progress bars to update the user about the exact stage of this job. I got the chance to work on this feature once, which was a great boost to the user experience of our application. 
