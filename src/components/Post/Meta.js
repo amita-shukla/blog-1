@@ -5,34 +5,58 @@ import { currDate } from "../../utils/helpers";
 import { FaUser, FaTag, FaCalendar, FaClock } from "react-icons/fa/";
 
 const Meta = props => {
-  const { author: authorName, tags, theme, timeToRead} = props;
-  const prefix = props.prefix || currDate() /* Intent: get date placeholder for viewing drafts. */
-  
-  const monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
-  const date = new Date(Date.parse(prefix))
-  const fullDate = monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear()
+  const { author: authorName, tags, theme, timeToRead } = props;
+  const prefix = props.prefix || currDate(); /* Intent: get date placeholder for viewing drafts. */
+
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+  const date = new Date(Date.parse(prefix));
+  const fullDate = monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
+  const minuteString = timeToRead <= 1 ? "<1 minute read" : timeToRead + " minutes read";
 
   return (
     <div className="meta">
-    <p>
+      <p>
         <span>
-          <FaCalendar size={18} />{fullDate}
+          <FaCalendar size={18} />
+          {fullDate}
         </span>
-        <span>  <FaClock size={18}/>{timeToRead} minutes read</span>
-    </p>
-    <p>
-      {tags && tags.map(tag => 
-        <span key={tag}>
-          
-          <Link to={`/tag/${tag.split(" ").join("-").toLowerCase()}`}>
-            <span>
-              <FaTag size={18} />
-              {tag}
+        <span>
+          {" "}
+          <FaClock size={18} />
+          {minuteString}
+        </span>
+      </p>
+      <p>
+        {tags &&
+          tags.map(tag => (
+            <span key={tag}>
+              <Link
+                to={`/tag/${tag
+                  .split(" ")
+                  .join("-")
+                  .toLowerCase()}`}
+              >
+                <span>
+                  <FaTag size={18} />
+                  {tag}
+                </span>
+              </Link>
             </span>
-          </Link>
-        </span>
-      )}
-    </p>  
+          ))}
+      </p>
 
       {/* --- STYLES --- */}
       <style jsx>{`
