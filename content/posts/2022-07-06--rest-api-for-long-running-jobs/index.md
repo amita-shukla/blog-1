@@ -1,6 +1,6 @@
 ---
 title: Creating REST API for Long Running Jobs
-tags: ["PROGRAMMING", "REST"]
+tags: ["SOFTWARE ARCHITECTURE", "REST"]
 cover: skeleton_meme.jpg
 author: Amita Shukla
 ---
