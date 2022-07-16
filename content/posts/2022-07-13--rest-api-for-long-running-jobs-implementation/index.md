@@ -281,3 +281,15 @@ public ResponseEntity<Order> getOrderResult(@PathVariable Long id){
 }
 ```
 Observe that the response body is of the type `Order` here. We no more need the `GET /orders/{id}` endpoint, as this one will only display the order details after the job has completed.
+
+## Demo Time
+### Get All Orders
+<re-img src="get_all_orders.png"></re-img>
+## Create An Order
+<re-img src="create_new_order.png"></re-img>
+### Get Order Status
+<re-img src="get_in_progress_status.png"></re-img>
+### Poll Status Until Completed
+<re-img src="get_completed_status.png"></re-img>
+### Get Results
+<re-img src="get_result.png"></re-img>
