@@ -182,18 +182,44 @@ public class Order {
 }
 
 ```
-### Response Code
-Now when the POST `/orders` is called, instead of sending the `201 CREATED`  response, I now send back `202 ACCEPTED`. This indicates that we have accepted the request to create an order, however we may or may not have actually created the resource.
+### Modify POST endpoint
+We now change the POST endpoint to return the response immediately, trigger the async job, and set the status depending upon the stage in which the long running process in:
+```java
+@PostMapping("/orders")
+public ResponseEntity<OrderCreationResponse> newOrder(@RequestBody Order order){
+    order.setStatus(Status.IN_PROGRESS);
+    order.setId(orderCreationService.generateOrderId());
+    repository.save(order);
 
-### Response Data
-Alongwith the above response code, we generate and send back the `id`. This `id` is used as the token to keep track of this particular request. 
+    log.info("Triggering creation async job...");
+    orderCreationService.createOrder(order);
+    return ResponseEntity.accepted().body(new OrderCreationResponse(order.getId()));
+}
+```
 
-### Set Status of the Creation Process
-We then change the status to `IN_PROGRESS`.
+Let's go over the changes made here:
+#### Response Code
+Now when the POST `/orders` is called, instead of sending the `201 CREATED`  response, I will now send back `202 ACCEPTED`. This indicates that we have accepted the request to create an order, however we may or may not have actually created the resource.
 
+#### Response Data
+Alongwith the above response code, we generate and send back the `id`. This `id` is used as the token to keep track of this particular request. For this, I now will return another object `ObjectCreationResponse`:
+```java
+@Getter @Setter @AllArgsConstructor
+public class OrderCreationResponse {
+    private Long id;
+}
+``` 
+
+#### Set Status of the Creation Process
+We then change the status to `IN_PROGRESS`. 
 We save this not-yet-fully-created order object to the repostory, so the object against the generated id can be tracked and updated further as the creation proceeds. 
+```java
+order.setStatus(Status.IN_PROGRESS);
+order.setId(orderCreationService.generateOrderId());
+repository.save(order);
+```
 
-### Making the Long Running Job Asynchronous
+#### Making the Long Running Job Asynchronous
 Now once we set the job in progress, we move it to run in the background in the `OrderCreationService`:
 ```java
 @Async
@@ -215,29 +241,16 @@ public void createOrder(Order order) {
     }
 }
 ```
-### Trigger the Asynchornous Job and Return ID
-Now in order for this endpoint to return immediately, we need to call `createOrder` asynchronously. Let's see how our endpoint looks now:
-```java
-@PostMapping("/orders")
-public ResponseEntity<OrderCreationResponse> newOrder(@RequestBody Order order){
-    order.setStatus(Status.IN_PROGRESS);
-    order.setId(orderCreationService.generateOrderId());
-    repository.save(order);
+We mark the status as `Status.COMPLETED` at the end of the `try` block, or `Status.FAILED` if in the `catch` block. We make sure this status gets saved by using `orderRepositor.save(order)` in the `finally` block.
 
-    log.info("Triggering creation async job...");
-    orderCreationService.createOrder(order);
-    return ResponseEntity.accepted().body(new OrderCreationResponse(order.getId()));
-}
-```
-Where the `OrderCreationResponse` is:
+#### Trigger the Asynchornous Job and Return ID
+Now in order for this endpoint to return immediately, we need to call `createOrder` asynchronously.
 ```java
-@Getter @Setter @AllArgsConstructor
-public class OrderCreationResponse {
-    private Long id;
-}
+log.info("Triggering creation async job...");
+orderCreationService.createOrder(order);
 ```
 
-### Getting Job Status
+### Add Endpoint to Get Job Status
 Once we have received an `id` back from the POST `/orders` request, we now expose an endpoint that can be polled to return the status of the background job:
 ```java
 @GetMapping("/orders/{id}/status")
@@ -255,7 +268,7 @@ public class OrderStatus {
     private Status status;
 }
 ```
-### Getting Job Result
+### Add Endpoint to Get Job Result
 After we receive `status: COMPLETE` from the `/orders/{id}/status, when we can finally get the object details by exposing a new `/orders/{id}/result` endpoint:
 ```java
 @GetMapping("/orders/{id}/result")
