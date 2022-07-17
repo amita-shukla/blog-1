@@ -38,6 +38,7 @@ const NotesPage = props => {
             color: ${theme.color.neutral.gray.k};
             // align-items: center;
             text-align: center;
+            font-weight: ${theme.font.weight.bold};
           }
           @from-width desktop {
             :global(a:hover) {
@@ -65,8 +66,10 @@ export default NotesPage;
 //eslint-disable-next-line no-undef
 export const query = graphql`
   query NotesQuery {
-    notes: allMarkdownRemark(filter: {fields: {source: {eq: "notes"}}},
-    sort: {fields: [fields___prefix], order: DESC}) {
+    notes: allMarkdownRemark(
+      filter: { fields: { source: { eq: "notes" } } }
+      sort: { fields: [fields___prefix], order: DESC }
+    ) {
       edges {
         node {
           fields {

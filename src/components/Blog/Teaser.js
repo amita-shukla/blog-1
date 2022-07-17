@@ -22,20 +22,33 @@ const Teaser = props => {
 
   // const fluid1 = (!!cover) ? cover.children[{fluid}] : {}
   // const children = cover || {}
-  // const [{fluid}] = children || {} 
+  // const [{fluid}] = children || {}
   // let { children: [{fluid}] } = cover;
   // let { children } = cover;
   // let [{fluid}] = children;
 
-  const monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]
-  const date = new Date(Date.parse(prefix))
-  const fullDate = monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear()
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+  const date = new Date(Date.parse(prefix));
+  const fullDate = monthNames[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear();
 
   return (
     <React.Fragment>
       <li>
-        <Link to={`/blog`+slug} key={slug} className="link">
-            {/* {cover !== null && cover.childImageSharp !==null ? (
+        <Link to={`/blog` + slug} key={slug} className="link">
+          {/* {cover !== null && cover.childImageSharp !==null ? (
               <div className="gatsby-image-outer-wrapper">
                 <Picture
                   fluid={cover.childImageSharp.fluid}
@@ -45,23 +58,29 @@ const Teaser = props => {
             {title} {/*<FaArrowRight className="arrow" />*/}
           </h1>
           {/* <p className="meta-wrapper"> */}
-            {/* <Meta prefix={prefix} author={author} tags={tags} timeToRead={timeToRead} theme={theme} /> */}
+          {/* <Meta prefix={prefix} author={author} tags={tags} timeToRead={timeToRead} theme={theme} /> */}
           {/* </p> */}
           <p className="meta">
             <span>
               <FaCalendar /> {fullDate}
-              </span>
+            </span>
             {/* <span>
               <FaUser size={18} /> {author}
             </span> */}
             <div className="tags">
-            {tags && tags.map(tag =>
-              <Link to={`/tag/${tag.split(" ").join("-").toLowerCase()}`}>
-              <span key={tag}>
-                <FaTag /> {tag}
-              </span>
-              </Link>
-            )}
+              {tags &&
+                tags.map(tag => (
+                  <Link
+                    to={`/tag/${tag
+                      .split(" ")
+                      .join("-")
+                      .toLowerCase()}`}
+                  >
+                    <span key={tag}>
+                      <FaTag /> {tag}
+                    </span>
+                  </Link>
+                ))}
             </div>
           </p>
           {/* <p><span> {excerpt}</span></p> */}
@@ -118,6 +137,7 @@ const Teaser = props => {
           padding: ${theme.space.m} ${theme.space.s} 0;
           line-height: ${theme.blog.h1.lineHeight};
           font-size: ${theme.blog.h1.size};
+          font-weight: ${theme.font.weight.bold};
           // color: ${theme.color.brand.primary};
           text-remove-gap: both;
 

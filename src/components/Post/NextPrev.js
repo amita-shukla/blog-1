@@ -18,11 +18,17 @@ const NextPrev = props => {
     } = {}
   } = props;
 
-  const flexb = (nextSlug && prevSlug ? "50%" : "100%") /* If only one link available, it can take 100% of space. */
+  const flexb =
+    nextSlug && prevSlug
+      ? "50%"
+      : "100%"; /* If only one link available, it can take 100% of space. */
   const nextPostType = nextSource === "notes" ? "/note" : "/blog";
   const prevPostType = prevSource === "notes" ? "/note" : "/blog";
 
-  if (!nextSlug && !prevSlug) return (<span></span>); /* If neither prev nor next is available, don't put weird empty space there. */
+  if (!nextSlug && !prevSlug)
+    return (
+      <span></span>
+    ); /* If neither prev nor next is available, don't put weird empty space there. */
 
   return (
     <React.Fragment>
@@ -94,14 +100,14 @@ const NextPrev = props => {
         }
 
         h4 {
-          font-weight: 600;
+          font-weight: ${theme.font.weight.bold};
           margin: 0;
           font-size: 1.1em;
         }
         time {
           color: ${theme.color.neutral.gray.g};
           display: block;
-          font-weight: 400;
+          font-weight: ${theme.font.weight.bold};
           font-size: 0.8em;
           margin-top: 0.5em;
         }

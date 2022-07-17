@@ -8,8 +8,13 @@ import { Link } from "gatsby";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { "re-icons": Icons , "re-img": ReImg , "re-link": Link, "re-tracedsvg-gallery": ReTracedSVGGallery }
-}).Compiler
+  components: {
+    "re-icons": Icons,
+    "re-img": ReImg,
+    "re-link": Link,
+    "re-tracedsvg-gallery": ReTracedSVGGallery
+  }
+}).Compiler;
 
 const Bodytext = props => {
   const { content, theme } = props;
@@ -17,11 +22,8 @@ const Bodytext = props => {
 
   return (
     <React.Fragment>
-
       {/* Render markdown with Custom Components */}
-      <div className="bodytext">
-        {renderAst(content.htmlAst)}
-      </div>
+      <div className="bodytext">{renderAst(content.htmlAst)}</div>
 
       <style jsx>{`
         .bodytext {
@@ -38,26 +40,33 @@ const Bodytext = props => {
           }
 
           :global(h2),
-          :global(h3) {
+          :global(h3),
+          :global(h4) {
+            font-weight: ${theme.font.weight.bold};
             margin: 1.5em 0 1em;
           }
 
           :global(h2) {
-            line-height: ${theme.font.lineHeight.s};
-            font-size: ${theme.font.size.l};
+            line-height: ${theme.font.lineHeight.l};
+            font-size: ${theme.font.size.xl};
           }
 
           :global(h3) {
-            font-size: ${theme.font.size.m};
             line-height: ${theme.font.lineHeight.m};
+            font-size: ${theme.font.size.l};
+          }
+
+          :global(h4) {
+            line-height: ${theme.font.lineHeight.s};
+            font-size: ${theme.font.size.m};
           }
 
           :global(p) {
+            line-height: ${theme.font.lineHeight.xl};
             font-size: ${theme.font.size.s};
-            line-height: ${theme.font.lineHeight.xxl};
             margin: 0 0 1.5em;
           }
-          
+
           :global(ul) {
             list-style: circle;
             margin: 0 0 1.5em;
@@ -65,7 +74,7 @@ const Bodytext = props => {
           }
 
           :global(li) {
-            margin: 0.7em 1.0em;
+            margin: 0.7em 1em;
             font-size: ${theme.font.sizerem.s};
             // list-style-type: square;
           }
