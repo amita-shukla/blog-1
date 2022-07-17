@@ -14,6 +14,9 @@ These are my notes from the book [Database Performance](https://use-the-index-lu
 - Each leaf node is saved in a page (or block). Each leaf node will contain the keys in sorted order. Each key here will point to the physical location of the row in table. These leaf nodes saved on blocks are saved in ordered form as well.
 - While the above ordering is maintained in indexes, note that in tables these rows have no connection to each othere and exist in insertion order.
 
+<re-img src="b-tree.png"></re-img>
+[Image-Source](https://blog.yugabyte.com/a-busy-developers-guide-to-database-storage-engines-the-basics/)
+
 ### The B-tree makes the Index Fast
 - A B-tree is maintained for a quick search of keys.
 - The doubly linked list establishes the logical order between the leaf nodes. The root and branch nodes support quick searching among the leaf nodes.
