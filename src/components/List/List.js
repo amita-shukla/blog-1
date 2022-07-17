@@ -20,7 +20,8 @@ const List = props => {
           const postType = source === "notes" ? "/note" : "/blog";
           return (
             <li key={postType + slug}>
-              <Link to={postType + slug}>{title}</Link> 
+              <span>{getExpandedDate(prefix) + " - "}</span>
+              <Link to={postType + slug}>{title}</Link>
               {/* <span>{source === "notes" ? " - " + getExpandedDate(prefix) : ""}</span> */}
             </li>
           );
