@@ -1,6 +1,7 @@
 ---
 title: Implementing REST API for Long Running Jobs
-tags: ["SOFTWARE ARCHITECTURE", "REST"]
+tags: ["SOFTWARE ARCHITECTURE", "REST", "JAVA"]
+cover: get_all_orders.png
 author: Amita Shukla
 ---
 
@@ -287,13 +288,18 @@ public ResponseEntity<Order> getOrderResult(@PathVariable Long id){
 Observe that the response body is of the type `Order` here. We no more need the `GET /orders/{id}` endpoint, as this one will only display the order details after the job has completed.
 
 ## Demo Time
-### Get All Orders
+#### Get All Orders
+The `/orders` endpoint works as expected, returns the list of all order details.
 <re-img src="get_all_orders.png"></re-img>
-## Create An Order
+#### Create An Order
+Now we hit a `POST` request to create a new Order. Observe that we receive the response code `202 Accepted`. In response we receive the `id` of the new order being created.
 <re-img src="create_new_order.png"></re-img>
-### Get Order Status
+#### Get Order Status
+Let's now check the status of this order. We will keep seeing the `IN_PROGRESS` status as long as the background job completes:
 <re-img src="get_in_progress_status.png"></re-img>
-### Poll Status Until Completed
+#### Poll Status Until Completed
+We keep polling until we see the `COMPLETED` status:
 <re-img src="get_completed_status.png"></re-img>
-### Get Results
+#### Get Results
+Now let's get the results to get the actual order details. Here the `amount` is generated for the given order.
 <re-img src="get_result.png"></re-img>
