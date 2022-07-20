@@ -1,9 +1,9 @@
 ---
-title: Database Performance Notes
+title: Database Performance Notes - Indexes
 tags: ["DATABASE"]
 author: Amita Shukla
 ---
-These are my notes from the book [Database Performance](https://use-the-index-luke.com/sql/table-of-contents) [Chapter 1](https://use-the-index-luke.com/sql/anatomy) by Markus Winand. A refresher for those who are versed with database performance tuning, it's written in a very simple language, a must read, and it's for free!
+These are my notes from the book [Database Performance](https://use-the-index-luke.com/sql/table-of-contents) [Chapter 1](https://use-the-index-luke.com/sql/anatomy) by Markus Winand. I found this book fairly simple to read, and it's for free!
 
 ## Anatomy of an Index
 - Creating an index does not change the table data; it just creates a new data structure that refers to the table.
