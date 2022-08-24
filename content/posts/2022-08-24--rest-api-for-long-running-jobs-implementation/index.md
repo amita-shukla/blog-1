@@ -308,3 +308,8 @@ Now let's get the results to get the actual order details. Here the `amount` is 
 <re-img src="get_result.png"></re-img>
 
 ## Conclusion
+So far, we have implemented the basic flow, with the necessary endpoints to make it work. However, a production level API is far more complicated than this. Generally, it is a good idea to separate the `id`s logically, i.e. have an id such as `taskId` or `transactionId` which is solely maintained for the purposes for tracking a long running job, and a  resource id such as `orderId` here, used for idenitfying that particular resource. When we implement it like this, we can design this further to put an in-memory DB for even quicker tracking of long running processes instead of making rounds to our main product database.
+
+Also, this implementation paves the way to further provide the ability to the user to cancel a job they triggered. We need to apply sufficient protective measures as well ir order to protect an API from crashing.
+
+It is also easy to see that this API has become more complicated, but this can be reduced by documenting the API (obviously) as well as implementing the API in such a way that the users a directed to the next endpoint (Hint: HATEOAS). If time permits, I shall expand this in a further post. 
