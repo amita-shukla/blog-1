@@ -5,7 +5,7 @@ cover: get_all_orders.png
 author: Amita Shukla
 ---
 
-In previous post <a href="">Rest API For Long Running Job</a> we discussed the design of an API exposed to handle long runnining jobs. Such an API decouples the long running process with the actual API, and instead of indefinitely waiting for a response we expose an `/status` to monitor the progress of the running task.
+In previous post <a href="">Rest API For Long Running Job</a> we discussed the design of an API exposed to handle long runnining jobs. Such an API decouples the long running process with the actual API, and instead of indefinitely waiting for a response we expose a `/status` endpoint to monitor the progress of the running task.
 
 In this post we will implement such an API. 
 
@@ -150,7 +150,7 @@ Consider the highlighted 10s it takes for this query to complete.
 As discussed in detail in <a href="">my previous post</a>, when using this application on production, usually a system wide or project timeout is placed. This will cause our Order creation process to fail, as it's going to take atleast 10 seconds. Even if the timeouts are not in place, it's a bad user experience.
 
 ## Implementing API for such Long Running Tasks
-With initial setup out of the way, let's move on to modify this API to support such long running operations. We introduce another variable/column `Status`, using which we will track the status of the order creation:
+With initial setup out of the way, let's move on to modify this API to support such long running operations. We introduce another column `Status`, using which we will track the status of the order creation:
 ```java
 public enum Status {
     IN_PROGRESS,
@@ -274,7 +274,7 @@ public class OrderStatus {
 }
 ```
 ### Add Endpoint to Get Job Result
-After we receive `status: COMPLETE` from the `/orders/{id}/status, when we can finally get the object details by exposing a new `/orders/{id}/result` endpoint:
+After we receive `status: COMPLETE` from the `/orders/{id}/status`, when we can finally get the object details by exposing a new `/orders/{id}/result` endpoint:
 ```java
 @GetMapping("/orders/{id}/result")
 public ResponseEntity<Order> getOrderResult(@PathVariable Long id){
