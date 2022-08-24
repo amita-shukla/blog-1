@@ -1,16 +1,16 @@
 ---
 title: Implementing REST API for Long Running Jobs
 tags: ["SOFTWARE ARCHITECTURE", "REST", "JAVA"]
-cover: get_all_orders.png
+cover: process_flow.png
 author: Amita Shukla
 ---
 
-In previous post <a href="">Rest API For Long Running Job</a> we discussed the design of an API exposed to handle long runnining jobs. Such an API decouples the long running process with the actual API, and instead of indefinitely waiting for a response we expose a `/status` endpoint to monitor the progress of the running task.
+In previous post [Rest API For Long Running Job](https://amitashukla.in/blog/rest-api-for-long-running-jobs/) we discussed the design of an API exposed to handle long runnining jobs. Such an API decouples the long running process with the actual API, and instead of indefinitely waiting for a response we expose a `/status` endpoint to monitor the progress of the running task.
 
 In this post we will implement such an API. 
 
 ## Simple API Structure
-Let's first start with implementing a simple API, when the long running job is not in the picture. I will be using Java with Spring for this purpose. If you wish to directly jump to the implementation of the long runnning API, you can click <a href="">here</a>.
+Let's first start with implementing a simple API, when the long running job is not in the picture. I will be using Java with Spring for this purpose. If you wish to directly jump to the implementation of the long runnning API, you can click [here](#long-running-impl).
 
 ### Define Order Entity
 Let's start by defining an entity `Order`. We name the table name as `customer_order` as Order is not a valid name for a table (We are using the H2 database here for simplicity). The customer_order table has 5 columns, `id` being the primary key, `description`, `price`, `quantity` and `amount`.
@@ -144,13 +144,16 @@ public class OrderCreationService {
 ### The Problem
 
 As expected, the `POST /orders` endpoint is going to take a long time before it returns. All this time, the caller needs to wait for the result, unable to take any other action:
-<re-img src="create_new_simple_order_2.png"></re-img>
+<re-img src="create_new_simple_order.png"></re-img>
 Consider the highlighted 10s it takes for this query to complete.
 
-As discussed in detail in <a href="">my previous post</a>, when using this application on production, usually a system wide or project timeout is placed. This will cause our Order creation process to fail, as it's going to take atleast 10 seconds. Even if the timeouts are not in place, it's a bad user experience.
+As discussed in detail in [my previous post](https://amitashukla.in/blog/rest-api-for-long-running-jobs/), when using this application on production, usually a system wide or project timeout is placed. This will cause our Order creation process to fail, as it's going to take atleast 10 seconds. Even if the timeouts are not in place, it's a bad user experience.
 
-## Implementing API for such Long Running Tasks
-With initial setup out of the way, let's move on to modify this API to support such long running operations. We introduce another column `Status`, using which we will track the status of the order creation:
+## <a name="long-running-impl">Implementing API for such Long Running Tasks</a>
+With initial setup out of the way, let's move on to modify this API to support such long running operations. Following is the flow we're trying to implement, observe how the POST request immediately returns.
+<re-img src="process_flow.png"></re-img> 
+
+We introduce another column `Status`, using which we will track the status of the order creation:
 ```java
 public enum Status {
     IN_PROGRESS,
