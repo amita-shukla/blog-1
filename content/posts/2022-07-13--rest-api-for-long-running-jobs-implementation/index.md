@@ -303,3 +303,5 @@ We keep polling until we see the `COMPLETED` status:
 #### Get Results
 Now let's get the results to get the actual order details. Here the `amount` is generated for the given order.
 <re-img src="get_result.png"></re-img>
+
+## Conclusion
