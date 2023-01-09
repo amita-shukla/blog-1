@@ -22,7 +22,7 @@ const About = props => {
       <div className="aboutText">{renderAst(aboutContent)}</div>
       <style jsx>{`
         .aboutText {
-          color: ${theme.color.neutral.gray.k};
+          color: ${theme.color.neutral.gray.j};
           margin: 0 0 0.5em;
           text-align: justify;
         }
@@ -63,6 +63,11 @@ const About = props => {
             border-radius: ${theme.size.radius.default};
             overflow: hidden;
             border: 1px solid ${theme.line.color};
+          }
+          :global(strong) {
+            font-weight: ${theme.font.weight.bold};
+            // font-weight: 400;
+            color: ${theme.color.neutral.black};
           }
         }
       `}</style>

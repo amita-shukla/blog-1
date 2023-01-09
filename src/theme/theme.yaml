@@ -53,7 +53,7 @@ color:
       g: "#969492"
       h: "#706e6b"
       i: "#514f4d"
-      j: &color-gray-10 "#666" #'#3e3e3c'
+      j: &color-gray-10 "#443f3c" #"#666" #'#3e3e3c'
       k: &color-gray-11 "#2b2826"
     black: "#000000"
 
