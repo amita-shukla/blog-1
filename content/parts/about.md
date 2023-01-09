@@ -8,14 +8,18 @@ title: About Me
 
 <br />
 
-__Hi :wave: I'm Amita__. I have around 7 years of experience as a __Software Developer__, am based in India. My expertise lies in building __Backend, Big Data and Cloud-based applications__, though I also take on database, frontend, machine learning work from time to time. 
+__Hi :wave: I'm Amita__, a __Software Developer__ with about 7 years of experience based in India. A programmer at heart, I love building, learning and breaking stuff using code :grimacing:. A screen of clean code gives me the same feeling as opening a page from a fresh book... 
 
-I am a programmer at heart and love building and learning stuff using code. A screen of clean code gives me the same feeling as opening a page from a fresh book. My father brought home a desktop when I was 10, back then it was just a sophisticated toy for me. I have come a long way since then, from using applications to writing them.
+My expertise lies in building __Backend, Big Data and Cloud-based applications__, though I also take on database, frontend, machine learning work from time to time. 
 
-### My Tech Stack
-A chunk of my experience has gone into designing & coding __REST web services__, engines and frameworks using __Java/Spring__, batch and streaming data transformations using __Scala/Spark/Kafka/Hive/MapReduce__, Natural Language Processing using Python/R, and SQL/Python/Shell Scripting. 
+### Tech Stack
+My father brought home a desktop when I was 10, back then it was just a sophisticated toy for me. I have come a long way since then, from using applications to writing them. 
 
-On the frontend side, I have worked with React and vanilla Javascript, and a little bit with Purescript. This blog I maintain is mainly built on React and GraphQL. Further in the past, I have also switched gears between Haskell, Groovy, .Net/C#, PHP, C++. Overtime, I have gotten more inclined towards __type safe languages__.
+A chunk of my experience has gone into writing __REST web services__, engines and frameworks using __Java/Spring__, batch and streaming data transformations using __Scala/Spark/Kafka/Hive/MapReduce__, Natural Language Processing using Python/R, and SQL/Python/Shell Scripting. 
+
+On the frontend side, I have worked with React and vanilla Javascript, and a little bit with Purescript. This blog I maintain is mainly built on React, Gatsbyjs and GraphQL. 
+
+I believe in not restricting myself to the tech stack or programming language but rather focus on the purpose it solves, having switched gears between Python, Haskell, Groovy, .Net/ C#, PHP, C++ in the past. Overtime, I have gotten more inclined towards __type safe languages__.
 
 ### Get in Touch
 You can reach out to me directly [here](https://amitashukla.in/contact), [subscribe](https://amitashukla.in/follow) to my blog or check out my profiles below:
