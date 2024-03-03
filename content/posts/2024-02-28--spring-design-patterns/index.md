@@ -120,13 +120,41 @@ public Person personPrototype() {
 }
 ```
 
-### Proxy Pattern
+### Spring AOP using Proxy Pattern
 
-Spring AOP (Aspect-Oriented Programming) utilizes dynamic proxies to apply cross-cutting concerns, such as logging, security, and transaction management, to target objects without modifying their code directly.
+A proxy is anything that acts as in replresents anything else. Most commonly we use it for Proxy Servers - which is basically a server that acts as an intermediary between a client and another server - provding security, privacy or performance.
 
-### Template Method Pattern
+#### Proxy Pattern
+A proxy pattern is applied when we want to impersonate a class to add more things on top of what it does. Suppose, a function is compute heavy, and you would like it to only run when its value is not already cached. In that case, we use proxy pattern to add caching capability to it. 
 
-Spring's template classes (e.g., JdbcTemplate, RestTemplate) encapsulate common operations, providing a template method that can be customized by subclasses to execute specific logic.
+Spring AOP (Aspect-Oriented Programming) utilizes dynamic proxies to apply cross-cutting concerns, such as logging, security, and transaction management, to target objects without modifying their code directly. Let's discuss a few common annotations and how they're implemented:
+- `@Cacheable`: Spring uses AOP to intercept method calls, check if the result is already in the cache, and either return the cached result or execute the method and cache the result.
+- `@Async`: When a method annotated with @Async is called, Spring creates a proxy around the method and executes it in a separate thread. Spring manages the thread pool and ensures that the asynchronous method is executed asynchronously without blocking the calling thread.
+- `@Transactional`: When a method annotated with @Transactional is called, Spring intercepts the method invocation and starts a transaction before executing the method. After the method completes, Spring commits the transaction if the method execution was successful, or rolls back the transaction if an exception occurred during method execution.
+
+The creation of proxy classes involves the use of dynamic proxy or CGLIB proxy depending on whether the target class implements interfaces or not.
+#### JDK Dynamic Proxies
+- When the target class implements interfaces, Spring uses JDK dynamic proxies.
+- Spring generates a proxy class at runtime that implements the same interfaces as the target class.
+- The proxy class intercepts method calls and delegates them to the actual target object.
+- Method invocations on the proxy are forwarded to an InvocationHandler, where the additional logic specified by the annotations is applied.
+
+#### CGLIB Proxies
+- When the target class does not implement interfaces, Spring falls back to using CGLIB proxies.
+- CGLIB generates a subclass of the target class at runtime.
+- The generated subclass overrides the target class's methods to apply the behavior specified by the annotations.
+
+### Template Method Pattern in JdbcTemplate
+
+#### Template Method Pattern
+Using template pattern, we define the skeleton of an alogorithm in a superclass, but let the subclasses define the implmentation of the same. The key idea behind the template method pattern is to provide a reusable framework for defining algorithms while allowing flexibility for subclasses to tailor specific parts of the algorithm to their needs.
+For example, when executing a query on a database, the same series of steps must be completed:
+- Establish a connection
+- Execute query
+- Perform cleanup
+- Close the connection
+
+Spring's template classes such as `JdbcTemplate`, `JmsTemplate`(Java Messaging Service), `HibernateTemplate`(deprecated) encapsulate common operations, providing a template method that can be customized by subclasses to execute specific logic. A popular use we mostly see is multiple database providers providing their specific implemntation to execute database commands through `JdbcTemplate`.
 
 ### Decorator Pattern
 
@@ -155,3 +183,5 @@ These are some of the main design patterns used within the Spring Framework, con
 - https://www.baeldung.com/spring-annotations-resource-inject-autowire
 - https://www.baeldung.com/spring-component-repository-service
 - https://www.baeldung.com/spring-boot-singleton-vs-beans
+- https://www.baeldung.com/java-proxy-pattern
+- https://docs.spring.io/spring-framework/docs/4.3.x/spring-framework-reference/html/transaction.html#transaction-intro
