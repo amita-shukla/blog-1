@@ -160,9 +160,13 @@ Spring's template classes such as `JdbcTemplate`, `JmsTemplate`(Java Messaging S
 
 Spring's bean post-processors and aspect-oriented programming allow for the decoration of beans with additional functionality, such as adding caching, validation, or retry logic.
 
-### Observer Pattern
+### Event Handling using Observer Pattern
 
-Spring's event handling mechanism allows beans to publish events and other beans to subscribe to these events, enabling loosely coupled communication between components.
+#### Observer Pattern
+Observer Pattern can also be called publisher and subscriber pattern. It defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically. 
+
+
+Spring's event handling mechanism allows beans to publish events and other beans to subscribe to these events, enabling loosely coupled communication between components. Any bean in Spring implements the `ApplicationListener` interface (the observer), will receive an `ApplicationEvent` everytime it is published by a publisher (the subject). 
 
 ### Strategy Pattern
 
