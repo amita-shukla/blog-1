@@ -168,6 +168,35 @@ Observer Pattern can also be called publisher and subscriber pattern. It defines
 
 Spring's event handling mechanism allows beans to publish events and other beans to subscribe to these events, enabling loosely coupled communication between components. Any bean in Spring implements the `ApplicationListener` interface (the observer), will receive an `ApplicationEvent` everytime it is published by a publisher (the subject). 
 
+```java
+public interface ApplicationContext extends ... ApplicationEventPublisher { }
+
+public abstract class AbstractApplicationContext {
+
+     // all lifecycle events are published, e.g.
+     public void start() {
+        getLifecycleProcessor().start();
+        publishEvent(new ContextStartedEvent(this));
+     }
+
+	public void stop() {
+		getLifecycleProcessor().stop();
+		publishEvent(new ContextStoppedEvent(this));
+	}
+
+    protected void finishRefresh() {
+		resetCommonCaches();
+		clearResourceCaches();
+		initLifecycleProcessor();
+		getLifecycleProcessor().onRefresh();
+
+		// Publish the final event.
+		publishEvent(new ContextRefreshedEvent(this));
+	}
+
+}
+```
+
 ### Strategy Pattern
 
 Spring's various strategies, such as transaction management strategies, enable developers to plug in different implementations at runtime based on configuration or conditions.
