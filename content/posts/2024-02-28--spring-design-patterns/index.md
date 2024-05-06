@@ -207,7 +207,7 @@ Spring's hierarchical application context and nested beans support a composite s
 
 ### Builder Pattern
 
-I have used the buidler pattern so often with Lombok's `@Builder` annotation that it has become my goto choice for object instantiation. One common example being the introduction of `RestClient` in Spring Boot 3.2 to ultimately replace the `RestTemplate`, which offers an intuitive Fluent API to make Rest calls. 
+I have used the builder pattern so often with Lombok's `@Builder` annotation that it has become my goto choice for object instantiation. In spring, one of the common examples of builder pattern is the introduction of `RestClient` in Spring Boot 3.2 to ultimately replace the `RestTemplate`, which offers an intuitive Fluent API to make Rest calls. 
 
 The `RestClient` is based on the functional and fluent style api. It implements its own `Builder` class, which is then implemented by `DefaultRestClientBuilder` to build a `DefaultRestClient`.
 
@@ -216,7 +216,7 @@ public interface RestClient {
 
   static RestClient create() {
     return new DefaultRestClientBuilder().build();
-	}
+  }
 
   interface Builder {
     RestClient build();
@@ -226,23 +226,23 @@ public interface RestClient {
 final class DefaultRestClientBuilder implements RestClient.Builder {
 
   @Override
-	public RestClient build() {
-		ClientHttpRequestFactory requestFactory = initRequestFactory();
-		UriBuilderFactory uriBuilderFactory = initUriBuilderFactory();
-		HttpHeaders defaultHeaders = copyDefaultHeaders();
-		List<HttpMessageConverter<?>> messageConverters = (this.messageConverters != null ?
+  public RestClient build() {
+    ClientHttpRequestFactory requestFactory = initRequestFactory();
+    UriBuilderFactory uriBuilderFactory = initUriBuilderFactory();
+    HttpHeaders defaultHeaders = copyDefaultHeaders();
+    List<HttpMessageConverter<?>> messageConverters = (this.messageConverters != null ?
 				this.messageConverters : initMessageConverters());
-		return new DefaultRestClient(requestFactory,
+    return new DefaultRestClient(requestFactory,
         this.interceptors, this.initializers, uriBuilderFactory,
-				defaultHeaders,
-				this.defaultRequest,
-				this.statusHandlers,
-				messageConverters,
-				this.observationRegistry,
-				this.observationConvention,
-				new DefaultRestClientBuilder(this)
-				);
-	}
+        defaultHeaders,
+        this.defaultRequest,
+        this.statusHandlers,
+        messageConverters,
+        this.observationRegistry,
+        this.observationConvention,
+        new DefaultRestClientBuilder(this)
+        );
+  }
 }
 ```
 
@@ -255,3 +255,4 @@ These are some of the main design patterns used within the Spring Framework, con
 - https://www.baeldung.com/spring-boot-singleton-vs-beans
 - https://www.baeldung.com/java-proxy-pattern
 - https://docs.spring.io/spring-framework/docs/4.3.x/spring-framework-reference/html/transaction.html#transaction-intro
+- https://github.com/spring-projects/spring-framework/blob/main/spring-web/src/main/java/org/springframework/web/client/DefaultRestClientBuilder.java
