@@ -173,26 +173,26 @@ public interface ApplicationContext extends ... ApplicationEventPublisher { }
 
 public abstract class AbstractApplicationContext {
 
-     // all lifecycle events are published, e.g.
-     public void start() {
-        getLifecycleProcessor().start();
-        publishEvent(new ContextStartedEvent(this));
-     }
+  // all lifecycle events are published, e.g.
+  public void start() {
+    getLifecycleProcessor().start();
+    publishEvent(new ContextStartedEvent(this));
+  }
 
-	public void stop() {
-		getLifecycleProcessor().stop();
-		publishEvent(new ContextStoppedEvent(this));
-	}
+  public void stop() {
+    getLifecycleProcessor().stop();
+    publishEvent(new ContextStoppedEvent(this));
+  }
 
-    protected void finishRefresh() {
-		resetCommonCaches();
-		clearResourceCaches();
-		initLifecycleProcessor();
-		getLifecycleProcessor().onRefresh();
+  protected void finishRefresh() {
+    resetCommonCaches();
+    clearResourceCaches();
+    initLifecycleProcessor();
+    getLifecycleProcessor().onRefresh();
 
-		// Publish the final event.
-		publishEvent(new ContextRefreshedEvent(this));
-	}
+    // Publish the final event.
+    publishEvent(new ContextRefreshedEvent(this));
+  }
 
 }
 ```
