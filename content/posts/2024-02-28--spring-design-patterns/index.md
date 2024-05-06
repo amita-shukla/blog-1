@@ -207,7 +207,44 @@ Spring's hierarchical application context and nested beans support a composite s
 
 ### Builder Pattern
 
-Spring's Fluent API for bean configuration, along with its support for programmatic bean registration, follows the builder pattern, providing a concise and expressive way to configure beans.
+I have used the buidler pattern so often with Lombok's `@Builder` annotation that it has become my goto choice for object instantiation. One common example being the introduction of `RestClient` in Spring Boot 3.2 to ultimately replace the `RestTemplate`, which offers an intuitive Fluent API to make Rest calls. 
+
+The `RestClient` is based on the functional and fluent style api. It implements its own `Builder` class, which is then implemented by `DefaultRestClientBuilder` to build a `DefaultRestClient`.
+
+```java
+public interface RestClient {
+
+  static RestClient create() {
+    return new DefaultRestClientBuilder().build();
+	}
+
+  interface Builder {
+    RestClient build();
+  }
+}
+
+final class DefaultRestClientBuilder implements RestClient.Builder {
+
+  @Override
+	public RestClient build() {
+		ClientHttpRequestFactory requestFactory = initRequestFactory();
+		UriBuilderFactory uriBuilderFactory = initUriBuilderFactory();
+		HttpHeaders defaultHeaders = copyDefaultHeaders();
+		List<HttpMessageConverter<?>> messageConverters = (this.messageConverters != null ?
+				this.messageConverters : initMessageConverters());
+		return new DefaultRestClient(requestFactory,
+        this.interceptors, this.initializers, uriBuilderFactory,
+				defaultHeaders,
+				this.defaultRequest,
+				this.statusHandlers,
+				messageConverters,
+				this.observationRegistry,
+				this.observationConvention,
+				new DefaultRestClientBuilder(this)
+				);
+	}
+}
+```
 
 These are some of the main design patterns used within the Spring Framework, contributing to its flexibility, extensibility, and ease of use in developing enterprise applications.
 
