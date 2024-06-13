@@ -201,9 +201,77 @@ public abstract class AbstractApplicationContext {
 
 Spring's various strategies, such as transaction management strategies, enable developers to plug in different implementations at runtime based on configuration or conditions.
 
-### Composite Pattern
+### Configuration Parsing using Composite Pattern
 
-Spring's hierarchical application context and nested beans support a composite structure, allowing for the construction of complex object graphs.
+#### Composite Pattern
+Composite is a structural design pattern that lets you compose objects into tree structures and then work with these structures as if they were individual objects. It's similar to modelling objects into tree-like structure, where we have a `Leaf` object, and a `Composite` object containing a list of leaves `List<Leaf>`. We have a structure as follows:
+
+```java
+interface TreeNode {
+  printTree();
+}
+class Leaf implement TreeNode {}
+class CompositeTree implement TreeNode{
+  List<Leaf> leaves;
+}
+
+class Client {
+  public static void main() {
+    TreeNode leaf1 = new Leaf();
+    TreeNode leaf2 = new Leaf();
+    TreeNode root = new Composite();
+    root.addLeaf(leaf1);
+    root.addLeaf(leaf2);
+
+    root.printTree(); // prints the entire tree
+  }
+}
+```
+
+The Composite Design Pattern in the Spring Framework is used to treat individual objects and compositions of objects uniformly. by allowing you to build a tree structure of objects and perform operations on them. This pattern is especially useful for handling hierarchical data or representing part-whole hierarchies. 
+
+For example, In the Spring Framework, `CompositeComponentDefinition` and `ComponentDefinition` are used to represent and manage complex configuration metadata. They facilitate grouping related configuration elements together, enabling Spring to handle complex configurations more effectively.
+```java
+interface ComponentDefinition {
+	String getName();
+	String getDescription();
+	BeanDefinition[] getBeanDefinitions();
+	BeanDefinition[] getInnerBeanDefinitions();
+	BeanReference[] getBeanReferences();
+}
+
+abstract class AbstractComponentDefinition implements ComponentDefinition { }
+
+class CompositeComponentDefinition extends AbstractComponentDefinition {
+	String name;
+	Object source;
+	List<ComponentDefinition> nestedComponents = new ArrayList<>();
+
+	public CompositeComponentDefinition(String name, @Nullable Object source) {
+		this.name = name;
+		this.source = source;
+	}
+
+	public void addNestedComponent(ComponentDefinition component) {
+		this.nestedComponents.add(component);
+	}
+}
+
+class ConfigBeanDefinitionParser {
+	public void parse(Element element, ParserContext context) {
+		CompositeComponentDefinition compositeDef =
+				new CompositeComponentDefinition(element.getTagName(), parserContext.extractSource(element));
+		parserContext.pushContainingComponent(compositeDef);
+
+		List<Element> childElts = DomUtils.getChildElements(element);
+
+		for (Element elt: childElts) {
+			// register bean definitions of all child elements...
+		}
+		parserContext.popAndRegisterContainingComponent();
+	}
+}
+```
 
 ### Builder Pattern
 
