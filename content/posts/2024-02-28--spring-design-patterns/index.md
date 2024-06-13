@@ -13,11 +13,10 @@ Understanding design patterns is best achieved through practical application. Ho
 4. The Prototype Scope for Beans
 5. Spring AOP using Proxy Pattern
 6. Template Method Pattern in JdbcTemplate
-7. Decorator Pattern
-8. Event Handling using Observer Pattern
-9. Strategy Pattern
-10. Configuration Parsing using Composite Pattern
-11. Builder Pattern
+7. Event Handling using Observer Pattern
+8. Transaction Management using Strategy Pattern
+9. Configuration Parsing using Composite Pattern
+10. Builder Pattern
 
 ### Dependency Injection (DI) / Inversion of Control (IoC)
 
@@ -209,9 +208,39 @@ public abstract class AbstractApplicationContext {
 }
 ```
 
-### Strategy Pattern
+### Transaction Management using Strategy Pattern
+The Strategy Design Pattern is used in the Spring Framework to define a family of algorithms, encapsulate each one, and make them interchangeable. The strategy pattern allows the algorithm to vary independently from the clients that use it.
 
-Spring's various strategies, such as transaction management strategies, enable developers to plug in different implementations at runtime based on configuration or conditions.
+Spring's various strategies, such as transaction management strategies, enable developers to plug in different implementations at runtime based on configuration or conditions. It defines `PlatformTransactionManager` being the strategy interface for transaction management. Different implementations of `PlatformTransactionManager` allow the use of different transaction management strategies (`JTA`, `JDBC`, `Hibernate`, etc.).
+
+```java
+public interface PlatformTransactionManager {
+  TransactionStatus getTransaction(TransactionDefinition definition) throws TransactionException;
+  void commit(TransactionStatus status) throws TransactionException;
+  void rollback(TransactionStatus status) throws TransactionException;
+}
+
+```
+Here's how JDBC defines `DataSourceTransactionManager` to define its transaction logic:
+
+```java
+public class DataSourceTransactionManager extends AbstractPlatformTransactionManager
+  implements ResourceTransactionManager, BeanFactoryAware {
+    
+    // Actual transaction management logic for JDBC
+}
+```
+Now, we configure to use the JDBC strategy:
+```java
+@Configuration
+public class TransactionManagerConfig {
+    @Bean
+    public PlatformTransactionManager transactionManager(DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
+    }
+}
+```
+
 
 ### Configuration Parsing using Composite Pattern
 
@@ -336,3 +365,5 @@ These are some of the main design patterns used within the Spring Framework, con
 - https://www.baeldung.com/java-proxy-pattern
 - https://docs.spring.io/spring-framework/docs/4.3.x/spring-framework-reference/html/transaction.html#transaction-intro
 - https://github.com/spring-projects/spring-framework/blob/main/spring-web/src/main/java/org/springframework/web/client/DefaultRestClientBuilder.java
+- https://www.baeldung.com/java-composite-pattern
+- https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/transaction.html#transaction-intro
