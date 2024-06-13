@@ -167,6 +167,36 @@ For example, when executing a query on a database, the same series of steps must
 
 Spring's template classes such as `JdbcTemplate`, `JmsTemplate`(Java Messaging Service), `HibernateTemplate`(deprecated) encapsulate common operations, providing a template method that can be customized by subclasses to execute specific logic. A popular use we mostly see is multiple database providers providing their specific implemntation to execute database commands through `JdbcTemplate`.
 
+```java
+class JdbcTemplate {
+  Connection createConnectionProxy(Connection con) {...}
+  void execute(final String sql) {
+    try {
+      cs = csc.createCallableStatement(con);
+			T result = action.doInCallableStatement(cs);
+    } catch (...) {
+      JdbcUtils.closeStatement(cs);
+			DataSourceUtils.releaseConnection(con, getDataSource());
+    }
+  }
+}
+```
+```java
+class JmsTemplate {
+  public <T> T execute() {
+    try {
+      Session sessionToUse = ConnectionFactoryUtils.doGetTransactionalSession(...);
+      return action.doInJms(sessionToUse);
+    } catch (...) {
+      ...
+    } finally {
+      JmsUtils.closeSession(sessionToClose);
+			ConnectionFactoryUtils.releaseConnection(conToClose, getConnectionFactory(), startConnection);
+    }
+  }
+}
+```
+
 ### Event Handling using Observer Pattern
 
 #### Observer Pattern
@@ -364,3 +394,5 @@ These are some of the main design patterns used within the Spring Framework, con
 - https://www.baeldung.com/java-composite-pattern
 - https://github.com/spring-projects/spring-framework/blob/69c44dee9946d3bb1a1aa0ddef16f3226df6acc7/spring-aop/src/main/java/org/springframework/aop/config/ConfigBeanDefinitionParser.java#L421
 - https://github.com/spring-projects/spring-framework/blob/69c44dee9946d3bb1a1aa0ddef16f3226df6acc7/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java
+- https://github.com/spring-projects/spring-framework/blob/69c44dee9946d3bb1a1aa0ddef16f3226df6acc7/spring-jms/src/main/java/org/springframework/jms/core/JmsTemplate.java#L489
+- https://github.com/spring-projects/spring-framework/blob/69c44dee9946d3bb1a1aa0ddef16f3226df6acc7/spring-jdbc/src/main/java/org/springframework/jdbc/core/JdbcTemplate.java#L1730
