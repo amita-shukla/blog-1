@@ -16,7 +16,7 @@ Understanding design patterns is best achieved through practical application. Ho
 7. Event Handling using Observer Pattern
 8. Transaction Management using Strategy Pattern
 9. Configuration Parsing using Composite Pattern
-10. Builder Pattern
+10. Build RestClient using Builder Pattern
 
 ### Dependency Injection (DI) / Inversion of Control (IoC)
 
@@ -167,10 +167,6 @@ For example, when executing a query on a database, the same series of steps must
 
 Spring's template classes such as `JdbcTemplate`, `JmsTemplate`(Java Messaging Service), `HibernateTemplate`(deprecated) encapsulate common operations, providing a template method that can be customized by subclasses to execute specific logic. A popular use we mostly see is multiple database providers providing their specific implemntation to execute database commands through `JdbcTemplate`.
 
-### Decorator Pattern
-
-Spring's bean post-processors and aspect-oriented programming allow for the decoration of beans with additional functionality, such as adding caching, validation, or retry logic.
-
 ### Event Handling using Observer Pattern
 
 #### Observer Pattern
@@ -314,7 +310,7 @@ class ConfigBeanDefinitionParser {
 }
 ```
 
-### Builder Pattern
+### Build RestClient using Builder Pattern
 
 I have used the builder pattern so often with Lombok's `@Builder` annotation that it has become my goto choice for object instantiation. In spring, one of the common examples of builder pattern is the introduction of `RestClient` in Spring Boot 3.2 to ultimately replace the `RestTemplate`, which offers an intuitive Fluent API to make Rest calls. 
 
