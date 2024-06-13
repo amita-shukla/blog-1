@@ -5,7 +5,19 @@ author: Amita Shukla
 ---
 
 
-Understanding design patterns is best achieved through practical application. However, we often miss how they're built into the frameworks or libraries we use. In Spring Framework, different design patterns are used to make applications flexible and easy to maintain. Sometimes we use these patterns unknowingly. Let's explore them to understand how they work in real-world applications:
+Understanding design patterns is best achieved through practical application. However, we often miss how they're built into the frameworks or libraries we use. In Spring Framework, different design patterns are used to make applications flexible and easy to maintain. Sometimes we use these patterns unknowingly. Let's explore the below design patterns to understand how they work in real-world applications:
+
+1. Dependency Injection (DI) / Inversion of Control (IoC)
+2. Creating Beans using Factory Pattern
+3. Singleton Scope for Beans
+4. The Prototype Scope for Beans
+5. Spring AOP using Proxy Pattern
+6. Template Method Pattern in JdbcTemplate
+7. Decorator Pattern
+8. Event Handling using Observer Pattern
+9. Strategy Pattern
+10. Configuration Parsing using Composite Pattern
+11. Builder Pattern
 
 ### Dependency Injection (DI) / Inversion of Control (IoC)
 
@@ -66,7 +78,7 @@ Now, here we do not need to instantiate `EmailService` inside `MyApplication`, s
 
 Note: If there are more than one type of `MessageService` defined, then we can either use a `@Qualifier` annotation, or define a Factory to fix the amobiguity.
 
-### Factory Pattern
+### Creating Beans using Factory Pattern
 
 #### Bean
 In Spring, the objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. A bean is an object that is instantiated, assembled, and managed by a Spring IoC container. Otherwise, a bean is simply one of many objects in your application. Beans, and the dependencies among them, are reflected in the configuration metadata used by a container.
@@ -83,7 +95,7 @@ public interface BeanFactory {
 
 ```
 
-### Singleton Pattern
+### Singleton Scope for Beans (per container per bean)
 
 Spring beans are often configured as singletons by default, ensuring that only one instance of a bean exists per container. This promotes efficient resource usage and consistent state management.
 
