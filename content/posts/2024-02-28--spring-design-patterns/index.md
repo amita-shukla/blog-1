@@ -362,4 +362,5 @@ These are some of the main design patterns used within the Spring Framework, con
 - https://docs.spring.io/spring-framework/docs/4.3.x/spring-framework-reference/html/transaction.html#transaction-intro
 - https://github.com/spring-projects/spring-framework/blob/main/spring-web/src/main/java/org/springframework/web/client/DefaultRestClientBuilder.java
 - https://www.baeldung.com/java-composite-pattern
-- https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/transaction.html#transaction-intro
+- https://github.com/spring-projects/spring-framework/blob/69c44dee9946d3bb1a1aa0ddef16f3226df6acc7/spring-aop/src/main/java/org/springframework/aop/config/ConfigBeanDefinitionParser.java#L421
+- https://github.com/spring-projects/spring-framework/blob/69c44dee9946d3bb1a1aa0ddef16f3226df6acc7/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java
