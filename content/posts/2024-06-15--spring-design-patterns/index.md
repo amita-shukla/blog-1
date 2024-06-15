@@ -75,12 +75,15 @@ public class EmailService implements MessageService {
 
 Now, here we do not need to instantiate `EmailService` inside `MyApplication`, spring handles it. How? As `EmailService` is registered as a component (which makes it a bean), it is automatically injected by Spring. 
 
-Note: If there are more than one type of `MessageService` defined, then we can either use a `@Qualifier` annotation, or define a Factory to fix the amobiguity.
+Note: If there are more than one type of `MessageService` defined, then we can either use a `@Qualifier` annotation, or define a Factory to fix the ambiguity.
 
 ### Creating Beans using Factory Pattern
 
 #### Bean
-In Spring, the objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. A bean is an object that is instantiated, assembled, and managed by a Spring IoC container. Otherwise, a bean is simply one of many objects in your application. Beans, and the dependencies among them, are reflected in the configuration metadata used by a container.
+In Spring, the objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. 
+> A bean is an object that is instantiated, assembled, and managed by a Spring IoC container. 
+ 
+Otherwise, a bean is simply one of many objects in your application. Beans, and the dependencies among them, are reflected in the configuration metadata used by a container.
 
 Spring employs `BeanFactory`, which contains factory methods to create objects, often used in conjunction with DI/IoC to configure and instantiate objects based on their types or other factors.
 
@@ -112,7 +115,7 @@ public class MyBeanConfig {
 }
 ```
 
-However, it is a little different from the standard singleton pattern. As mentioned in Spring Docs:
+However, it is a little different from the standard singleton pattern. As mentioned in [Spring Docs](https://docs.spring.io/spring-framework/reference/core/beans/factory-scopes.html#beans-factory-scopes-singleton):
 > Spring’s concept of a singleton bean differs from the singleton pattern as defined in the Gang of Four (GoF) patterns book. The GoF singleton hard-codes the scope of an object such that one and only one instance of a particular class is created per ClassLoader. The scope of the Spring singleton is best described as being per-container and per-bean. This means that, if you define one bean for a particular class in a single Spring container, the Spring container creates one and only one instance of the class defined by that bean definition.
 
 ### The Prototype Scope for Beans
@@ -133,7 +136,7 @@ public Person personPrototype() {
 
 ### Spring AOP using Proxy Pattern
 
-A proxy is anything that acts as in replresents anything else. Most commonly we use it for Proxy Servers - which is basically a server that acts as an intermediary between a client and another server - provding security, privacy or performance.
+A proxy is anything that represents anything else. Most commonly we use it for Proxy Servers - which is basically a server that acts as an intermediary between a client and another server - provding security, privacy or performance.
 
 #### Proxy Pattern
 A proxy pattern is applied when we want to impersonate a class to add more things on top of what it does. Suppose, a function is compute heavy, and you would like it to only run when its value is not already cached. In that case, we use proxy pattern to add caching capability to it. 
@@ -295,7 +298,7 @@ class Client {
 }
 ```
 
-The Composite Design Pattern in the Spring Framework is used to treat individual objects and compositions of objects uniformly. by allowing you to build a tree structure of objects and perform operations on them. This pattern is especially useful for handling hierarchical data or representing part-whole hierarchies. 
+The Composite Design Pattern in the Spring Framework is used to treat individual objects and compositions of objects uniformly, by allowing you to build a tree structure of objects and perform operations on them. This pattern is especially useful for handling hierarchical data or representing part-whole hierarchies. 
 
 For example, In the Spring Framework, `CompositeComponentDefinition` and `ComponentDefinition` are used to represent and manage complex configuration metadata. They facilitate grouping related configuration elements together, enabling Spring to handle complex configurations more effectively.
 ```java
@@ -381,7 +384,8 @@ final class DefaultRestClientBuilder implements RestClient.Builder {
 }
 ```
 
-These are some of the main design patterns used within the Spring Framework, contributing to its flexibility, extensibility, and ease of use in developing enterprise applications.
+### That's all.
+This is not an exhaustive list, but some of the main design patterns used within the Spring Framework - contributing to its flexibility, extensibility, and ease of use in developing enterprise applications.
 
 ### Read more
 - https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring
