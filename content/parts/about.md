@@ -8,7 +8,7 @@ title: About Me
 
 <br />
 
-__Hi :wave: I'm Amita__, a __Software Developer__ with about 7 years of experience based in India. A programmer at heart, I love building, learning and breaking stuff using code :grimacing:. A screen of clean code gives me the same feeling as opening a page from a fresh book... 
+__Hi :wave: I'm Amita__, a __Software Developer__ with 8 years of experience based in India. A programmer at heart, I love building, learning and breaking stuff using code :grimacing:. A screen of clean code gives me the same feeling as opening a page from a fresh book... 
 
 My expertise lies in building __Backend, Big Data and Cloud-based applications__, though I also take on database, frontend, machine learning work from time to time. 
 
