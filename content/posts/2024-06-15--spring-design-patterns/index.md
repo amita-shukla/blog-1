@@ -1,6 +1,6 @@
 ---
 title: Design Patterns In Spring Framework
-tags: ["SOFTWARE ARCHITECTURE", "REST"]
+tags: ["JAVA", "PROGRAMMING"]
 author: Amita Shukla
 ---
 
