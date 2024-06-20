@@ -1,6 +1,7 @@
 ---
 title: Design Patterns In Spring Framework
 tags: ["JAVA", "PROGRAMMING"]
+cover: design_patterns.png
 author: Amita Shukla
 ---
 
@@ -400,3 +401,5 @@ This is not an exhaustive list, but some of the main design patterns used within
 - https://github.com/spring-projects/spring-framework/blob/69c44dee9946d3bb1a1aa0ddef16f3226df6acc7/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java
 - https://github.com/spring-projects/spring-framework/blob/69c44dee9946d3bb1a1aa0ddef16f3226df6acc7/spring-jms/src/main/java/org/springframework/jms/core/JmsTemplate.java#L489
 - https://github.com/spring-projects/spring-framework/blob/69c44dee9946d3bb1a1aa0ddef16f3226df6acc7/spring-jdbc/src/main/java/org/springframework/jdbc/core/JdbcTemplate.java#L1730
+
+<re-img src="design_patterns.png"></re-img>
