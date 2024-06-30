@@ -1,4 +1,4 @@
-import { FaTag } from "react-icons/fa/";
+import { FaStickyNote, FaTag } from "react-icons/fa/";
 import PropTypes from "prop-types";
 import React from "react";
 import { graphql } from "gatsby";
@@ -7,6 +7,7 @@ import { ThemeContext } from "../layouts";
 import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import List from "../components/List";
+const _ = require("lodash");
 
 const TagTemplate = props => {
   const {
@@ -16,18 +17,24 @@ const TagTemplate = props => {
     }
   } = props;
 
+  const isNotesPage = tag == "NOTES";
+  const plural = totalCount > 1 ? " posts" : " post";
+  const countText = totalCount + plural;
+  const noteText = "On Which I Couldn't Write An Entire Blog Post";
+
   return (
     <React.Fragment>
       <ThemeContext.Consumer>
         {theme => (
           <Article theme={theme}>
             <header>
-              <Headline theme={theme} customStyle={{textAlign: "left"}}>
-                <span>Posts with tag</span> <FaTag />
+              <Headline theme={theme} customStyle={{ textAlign: "left" }}>
+                <span>{!isNotesPage ? "Posts with tag" : ""}</span>
+                {isNotesPage ? <FaStickyNote /> : <FaTag />}
                 {tag}
               </Headline>
               <p className="meta">
-                <strong>{totalCount}</strong> post{totalCount > 1 ? "s " : " "} tagged:
+                <strong> {!isNotesPage ? countText : noteText} </strong>
               </p>
               <List edges={edges} theme={theme} />
             </header>
@@ -35,7 +42,7 @@ const TagTemplate = props => {
         )}
       </ThemeContext.Consumer>
 
-      <Seo />
+      <Seo pageTitle={tag} pageSlug={"/tag/" + _.kebabCase(tag)} />
     </React.Fragment>
   );
 };
@@ -60,6 +67,7 @@ export const tagQuery = graphql`
         node {
           fields {
             slug
+            source
           }
           excerpt
           timeToRead

@@ -17,9 +17,9 @@ const Headline = props => {
           animation-duration: 0;
           color: ${theme.color.neutral.gray.i};
           text-align: center;
+          font-weight: ${theme.font.weight.standard};
 
           :global(span) {
-            font-weight: ${theme.font.weight.standard};
             display: block;
             font-size: 0.5em;
             letter-spacing: 0;

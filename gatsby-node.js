@@ -58,8 +58,8 @@ exports.createPages = ({ graphql, actions }) => {
     const pageTemplate = path.resolve("./src/templates/PageTemplate.js");
     const tagTemplate = path.resolve("./src/templates/TagTemplate.js");
     
-    const activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development"
-    console.log(`Using environment config: '${activeEnv}'`)
+    const activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development";
+    console.log(`Using environment config: '${activeEnv}'`);
 
     let filters = `filter: { fields: { slug: { ne: null } } }`;
 
@@ -130,7 +130,27 @@ exports.createPages = ({ graphql, actions }) => {
           const source = node.fields.source;
 
           createPage({
-            path: `/blog`+ slug,
+            path: `/blog` + slug,
+            component: postTemplate,
+            context: {
+              slug,
+              next,
+              prev,
+              source
+            }
+          });
+        });
+
+        // create notes
+        const notes = items.filter(item => item.node.fields.source === "notes");
+        notes.forEach(({ node }, index) => {
+          const slug = node.fields.slug;
+          const prev = index === 0 ? undefined : notes[index - 1].node;
+          const next = index === notes.length - 1 ? undefined : notes[index + 1].node;
+          const source = node.fields.source;
+
+          createPage({
+            path: `/note` + slug,
             component: postTemplate,
             context: {
               slug,

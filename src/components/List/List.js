@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import { getExpandedDate } from "../../utils/helpers";
+import { FaCalendar } from "react-icons/fa";
 
 const List = props => {
   const { edges, theme } = props;
@@ -12,13 +14,17 @@ const List = props => {
           const {
             node: {
               frontmatter: { title },
-              fields: { slug }
+              fields: { slug, source, prefix }
             }
           } = edge;
-
+          const postType = source === "notes" ? "/note" : "/blog";
           return (
-            <li key={`/blog`+slug}>
-              <Link to={`/blog`+slug}>{title}</Link>
+            <li key={postType + slug}>
+              <Link to={postType + slug}>
+                <span>{getExpandedDate(prefix) + " - "}</span>
+                {title}
+              </Link>
+              {/* <span>{source === "notes" ? " - " + getExpandedDate(prefix) : ""}</span> */}
             </li>
           );
         })}
@@ -35,6 +41,9 @@ const List = props => {
           padding: ${theme.space.xs} 0;
           font-size: ${theme.font.size.s};
           line-height: ${theme.font.lineHeight.l};
+        }
+        span {
+          font-size: ${theme.font.size.xxs};
         }
       `}</style>
     </React.Fragment>

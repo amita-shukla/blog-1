@@ -22,7 +22,7 @@ const Post = props => {
       id,
       html,
       htmlAst,
-      fields: { prefix, slug },
+      fields: { prefix, slug, source },
       frontmatter: { title, author, tags, absolutePath },
       parent: { modifiedTime },
       timeToRead,
@@ -34,7 +34,8 @@ const Post = props => {
     theme
   } = props;
 
-  const postUrl = `${siteUrl+ '/blog' + slug}`
+  const postType = source === "notes" ? "/note" : "/blog";
+  const postUrl = `${siteUrl + postType + slug}`;
   let disqusConfig = {
     url: postUrl,
     identifier: id,

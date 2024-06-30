@@ -59,7 +59,7 @@ If I have a variable `$var` and I want to append '`_temp`' to `$var` and assign 
 
 ! is used for indirect expansion, that is, introducing one level of expansion of variable. Let me illustrate:
 
-``` 
+```shell 
 var1=first
 var2=second
 i=1

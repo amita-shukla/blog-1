@@ -10,7 +10,7 @@ module.exports = {
     siteUrl: config.siteUrl,
     plausibleDomain: process.env.PLAUSIBLE_DOMAIN || "",
     contactAddress: process.env.CONTACT_ADDRESS || "",
-    emailSubLink: process.env.EMAIL_SUB_LINK || "",
+    emailSubLink: process.env.EMAIL_SUB_LINK || ""
   },
   plugins: [
     `gatsby-plugin-styled-jsx`, // the plugin's code is inserted directly to gatsby-node.js and gatsby-ssr.js files
@@ -21,7 +21,7 @@ module.exports = {
         isTSX: true, // defaults to false
         //jsxPragma: `jsx`, // defaults to "React" ??
         allExtensions: true
-      },
+      }
     },
     {
       resolve: `gatsby-plugin-layout`,
@@ -39,7 +39,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/${process.env.POSTS_FOLDER || 'mock_posts'}/`,
+        path: `${__dirname}/content/${process.env.POSTS_FOLDER || "mock_posts"}/`,
         name: "posts"
       }
     },
@@ -58,6 +58,13 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `notes`,
+        path: `${__dirname}/content/notes/`
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -71,26 +78,26 @@ module.exports = {
             options: {
               maxWidth: 800,
               backgroundColor: "transparent",
-              tracedSVG: { color: '#d1d0e4' }
+              tracedSVG: { color: `#d1d0e4` }
             }
           },
           {
             resolve: `gatsby-remark-rehype-images`,
             options: {
-              tag: 're-img',
+              tag: `re-img`,
               maxWidth: 800,
               quality: 90,
-              tracedSVG: { color: '#d1d0e4'},
+              tracedSVG: { color: `#d1d0e4` },
               generateTracedSVG: true
             }
           },
-
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
               wrapperStyle: `margin-bottom: 2em`
             }
           },
+          `gatsby-remark-autolink-headers`,
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
@@ -171,12 +178,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-feed`,
       options: {
-        setup: options => ({          
-          ...options,          
+        setup: options => ({
+          ...options,
           site_url: config.siteUrl,
           description: config.siteDescription,
-          custom_namespaces: {            
-            media: "http://search.yahoo.com/mrss/",
+          custom_namespaces: {
+            media: "http://search.yahoo.com/mrss/"
           }
         }),
         query: `
@@ -195,20 +202,26 @@ module.exports = {
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
               return allMarkdownRemark.edges.map(edge => {
+                const postType = edge.node.fields.source === "notes" ? "/note" : "/blog";
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.fields.prefix,
-                  url: site.siteMetadata.siteUrl + '/blog' + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + '/blog' + edge.node.fields.slug,
+                  url: site.siteMetadata.siteUrl + postType + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + postType + edge.node.fields.slug,
                   categories: edge.node.frontmatter.tags,
                   custom_elements: [
                     { "content:encoded": edge.node.html },
-                    edge.node.frontmatter.cover != null ? { "media:content" : {
-                      _attr: {
-                        url: site.siteMetadata.siteUrl + edge.node.frontmatter.cover.publicURL,
-                        type: edge.node.frontmatter.cover.internal.mediaType
-                      }
-                    }} : {}
+                    edge.node.frontmatter.cover != null
+                      ? {
+                          "media:content": {
+                            _attr: {
+                              url:
+                                site.siteMetadata.siteUrl + edge.node.frontmatter.cover.publicURL,
+                              type: edge.node.frontmatter.cover.internal.mediaType
+                            }
+                          }
+                        }
+                      : {}
                   ]
                 });
               });
@@ -232,6 +245,7 @@ module.exports = {
                       fields {
                         slug
                         prefix
+                        source
                       }
                       frontmatter {
                         author
@@ -269,17 +283,30 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-mailchimp',
+      resolve: `gatsby-plugin-mailchimp`,
       options: {
-          endpoint: process.env.EMAIL_SUB_LINK,
-          timeout: 3500,
-      },
+        endpoint: process.env.EMAIL_SUB_LINK,
+        timeout: 3500
+      }
     },
     {
       resolve: `gatsby-plugin-goatcounter`,
       options: {
         code: process.env.GOATCOUNTER_CODE,
         allowLocal: false // set this to true, if you want to test locally
+      }
+    },
+    {
+      resolve: "gatsby-plugin-social-cards",
+      options: {
+        // ommit to skip
+        // authorImage: "./static/img/coffee-art.jpg",
+        // image to use when no cover in frontmatter
+        backgroundImage: "./static/twitter_card.jpg",
+        // author to use when no auth in frontmatter
+        defaultAuthor: config.authorName,
+        // card design
+        design: "default" // 'default' or 'card'
       }
     }
     // {

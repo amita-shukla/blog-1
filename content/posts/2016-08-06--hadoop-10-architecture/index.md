@@ -1,6 +1,6 @@
 ---
 title: Hadoop 1.0 Architecture
-tags: ["BIG DATA"]
+tags: ["BIG DATA", "SOFTWARE ARCHITECTURE"]
 cover: hadoop2.x-components-architecture.png
 author: Amita Shukla
 ---

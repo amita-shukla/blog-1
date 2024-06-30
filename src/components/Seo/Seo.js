@@ -7,15 +7,16 @@ import config from "../../../content/meta/config";
 const Seo = props => {
   const { data } = props;
   const pageTitle = props.pageTitle;
+  const pageSlug = props.pageSlug;
   const postTitle = ((data || {}).frontmatter || {}).title;
-  const postDescription = ((data || {}).frontmatter || {}).description;
-  const postCover = ((data || {}).frontmatter || {}).cover;
+  const postDescription = (data || {}).excerpt;
+  const postCoverURL = (((data || {}).frontmatter || {}).cover || {}).publicURL;
   const postSlug = ((data || {}).fields || {}).slug;
 
-  const title = config.shortSiteTitle + " - " + (postTitle || pageTitle)
+  const title = config.shortSiteTitle + " - " + (postTitle || pageTitle);
   const description = postDescription ? postDescription : config.siteDescription;
-  const image = postCover ? postCover : config.siteImage;
-  const url = config.siteUrl + postSlug;
+  const imageURL = config.siteUrl + (postCoverURL ? postCoverURL : "/" + config.siteImage);
+  const url = config.siteUrl + (postSlug || pageSlug);
 
   return (
     // <StaticQuery
@@ -44,8 +45,10 @@ const Seo = props => {
           <meta property="og:url" content={url} />
           <meta property="og:title" content={title} />
           <meta property="og:description" content={description} />
-          <meta property="og:image" content={image} />
+          <meta property="og:image" content={imageURL} />
           <meta property="og:type" content="website" />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:image" content={imageURL} />
           {/* Plausible Analytics */}
           {/* {process.browser && <script async defer data-domain={domain} src="https://plausible.io/js/plausible.js"/>} */}
         </Helmet>
@@ -56,7 +59,9 @@ const Seo = props => {
 };
 
 Seo.propTypes = {
-  data: PropTypes.object
+  data: PropTypes.object,
+  pageTitle: PropTypes.string,
+  pageSlug: PropTypes.string
 };
 
 export default Seo;

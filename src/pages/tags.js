@@ -18,7 +18,6 @@ const TagsPage = props => {
   // Create tags list
   const tagsPosts = {};
   posts.forEach(edge => {
-    
     const {
       node: {
         frontmatter: { tags }
@@ -33,7 +32,7 @@ const TagsPage = props => {
           }
           tagsPosts[tag].push(edge);
         }
-      })
+      });
     }
   });
 
@@ -49,11 +48,19 @@ const TagsPage = props => {
         <header>
           <Headline title="Posts by Tags" theme={theme} />
         </header>
-        <p> 
+        <p>
           {tagList.map(item => (
             <section key={item[0]}>
               <h2>
-                <Link to={`/tag/${item[0].split(" ").join("-").toLowerCase()}`}><FaTag />{item[0]}</Link> 
+                <Link
+                  to={`/tag/${item[0]
+                    .split(" ")
+                    .join("-")
+                    .toLowerCase()}`}
+                >
+                  <FaTag />
+                  {item[0]}
+                </Link>
               </h2>
               <List edges={item[1]} theme={theme} />
             </section>
@@ -66,8 +73,8 @@ const TagsPage = props => {
           }
           h2 {
             margin: 0 0 0.5em;
-            color: ${theme.color.neutral.gray.j};
-            
+            color: ${theme.color.neutral.gray.k};
+            font-weight: ${theme.font.weight.bold};
           }
           @from-width desktop {
             :global(a:hover) {
@@ -81,7 +88,7 @@ const TagsPage = props => {
         `}</style>
       </Article>
 
-      <Seo pageTitle="Tags"/>
+      <Seo pageTitle="Tags" pageSlug="/tags/" />
     </React.Fragment>
   );
 };
@@ -96,9 +103,7 @@ export default TagsPage;
 export const query = graphql`
   query PostsQuery {
     posts: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "//[0-9]+.*--/" }
-      }
+      filter: { fileAbsolutePath: { regex: "//[0-9]+.*--/" } }
       sort: { fields: [fields___prefix], order: DESC }
     ) {
       edges {
@@ -107,6 +112,7 @@ export const query = graphql`
           fields {
             slug
             prefix
+            source
           }
           frontmatter {
             title

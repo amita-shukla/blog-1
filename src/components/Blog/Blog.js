@@ -21,11 +21,13 @@ const Blog = props => {
             const {
               node,
               node: {
-                fields: { slug }
+                fields: { 
+                  slug
+                }
               }
             } = post;
-            return <Teaser key={slug} post={node} theme={theme} index={index} />;
-          })}
+            return <Teaser key={slug} post={node} theme={theme} index={index} />
+            })}
         </ul>
       </main>
 
