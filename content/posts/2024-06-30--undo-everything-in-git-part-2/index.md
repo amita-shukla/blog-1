@@ -300,30 +300,23 @@ this is commit10
 ```
 
 ### Undo a Rebase
+#### rebase didn't finish
+If the rebase didn't finish but you wish to give it up (probably coz of conflicts), you can run `rebase --abort`:
 ```git
-# reset to the point after which the rebase started
-git reset --hard HEAD@{5}
-
-# run below command if the rebase didn't finish
 git rebase --abort
 ```
+### rebase completed
+In this scenario, you would want to go back to the commit previous to rebase using `git reset --hard`:
+```git
+$ git reflog
 
-### undo a push
+$ git reset --hard <pre-rebase-sha>
+
+# another way
+$ git reset --hard HEAD@{5}
+
+```
+
 make sure no one is pulling changes from your branch
 dont' mess with the space time continuum
-
-https://stackoverflow.com/questions/134882/undoing-a-git-rebase/135614#135614
-
-```
-git revert <latest commit>
-git push
-```
-
-change history
-
-```git
-git push -f origin last_known_good_commit:branch_name
-```
-
-### undo a merged pull request
 
