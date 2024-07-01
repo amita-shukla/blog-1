@@ -128,7 +128,9 @@ As mentioned in the previous post about reverting a commit, you can revert a com
 
 ```git
 $ git checkout master
+
 $ git revert -m 1 <merge commit SHA>
+
 $ git push origin master
 ```
 
@@ -213,6 +215,7 @@ Recovering a branch locally that exists remotely, you can create a new branch an
 ```git
 $ git checkout -b feature3
 Switched to a new branch 'feature3'
+
 $ git pull origin feature3
 From https://github.com/amita-shukla/sample-repo
  * branch            feature3   -> FETCH_HEAD
@@ -224,6 +227,77 @@ Fast-forward
 
 While this contains the changes your local branch had, it will also contain the changes pushed to this branch by other developers for the time it was deleted locally, hence, not the exact replica.
 
+#### if a branch is deleted both locally and remotely
+Suppose we have a feature4 branch which contained a commit: `commit10`, but we have deleted it forcefully. Git won't let you delete a branch otherwise if there's a chance of losing commits:
+```git
+$ git checkout -b feature4
+Switched to a new branch 'feature4'
+
+$ echo "this is commit10" >> file1 
+
+$ git commit -am "this is commit 10"
+[feature4 7cf1ac7] this is commit 10
+ 1 file changed, 1 insertion(+)
+
+$ git checkout master
+
+$ git branch
+  feature
+  feature3
+  feature4
+* master
+
+```
+Now, the branch is deleted:
+```git
+$ git branch -D feature4
+Deleted branch feature4 (was 7cf1ac7).
+(base) ashukla@ashukla-X510UNR:~/code/git/sample-repo$ git branch
+  feature
+  feature3
+* master
+
+$ cat file1
+this is commit 1
+this is commit 2
+this is commit 5
+this is commit 7
+this is commit8
+```
+If you recently deleted the branch, you can find the SHA (hash) of the commit where the branch pointer was before deletion using Git reflog.
+```git
+$ git reflog
+5856472 (HEAD -> master, origin/master, origin/feature2, origin/HEAD) HEAD@{0}: checkout: moving from feature4 to master
+7cf1ac7 HEAD@{1}: commit: this is commit 10
+5856472 (HEAD -> master, origin/master, origin/feature2, origin/HEAD) HEAD@{2}: checkout: moving from master to feature4
+
+```
+Use the below command to restore:
+```git
+git checkout -b <branch_name> <sha_of_commit>
+```
+
+```git
+$ git checkout -b feature4 7cf1ac7
+Switched to a new branch 'feature4'
+```
+And voila! you see the old branch with its contents again.
+
+```git
+$ git branch
+  feature
+  feature3
+* feature4
+  master
+
+$ cat file1
+this is commit 1
+this is commit 2
+this is commit 5
+this is commit 7
+this is commit8
+this is commit10
+```
 
 ### Undo a Rebase
 ```git
