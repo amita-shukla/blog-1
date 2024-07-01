@@ -4,10 +4,32 @@ tags: ["GIT"]
 author: Amita Shukla
 ---
 
-In my previous post Undo Git part 1, I disucussed various scenarios when you're developing your code locally, and the commands to undo your changes using git. Now, in this post we discuss the undo strategies when we have pushed our code to remote already.
+In my previous post [Undo everything in Git - Part 1](https://amitashukla.in/blog/undo-everything-in-git-part-1/), I disucussed various scenarios when you're developing your code locally, and the commands to undo your changes using git. Now, in this post, we discuss the undo strategies when we have pushed our code to remote already.
 
-To make any kind of changes to a remote repository, one needs to make changes locally, and then push them to local. 
+In this post, we discuss the following undo scenarios:</br>
+<a href="#undo-a-push">- Undo a Push</a></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#undo-using-git-revert">- undo using git revert</a></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#undo-using-git-reset">- undo using git reset</a>
+<a href="#undo-a-merge-commit">- Undo a merge commit</a></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#a-merge-commit">- A merge commit</a></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#revert-and-push">- revert and push</a></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#reset-and-force-push">- reset and force push</a></br>
+<a href="#undo-a-rebase">- Undo a Rebase</a></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rebase-didnt-finish">- rebase didn&#39;t finish</a></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rebase-completed">- rebase completed</a></br>
+<a href="#undo-a-deleted-branch">- Undo a Deleted Branch</a></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#if-a-branch-is-available-locally-but-upstream-is-deleted">- if a branch is available locally but upstream is deleted</a></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#if-a-branch-exists-remotely-but-deleted-locally">- if a branch exists remotely but deleted locally</a></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#if-a-branch-is-deleted-both-locally-and-remotely">- if a branch is deleted both locally and remotely</a>
+
+A few things to consider before playing with remote repositories:
+- When we go about undoing work that has already been pushed remotely, we stand at risk of breaking the code written by other developers based on our code. It is important to communicate to the team about these changes, run test cases, and get code reviewed by all affected code owners.
+- It would be nice to take backup of your current code, if it is not in sync with remote. I a lot of times stash my untracked changes, so that I always have them saved.
+- I know we try our best, but working on shared branches can be risky when working with a lot of team members. Undoing work when we're sure no one is relying on our code makes our life simpler. 
+
+
 ### Undo a Push
+To make any kind of changes to a remote repository, one needs to make changes locally, and then push them to local. 
 
 Consider a commit pushed to a remote repository:
 
