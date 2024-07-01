@@ -177,6 +177,24 @@ To https://github.com/amita-shukla/sample-repo.git
 ```
 <re-img src="reverted_merge_without_history.png"></re-img>
 
+### Undo a Rebase
+#### rebase didn't finish
+If the rebase didn't finish but you wish to give it up (probably coz of conflicts), you can run `rebase --abort`:
+```git
+git rebase --abort
+```
+#### rebase completed
+In this scenario, you would want to go back to the commit previous to rebase using `git reset --hard`:
+```git
+$ git reflog
+
+$ git reset --hard <pre-rebase-sha>
+
+# another way
+$ git reset --hard HEAD@{5}
+
+```
+
 ### Undo a Deleted Branch
 
 #### if a branch is available locally but upstream is deleted
@@ -299,23 +317,6 @@ this is commit8
 this is commit10
 ```
 
-### Undo a Rebase
-#### rebase didn't finish
-If the rebase didn't finish but you wish to give it up (probably coz of conflicts), you can run `rebase --abort`:
-```git
-git rebase --abort
-```
-### rebase completed
-In this scenario, you would want to go back to the commit previous to rebase using `git reset --hard`:
-```git
-$ git reflog
-
-$ git reset --hard <pre-rebase-sha>
-
-# another way
-$ git reset --hard HEAD@{5}
-
-```
 
 make sure no one is pulling changes from your branch
 dont' mess with the space time continuum
