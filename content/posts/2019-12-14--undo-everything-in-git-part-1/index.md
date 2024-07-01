@@ -16,17 +16,17 @@ I use git for most of my projects now, at work and off work. While I am easily a
 Let's go bottom-up: 
 
 
-- [Undo git init](#git_init)
-- [Undo unstaged work](#unstaged_work)
-- [Undo staged work](#staged_work)
-- - [Difference between git rm --cached and git reset HEAD](#rm_vs_reset)
-- [Undo commit - change commit message and other info](#commit_amend)
-- [Undo a commit by making another commit on top of it](#commit_revert)
-- [Undo a commit - and erase its history](#commit_erase_history)
-- - [Undo a commit and get back your changes back on staging area](#commit_reset_soft)
- - [Undo the commit and don't keep the changes](#commit_reset_hard)
-- [Undo a commit that is not the latest one](#commit_not_latest)
-- - [Rebase](#rebase)
+- [Undo git init](#undo-git-init)
+- [Undo unstaged work](#undo-unstaged-work)
+- [Undo staged work](#undo-staged-work)
+  - [git rm --cached v/s git reset HEAD \<file\>](#git-rm---cached-vs-git-reset-head-file)
+- [Undo commit - change commit message and other info](#undo-commit---change-commit-message-and-other-info)
+- [Undo a commit by making another commit](#undo-a-commit-by-making-another-commit)
+- [Undo a commit - and erase its history](#undo-a-commit---and-erase-its-history)
+  - [Undo the commit and get your changes back on staging area](#undo-the-commit-and-get-your-changes-back-on-staging-area)
+  - [Undo the commit and don't keep the changes](#undo-the-commit-and-dont-keep-the-changes)
+- [Undo not the latest commit](#undo-not-the-latest-commit)
+  - [Rebase](#rebase)
 
 ### Undo git init
 
