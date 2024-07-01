@@ -7,7 +7,7 @@ author: Amita Shukla
 In my previous post Undo Git part 1, I disucussed various scenarios when you're developing your code locally, and the commands to undo your changes using git. Now, in this post we discuss the undo strategies when we have pushed our code to remote already.
 
 To make any kind of changes to a remote repository, one needs to make changes locally, and then push them to local. 
-### Undo a commit already pushed to remote repository
+### Undo a Push
 
 Consider a commit pushed to a remote repository:
 
@@ -92,7 +92,7 @@ To https://github.com/amita-shukla/sample-repo.git
 Confirm remotely:
 <re-img src="reverted_commit_remote.png"></re-img>
 
-### undo a merge commit
+### Undo a merge commit
 
 #### A merge commit
 A merge commit is a special type of commit as it has 2 parents instead of 1. Consider the output of `git log` after I have merged my pull request from a branch `feature` to `master`:
@@ -119,16 +119,113 @@ Date:   Sat Jun 1 22:03:10 2019 +0530
 
 As you see, the merge commits mentions the merge happening between the two parent commits: `Merge: a07f7bc c58946b`.
 
+Here's how it looks on remote:
+
+<re-img src="revert_merge_commit.png"></re-img>
+
 #### revert and push
-As mentioned in the previous post about reverting a commit, you can revert a commit locally, and then push the reverted commit to remote. This is the safest way to undo a commit, without touching history.
+As mentioned in the previous post about reverting a commit, you can revert a commit locally, and then push the reverted commit to remote. This is the safest way to undo a commit, without touching history. The catch here is the flag `-m 1`, which specifies __that you're reverting to the main branch after revert__.
 
 ```git
-git checkout master
-git revert -m 1 [SHA of the merge commit]
-git push
+$ git checkout master
+$ git revert -m 1 <merge commit SHA>
+$ git push origin master
 ```
 
-### undo a rebase
+<re-img src="revert_merge_commit_after.png"></re-img>
+
+#### reset and force push
+To erase the merge commit from git log, you can do a `hard reset`. A merge commit has two parent, and typically we want to go back to the mainline (first parent). The first parent is usually the branch into which the merge was made (`master`).
+
+```git
+$ git show HEAD
+commit e0659d87c69f37ff625f53924571316c693e1eed (HEAD -> master, origin/master, origin/HEAD)
+Merge: a07f7bc c58946b
+Author: Amita Shukla <amitashukla0906@gmail.com>
+Date:   Sat Jun 1 22:06:58 2019 +0530
+
+    Merge pull request #1 from amita-shukla/feature
+    
+    Feature
+```
+Note the parent commit here `a07f7bc`, now we reset to the parent commit:
+
+```git
+$ git reset --hard a07f7bc
+HEAD is now at a07f7bc commit7
+```
+
+The HEAD is now at the previous commit:
+```git
+$ git log
+commit a07f7bcfdbabb13fbda35f615deb61fdbb30cd5b (HEAD -> master)
+Author: Amita Shukla <amitashukla0906@gmail.com>
+Date:   Sat Jun 1 22:03:10 2019 +0530
+
+    commit7
+```
+
+Force push:
+
+```git
+$ git push --force origin master
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/amita-shukla/sample-repo.git
+ + e0659d8...a07f7bc master -> master (forced update)
+```
+<re-img src="reverted_merge_without_history.png"></re-img>
+
+### Undo a Deleted Branch
+
+#### if a branch is available locally but upstream is deleted
+Suppose a branch `feature` exists locally but not on remote:
+```git
+$ git branch
+  feature
+* master
+```
+```git
+$ git checkout feature
+Switched to branch 'feature'
+```
+```git
+$ git push origin feature
+Username for 'https://github.com': amita-shukla
+Password for 'https://amita-shukla@github.com': 
+Enumerating objects: 21, done.
+Counting objects: 100% (21/21), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (15/15), 1.16 KiB | 149.00 KiB/s, done.
+Total 15 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), done.
+remote: 
+remote: Create a pull request for 'feature' on GitHub by visiting:
+remote:      https://github.com/amita-shukla/sample-repo/pull/new/feature
+remote: 
+To https://github.com/amita-shukla/sample-repo.git
+ * [new branch]      feature -> feature
+```
+
+
+#### if a branch exists remotely but deleted locally
+Recovering a branch locally that exists remotely, you can create a new branch and pull changes from a remote branch:
+```git
+$ git checkout -b feature3
+Switched to a new branch 'feature3'
+$ git pull origin feature3
+From https://github.com/amita-shukla/sample-repo
+ * branch            feature3   -> FETCH_HEAD
+Updating 5856472..4491e24
+Fast-forward
+ file1 | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+While this contains the changes your local branch had, it will also contain the changes pushed to this branch by other developers for the time it was deleted locally, hence, not the exact replica.
+
+
+### Undo a Rebase
 ```git
 # reset to the point after which the rebase started
 git reset --hard HEAD@{5}
@@ -156,4 +253,3 @@ git push -f origin last_known_good_commit:branch_name
 
 ### undo a merged pull request
 
-### undo a deleted branch
