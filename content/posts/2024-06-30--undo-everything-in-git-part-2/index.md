@@ -1,6 +1,7 @@
 ---
 title: Undo everything in Git - Part 2
 tags: ["GIT"]
+cover: git_push_force.jpg
 author: Amita Shukla
 ---
 
@@ -110,6 +111,8 @@ Total 0 (delta 0), reused 0 (delta 0)
 To https://github.com/amita-shukla/sample-repo.git
  + 5dd42d0...e0659d8 master -> master (forced update)
 ```
+
+<re-img src="git_push_force.jpg"></re-img>
 
 Confirm remotely:
 <re-img src="reverted_commit_remote.png"></re-img>
@@ -339,7 +342,6 @@ this is commit8
 this is commit10
 ```
 
+This post has been loooooong pending. I have learnt my lesson - never title a post as 'Part 1' if the 'Part 2' is not ready yet. The first part was created back in 2019, and then a draft post was completed in 2021. I am writing this final conclusion on 2024, let's see what would be the actual date of publish!!
 
-make sure no one is pulling changes from your branch
-dont' mess with the space time continuum
-
+This post takes up more scenarios for undoing where your code may be shared. It is risky. To be fair, apart from 'git revert' command, I don't remember running any of the above commands in a production code-base. Everyone makes mistakes - and it's better the mistake be announced to the world instead of hiding it under the rug (rug=reflog in this case)!
