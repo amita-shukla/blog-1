@@ -5,12 +5,12 @@ cover: git_push_force.jpg
 author: Amita Shukla
 ---
 
-In my previous post [Undo everything in Git - Part 1](https://amitashukla.in/blog/undo-everything-in-git-part-1/), I disucussed various scenarios when you're developing your code locally, and the commands to undo your changes using git. Now, in this post, we discuss the undo strategies when we have pushed our code to remote already.
+In my previous post [Undo everything in Git - Part 1](https://amitashukla.in/blog/undo-everything-in-git-part-1/), I disucussed various undo scenarios on a git repository locally. Now, in this post, we discuss the undo strategies when we have pushed our code to remote already.
 
-In this post, we discuss the following undo scenarios:</br>
+#### Table of Contents
 <a href="#undo-a-push">- Undo a Push</a></br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#undo-using-git-revert">- undo using git revert</a></br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#undo-using-git-reset">- undo using git reset</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#undo-using-git-reset">- undo using git reset</a></br>
 <a href="#undo-a-merge-commit">- Undo a merge commit</a></br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#a-merge-commit">- A merge commit</a></br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#revert-and-push">- revert and push</a></br>
@@ -62,7 +62,7 @@ Undoing this commit involves 2 steps:
 Detailed scenarios on how to undo a commit locally are described here. Let's discuss 2 of those scenarios:
 
 #### undo using git revert
-We can use `git revert`, which creates a new commit on top of the commit. Refer the steps to do so here. Now, once the change is reverted locally, push the change to remote. You do not need to force push, as this is a normal commit and doesn't change the history.
+We can use `git revert`, which creates a new commit on top of the commit. Refer the steps to do so [here](http://localhost:8000/blog/undo-everything-in-git-part-1/#undo-a-commit-by-making-another-commit). Now, once the change is reverted locally, push the change to remote. You do not need to force push, as this is a normal commit and doesn't change the history.
 
 #### undo using git reset
 Now, if we wish to change the history, we can use `git reset`. Now we may want to keep our change locally or erase the changes altogether. Here, I am choosing the example where we wish to erase the commit from history:
@@ -344,4 +344,4 @@ this is commit10
 
 This post has been loooooong pending. I have learnt my lesson - never title a post as 'Part 1' if the 'Part 2' is not ready yet. The first part was created back in 2019, and then a draft post was completed in 2021. I am writing this final conclusion on 2024, let's see what would be the actual date of publish!!
 
-This post takes up more scenarios for undoing where your code may be shared. It is risky. To be fair, apart from 'git revert' command, I don't remember running any of the above commands in a production code-base. Everyone makes mistakes - and it's better the mistake be announced to the world instead of hiding it under the rug (rug=reflog in this case)!
+This post takes up more scenarios for undoing where your code may be shared. It is risky. To be fair, apart from `git revert` command, I don't remember running any of the above commands in a production code-base. Everyone makes mistakes - and it's better the mistake be announced to the world instead of hiding it under the rug (rug=reflog in this case)!
