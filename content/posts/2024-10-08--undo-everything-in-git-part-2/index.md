@@ -18,6 +18,7 @@ In my previous post [Undo everything in Git - Part 1](https://amitashukla.in/blo
 <a href="#undo-a-rebase">- Undo a Rebase</a></br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rebase-didnt-finish">- rebase didn&#39;t finish</a></br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#rebase-completed">- rebase completed</a></br>
+<a href="#undo-all-work-in-a-branch">- Undo all work in a Branch</a></br>
 <a href="#undo-a-deleted-branch">- Undo a Deleted Branch</a></br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#if-a-branch-is-available-locally-but-upstream-is-deleted">- if a branch is available locally but upstream is deleted</a></br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#if-a-branch-exists-remotely-but-deleted-locally">- if a branch exists remotely but deleted locally</a></br>
@@ -62,7 +63,7 @@ Undoing this commit involves 2 steps:
 Detailed scenarios on how to undo a commit locally are described here. Let's discuss 2 of those scenarios:
 
 #### undo using git revert
-We can use `git revert`, which creates a new commit on top of the commit. Refer the steps to do so [here](http://localhost:8000/blog/undo-everything-in-git-part-1/#undo-a-commit-by-making-another-commit). Now, once the change is reverted locally, push the change to remote. You do not need to force push, as this is a normal commit and doesn't change the history.
+We can use `git revert`, which creates a new commit on top of the commit. Refer the steps to do so [here](https://amitashukla.in/blog/undo-everything-in-git-part-1/#undo-a-commit-by-making-another-commit). Now, once the change is reverted locally, push the change to remote. You do not need to force push, as this is a normal commit and doesn't change the history.
 
 #### undo using git reset
 Now, if we wish to change the history, we can use `git reset`. Now we may want to keep our change locally or erase the changes altogether. Here, I am choosing the example where we wish to erase the commit from history:
@@ -218,6 +219,20 @@ $ git reset --hard <pre-rebase-sha>
 # another way
 $ git reset --hard HEAD@{5}
 
+```
+
+### Undo all work in a Branch
+You can refer my [previous post](https://amitashukla.in/blog/undo-everything-in-git-part-1/#undo-all-work-in-a-branch) to delete a branch locally. Now, if we want to delete a branch on the remote as well:
+```git
+git push origin --delete <branch_name>
+# or
+git push origin -d <branch name>
+# or
+git push origin :<branch_name>
+```
+Even if you delete a branch on remote, any other machine that pulled your brach would still have it. In order to propogate these changes, you would need to sneak into all other devs' machines and run:
+```git
+git fetch --all --prune
 ```
 
 ### Undo a Deleted Branch

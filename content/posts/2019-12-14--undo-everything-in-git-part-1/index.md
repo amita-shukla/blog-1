@@ -27,6 +27,9 @@ Let's go bottom-up:
   - [Undo the commit and don't keep the changes](#undo-the-commit-and-dont-keep-the-changes)
 - [Undo not the latest commit](#undo-not-the-latest-commit)
   - [Rebase](#rebase)
+- [Delete a branch](#undo-all-work-in-a-branch)
+    - [Safe delete](#if-the-branch-has-no-unmerged-changes)
+    - [Force delete](#if-the-branch-has-unmerged-changes)
 
 ### Undo git init
 
@@ -590,10 +593,26 @@ To delete the commit \"create file3\", we simply delete that line altogether. Sa
  $ ls
  file1 file2 file4
 ```
- 
+
 As we can see above, the commit doesn't exist anymore, and also no file3 exists in the filesystem. Remember, I called the rebase 'mighty' for this reason. If not careful, rebase changes history and you may lose your work. Rebase is like a swiss knife for git, and comes with a lot of powerful features (as listed in the editor window that opens up during interactive rebase), which if we discuss here may take this post off track. 
- 
-In this post, I have tried to put up all the undo steps that we may need on our local system, and for a single branch. A lot more is possible beyond the above list, and I will try to cover that in the next post. 
+
+### Undo all work in a branch
+If things are bad enough, you may want discard all work in that branch entirely.
+#### If the branch has no unmerged changes
+```git
+git checkout master # you can't delete currently selected branch
+git branch -d <branch name>
+```
+`-d` is an alias for `--delete`. This lets you delete the branch safely.
+#### If the branch has unmerged changes
+Deleting a branch that has unmerged changes would lead to forever losing your work. If you still wish to move ahead:
+```git
+git checkout <another branch>
+git branch -D <branch name>
+```
+`-D` which stands for `--delete --force`, which forcibly deletes a branch regardless of whether it has been merged.
+
+In this post, I have tried to put up all the undo steps that we may need on our local system, and for a single branch. A lot more is possible beyond the above list, and I have covered in the next post: [Undo everything in Git - part 2](https://amitashukla.in/blog/undo-everything-in-git-part-2/) .
  
 
 
