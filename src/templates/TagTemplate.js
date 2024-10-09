@@ -68,6 +68,7 @@ export const tagQuery = graphql`
           fields {
             slug
             source
+            prefix
           }
           excerpt
           timeToRead
