@@ -14,6 +14,8 @@ author: Amita Shukla
 - `J`
 - `K`
 - `L`
+- `u` undo
+- `ctrl + r` redo
 
 ## Word Navigation
 - `w` move to first char of the next word (a word is separated by any punctuation except underscore)
@@ -24,6 +26,12 @@ author: Amita Shukla
 - `ciw` change the word where your cursor is
 - `dt<char>` 
 - `df<char>`
+- `shift + [` and `shift + ]` Move cursor block-wise - moves cursor up and down the block of code.
+- `shift + v` select the current block 
+- `10j` move a certain number of lines: select the number of lines when you don’t have a block of code: `shift + v + 10j` would do the trick.
+- `%` toggle between 2 parentheses 
+- `*` move to next occurrence of the current word
+- `^` or `0w` move to beginning of the first word of the line 
 
 ## Move to locations
 
