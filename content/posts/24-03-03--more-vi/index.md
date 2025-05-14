@@ -3,6 +3,27 @@ title: More on VIM
 tags: ["TECHNOLOGY", "SHELL"]
 author: Amita Shukla
 ---
+## Common Applications to Use Vim in
+- IdeaVim
+- Vimium
+- terminal keybinding: `set -o vi`
+
+## Common Vim Commands
+`h`, `j`, `k`, `l` 
+`H`
+`J`
+`K`
+`L`
+
+## Word Navigation
+`w` move to first char of the next word (a word is separated by any punctuation except underscore)
+`b`
+`e`
+`ge`
+`W` move to first char of the next WORD (the next character after whitespace)
+`ciw` change the word where your cursor is
+`dt<char>` 
+`df<char>`
 
 ## Move to locations
 
