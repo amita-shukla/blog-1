@@ -6,7 +6,7 @@ author: Amita Shukla
 ## Common Applications to Use Vim in
 - IdeaVim
 - Vimium
-- terminal keybinding: `set -o vi`
+- terminal keybinding: `set -o vi` [https://unix.stackexchange.com/questions/4870/is-it-possible-to-have-vim-key-bindings-in-terminal]
 
 ## Common Vim Commands
 - `h`, `j`, `k`, `l` 
