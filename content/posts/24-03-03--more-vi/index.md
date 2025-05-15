@@ -53,6 +53,15 @@ author: Amita Shukla
 `c` `i` `w` `"` `"` `Esc` `P`
 Replace `iw` with any other Vim motion/text object to surround other things with quotes
 
+## vimrc
+Add the following code to enable a blinking bar in insert mode in `~/.vimrc`. This is vimscript code. The comments start with a double quote.
+```bash
+if &term =~ "xterm"
+  let &t_SI = "\e[6 q"   " Insert mode — bar
+  let &t_EI = "\e[2 q"   " Normal mode — block
+endif
+```
+
 References:
 - https://learnbyexample.github.io/tips/vim-tip-5/
 - https://vi.stackexchange.com/questions/21113/vimscript-surround-word-under-cursor-with-quotes
