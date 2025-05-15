@@ -46,8 +46,8 @@ author: Amita Shukla
 - `gi` place the cursor at the same position where it was left last time in the Insert mode
 
 ## Command mode
-`:set number` show line numbers
-`:set relativenumber number` show both line numbers relative to the cursor and line numbers
+- `:set number` show line numbers
+- `:set relativenumber number` show both line numbers relative to the cursor and line numbers
 
 ## Surround a word with quotes (or any other character)
 `c` `i` `w` `"` `"` `Esc` `P`
