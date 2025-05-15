@@ -6,7 +6,11 @@ author: Amita Shukla
 ## Common Applications to Use Vim in
 - IdeaVim
 - Vimium
-- terminal keybinding: `set -o vi` [https://unix.stackexchange.com/questions/4870/is-it-possible-to-have-vim-key-bindings-in-terminal]
+- terminal keybinding:
+  - `set -o vi` [https://unix.stackexchange.com/questions/4870/is-it-possible-to-have-vim-key-bindings-in-terminal]
+  - `bindkey -v` use vi key bindings in zsh
+  - `bindkey -v '^?' backward-delete-char` avoid the annoying backspace/delete issue where backspace stops deleting characters
+  - `bindkey '^R' history-incremental-search-backward` use ctrl-r to reverse search
 
 ## Common Vim Commands
 - `h`, `j`, `k`, `l` 
