@@ -76,7 +76,6 @@ const Bodytext = props => {
           :global(li) {
             margin: 0.7em 1em;
             font-size: ${theme.font.sizerem.s};
-            // list-style-type: square;
           }
 
           :global(a) {
