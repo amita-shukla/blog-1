@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 require("core-js/fn/array/from");
 
-import { FaHome, FaEnvelope, FaTag, FaUser, FaRss, FaPen, FaStickyNote } from "react-icons/fa/";
+import { FaHome, FaEnvelope, FaTag, FaUser, FaRss, FaPen, FaStickyNote } from "react-icons/fa";
 
 import Item from "./Item";
 import Expand from "./Expand";
@@ -174,7 +174,7 @@ class Menu extends React.Component {
             justify-content: center;
             list-style: none;
             margin: 0;
-            padding: 0; /* 0 ${theme.space.s}; */
+            padding: 0;
             position: relative;
             width: 100%;
           }

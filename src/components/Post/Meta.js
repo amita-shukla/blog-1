@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { currDate } from "../../utils/helpers";
-import { FaUser, FaTag, FaCalendar, FaClock } from "react-icons/fa/";
+import { FaUser, FaTag, FaCalendar, FaClock } from "react-icons/fa";
 
 const Meta = props => {
   const { author: authorName, tags, theme, timeToRead } = props;

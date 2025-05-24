@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCog } from "react-icons/fa/";
+import { FaCog } from "react-icons/fa";
 import Hero from "../Hero";
 import Blog from "./Blog.js";
 import Pagination from "./Pagination";
