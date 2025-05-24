@@ -16,17 +16,20 @@ I use git for most of my projects now, at work and off work. While I am easily a
 Let's go bottom-up: 
 
 
-- [Undo git init](#git_init)
-- [Undo unstaged work](#unstaged_work)
-- [Undo staged work](#staged_work)
-- - [Difference between git rm --cached and git reset HEAD](#rm_vs_reset)
-- [Undo commit - change commit message and other info](#commit_amend)
-- [Undo a commit by making another commit on top of it](#commit_revert)
-- [Undo a commit - and erase its history](#commit_erase_history)
-- - [Undo a commit and get back your changes back on staging area](#commit_reset_soft)
- - [Undo the commit and don't keep the changes](#commit_reset_hard)
-- [Undo a commit that is not the latest one](#commit_not_latest)
-- - [Rebase](#rebase)
+- [Undo git init](#undo-git-init)
+- [Undo unstaged work](#undo-unstaged-work)
+- [Undo staged work](#undo-staged-work)
+  - [git rm --cached v/s git reset HEAD \<file\>](#git-rm---cached-vs-git-reset-head-file)
+- [Undo commit - change commit message and other info](#undo-commit---change-commit-message-and-other-info)
+- [Undo a commit by making another commit](#undo-a-commit-by-making-another-commit)
+- [Undo a commit - and erase its history](#undo-a-commit---and-erase-its-history)
+  - [Undo the commit and get your changes back on staging area](#undo-the-commit-and-get-your-changes-back-on-staging-area)
+  - [Undo the commit and don't keep the changes](#undo-the-commit-and-dont-keep-the-changes)
+- [Undo not the latest commit](#undo-not-the-latest-commit)
+  - [Rebase](#rebase)
+- [Delete a branch](#undo-all-work-in-a-branch)
+    - [Safe delete](#if-the-branch-has-no-unmerged-changes)
+    - [Force delete](#if-the-branch-has-unmerged-changes)
 
 ### Undo git init
 
@@ -590,10 +593,26 @@ To delete the commit \"create file3\", we simply delete that line altogether. Sa
  $ ls
  file1 file2 file4
 ```
- 
+
 As we can see above, the commit doesn't exist anymore, and also no file3 exists in the filesystem. Remember, I called the rebase 'mighty' for this reason. If not careful, rebase changes history and you may lose your work. Rebase is like a swiss knife for git, and comes with a lot of powerful features (as listed in the editor window that opens up during interactive rebase), which if we discuss here may take this post off track. 
- 
-In this post, I have tried to put up all the undo steps that we may need on our local system, and for a single branch. A lot more is possible beyond the above list, and I will try to cover that in the next post. 
+
+### Undo all work in a branch
+If things are bad enough, you may want discard all work in that branch entirely.
+#### If the branch has no unmerged changes
+```git
+git checkout master # you can't delete currently selected branch
+git branch -d <branch name>
+```
+`-d` is an alias for `--delete`. This lets you delete the branch safely.
+#### If the branch has unmerged changes
+Deleting a branch that has unmerged changes would lead to forever losing your work. If you still wish to move ahead:
+```git
+git checkout <another branch>
+git branch -D <branch name>
+```
+`-D` which stands for `--delete --force`, which forcibly deletes a branch regardless of whether it has been merged.
+
+In this post, I have tried to put up all the undo steps that we may need on our local system, and for a single branch. A lot more is possible beyond the above list, and I have covered in the next post: [Undo everything in Git - part 2](https://amitashukla.in/blog/undo-everything-in-git-part-2/) .
  
 
 

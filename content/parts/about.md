@@ -3,14 +3,23 @@ title: About Me
 ---
 <re-img src="avatar-large.jpg" hovereffect=true></re-img>
 
-<div style="text-align:center"><b>Amita Shukla</b></div>
-<div style="text-align:center">Software Engineer @ S&P Global</div>
+<h3> <div style="text-align:center">Amita Shukla</div> </h3>
+<h4> <div style="text-align:center"><strong>Software Engineer @ Cloudera</strong></div> </h4>
 
-<br/>
+<br />
 
-Hi :wave: I'm Amita, a Software Developer with 6 years of experience. I mostly work on Backend, Big Data & Cloud Ecosystem, creating magic on data using Java, Scala, SQL and Bash. I maintain this blog built mainly on React and GraphQL, and also enjoy Machine Learning/ Python. 
+__Hi :wave: I'm Amita__, a __Software Developer__ with 8 years of experience based in India. A programmer at heart, I love building, learning and breaking stuff using code :grimacing:. A screen of clean code gives me the same feeling as opening a page from a fresh book... 
 
-I believe in not restricting myself to the programming language or framework but rather focus on the purpose it solves, having switched gears between Python, Haskell, Groovy, .Net/ C#, PHP, C++ in the past. I am passionate about writing clean and maintainable code, and over time have inclined more towards type-safe languages. 
+My expertise lies in building __Backend, Big Data and Cloud-based applications__, though I also take on database, frontend, machine learning work from time to time. 
+
+### Tech Stack
+My father brought home a desktop when I was 10, back then it was just a sophisticated toy for me. I have come a long way since then, from using applications to writing them. 
+
+A chunk of my experience has gone into writing __REST web services__, engines and frameworks using __Java/Spring__, batch and streaming data transformations using __Scala/Spark/Kafka/Hive/MapReduce__, Natural Language Processing using Python/R, and SQL/Python/Shell Scripting. 
+
+On the frontend side, I have worked with React and vanilla Javascript, and a little bit with Purescript. This blog I maintain is mainly built on React, Gatsbyjs and GraphQL. 
+
+I believe in not restricting myself to the tech stack or programming language but rather focus on the purpose it solves, having switched gears between Python, Haskell, Groovy, .Net/ C#, PHP, C++ in the past. Overtime, I have gotten more inclined towards __type safe languages__.
 
 ### Get in Touch
 You can reach out to me directly [here](https://amitashukla.in/contact), [subscribe](https://amitashukla.in/follow) to my blog or check out my profiles below:
@@ -18,4 +27,4 @@ You can reach out to me directly [here](https://amitashukla.in/contact), [subscr
 <re-icons></re-icons>
 
 ### More about Blog
-Dive into my thoughts [here](https://amitashukla.in/blog). Being passionate about programming and writing I combine these into this blog, sharing the little pieces of knowledge that I attain. This blog is open sourced on [GitHub](https://github.com/amita-shukla/blog-1), feel free to submit corrections or use the code to create your own blog. I too have built it on top of Atte Juvonen's [starter](https://github.com/baobabKoodaa).
+Dive into my thoughts [here](https://amitashukla.in/blog). I combine my passion of programming, teaching and writing with full length [blogs](https://amitashukla.in/blog/) and short [notes](https://amitashukla.in/notes/). This blog is open sourced on [GitHub](https://github.com/amita-shukla/blog-1), feel free to submit corrections by creating an issue or fork the repo to create your own blog. I too have built it on top of Atte Juvonen's [starter](https://github.com/baobabKoodaa).

@@ -53,7 +53,7 @@ color:
       g: "#969492"
       h: "#706e6b"
       i: "#514f4d"
-      j: &color-gray-10 "#666" #'#3e3e3c'
+      j: &color-gray-10 "#443f3c" #"#666" #'#3e3e3c'
       k: &color-gray-11 "#2b2826"
     black: "#000000"
 
@@ -73,11 +73,12 @@ color:
 font:
   # font options
   family:
-    initial: "Arial, sans-serif"
-    target: &font-family-target "Open Sans"
+    initial: "serif"
+    target: &font-family-target "SourceSerifPro, serif"
+    bold: &font-family-bold "SourceSerifProSemibold, serif"
   weight:
-    standard: 400
-    bold: 600
+    standard: 100
+    bold: 150
   size:
     xxs: &font-size-xxs .8em
     xs: &font-size-xs .95em
@@ -166,4 +167,4 @@ header:
     homepage: 50px;
   headerTitle:
     font:
-      family: "Open Sans, Arial, sans-serif"
+      family: *font-family-bold
