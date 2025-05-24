@@ -66,7 +66,6 @@ const About = props => {
           }
           :global(strong) {
             font-weight: ${theme.font.weight.bold};
-            // font-weight: 400;
             color: ${theme.color.neutral.black};
           }
         }

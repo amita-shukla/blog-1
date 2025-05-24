@@ -25,7 +25,6 @@ const Author = props => {
           margin: ${theme.space.l} 0;
           padding: ${theme.space.l} 0 0;
           border-top: 1px solid ${theme.line.color};
-          // border-bottom: 1px solid ${theme.line.color};
         }
         .avatar {
           float: left;

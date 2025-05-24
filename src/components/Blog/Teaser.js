@@ -97,7 +97,6 @@ const Teaser = props => {
 
         li {
           border: 1px solid transparent;
-          // border-radius: ${theme.size.radius.default};
           margin: ${theme.space.l} 0 ${theme.space.l};
           padding: ${theme.space.inset.s};
           position: relative;
@@ -105,16 +104,11 @@ const Teaser = props => {
           background: transparent;
 
           :global(.gatsby-image-outer-wrapper) {
-            // border-radius: ${theme.size.radius.default};
-            // border: 1px solid ${theme.line.color};
-            // overflow: hidden;
           }
           :global(.gatsby-image-outer-wrapper img) {
-            // z-index: -1;
           }
 
           &::after {
-            // border-top: 1px solid ${theme.line.color};
             content: "";
             height: 0;
             position: absolute;
@@ -138,21 +132,15 @@ const Teaser = props => {
           line-height: ${theme.blog.h1.lineHeight};
           font-size: ${theme.blog.h1.size};
           font-weight: ${theme.font.weight.bold};
-          // color: ${theme.color.brand.primary};
           text-remove-gap: both;
 
           :global(.arrow) {
-            // display: none;
-            // position: relative;
-            // top: 7px;
           }
         }
 
 
         .meta {
-          // display: block;
           font-size: 0.8em;
-          // padding: ${theme.space.s} ${theme.space.s};
           margin: ${theme.space.m} 0;
           background: transparent;
 
@@ -161,19 +149,14 @@ const Teaser = props => {
         }
 
         span {
-          // align-items: baseline;
-          // display: flex;
           text-transform: uppercase;
           margin: ${theme.space.xs} ${theme.space.s} ${theme.space.xs} 0;
           font-size: 0.8em;
 
           :global(svg) {
-            // fill: ${theme.color.brand.hover};
-            // fill: ${theme.text.color.primary};
             fill: ${theme.icon.color};
             height: 18px;
             width: 18px;
-            // opacity: 0.4;
             margin: ${theme.space.inline.xs};
             position: relative;
             bottom: -0.5em;
@@ -183,7 +166,6 @@ const Teaser = props => {
         .tags {
           display: flex;
           flex-flow: row wrap;
-          // flex-shrink: 0;
         }
 
         p {
@@ -214,7 +196,6 @@ const Teaser = props => {
             transition: all 0.5s;
           }
           .meta {
-            // padding: ${`calc(${theme.space.default} * 1.5) ${theme.space.default}`};
             padding: ${theme.space.default} ${theme.space.default};
           }
           p {
@@ -239,7 +220,6 @@ const Teaser = props => {
         }
         @from-width desktop {
           li {
-            // margin: ${theme.space.xl} 0 ${theme.space.xxl};
             margin: 0 0 0;
             padding: 0 0 ${theme.space.l};
 
@@ -262,7 +242,6 @@ const Teaser = props => {
             padding: ${`calc(${theme.space.default} * 1.2) ${theme.space.l} 0`};
           }
           .meta {
-            // padding: ${`calc(${theme.space.default} * 0.25) calc(${theme.space.default} * 2) calc(${theme.space.default} * 0.5)`};
               padding: 0 ${theme.space.l} 0;
           }
           p {
@@ -277,31 +256,16 @@ const Teaser = props => {
                 bottom: ${`calc(${theme.space.default} * -2.5)`};
               }
               :global(.gatsby-image-wrapper) {
-                // transform: scale(1.1);
               }
               .title {
-                // color: ${theme.blog.h1.hoverColor};
-                // color: ${theme.color.brand.hover};
                 color: ${theme.color.brand.primaryDark};
               }
               :global(.arrow) {
-                // opacity: 1;
-                // stroke: ${theme.color.special.attention};
-                // transform: translateX(0);
               }
             }
             :global(.gatsby-image-wrapper) {
-              // transition: all ${theme.time.duration.default};
             }
             :global(.arrow) {
-              // display: inline-block;
-              // fill: ${theme.color.special.attention};
-              // stroke: ${theme.color.special.attention};
-              // stroke-width: 40;
-              // stroke-linecap: round;
-              // opacity: 0;
-              // transition: all 0.5s;
-              // transform: translateX(-50%);
             }
           }
         }
