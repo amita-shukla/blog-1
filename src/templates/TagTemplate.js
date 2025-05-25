@@ -55,7 +55,7 @@ TagTemplate.propTypes = {
 export default TagTemplate;
 
 // eslint-disable-next-line no-undef
-export const tagQuery = graphql`
+export const query = graphql`
   query PostsByTag($tag: String) {
     allMarkdownRemark(
       limit: 1000

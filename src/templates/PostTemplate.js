@@ -47,7 +47,7 @@ PostTemplate.propTypes = {
 export default PostTemplate;
 
 //eslint-disable-next-line no-undef
-export const postQuery = graphql`
+export const query = graphql`
   query PostBySlug($slug: String!) {
     site: site {
       siteMetadata {
