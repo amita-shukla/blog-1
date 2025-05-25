@@ -71,7 +71,7 @@ export const query = graphql`
         cover {
           absolutePath
           childImageSharp {
-            resize(width: 300) {
+            resize {
               src
             }
           }
