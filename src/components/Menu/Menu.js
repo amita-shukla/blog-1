@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-require("core-js/fn/array/from");
+require("core-js/features/array/from");
 
 import { FaHome, FaEnvelope, FaTag, FaUser, FaRss, FaPen, FaStickyNote } from "react-icons/fa";
 
