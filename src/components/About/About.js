@@ -1,15 +1,29 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
 import Headline from "../Article/Headline";
-import WebPresenceIcons from "./WebPresenceIcons";
 import ReImg from "../Article/ReImg";
-import rehypeReact from "rehype-react";
 import Icons from "../../components/About/WebPresenceIcons";
+import { jsxs, jsx, Fragment } from 'react/jsx-runtime';
+import {toJsxRuntime} from 'hast-util-to-jsx-runtime';
+import styleToJS from 'style-to-js';
 
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: { "re-icons": Icons, "re-img": ReImg }
-}).Compiler;
+const renderAst = (hastNode) => {
+  return toJsxRuntime(hastNode, {
+    Fragment,
+    jsx,
+    jsxs,
+    stylePropertyToJs: (style) => {
+      try {
+        return styleToJS(style);
+      } catch (err) {
+        console.warn('Invalid style:', style, err);
+      }
+    },
+    components: {
+      're-icons': Icons,
+      're-img': ReImg,
+    }
+  })
+}
 
 const About = props => {
   const { aboutContent, theme } = props;
