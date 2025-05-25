@@ -213,17 +213,18 @@ module.exports = {
                   categories: edge.node.frontmatter.tags,
                   custom_elements: [
                     { "content:encoded": edge.node.html },
-                    edge.node.frontmatter.cover != null
-                      ? {
-                          "media:content": {
-                            _attr: {
-                              url:
-                                site.siteMetadata.siteUrl + edge.node.frontmatter.cover.publicURL,
-                              type: edge.node.frontmatter.cover.internal.mediaType
+                    ...(edge.node.frontmatter.cover && edge.node.frontmatter.cover.publicURL
+                      ? [
+                          {
+                            "media:content": {
+                              _attr: {
+                                url: site.siteMetadata.siteUrl + edge.node.frontmatter.cover.publicURL,
+                                type: edge.node.frontmatter.cover.internal?.mediaType
+                              }
                             }
                           }
-                        }
-                      : {}
+                        ]
+                      : [])
                   ]
                 });
               });

@@ -208,3 +208,15 @@ exports.createPages = ({ graphql, actions }) => {
     );
   });
 };
+
+exports.createSchemaCustomization = ({ actions }) => {
+  actions.createTypes(`
+    type MarkdownRemarkFrontmatter @infer {
+      cover: File @fileByRelativePath
+    }
+
+    type MarkdownRemark implements Node @infer {
+      frontmatter: MarkdownRemarkFrontmatter
+    }
+  `)
+}
