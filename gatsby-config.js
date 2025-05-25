@@ -43,6 +43,7 @@ module.exports = {
         name: "posts"
       }
     },
+    /*
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -50,6 +51,7 @@ module.exports = {
         name: "pages"
       }
     },
+    */
     {
       resolve: `gatsby-source-filesystem`,
       options: {

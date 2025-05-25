@@ -8,7 +8,7 @@ import { ThemeContext } from "../layouts";
 
 const PageTemplate = props => {
   const page = props.data.page;
-
+  console.log("adsnfdskj" + page);
   return (
     <React.Fragment>
       <ThemeContext.Consumer>
@@ -31,7 +31,7 @@ PageTemplate.propTypes = {
 export default PageTemplate;
 
 //eslint-disable-next-line no-undef
-export const pageQuery = graphql`
+export const query = graphql`
   query PageByPath($slug: String!) {
     page: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
