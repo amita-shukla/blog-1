@@ -48,7 +48,7 @@ const TagsPage = props => {
         <header>
           <Headline title="Posts by Tags" theme={theme} />
         </header>
-        <p>
+        <div>
           {tagList.map(item => (
             <section key={item[0]}>
               <h2>
@@ -65,7 +65,7 @@ const TagsPage = props => {
               <List edges={item[1]} theme={theme} />
             </section>
           ))}
-        </p>
+        </div>
         {/* --- STYLES --- */}
         <style jsx>{`
           p {
