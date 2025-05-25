@@ -6,6 +6,7 @@ import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaCheck, FaExclamation, FaRss } from "react-icons/fa";
 import parser from "html-react-parser";
+import { graphql } from "gatsby";
 
 const FollowPage = props => {
   const siteUrl = props.data.site.siteMetadata.siteUrl;
@@ -66,11 +67,11 @@ const FollowPage = props => {
             <label hidden id="responseLabel">
               {res.result == "success" ? (
                 <div className="success">
-                  <FaCheck /> {parser(res.msg)}{" "}
+                  <FaCheck /> {typeof res.msg === 'string' ? parser(res.msg) : res.msg}{" "}
                 </div>
               ) : (
                 <div className="error">
-                  <FaExclamation /> {parser(res.msg)}{" "}
+                  <FaExclamation /> {typeof res.msg === 'string' ? parser(res.msg) : res.msg}{" "}
                 </div>
               )}
             </label>
