@@ -60,7 +60,7 @@ const Teaser = props => {
           {/* <p className="meta-wrapper"> */}
           {/* <Meta prefix={prefix} author={author} tags={tags} timeToRead={timeToRead} theme={theme} /> */}
           {/* </p> */}
-          <p className="meta">
+          <div className="meta">
             <span>
               <FaCalendar /> {fullDate}
             </span>
@@ -82,7 +82,7 @@ const Teaser = props => {
                   </Link>
                 ))}
             </div>
-          </p>
+          </div>
           {/* <p><span> {excerpt}</span></p> */}
           <p> {excerpt}</p>
         </Link>
