@@ -55,7 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const postTemplate = path.resolve("./src/templates/PostTemplate.js");
-    const pageTemplate = path.resolve("./src/templates/PageTemplate.js");
+    // const pageTemplate = path.resolve("./src/templates/PageTemplate.js");
     const tagTemplate = path.resolve("./src/templates/TagTemplate.js");
     
     const activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development";
@@ -162,6 +162,7 @@ exports.createPages = ({ graphql, actions }) => {
         });
 
         // and pages. // currently there are no pages
+        /*
         const pages = items.filter(item => item.node.fields.source === "pages");
         pages.forEach(({ node }) => {
           const slug = node.fields.slug;
@@ -176,6 +177,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           });
         });
+        */
 
         // Create "paginated homepage" == pages which list blog posts.
         // And at the same time, create corresponding JSON for infinite scroll.
@@ -206,3 +208,15 @@ exports.createPages = ({ graphql, actions }) => {
     );
   });
 };
+
+exports.createSchemaCustomization = ({ actions }) => {
+  actions.createTypes(`
+    type MarkdownRemarkFrontmatter @infer {
+      cover: File @fileByRelativePath
+    }
+
+    type MarkdownRemark implements Node @infer {
+      frontmatter: MarkdownRemarkFrontmatter
+    }
+  `)
+}

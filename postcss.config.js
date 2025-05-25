@@ -10,8 +10,7 @@ module.exports = ctx => ({
       defaultFontFamily: "SourceSerifPro",
       defaultLineHeight: "0"
     },
-    "postcss-nested": {},
-    "postcss-cssnext": {}
+    "postcss-nested": {}
   }
 });
 

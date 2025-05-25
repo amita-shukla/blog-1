@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { currDate } from "../../utils/helpers";
-import { FaUser, FaTag, FaCalendar, FaClock } from "react-icons/fa/";
+import { FaUser, FaTag, FaCalendar, FaClock } from "react-icons/fa";
 
 const Meta = props => {
   const { author: authorName, tags, theme, timeToRead } = props;
@@ -67,7 +67,6 @@ const Meta = props => {
         }
         .meta {
           display: block;
-          // flex-flow: row wrap;
           font-size: 0.8em;
           margin: ${theme.space.m} 0;
           background: transparent;
@@ -81,14 +80,12 @@ const Meta = props => {
           }
           span {
             align-items: center;
-            // display: flex;
             text-transform: uppercase;
             margin: ${theme.space.xs} ${theme.space.xs} ${theme.space.xs} 0;
           }
         }
         @from-width tablet {
           .meta {
-            // margin: ${`calc(${theme.space.m} * 1.5) 0 ${theme.space.m}`};
             margin: ${theme.space.m} 0 ${theme.space.m};
           }
         }

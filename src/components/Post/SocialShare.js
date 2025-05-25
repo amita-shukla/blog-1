@@ -25,7 +25,6 @@ const SocialShare = props => {
             <style jsx>{`
             .icons {
                 font-size: 20px;
-                // display: inline-block;
                 display: flex;
                 justify-content: center;
                 margin-bottom: 25px;
@@ -41,8 +40,6 @@ const SocialShare = props => {
                 }
                 @media (hover: hover) {
                     .icons :global(a:hover svg) {
-                        // margin-top: 0px;
-                        // margin-bottom: 10px;
                         fill: ${theme.color.brand.primaryDark} !important;
                     }
                 }

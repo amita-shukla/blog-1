@@ -5,16 +5,30 @@ import Icons from "../../components/About/WebPresenceIcons";
 import ReImg from "./ReImg";
 import ReTracedSVGGallery from "./ReTracedSVGGallery";
 import { Link } from "gatsby";
+import { jsxs, jsx, Fragment } from 'react/jsx-runtime';
+import {toJsxRuntime} from 'hast-util-to-jsx-runtime';
+import styleToJS from 'style-to-js';
 
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: {
-    "re-icons": Icons,
-    "re-img": ReImg,
-    "re-link": Link,
-    "re-tracedsvg-gallery": ReTracedSVGGallery
-  }
-}).Compiler;
+const renderAst = (hastNode) => {
+  return toJsxRuntime(hastNode, {
+    Fragment,
+    jsx,
+    jsxs,
+    stylePropertyToJs: (style) => {
+      try {
+        return styleToJS(style);
+      } catch (err) {
+        console.warn('Invalid style:', style, err);
+      }
+    },
+    components: {
+      're-icons': Icons,
+      're-img': ReImg,
+      're-link': Link,
+      're-tracedsvg-gallery': ReTracedSVGGallery
+    }
+  })
+}
 
 const Bodytext = props => {
   const { content, theme } = props;
@@ -76,7 +90,6 @@ const Bodytext = props => {
           :global(li) {
             margin: 0.7em 1em;
             font-size: ${theme.font.sizerem.s};
-            // list-style-type: square;
           }
 
           :global(a) {
