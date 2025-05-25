@@ -1,4 +1,4 @@
-import { FaStickyNote, FaTag } from "react-icons/fa/";
+import { FaStickyNote, FaTag } from "react-icons/fa";
 import PropTypes from "prop-types";
 import React from "react";
 import { graphql } from "gatsby";
@@ -55,7 +55,7 @@ TagTemplate.propTypes = {
 export default TagTemplate;
 
 // eslint-disable-next-line no-undef
-export const tagQuery = graphql`
+export const query = graphql`
   query PostsByTag($tag: String) {
     allMarkdownRemark(
       limit: 1000

@@ -43,6 +43,7 @@ module.exports = {
         name: "posts"
       }
     },
+    /*
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -50,6 +51,7 @@ module.exports = {
         name: "pages"
       }
     },
+    */
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -211,17 +213,18 @@ module.exports = {
                   categories: edge.node.frontmatter.tags,
                   custom_elements: [
                     { "content:encoded": edge.node.html },
-                    edge.node.frontmatter.cover != null
-                      ? {
-                          "media:content": {
-                            _attr: {
-                              url:
-                                site.siteMetadata.siteUrl + edge.node.frontmatter.cover.publicURL,
-                              type: edge.node.frontmatter.cover.internal.mediaType
+                    ...(edge.node.frontmatter.cover && edge.node.frontmatter.cover.publicURL
+                      ? [
+                          {
+                            "media:content": {
+                              _attr: {
+                                url: site.siteMetadata.siteUrl + edge.node.frontmatter.cover.publicURL,
+                                type: edge.node.frontmatter.cover.internal?.mediaType
+                              }
                             }
                           }
-                        }
-                      : {}
+                        ]
+                      : [])
                   ]
                 });
               });
@@ -289,26 +292,26 @@ module.exports = {
         timeout: 3500
       }
     },
-    {
-      resolve: `gatsby-plugin-goatcounter`,
-      options: {
-        code: process.env.GOATCOUNTER_CODE,
-        allowLocal: false // set this to true, if you want to test locally
-      }
-    },
-    {
-      resolve: "gatsby-plugin-social-cards",
-      options: {
-        // ommit to skip
-        // authorImage: "./static/img/coffee-art.jpg",
-        // image to use when no cover in frontmatter
-        backgroundImage: "./static/twitter_card.jpg",
-        // author to use when no auth in frontmatter
-        defaultAuthor: config.authorName,
-        // card design
-        design: "default" // 'default' or 'card'
-      }
-    }
+    // {
+      // resolve: `gatsby-plugin-goatcounter`,
+    //   options: {
+    //     code: process.env.GOATCOUNTER_CODE,
+    //     allowLocal: false // set this to true, if you want to test locally
+    //   }
+    // },
+    // {
+    //   resolve: "gatsby-plugin-social-cards",
+    //   options: {
+    //     // ommit to skip
+    //     // authorImage: "./static/img/coffee-art.jpg",
+    //     // image to use when no cover in frontmatter
+    //     backgroundImage: "./static/twitter_card.jpg",
+    //     // author to use when no auth in frontmatter
+    //     defaultAuthor: config.authorName,
+    //     // card design
+    //     design: "default" // 'default' or 'card'
+    //   }
+    // }
     // {
     //   resolve: '@ghranek/gatsby-source-blogger',
     //   options: {

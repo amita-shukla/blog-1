@@ -1,4 +1,4 @@
-import { FaTag } from "react-icons/fa/";
+import { FaTag } from "react-icons/fa";
 import PropTypes from "prop-types";
 import React from "react";
 import { graphql, Link } from "gatsby";
@@ -36,7 +36,6 @@ const NotesPage = props => {
           h3 {
             margin: 0 0 0.5em;
             color: ${theme.color.neutral.gray.k};
-            // align-items: center;
             text-align: center;
             font-weight: ${theme.font.weight.bold};
           }

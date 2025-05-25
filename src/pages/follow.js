@@ -5,7 +5,8 @@ import Article from "../components/Article";
 import Headline from "../components/Article/Headline";
 import Seo from "../components/Seo";
 import { FaCheck, FaExclamation, FaRss } from "react-icons/fa";
-import ReactHtmlParser from "react-html-parser";
+import parser from "html-react-parser";
+import { graphql } from "gatsby";
 
 const FollowPage = props => {
   const siteUrl = props.data.site.siteMetadata.siteUrl;
@@ -66,11 +67,11 @@ const FollowPage = props => {
             <label hidden id="responseLabel">
               {res.result == "success" ? (
                 <div className="success">
-                  <FaCheck /> {ReactHtmlParser(res.msg)}{" "}
+                  <FaCheck /> {typeof res.msg === 'string' ? parser(res.msg) : res.msg}{" "}
                 </div>
               ) : (
                 <div className="error">
-                  <FaExclamation /> {ReactHtmlParser(res.msg)}{" "}
+                  <FaExclamation /> {typeof res.msg === 'string' ? parser(res.msg) : res.msg}{" "}
                 </div>
               )}
             </label>
@@ -119,7 +120,6 @@ const FollowPage = props => {
             max-width: 500px;
             border: 1px solid ${theme.color.brand.primary};
             border-radius: 5px;
-            // margin-right: 10px;
             margin-bottom: 10px;
           }
           #emailInput:hover {
