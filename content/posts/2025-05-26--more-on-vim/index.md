@@ -5,28 +5,28 @@ author: Amita Shukla
 cover: vim.jpg
 ---
 
-In my previous post [Inevitable Vi](https://amitashukla.in/blog/inevitable-vi/), I talked about getting started with Vi (or Vim). Since then, vim has become an integral part of my workflow. Who could have thought that you'd need to open countless files across remote servers, with no fancy text editors to help? It started from there, but I gradually realised the power of Vim -- no need to lift your hand to reach over to the mouse (or trackpad) -- control everything using keyboard. Today, I look for vim anywhere I can. I use it in all my IDEs, command line, browsers etc.
+In my previous post [Inevitable Vi](https://amitashukla.in/blog/inevitable-vi/), I talked about getting started with Vi (or Vim). Since then, vim has become an integral part of my workflow. Who could have thought you'd need to open countless files across remote servers, with no fancy text editors to help? It started from there, but I gradually realised the power of Vim -- no need to lift your hand to reach over to the mouse (or trackpad) -- control everything using keyboard. Today, I look for vim anywhere I can. I use it in all my IDEs, command line, browsers, etc.
 
-In this post I will be discussing how I use Vim as my primary tool for editing and navigating.
+In this post, I will be discussing how I use Vim as my primary tool for editing and navigating.
 
 <re-img src="vim.jpg"></re-img>
 
 ## Reasons for which I use Vim
-Vim has a slight learning curve. The convenience is something we do not realize until we try it and have developed some muscle memory. But once we adapt to the way of thinking in terms of vim commands, our life on computers becomes a little easier. We're able to keep our hands steady, our fingers find their home -- with left index on `F` and right index on `J`.
+Vim has a slight learning curve. We do not realise the convenience until we try it and have developed some muscle memory. But once we adapt to the way of thinking in terms of vim commands, our life on computers becomes a little easier. We're able to keep our hands steady, our fingers find their home -- with left index on `F` and right index on `J`.
 #### Freedom from learning keyboard shortcuts for every app
-I have had to switch my IDEs, operating systems, text editors, browsers from time to time. A lot of times I have to alternate between these. That means *really* be able use an application, I would need to learn each of these keyboard shortcuts - again. This is a HUGE hassle. So - I look for Vim. I use it everywhere. That way I get to remember only one set of powerful commands - and I am powerful everywhere.
+I have had to switch my IDEs, operating systems, text editors, browsers from time to time. A lot of times I have to alternate between these. That means -- to *really* use an application, I would need to learn each of these keyboard shortcuts - again! This is a HUGE hassle. So, I look for Vim. I use it everywhere. That way I get to remember only one set of powerful commands - and I am powerful everywhere.
 #### Vim is everywhere 
 Vim comes preinstalled on almost all unix systems - so basic Vim becomes a requirement anyway.
 #### Navigation
 Writing is different from Typing. Writing is a combination of - reading, thinking and typing. While doing that, I often find myself scrolling, navigating, and jumping around the text. The arrowkeys in a traditional laptop are too far from the letters. Having navigation possible at `H, J, K, L` solves this elgantly. Especially how the downward navigation `J`, sits right below the index finger.
 #### Independence from mouse
-Vim is totally keyboard enabled. I realized early on that using mouse for minor things, like scrolling, selecting, changing tabs or screens, browsing through files etc caused a break in my overall flow.
+Vim is totally keyboard-enabled. I realized early on that using mouse for minor things, like scrolling, selecting, changing tabs or screens, browsing through files etc caused a break in my overall flow.
 #### Extra clipboard
-To be honest, I find vim's clipboard tedious. I have to copy and paste a lot of things from a lot of places, and even when I have vim enabled everywhere, they are not synchronised with each other. This means that something copied from browser will not paste directly into my IDE using Vim. Hence I use the system's copy paste in insert mode. Which in turn means, I have an extra clipboard for in-app usecases!
+To be honest, I find vim's clipboard tedious. I have to copy and paste a lot of things from a lot of places, and even when I have vim enabled everywhere, they are not synchronised with each other. This means that something copied from browser will not paste directly into my IDE using Vim. Hence, I use the system's copy-paste in insert mode. Which in turn means, I have an extra clipboard for in-app usecases!
 
 ## Common Applications to Use Vim in
 - IdeaVim for Intellij or Pycharm
-- Vim extension for VS code
+- Vim extension for VScode
 - Vimium extention for browser (is available in chrome, firefox, brave)
 - terminal keybindings for Mac and Ubuntu:
   - `set -o vi` [https://unix.stackexchange.com/questions/4870/is-it-possible-to-have-vim-key-bindings-in-terminal]
@@ -59,10 +59,10 @@ To be honest, I find vim's clipboard tedious. I have to copy and paste a lot of 
 - `*` move to next occurrence of the current word
 - `^` or `0w` move to beginning of the first word of the line 
 - `g~w` toggle case of the whole word
-- `g~it` toggle case of everything in the tag (note: the `t` works in vim but not in the vs-code vim extension)
+- `g~it` toggle case of everything in the tag (note: the `t` works in vim but not in the vscode vim extension)
 
 ## Move to locations
-- `Ctrl+o` navigate to the previous location in the jump list (think o as old)
+- `Ctrl+o` navigate to the previous location in the jump list (think `o` as old)
 - `Ctrl+i` navigate to the next location in the jump list (i and o are usually next to each other)
 - `g;` go to the previous change location
 - `g,` go to the newer change location
@@ -79,7 +79,7 @@ To be honest, I find vim's clipboard tedious. I have to copy and paste a lot of 
 ## Indentation
 - `==` re-indents the whole line
 - `=}` indents to the next paragraph
-- `=%` indents block between matching brakcets
+- `=%` indents block between matching brackets
 - `gg=G` indents everything in file
 
 ## Mark
