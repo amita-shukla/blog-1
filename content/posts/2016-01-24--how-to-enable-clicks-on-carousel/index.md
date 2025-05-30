@@ -1,6 +1,6 @@
 ---
 title: How to enable clicks on Carousel
-tags: ["CSS","JAVASCRIPT","JQUERY"]
+tags: ["FRONTEND", "CSS","JAVASCRIPT","JQUERY"]
 author: Amita Shukla
 ---
 

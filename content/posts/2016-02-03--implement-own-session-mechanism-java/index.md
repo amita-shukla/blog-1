@@ -1,6 +1,6 @@
 ---
 title: How I implemented my own Session Mechanism in my project Mail Aggregator
-tags: ["JAVA","JAVASCRIPT","JQUERY","PROJECT"]
+tags: ["JAVA", "FRONTEND", "JAVASCRIPT","JQUERY","PROJECT"]
 author: Amita Shukla
 ---
 
