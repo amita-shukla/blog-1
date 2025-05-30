@@ -27,7 +27,8 @@ You are free to use this repo to create your own blog (code is MIT licensed). Yo
 
 - Basic setup
     - Prerequisites: learn about ReactJS and GatsbyJS.
-    - Recommended: Use `nvm` to switch between Node versions. This project is confirmed to work with v12.16.3. This version is added to .nvmrc file as well.
+    - This project is confirmed to work with GatsbyJS `v4.25.9`, node `v18.20.8`, npm `v10.8.2`.
+    - Recommended: Use `nvm` to switch between Node versions. The node version is added to .nvmrc file as well.
     - Fork and `npm install`.
     - Install gatsby cli with `npm install -g gatsby-cli`
     - Run in development mode with `gatsby develop`. First run will take several minutes, but subsequent runs will be faster.
@@ -56,7 +57,7 @@ I started building on top of [Atte Juvonen](https://github.com/baobabKoodaa) awe
 
 Main changes from Atte's version:
 
-- Converted the blog starter to a portfolio website. This involved creating a new  landing pagen, and an `About` component, and creating a new `/blog` page for blog posts.
+- Converted the blog starter to a portfolio website. This involved creating a new landing page, an `About` component, a new `/blog` page for blog posts, and a new `/notes` for shorter posts.
 - add support for [Disqus](https://disqus.com/) comments under each blog post
 - Removed author bio from under each post, as the blog says everywhere that the posts are written by me. (The author content still exists, to be included in case of guest posts).
 - Removed the contact form, and simply provided the email address. This has its pros and cons but I decided to go for a hassle free approach...
@@ -67,6 +68,6 @@ Main changes from Atte's version:
 - Removed the cover image for each post on the blog page. They needed to be resized to an aspect ratio, and I felt images were taking much more space than the actual content.
 - Earlier it was mandatory to supply a cover image for each post. Removed the condition as I felt this condition was a hinderance in competion of a blog post. Added appropriate conditions in the `ReImg` component and elsewhere to handle that.
 - Fixed tags to point to correct path
-- Changed the date format to a more user friendly one.
+- Changed the date format to a more user-friendly one.
 
 You can checkout the list of issues to see what all is under development!
