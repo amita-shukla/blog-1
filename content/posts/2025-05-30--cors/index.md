@@ -7,15 +7,15 @@ Whether we're building public APIs, internal tools, or just calling third-party 
 
 ## What is an Origin
 An origin is defined by:
-- Protocol (http or https)
-- Domain (example.com)
+- Protocol (`http` or `https`)
+- Domain (`example.com`)
 - Port (e.g., 3000)
 
 So, these are different origins:
-- http://example.com
-- https://example.com
-- http://api.example.com
-- http://example.com:3000
+- `http://example.com`
+- `https://example.com`
+- `http://api.example.com`
+- `http://example.com:3000`
 
 ##  Why CORS exists
 This is because browsers implement **Same Resource Policy**, which prevents javascript running on one origin from accessing resources on another origin. But there are a number of reasons that a browser may need to make a request to another origin. For a successful cross-origin request, the server needs to respond allowing this. We will see how this happens [later](#how-cors-works), we first need to understand why are cross-origin requests blocked in the first place:
@@ -61,7 +61,7 @@ Web fonts are often loaded from a different origin (e.g., Google Fonts).
 
 ## How CORS Works
 When our frontend, say `https://console.company.com` makes a request to another origin, say `https://api.company.com`, the browser:
-1. Sends a preflight request (for some request types) using `OPTIONS` method.
+1. Sends a preflight request (for some request types) using `OPTIONS` method. (Read more about `OPTIONS` [here](https://amitashukla.in/note/options))
 2. The server now responds with specific CORS headers, like:
 ```http
 Access-Control-Allow-Origin: http://localhost:3000
