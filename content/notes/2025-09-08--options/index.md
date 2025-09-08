@@ -11,7 +11,7 @@ The HTTP OPTIONS method is a request used to inquire about the communication opt
 When a browser makes a cross-origin request that:
 * Uses non-simple HTTP methods (like `PUT`, `DELETE`, or custom methods),
 * Includes custom headers (like `Authorization`, `X-Auth-Token`),
-* Or uses a `Content-Type` other than `application/x-www-form-urlencoded`, `multipart/form-data`, or `text/plain`,
+* Uses a `Content-Type` other than `application/x-www-form-urlencoded`, `multipart/form-data`, or `text/plain`,
 
 …it first sends an `OPTIONS` request to the target server to *ask for permission*. e.g.,
 
@@ -30,11 +30,11 @@ Access-Control-Allow-Origin: http://localhost:3000
 Access-Control-Allow-Methods: POST, GET
 Access-Control-Allow-Headers: Content-Type
 ```
-If the browser sees a valid response, it proceeds with the actual request (`POST`, in this case).
+If the browser receives a valid response, it proceeds with the actual request (`POST`, in this case).
 
 #### 2. Method Discovery
 
-We can also use `OPTIONS` manually (e.g., with `curl`) to ask what methods are supported for a given URL:
+We can also use `OPTIONS` manually (e.g., with `curl`) to ask which methods are supported for a given URL:
 ```bash
 curl -X OPTIONS -i https://example.com/api/resource
 ```
