@@ -3,7 +3,7 @@ title: CORS
 tags: ["SECURITY", "FRONTEND", "JAVASCRIPT"]
 author: Amita Shukla
 ---
-Whether we're building public APIs, internal tools, or just calling third-party services — understanding and configuring CORS correctly is a part of responsible development. Cross-Origin Resource Sharing is a security feature implemented by browsers to restrict how resources are shared between different origins. For example, if site A (hosted on origin a.com) wants to make a direct request to site B (hosted on origin b.com), browsers do not allow that by default. CORS is a way to relax this policy safely.
+Whether we're building public APIs, internal tools, or just calling third-party services — understanding and configuring CORS correctly is part of responsible development. Cross-Origin Resource Sharing is a security feature implemented by browsers to restrict how resources are shared between different origins. For example, if site A (hosted on origin a.com) wants to make a direct request to site B (hosted on origin b.com), browsers do not allow that by default. CORS is a way to relax this policy safely.
 
 ## What is an Origin
 An origin is defined by:
@@ -18,7 +18,7 @@ So, these are different origins:
 - `http://example.com:3000`
 
 ##  Why CORS exists
-This is because browsers implement **Same Resource Policy**, which prevents javascript running on one origin from accessing resources on another origin. But there are a number of reasons that a browser may need to make a request to another origin. For a successful cross-origin request, the server needs to respond allowing this. We will see how this happens [later](#how-cors-works), we first need to understand why are cross-origin requests blocked in the first place:
+This is because browsers implement **Same Origin Policy**, which prevents javascript running on one origin from accessing resources on another origin. But there are a number of reasons that a browser may need to make a request to another origin. For a successful cross-origin request, the server needs to respond allowing this. We will see how this happens [later](#how-cors-works), we first need to understand why cross-origin requests are blocked in the first place:
 #### 1. Prevent Malicious Websites from Stealing Data
 If any website could freely read data from any other domain, a malicious site could:
 - Read private info from your bank or email sites while you're logged in.
@@ -48,7 +48,7 @@ A lot of times a frontend embeds third-party services like:
 - Google Maps API
 - Login and Share Buttons
 - Payment Gateways
-Third Parties handle CORS in different ways depending on the service they offer.
+Third parties handle CORS in different ways depending on the service they offer.
 - For APIs like Google Maps API, weather APIs, Crypto Price APIs, CDN hosted assets: They allow all origins as the data is public and read-only.
 - For Services that require authentication in the form of API keys, tokens, cookies, e.g. Firebase, auth APIs. They do not allow all origins. We need to whitelist our origin in account settings, or they dynamically authenticate using key/token and then allow the origin.
 - If the service provides an Embed script, e.g. youtube. For these services, you don't directly call their API using `fetch()` so CORS doesn't apply here. Instead, the frontend embeds a `<script>` or an `<iframe>`. The js script part of the embed handles it by itself.
@@ -69,9 +69,9 @@ Access-Control-Allow-Methods: GET, POST
 Access-Control-Allow-Headers: Content-Type
 ```
 If the headers are missing or incorrect, the browser blocks the response (even though the request reaches the server).
-Now, let's see how a server handles these requests. A server needs to be aware if it is expected cross-origin requests. In this case, it needs to *whitelist* the origin. It needs:
-- Direct and respond to `OPTIONS` requests,
-- Return the correct CORS headers, and
+Now, to handle this, a server needs to be aware if it is expected to handle cross-origin requests. In this case, it needs to explicitly *whitelist* the origin by:
+- Detecting and responding to `OPTIONS` requests,
+- Returning the correct CORS headers, and
 - Usually return a `204 No Content` status.
   
 Here's how a backend service implemented in Spring handles requests from `https://frontend.company.com`:
@@ -117,18 +117,18 @@ public class WebConfig {
     }
 }
 ```
-Remember, we do not redirect the request ourselves — the request goes straight to `https://api.company.com`, but the backend must explicitly allow fronten in its CORS response headers.
+Remember, we do not redirect the request ourselves — the request goes straight to `https://api.company.com`, but the backend must explicitly allow frontend in its CORS response headers.
 
 ## When CORS Fails
-We may see a CORS issue, like: ``. Before handling CORS, pause and think, *"Should this request be made from server itself?"*. A backend needs to handle a request if:
-- third-party API that doesn’t allow the frontend’s origin.
+We may see a CORS issue, like: `Access to fetch at 'https://api.example.com' from origin 'https://frontend.example.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.`. Before handling CORS, pause and think, *"Should this request be made from server itself?"*. A backend needs to handle a request if:
+- the third-party API doesn’t allow the frontend’s origin.
 - API requires secret credentials, like an API key or token.
 - The data being fetched is user-specific or sensitive.
 - You want to cache, transform, or sanitize the response before sending it to the frontend.
 - You need to aggregate data from multiple sources.
-This keeps the sensitive secrets out of the client, and gain more control over rate-limiting, error handling and logging.
+This keeps the sensitive secrets out of the client, and gives more control over rate-limiting, error handling and logging.
 
-Now that we're sure the request is being made from where it is meant to me, let's move on to further analysis. 
+Now that we're sure the request is being made from where it is meant to be, let's move on to further analysis. 
 
 When a CORS request fails, it’s usually not because the request didn't reach the server — it’s because the browser refused to deliver the response to your JavaScript due to a missing or incorrect CORS header. Check the network tab: it may show the request went out and the response came back — but the browser flagged it as blocked.
 ### Possible Causes:
