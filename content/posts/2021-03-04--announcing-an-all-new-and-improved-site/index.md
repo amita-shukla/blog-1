@@ -1,6 +1,6 @@
 ---
 title: Announcing an All New and Improved Site using GatsbyJS
-tags: ["PROJECT"]
+tags: ["PROJECT", "FRONTEND"]
 cover: blogging_meme.jpg 
 author: Amita Shukla
 ---
