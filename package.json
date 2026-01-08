@@ -70,6 +70,7 @@
   ],
   "scripts": {
     "build": "gatsby build",
+    "build-netlify": "npx gatsby build",
     "develop": "gatsby develop",
     "devhost": "gatsby develop --host 192.168.0.112",
     "format": "prettier --write 'src/**/*.js'",
