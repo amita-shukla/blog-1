@@ -35,29 +35,30 @@ As organizations matured, the same operational data began serving a different pu
 
 As discussed above, while OLTP systems are used by applications for day to day operations, OLAPs are used to analyze data to support decision making. This difference in requirement led to fundamental differences between the queries that are run on these applications, as well as how the data is organized for both.
 
-### Transactions v/s no transaction support
+### Transactions v/s no Transaction Support
 
 As the name suggests, the primary purpose of OLTP systems is to process database transactions. OLTP systems are used for tasks such as processing orders, updating inventory, managing customer accounts etc. Hence it becomes imperative for these systems to support ACID properties at all times. 
 
 Since analytical queries in OLAP do not usually modify data or depend on strict ordering of concurrent updates, enforcing full ACID semantics (especially fine-grained locking and immediate consistency) would add unnecessary overhead and reduce query performance. Instead, OLAP systems prioritize throughput and query efficiency over transactional isolation at the row level.
 
-### Normalization v/s denormalization
+### Normalization v/s Denormalization
 
 For OLTP systems, data was kept normalized to remove redundancy and maintain consistency. e.g. for an application there would be tables such as users table, products table, transactions table. The transaction table contains `transaction_id`, `user_id`, `product_id`, `timestamp`. This is a normalized schema. No information is duplicated.
 
 On the other hand, for OLAP systems, keeping data normalized soon becomes a problem. The queries are long and may span over hundreds of tables. That meant joins over these tables. This made the queries hugely inefficient. Consistency carries less importance here as the results are often aggregated over columns, so inconsistent data over a few rows in inconsequential. So, it was better to keep data at one place, denormalized. e.g. this could mean there is a single table `clickstream_data` , with all columns at one place. The query starts with a simple select statement and only the columns that need to be selected are mentioned in the query (so only the relevant data is pulled in). 
 
-### Joins v/s no joins
+### Joins v/s no Joins
 
-- Normalization v/s denormalization directly expands to this, but it's worth mentioning
-- OLTP offer efficient joins strategy, OLAP offer efficient aggregation strategies. (todo: confirm)
-- This does not mean there is no joins support at all, it is present, but not optimised. (todo: confirm this fir traditional data warehouses)
+The above normalization v/s denormalization directly expands to this, but it's worth mentioning separately.
+- OLTP systems are designed to execute frequent, low-latency joins efficiently, often involving a small number of rows identified by indexes or primary keys.
+- Aggregation-heavy workloads in OLAP systems benefit far more from columnar storage and compression than from complex join optimization.
+- Joins exist but aren’t the primary optimization target in OLAP. Data warehouse schemas are often designed to reduce join depth, favoring star or snowflake schemas over deeply normalized relational models.
 
 ### Row based v/s Column based
 
 The OLTP queries typically fetch an entire row (or part of it) against a primary key. e.g. if we hit a users table, we would use a query like
 
-```java
+```sql
 select user_id, user_name, user_status from users where user_id = 123;
 ```
 
@@ -65,13 +66,13 @@ Here, the query receives multiple columns in a row across the users table agains
 
 On the other hand, OLAP queries span across a column in the entire table. e.g. an analytical query might be something like:
 
-```java
+```sql
 select count(user_id) from users where user_status = 'inactive';
 ```
 
 Here, the aim is to count the number of inactive users.
 
-As we can observe, the intention of the queries made on these systems is different, and hence it makes sense that the underlying storage of this data is saved differently. As OLTP queries mostly span across rows in the table, the data is stored row-wise, i.e., the entire row is stored together. For OLAP, the queries span across columns, so the data also is stored column-wise, i.e. each column is stored together.
+As we can observe, the intent of the queries on these systems is different, and hence it makes sense that the underlying storage of this data is saved differently. As OLTP queries mostly span across rows in the table, the data is stored row-wise, i.e., the entire row is stored together. For OLAP, the queries span across columns, so the data also is stored column-wise, i.e. each column is stored together.
 
 Because the access patterns are different, the underlying storage layout is optimized differently:
 
